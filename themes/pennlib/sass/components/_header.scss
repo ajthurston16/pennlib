@@ -1,0 +1,16 @@
+header {
+  a{
+    color:$white;
+    &:hover{
+      color:$silver;
+    }
+  }
+  div:first-child, div:nth-child(2) {
+    float: left;
+    width: 100%;
+  }
+}
+#block-bear-skin-branding {
+  padding: 10px 0 20px 0;
+  margin-right: 30px;
+}
