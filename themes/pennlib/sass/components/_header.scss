@@ -1,15 +1,29 @@
 header {
+  background-color: $gulf-blue;
+  display: block;
   a{
     color:$white;
     &:hover{
       color:$silver;
     }
   }
-  div:first-child, div:nth-child(2) {
-    float: left;
-    width: 100%;
+  //div:first-child, div:nth-child(2) {
+  //  float: left;
+  //  width: 100%;
+  //}
+}
+
+.site-header{
+  padding: 15px;
+}
+.site-header__logo{
+  float:left;
+  img{
+    max-width: 290px;
+    height: auto;
   }
 }
+
 #block-bear-skin-branding {
   padding: 10px 0 20px 0;
   margin-right: 30px;

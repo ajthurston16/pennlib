@@ -2,7 +2,7 @@
 //For Semantics use : http://chir.ag/projects/name-that-color/
 
 //blues
-$stratos: #000033;
+$navy: #000033;
 $gulf-blue: #031b51;
 $chathams-blue:#15428C;
 $danube: #619fcd;
@@ -133,10 +133,10 @@ $header-padding: 25px 0;
 // BREAKPOINTS
 //
 $breakpoint-min-width: min-width 0;
-$breakpoint-small-width: min-width 25em;
-$breakpoint-med-small-width: min-width 40.5em;
-$breakpoint-medium-width: min-width 50em;
-$breakpoint-large-width: min-width 62.5em;
+$breakpoint-small-width: min-width 25em; //smallest phone
+$breakpoint-med-small-width: min-width 40.5em; // larger phone
+$breakpoint-medium-width: min-width 50em; // tablet
+$breakpoint-large-width: min-width 62.5em; // landscape and small desktop
 $breakpoint-to-max-width: min-width $site-max-width;
 $breakpoint-full-width: max-width $site-max-width;
 

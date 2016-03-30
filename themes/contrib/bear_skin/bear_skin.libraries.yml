@@ -16,3 +16,11 @@ global_styling:
     theme:
       css/styles.css: { media: screen }
       css/print.css: { media: print }
+
+sidr:
+  version: 1.x
+  css:
+    base:
+      libraries/sidr/dist/stylesheets/jquery.sidr.light.css: { scope: header }
+  js:
+    libraries/sidr/dist/jquery.sidr.js: { scope: header }

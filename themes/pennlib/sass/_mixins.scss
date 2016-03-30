@@ -160,3 +160,12 @@
     }
   }
 }
+
+@mixin content-container{
+    max-width:$site-max-width;
+    margin:0 auto;
+}
+@mixin small-content-container{
+  max-width:$content-max-width;
+  margin:0 auto;
+}

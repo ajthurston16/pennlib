@@ -1,0 +1,17 @@
+
+#block-pennlib-account-menu {
+  display: none;
+  ul {
+    margin: 0;
+    li {
+      display: inline;
+      list-style: none;
+    }
+  }
+  @include breakpoint($breakpoint-medium-width) {
+    display: block;
+    float: right;
+  }
+}
+
+
