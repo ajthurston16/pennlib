@@ -599,11 +599,11 @@ blockquote {
 .site-sidebars .block {
   margin-bottom: 30px; }
 
-.wrapper--footer {
-  border-top: 1px solid #ccc; }
-
 footer {
+  color: #ffffff;
   padding: 30px 0; }
+  footer a {
+    color: #A2D1D8; }
   footer nav ul {
     margin: 0;
     padding: 0; }
@@ -630,6 +630,10 @@ header {
 #block-bear-skin-branding {
   padding: 10px 0 20px 0;
   margin-right: 30px; }
+
+.site-nav-footer {
+  max-width: 75em;
+  margin: 0 auto; }
 
 body.has-sidr header nav {
   position: absolute !important;
@@ -965,6 +969,9 @@ nav.ui.breadcrumb {
   border: none;
   font-weight: normal; }
 
+body {
+  background: #ffffff; }
+
 #main .site-sidebars {
   padding-top: 30px; }
   #main .site-sidebars .block h2 {
@@ -986,6 +993,9 @@ nav.ui.breadcrumb {
 
 .wrapper--nav {
   background-color: #000033; }
+
+.wrapper--footer {
+  background-color: #031b51; }
 
 @media (min-width: 75em) {
   body.fluid-bear .site-header,

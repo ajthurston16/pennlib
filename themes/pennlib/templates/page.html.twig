@@ -11,6 +11,7 @@
   </header>
 </div>
 
+
 <div class="wrapper wrapper--main">
   <div id="main" class="site-main">
     <main id="content" class="column main" role="main">
@@ -20,8 +21,11 @@
         </section>
       {% endif %}
 
-      {{ breadcrumb }}
-
+      <div class="wrapper wrapper--breadcrumb">
+        <div id="breadcrumb">
+          {{ page.breadcrumb }}
+        </div>
+      </div>
       <a id="main-content"></a>
 
       {% if title is not empty %}
@@ -85,13 +89,15 @@
   </div>
   <!-- /#main -->
 </div>
-
-<div class="wrapper wrapper--footer">
-  <div class="wrapper wrapper--breadcrumb">
-    <div id="breadcrumb">
-      {{ page.breadcrumb }}
+{% if page.nav_footer %}
+  <div class="wrapper wrapper--nav-footer">
+    <div class="site-nav-footer">
+      {{ page.nav_footer }}
     </div>
   </div>
+{% endif %}
+
+<div class="wrapper wrapper--footer">
   <div class="site-footer">
     <footer id="footer">
       {{ page.footer }}

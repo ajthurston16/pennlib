@@ -1,8 +1,9 @@
-.wrapper--footer {
-	border-top: 1px solid #ccc;
-}
 footer {
+  color: $white;
 	padding: 30px 0;
+  a{
+	color:$baby-blue;
+  }
 	nav {
 		ul {
 			margin: 0;
