@@ -538,9 +538,9 @@ function template_preprocess_tb_megamenu_item(&$vars) {
 //    $vars['item']['link']['#attributes'] += $item['link']['localized_options']['attributes'];
 //  }
   if (isset($trail[$plugin_id])) {
-    $vars['attributes']['class'][] = 'active';
-    $vars['attributes']['class'][] = 'active-trail';
-    $vars['link']['attributes']['class'][] = 'active-trail';
+//    $vars['attributes']['class'][] = 'active';
+//    $vars['attributes']['class'][] = 'active-trail';
+//    $vars['link']['attributes']['class'][] = 'active-trail';
   }
   $vars['attributes']['data-id'] = $plugin_id;
   $vars['attributes']['data-level'] = $level;
