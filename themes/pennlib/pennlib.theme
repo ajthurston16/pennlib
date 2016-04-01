@@ -55,8 +55,8 @@ function pennlib_preprocess_page(&$variables) {
     $variables['#attached']['library'][] = 'pennlib/semantic_ui';
   }
   if (theme_get_setting('sidr')) {
-    $variables['#attached']['library'][] = 'pennlib/sidr';
-    $variables['sidr'] = "<div class=\"responsive-nav\"><div id=\"sidr-bttn\"><a id=\"responsive-menu-button\" href=\"#sidr-main\"><span></span></a></div></div>";
+  //  $variables['#attached']['library'][] = 'pennlib/sidr';
+  //  $variables['sidr'] = "<div class=\"responsive-nav\"><div id=\"sidr-bttn\"><a id=\"responsive-menu-button\" href=\"#sidr-main\"><span></span></a></div></div>";
   }
 }
 
