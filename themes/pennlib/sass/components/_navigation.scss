@@ -415,7 +415,9 @@ nav.ui.breadcrumb {
 .tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle,
 .tb-megamenu .nav > li.dropdown.open.active > a:hover,
 .tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
-.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle {
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle,
+.tb-megamenu .nav > .active > a, .tb-megamenu .nav > .active > a:hover,
+.tb-megamenu .nav > .active > a:focus {
   background-color: $white;
   color: $orange;
 }
@@ -430,4 +432,22 @@ nav.ui.breadcrumb {
     border: none;
     font-weight: normal;
   }
+}
+
+
+.tb-megamenu .btn-navbar{
+  background: #cccccc;
+  color: black;
+  border: none;
+  border-radius: 0;
+  padding: 5px 7px 7px 10px;
+  float: right;
+  height: 40px;
+  margin: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before{
+  font-size:30px;
 }

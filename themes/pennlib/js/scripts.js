@@ -87,18 +87,18 @@
       }
 
       // SIDR Menu
-      if ($.fn.sidr instanceof Function) {
-        $('#sidr-bttn').css('display', '').sidr({
-          name: 'sidr-main',
-          source: 'header .main-nav',
-          side: 'right',
-        });
-      }
-      $(window).on('resize', function () {
-        if ($('body').hasClass('sidr-open') && $(window).width() >= 800) {
-          $.sidr('close', 'sidr-main');
-        }
-      });
+      //if ($.fn.sidr instanceof Function) {
+      //  $('#sidr-bttn').css('display', '').sidr({
+      //    name: 'sidr-main',
+      //    source: 'header .main-nav',
+      //    side: 'right',
+      //  });
+      //}
+      //$(window).on('resize', function () {
+      //  if ($('body').hasClass('sidr-open') && $(window).width() >= 800) {
+      //    $.sidr('close', 'sidr-main');
+      //  }
+      //});
     }
   };
 
