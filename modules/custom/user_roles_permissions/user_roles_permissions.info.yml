@@ -1,0 +1,4 @@
+name: 'User Roles & Permissions'
+description: 'All user roles and permissions'
+type: module
+core: 8.x
