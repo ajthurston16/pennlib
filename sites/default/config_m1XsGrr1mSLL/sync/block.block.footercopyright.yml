@@ -1,0 +1,25 @@
+uuid: 725408e1-c88c-4966-b006-6c42876c2ae6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:36915230-1f1d-490a-9900-d1109a5ce8c3'
+  module:
+    - block_content
+  theme:
+    - pennlib
+id: footercopyright
+theme: pennlib
+region: footer
+weight: -8
+provider: null
+plugin: 'block_content:36915230-1f1d-490a-9900-d1109a5ce8c3'
+settings:
+  id: 'block_content:36915230-1f1d-490a-9900-d1109a5ce8c3'
+  label: 'Footer Copyright'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

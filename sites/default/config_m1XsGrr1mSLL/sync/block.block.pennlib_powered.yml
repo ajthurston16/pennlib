@@ -1,0 +1,22 @@
+uuid: 5d3fc7b1-c43e-47e7-aa27-3965534b9510
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - pennlib
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: pennlib_powered
+theme: pennlib
+region: '-1'
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

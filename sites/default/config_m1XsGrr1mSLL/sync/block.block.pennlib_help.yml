@@ -1,0 +1,22 @@
+uuid: 1b3ca18a-9372-4cda-9500-ce3bf9fbfa07
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - pennlib
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: pennlib_help
+theme: pennlib
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
