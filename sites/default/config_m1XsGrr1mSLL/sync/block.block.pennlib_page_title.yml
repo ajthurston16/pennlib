@@ -1,0 +1,20 @@
+uuid: 07fbab02-b832-4856-bf05-5dda33fe96c8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pennlib
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: pennlib_page_title
+theme: pennlib
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
