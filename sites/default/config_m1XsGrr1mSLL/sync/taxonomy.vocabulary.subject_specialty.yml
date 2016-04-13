@@ -1,0 +1,9 @@
+uuid: fe86fe5c-89ac-4b65-8f00-c17c19e33d94
+langcode: en
+status: true
+dependencies: {  }
+name: 'Subject Specialty'
+vid: subject_specialty
+description: ''
+hierarchy: 0
+weight: 0

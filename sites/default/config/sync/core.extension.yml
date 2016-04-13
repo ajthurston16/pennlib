@@ -30,6 +30,7 @@ module:
   field_collection: 0
   field_group: 0
   field_help_helper: 0
+  field_permission_example: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -42,6 +43,7 @@ module:
   linked_field: 0
   menu_link_config: 0
   menu_ui: 0
+  name: 0
   node: 0
   options: 0
   page_cache: 0
@@ -67,6 +69,7 @@ module:
   system: 0
   taxonomy: 0
   tb_megamenu: 0
+  telephone: 0
   text: 0
   token: 0
   toolbar: 0

@@ -1,0 +1,21 @@
+uuid: 55f87d04-a52d-40ad-b813-1913736cf07a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_pennkey
+  module:
+    - text
+    - user
+id: user.user.field_pennkey
+field_name: field_pennkey
+entity_type: user
+bundle: user
+label: PennKey
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

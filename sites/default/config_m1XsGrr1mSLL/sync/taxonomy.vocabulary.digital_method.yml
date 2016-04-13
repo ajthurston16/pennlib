@@ -1,0 +1,9 @@
+uuid: e0f3db7b-eecf-4f12-b918-247d19d28805
+langcode: en
+status: true
+dependencies: {  }
+name: 'Digital Method'
+vid: digital_method
+description: ''
+hierarchy: 0
+weight: 0

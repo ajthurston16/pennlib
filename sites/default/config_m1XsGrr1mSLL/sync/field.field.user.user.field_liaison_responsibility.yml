@@ -1,0 +1,28 @@
+uuid: 067e928b-77d1-4947-b64c-76d15d90e40e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_liaison_responsibility
+    - taxonomy.vocabulary.collection_responsibility
+  module:
+    - user
+id: user.user.field_liaison_responsibility
+field_name: field_liaison_responsibility
+entity_type: user
+bundle: user
+label: 'Liaison Responsibility'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      collection_responsibility: collection_responsibility
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

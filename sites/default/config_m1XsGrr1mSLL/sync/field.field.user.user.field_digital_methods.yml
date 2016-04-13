@@ -1,0 +1,28 @@
+uuid: d2f7cc52-bd0b-4530-9955-8572821470eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_digital_methods
+    - taxonomy.vocabulary.digital_method
+  module:
+    - user
+id: user.user.field_digital_methods
+field_name: field_digital_methods
+entity_type: user
+bundle: user
+label: 'Digital Methods'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      digital_method: digital_method
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

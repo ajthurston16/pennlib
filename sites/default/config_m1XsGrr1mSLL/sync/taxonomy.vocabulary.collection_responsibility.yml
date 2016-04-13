@@ -1,0 +1,9 @@
+uuid: c952eeab-8618-4837-a700-bb82f5c1dd89
+langcode: en
+status: true
+dependencies: {  }
+name: 'Collection Responsibility'
+vid: collection_responsibility
+description: ''
+hierarchy: 0
+weight: 0
