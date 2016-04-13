@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_digital_methods
-    - taxonomy.vocabulary.digital_method
+    - taxonomy.vocabulary.digital_methods
   module:
     - user
 id: user.user.field_digital_methods
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      digital_method: digital_method
+      digital_methods: digital_methods
     sort:
       field: _none
     auto_create: false

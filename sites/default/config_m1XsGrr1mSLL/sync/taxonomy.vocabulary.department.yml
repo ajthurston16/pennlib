@@ -1,9 +1,0 @@
-uuid: 71eff211-8859-4018-9e04-4c10d420d826
-langcode: en
-status: true
-dependencies: {  }
-name: Department
-vid: department
-description: 'Library Department'
-hierarchy: 0
-weight: 0

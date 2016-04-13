@@ -23,7 +23,6 @@ dependencies:
     - field.field.user.user.field_phone
     - field.field.user.user.field_rank
     - field.field.user.user.field_screenname
-    - field.field.user.user.field_subject_specialty
     - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_subject_specialty
-    - taxonomy.vocabulary.subject_specialty
+    - taxonomy.vocabulary.subject_specialities
   module:
     - user
 id: user.user.field_subject_specialty
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      subject_specialty: subject_specialty
+      subject_specialities: subject_specialities
     sort:
       field: _none
     auto_create: false

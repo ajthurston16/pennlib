@@ -1,0 +1,77 @@
+# Tools Taxonomy terms.
+'Engaging students through technology':
+'Courseware':
+  parent:'Engaging students through technology'
+'Equipment':
+  parent:'Engaging students through technology'
+'Applications':
+  parent:'Engaging students through technology'
+'Communication':
+'Collaboration':
+  parent:'Communication'
+'Publishing':
+  parent:'Communication'
+'Collaboration':
+  parent:'Communication'
+'Presentation':
+  parent:'Communication'
+'Productivity':
+'Organization':
+  parent:'Productivity'
+'Research impact':
+   parent:'Productivity'
+'Data management':
+'Data Analysis':
+  parent:'Data management'
+'Transaction analysis':
+  parent:'Data management'
+'Mapping & spatial methods':
+  parent:'Data management'
+'Content management':
+'Authoring interactive works':
+  parent:'Content management'
+'Bibliographic management':
+  parent:'Content management'
+'Image management':
+   parent:'Content management'
+'Image/graphics editing':
+   parent:'Content management'
+'Graphics':
+   parent:'Content management'
+'Publishing':
+   parent:'Content management'
+'Web development':
+   parent:'Content management'
+'Text Editor':
+   parent:'Content management'
+'Publishing':
+   parent:'Content management'
+'Scholarly & social networking':
+ parent:'Content management'
+'Digitization':
+ parent:'Content management'
+'Tool Development':
+ parent:'Content management'
+'Digital Scholarship':
+'Text mining: Topic modeling':
+  parent:'Digital Scholarship'
+'Text mining: Text analysis':
+  parent:'Digital Scholarship'
+'Visualizations':
+  parent:'Digital Scholarship'
+'Research':
+  parent:'Research'
+'Databases':
+  parent:'Research'
+'E-Resources':
+  parent:'Research'
+'Accessibility':
+'Assistive techonology':
+  parent:'Accessibility'
+'Media production':
+'Audio':
+  parent: 'Media production'
+'Video':
+  parent: 'Media production'
+'Streaming video':
+  parent: 'Media production'

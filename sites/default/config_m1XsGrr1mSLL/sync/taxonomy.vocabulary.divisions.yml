@@ -1,9 +1,9 @@
-uuid: d519ec97-cb88-4ea1-9600-dc08512af53c
+uuid: 595f953d-26c5-4d6e-b4b9-06b7412a3494
 langcode: en
 status: true
 dependencies: {  }
-name: Division
-vid: division
+name: Divisions
+vid: divisions
 description: ''
 hierarchy: 0
 weight: 0

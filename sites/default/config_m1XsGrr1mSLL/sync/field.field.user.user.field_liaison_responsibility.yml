@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_liaison_responsibility
-    - taxonomy.vocabulary.collection_responsibility
+    - taxonomy.vocabulary.collection_responsibilities
   module:
     - user
 id: user.user.field_liaison_responsibility
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      collection_responsibility: collection_responsibility
+      collection_responsibilities: collection_responsibilities
     sort:
       field: _none
     auto_create: false

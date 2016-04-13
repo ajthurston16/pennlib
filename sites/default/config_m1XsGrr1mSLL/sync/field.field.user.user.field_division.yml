@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_division
-    - taxonomy.vocabulary.division
+    - taxonomy.vocabulary.divisions
   module:
     - user
 id: user.user.field_division
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      division: division
+      divisions: divisions
     sort:
       field: _none
     auto_create: false

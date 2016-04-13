@@ -3,30 +3,72 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_additional_info
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
+    - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
+    - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
+    - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
-    - field.field.user.user.field_name
+    - field.field.user.user.field_middle_name
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
     - field.field.user.user.field_phone
     - field.field.user.user.field_rank
-    - field.field.user.user.field_room
+    - field.field.user.user.field_screenname
     - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - field_group
     - image
-    - name
+    - link
     - path
     - telephone
     - text
     - user
+third_party_settings:
+  field_group:
+    group_contact:
+      children:
+        - field_email_address
+        - field_phone
+        - field_fax
+        - field_mobile
+        - field_office
+        - field_screenname
+      parent_name: ''
+      weight: 4
+      label: Contact
+      format_type: fieldset
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_full_name:
+      children:
+        - field_title
+        - field_first_name
+        - field_middle_name
+        - field_last_name
+      parent_name: ''
+      weight: 3
+      label: 'Full Name'
+      format_type: fieldset
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
 _core:
   default_config_hash: LLAieeozVsoZDb-2PbFxRJpQqnKmpR7-4OoRJnduz-U
 id: user.user.default
@@ -35,109 +77,147 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 1
+    weight: 0
     settings: {  }
     third_party_settings: {  }
-  contact:
+  field_additional_info:
     weight: 15
-    settings: {  }
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
+    type: link_default
   field_bio:
-    weight: 4
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
   field_collection_responsibility:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
-  field_department:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-  field_digital_methods:
     weight: 7
     settings: {  }
     third_party_settings: {  }
+  field_department:
     type: options_select
-  field_division:
-    weight: 16
+    weight: 6
     settings: {  }
     third_party_settings: {  }
+  field_digital_methods:
     type: options_select
-  field_fax:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+  field_division:
+    type: options_select
     weight: 9
+    settings: {  }
+    third_party_settings: {  }
+  field_email_address:
+    type: email_default
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fax:
+    weight: 2
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+  field_first_name:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
   field_interest:
-    weight: 17
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+  field_last_name:
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
   field_liaison_responsibility:
-    weight: 12
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
-  field_name:
-    weight: 0
+    weight: 8
     settings: {  }
     third_party_settings: {  }
-    type: name_default
+  field_middle_name:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+  field_mobile:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+  field_office:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
   field_pennkey:
-    weight: 10
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
   field_phone:
-    weight: 8
+    weight: 1
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
   field_rank:
-    weight: 3
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  field_room:
-    weight: 11
+  field_screenname:
+    weight: 5
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
   field_subject_specialty:
-    weight: 5
+    type: options_select
+    weight: 11
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+  field_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
   field_tool_expertise:
-    weight: 14
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  language:
-    weight: 19
-    settings: {  }
-    third_party_settings: {  }
   path:
     type: path
-    weight: 20
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
-    weight: 18
+    weight: 16
     settings: {  }
     third_party_settings: {  }
   user_picture:
@@ -147,4 +227,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     weight: 2
-hidden: {  }
+hidden:
+  contact: true
+  language: true
+  timezone: true

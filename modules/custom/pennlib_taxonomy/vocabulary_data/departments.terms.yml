@@ -1,0 +1,11 @@
+# Department Taxonomy terms.
+'Area Studies Collections':
+'African Collection':
+  parent: 'Area Studies Collections'
+'Building & Security':
+# This is an example to add more fields.
+#  fields:
+#    field_some_crazy_thing:
+#      - value: blah
+#        format: Full HTML
+

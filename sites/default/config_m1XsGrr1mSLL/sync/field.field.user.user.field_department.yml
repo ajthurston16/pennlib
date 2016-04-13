@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_department
-    - taxonomy.vocabulary.department
+    - taxonomy.vocabulary.departments
   module:
     - user
 id: user.user.field_department
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      department: department
+      departments: departments
     sort:
       field: _none
     auto_create: false
