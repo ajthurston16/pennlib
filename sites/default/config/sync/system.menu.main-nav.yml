@@ -1,8 +1,0 @@
-uuid: e49c90c6-eb66-4fbc-b400-db3c9ebbd98b
-langcode: en
-status: true
-dependencies: {  }
-id: main-nav
-label: 'Main Nav'
-description: 'This is PennLibs main navigation menu'
-locked: false
