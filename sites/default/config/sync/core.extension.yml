@@ -26,11 +26,15 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+<<<<<<< HEAD
+=======
+  features: 0
+  features_ui: 0
+>>>>>>> Updating .probo.yaml for cmi and create a one time login link.
   field: 0
   field_collection: 0
   field_group: 0
   field_help_helper: 0
-  field_permission_example: 0
   field_ui: 0
   file: 0
   filter: 0
