@@ -13,6 +13,7 @@ module:
   color: 0
   comment: 0
   config: 0
+  config_update: 0
   contact: 0
   contextual: 0
   ctools: 0
@@ -26,10 +27,14 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  examples: 0
+  features: 0
+  features_ui: 0
   field: 0
   field_collection: 0
   field_group: 0
   field_help_helper: 0
+  field_permission_example: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -67,7 +72,6 @@ module:
   styleguide: 0
   system: 0
   taxonomy: 0
-  taxonomy_department: 0
   tb_megamenu: 0
   telephone: 0
   text: 0
