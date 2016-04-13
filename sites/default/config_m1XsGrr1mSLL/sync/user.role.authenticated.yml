@@ -6,14 +6,15 @@ _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
-  - 'access content'
-  - 'use text format basic_html'
-  - 'access comments'
-  - 'post comments'
-  - 'skip comment approval'
-  - 'access site-wide contact form'
-  - 'access shortcuts'
-  - 'search content'
+  0: 'access content'
+  1: 'use text format basic_html'
+  5: 'access site-wide contact form'
+  6: 'access shortcuts'
+  7: 'search content'
+  8: 'access user contact forms'
+  9: 'use text format restricted_html'
+  10: 'view own unpublished content'
+  11: 'access user profiles'
