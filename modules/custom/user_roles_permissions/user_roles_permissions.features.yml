@@ -1,0 +1,7 @@
+required:
+  - user.role.anonymous
+  - user.role.authenticated
+  - user.role.staff
+  - user.role.hr_department
+  - user.role.web_admin
+  - user.role.administrator
