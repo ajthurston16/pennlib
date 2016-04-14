@@ -1,0 +1,5 @@
+name: Taxonomy Department
+type: module
+description: Keeping all of the taxonomies in code for deployment.
+core: 8.x
+package: PennLib

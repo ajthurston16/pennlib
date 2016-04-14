@@ -1,0 +1,14 @@
+{
+  "name": "drupal/taxonomy_department",
+  "type": "drupal-module",
+  "description": "Keeping all of the taxonomies in code for deployment.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/taxonomy_department",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/taxonomy_department",
+    "source": "http://cgit.drupalcode.org/taxonomy_department"
+  },
+  "require": { }
+}
