@@ -1,0 +1,5 @@
+name: PennLib Deploy
+type: module
+description: A module for automating deploying of modules and other site configuration
+core: 8.x
+package: Custom
