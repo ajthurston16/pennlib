@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains pennlib_deploy.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pennlib_deploy_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pennlib_deploy module.
+    case 'help.page.pennlib_deploy':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A module for automating deploying of modules and other site configuration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
