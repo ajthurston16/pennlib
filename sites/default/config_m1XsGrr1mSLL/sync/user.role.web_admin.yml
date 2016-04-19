@@ -54,3 +54,8 @@ permissions:
   - 'access toolbar'
   - 'administer users'
   - 'administer views'
+  - create_field_pennkey
+  - edit_own_field_pennkey
+  - edit_field_pennkey
+  - view_own_field_pennkey
+  - view_field_pennkey

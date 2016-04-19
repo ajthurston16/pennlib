@@ -1,10 +1,10 @@
-uuid: 3914ae29-11f7-4ffe-a133-51f1f148640f
+uuid: d4560fca-9244-4cc5-9a1c-286d30b7c7b2
 langcode: en
 status: true
 dependencies: {  }
-id: staff
-label: Staff
-weight: -8
+id: hr_department
+label: 'HR Department'
+weight: -7
 is_admin: null
 permissions:
   - 'access contextual links'
@@ -15,3 +15,9 @@ permissions:
   - 'view all revisions'
   - 'view own unpublished content'
   - 'access in-place editing'
+  - 'administer users'
+  - create_field_pennkey
+  - edit_own_field_pennkey
+  - edit_field_pennkey
+  - view_own_field_pennkey
+  - view_field_pennkey

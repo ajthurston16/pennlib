@@ -1,8 +1,5 @@
 Patheon Drops | D8 | Bear Skin base profile. 
 
-change.
-
-
 CONTENTS OF THIS FILE
 ---------------------
 
