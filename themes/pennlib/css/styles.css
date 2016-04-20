@@ -185,7 +185,7 @@ th {
 
 .messages {
   padding: 0.7em 1.5em;
-  border-radius: 2px;
+  border-radius: 5px;
   background-color: #0844cc;
   color: white;
   border: 1px solid #06349b;
@@ -430,8 +430,8 @@ body.with-sticky-footer .wrapper--main {
     line-height: 40px;
     height: 40px;
     padding: 0;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-right: 1px solid none;
     transition: background-color 0.5s ease; }
     .tabs-primary li:hover,
@@ -598,6 +598,30 @@ blockquote {
 
 .site-sidebars .block {
   margin-bottom: 30px; }
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #7ebfc9;
+  outline: none;
+  transition: background-color 0.4s, color 0.4s;
+  background-color: #A2D1D8;
+  color: #000000;
+  padding: 0.75em 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.5; }
+  .button * {
+    position: relative; }
+  .button:hover, .button:focus {
+    background-color: #90c8d0;
+    text-decoration: none;
+    color: #000000; }
 
 footer {
   color: #ffffff;
