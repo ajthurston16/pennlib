@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - search_api.server.solr
+    - field.field.user.user.field_department
     - field.field.user.user.field_pennkey
   module:
     - search_api
@@ -35,6 +36,11 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: field_pennkey
     type: string
+  field_department:
+    label: Department
+    datasource_id: 'entity:user'
+    property_path: field_department
+    type: integer
 processor_settings:
   add_url:
     plugin_id: add_url
