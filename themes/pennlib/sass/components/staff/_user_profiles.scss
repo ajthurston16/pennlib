@@ -1,0 +1,30 @@
+
+.profile {
+  .field {
+    background: $concrete;
+    margin: 5px 0;
+  }
+  .field--name-user-picture, .field--name-field-bio, .full-name .field {
+    background: $white;
+  }
+}
+
+
+.profile {
+  .field__label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .field.field--label-inline {
+    @include cf();
+    .field__label {
+      @include column(1/3,  $cycle:3);
+    }
+    .field__items {
+      @include column(2/3);
+    }
+  }
+}
+
