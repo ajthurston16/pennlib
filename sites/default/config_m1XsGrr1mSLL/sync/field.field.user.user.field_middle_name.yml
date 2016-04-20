@@ -1,17 +1,17 @@
-uuid: 0521f4bf-d6f3-41d4-9f00-e4d3d4a8fec3
+uuid: f7a4ebda-caa1-42a6-9cf1-5335f93ee523
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_room
+    - field.storage.user.field_middle_name
   module:
     - text
     - user
-id: user.user.field_room
-field_name: field_room
+id: user.user.field_middle_name
+field_name: field_middle_name
 entity_type: user
 bundle: user
-label: Room
+label: 'Middle Name'
 description: ''
 required: false
 translatable: false

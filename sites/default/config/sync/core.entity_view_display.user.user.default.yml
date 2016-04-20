@@ -9,22 +9,49 @@ dependencies:
     - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
     - field.field.user.user.field_fax
+    - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
+    - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
-    - field.field.user.user.field_name
+    - field.field.user.user.field_middle_name
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
     - field.field.user.user.field_phone
     - field.field.user.user.field_rank
-    - field.field.user.user.field_room
+    - field.field.user.user.field_screenname
     - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - field_group
     - image
-    - name
+    - telephone
     - text
     - user
+third_party_settings:
+  field_group:
+    group_contact:
+      children:
+        - field_phone
+        - field_mobile
+        - field_fax
+        - field_screenname
+      parent_name: ''
+      weight: 6
+      label: Contact
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
 id: user.user.default
@@ -33,113 +60,90 @@ bundle: user
 mode: default
 content:
   field_bio:
-    weight: 17
-    label: above
+    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_collection_responsibility:
     weight: 14
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_department:
-    weight: 10
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_digital_methods:
-    weight: 19
-    label: above
+    weight: 11
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_division:
-    weight: 16
-    label: above
+    type: entity_reference_entity_view
+    weight: 12
+    label: inline
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
   field_fax:
     weight: 9
-    label: above
-    settings: {  }
+    label: hidden
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
-  field_interest:
-    weight: 20
-    label: above
+    type: telephone_link
+  field_first_name:
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_liaison_responsibility:
-    weight: 13
-    label: above
-    settings:
-      link: true
+  field_last_name:
+    weight: 3
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
-  field_name:
-    weight: 7
-    label: above
-    settings:
-      output: default
-      format: default
-      multiple: default
-      multiple_delimiter: ', '
-      multiple_and: text
-      multiple_delimiter_precedes_last: never
-      multiple_el_al_min: '3'
-      multiple_el_al_first: '1'
+    type: text_default
+  field_middle_name:
+    weight: 2
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: name_default
-  field_pennkey:
-    weight: 11
-    label: above
+    type: text_default
+  field_mobile:
+    weight: 8
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+  field_office:
+    weight: 10
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_phone:
-    weight: 8
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-  field_rank:
-    weight: 18
-    label: above
+    weight: 7
+    label: hidden
     settings:
-      link: true
+      title: ''
     third_party_settings: {  }
-    type: entity_reference_label
-  field_room:
-    weight: 12
-    label: above
+    type: telephone_link
+  field_screenname:
+    weight: 10
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_subject_specialty:
-    weight: 21
-    label: above
-    settings:
-      link: true
+  field_title:
+    weight: 4
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
-  field_tool_expertise:
-    weight: 15
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  member_for:
-    weight: 5
+    type: text_default
   user_picture:
     type: image
     weight: 0
@@ -148,4 +152,12 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  field_digital_methods: true
+  field_interest: true
+  field_liaison_responsibility: true
+  field_pennkey: true
+  field_rank: true
+  field_subject_specialty: true
+  field_tool_expertise: true
+  member_for: true

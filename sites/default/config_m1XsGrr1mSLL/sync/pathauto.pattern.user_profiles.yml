@@ -1,14 +1,14 @@
-uuid: 2e3a89b9-c37f-4afd-8902-2f445c996a44
+uuid: bae441a1-7c0a-486a-a215-7e7541c63fd0
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user
-label: User
+id: user_profiles
+label: 'User Profiles'
 type: 'canonical_entities:user'
-pattern: '[user:field_department]/[user:account-name]'
+pattern: 'library-info/staff/[user:field_last_name]'
 selection_criteria: {  }
 selection_logic: and
-weight: -7
+weight: -8
 relationships: {  }
