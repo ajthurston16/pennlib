@@ -67,7 +67,7 @@ input[type="search"] {
   box-sizing: border-box; }
 
 fieldset {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
   border: 1px solid #e6e4e5;
   background: white;
   border-radius: 5px;
@@ -302,20 +302,20 @@ body {
   font-size: 16px;
   font-size: 1.6rem;
   color: #000000;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
   line-height: 1.5; }
 
 a {
-  color: #031b51;
+  color: #15428C;
   text-decoration: none;
   transition: color 0.25s ease;
   -webkit-tap-highlight-color: transparent; }
   a:hover {
     color: #CC6600; }
   a:active {
-    color: #031b51; }
+    color: #15428C; }
   a:focus {
-    color: #031b51; }
+    color: #15428C; }
 
 h1, .h1,
 h2, .h2,
@@ -323,7 +323,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
   line-height: 1.2; }
 
 h1, .h1 {
