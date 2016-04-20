@@ -1,9 +1,7 @@
 module:
   admin_toolbar: 0
-  admin_toolbar_tools: 0
   automated_cron: 0
   big_pipe: 0
-  blazy: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -13,11 +11,9 @@ module:
   color: 0
   comment: 0
   config: 0
-  config_update: 0
   contact: 0
   contextual: 0
   ctools: 0
-  ctools_block: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -27,14 +23,10 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
-  examples: 0
-  features: 0
-  features_ui: 0
+  facets: 0
   field: 0
-  field_collection: 0
   field_group: 0
   field_help_helper: 0
-  field_permission_example: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -44,7 +36,6 @@ module:
   kint: 0
   layout_plugin: 0
   link: 0
-  linked_field: 0
   menu_link_config: 0
   menu_ui: 0
   name: 0
@@ -52,22 +43,17 @@ module:
   options: 0
   page_cache: 0
   page_manager: 0
-  panelizer: 0
   panels: 0
-  panels_ipe: 0
   paragraphs: 0
   path: 0
+  pennlib_taxonomy: 0
   quickedit: 0
-  radix_layouts: 0
   rdf: 0
   search: 0
+  search_api: 0
+  search_api_solr: 0
   shortcut: 0
   simple_sitemap: 0
-  slick: 0
-  slick_example: 0
-  slick_extras: 0
-  slick_ui: 0
-  slick_views: 0
   stage_file_proxy: 0
   styleguide: 0
   system: 0

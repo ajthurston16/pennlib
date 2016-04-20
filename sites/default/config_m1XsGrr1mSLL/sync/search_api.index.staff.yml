@@ -1,0 +1,58 @@
+uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.solr
+    - field.field.user.user.field_pennkey
+  module:
+    - search_api
+    - user
+id: staff
+name: Staff
+description: ''
+read_only: false
+field_settings:
+  search_api_language:
+    label: 'Item language'
+    datasource_id: null
+    property_path: search_api_language
+    type: string
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: 'User ID'
+    datasource_id: 'entity:user'
+    property_path: uid
+    type: integer
+  roles:
+    label: Roles
+    datasource_id: 'entity:user'
+    property_path: roles
+    type: string
+  field_pennkey:
+    label: PennKey
+    datasource_id: 'entity:user'
+    property_path: field_pennkey
+    type: string
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  language:
+    plugin_id: language
+    settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:user':
+    plugin_id: 'entity:user'
+    settings:
+      default: '1'
+      languages: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: solr
