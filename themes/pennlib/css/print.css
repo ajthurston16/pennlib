@@ -306,16 +306,16 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #031b51;
+  color: #15428C;
   text-decoration: none;
   transition: color 0.25s ease;
   -webkit-tap-highlight-color: transparent; }
   a:hover {
     color: #CC6600; }
   a:active {
-    color: #031b51; }
+    color: #15428C; }
   a:focus {
-    color: #031b51; }
+    color: #15428C; }
 
 h1, .h1,
 h2, .h2,
