@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_additional_info
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
+    - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
@@ -45,11 +47,13 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_additional_info: true
   field_bio: true
   field_collection_responsibility: true
   field_department: true
   field_digital_methods: true
   field_division: true
+  field_email_address: true
   field_fax: true
   field_first_name: true
   field_interest: true

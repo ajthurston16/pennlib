@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_additional_info
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
+    - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
@@ -28,6 +30,7 @@ dependencies:
   module:
     - field_group
     - image
+    - link
     - telephone
     - text
     - user
@@ -35,19 +38,16 @@ third_party_settings:
   field_group:
     group_contact:
       children:
-        - field_phone
-        - field_mobile
-        - field_fax
-        - field_screenname
+        - group_contact_wrapper
       parent_name: ''
-      weight: 7
+      weight: 2
       label: Contact
       format_type: html_element
       format_settings:
         label: Contact
         element: div
-        show_label: false
-        label_element: h3
+        show_label: true
+        label_element: span
         attributes: ''
         effect: none
         speed: fast
@@ -59,6 +59,7 @@ third_party_settings:
         - field_middle_name
         - field_last_name
         - field_title
+        - field_bio
       parent_name: ''
       weight: 1
       label: 'Full Name'
@@ -73,6 +74,27 @@ third_party_settings:
         speed: fast
         id: ''
         classes: full-name
+    group_contact_wrapper:
+      children:
+        - field_email_address
+        - field_phone
+        - field_mobile
+        - field_fax
+        - field_screenname
+      parent_name: group_contact
+      weight: 8
+      label: 'Contact Wrapper'
+      format_type: html_element
+      format_settings:
+        label: 'Contact Wrapper'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: contact-wrapper
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
 id: user.user.default
@@ -80,6 +102,17 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_additional_info:
+    weight: 11
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
   field_bio:
     weight: 6
     label: hidden
@@ -87,14 +120,14 @@ content:
     third_party_settings: {  }
     type: text_default
   field_collection_responsibility:
-    weight: 11
+    weight: 7
     label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_department:
-    weight: 9
+    weight: 4
     label: inline
     settings:
       link: true
@@ -102,12 +135,18 @@ content:
     type: entity_reference_label
   field_division:
     type: entity_reference_entity_view
-    weight: 10
+    weight: 5
     label: inline
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+  field_email_address:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
   field_fax:
     weight: 9
     label: hidden
@@ -141,7 +180,7 @@ content:
     third_party_settings: {  }
     type: telephone_link
   field_office:
-    weight: 8
+    weight: 3
     label: inline
     settings: {  }
     third_party_settings: {  }

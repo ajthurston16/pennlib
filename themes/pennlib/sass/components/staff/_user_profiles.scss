@@ -1,30 +1,74 @@
+$left-width: 350px;
 
+//top of profile
+.profile{
+  .field--name-user-picture{
+    img{
+      margin:0 auto;
+      text-align:center;
+    }
+  }
+  .full-name{
+    .field--name-field-first-name, .field--name-field-middle-name, .field--name-field-last-name{
+      font-weight:bold;
+      font-size:22px;
+    }
+    div{
+      display:inline-block;
+    }
+    .field--name-field-title{
+      font-style: italic;
+      font-weight:bold;
+      font-size:20px;
+      clear:both;
+      display:block;
+    }
+  }
+}
+
+// grey details
 .profile {
-  .field {
+  .field, .contact {
     background: $concrete;
     margin: 5px 0;
+    padding: 10px 0;
+    position: relative;
   }
   .field--name-user-picture, .field--name-field-bio, .full-name .field {
     background: $white;
+    padding: 0;
   }
 }
-
 
 .profile {
-  .field__label {
-    display: inline-block;
+  .field__label, .contact span, .field--name-user-picture{
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
+    clear: both;
+    min-height:30px;
+    display:block;
+    @include breakpoint($breakpoint-med-small-width) {
+      width: $left-width;
+      text-align: right;
+      @include vertical-align(absolute);
+    }
   }
 
-  .field.field--label-inline {
-    @include cf();
-    .field__label {
-      @include column(1/3,  $cycle:3);
+  .field__items, .contact-wrapper, .full-name  {
+    clear: both;
+    @include breakpoint($breakpoint-med-small-width) {
+      margin-left: $left-width + 40;
     }
-    .field__items {
-      @include column(2/3);
-    }
+  }
+  .contact-wrapper .field__items{
+   //only need margin for top level on contact-wrapper.
+    margin-left:0;
   }
 }
 
+.contact-wrapper{
+  div{
+    display:inline-block;
+  }
+}
