@@ -1,3 +1,9 @@
+#block-mainnav {
+  @include breakpoint($breakpoint-medium-width) {
+    @include small-content-container;
+  }
+}
+
 body.has-sidr {
   header nav {
     @include bear-element-invisible;
@@ -11,39 +17,33 @@ body.has-sidr {
 header nav {
   outline: 0;
   margin-left: 20px;
-  @include content-container;
   .nolink {
     cursor: pointer;
   }
-  ul.main-nav {
+  ul.tb-megamenu-nav {
     position: relative;
     margin: 8px 0 0 0;
     transition: margin .3s ease-in-out;
-    @include breakpoint($breakpoint-medium-width) {
-      margin: 30px 30px 30px 0px;
-    }
-    > li.main-nav__item {
-      margin: 0;
+    > li.tb-megamenu-item {
+      @include breakpoint($breakpoint-medium-width) {
+        @include col(1/6, $cycle: 6);
+        text-align: center;
+      }
       &:hover {
         ul.main-nav__sub {
-          top: 43px;
-          opacity: 1;
+          top: 55px;
+          opacity: .9;
           visibility: visible;
-          z-index: 10;
-        }
-        > a {
-          border: 1px solid $silver;
-          background: $white;
-          color: $orange;
         }
       }
     }
     li a {
+      font-family: 'Droid Sans', sans-serif;
       text-decoration: none;
-      //transition: all .2s ease-in-out;
-      font-size: 14px;
-      text-align:center;
-      display:block;
+      padding: 8px 2em;
+      transition: all .2s ease-in-out;
+      font-size: 1.08em;
+      line-height: 40px;
       &:hover,
       &:focus,
       &.is-active {
@@ -53,20 +53,24 @@ header nav {
       }
     }
   }
-  ul.main-nav {
-    @include cf();
-    height: 2.75em;
+  ul.tb-megamenu-nav {
     li.parent {
       position: relative;
-      display: inline-block;
-      height: 100%;
-      @include breakpoint($breakpoint-medium-width) {
-        @include col(1/6, $gutter:0);
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid $zivtech-dark;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -30px;
+        transition: all .2s ease-in-out;
+        opacity: 0;
       }
-     a {
-        height: 100%;
-       padding: 10px 0;
-     }
       &:hover {
         &:after {
           opacity: .8;
@@ -74,7 +78,8 @@ header nav {
         }
       }
       ul.main-nav__sub {
-        background: $white;
+        border-radius: 8px;
+        background: $zivtech-off-black;
         border: 0;
         margin: 0;
         padding: 20px 0;
@@ -82,21 +87,16 @@ header nav {
         left: 0;
         right: 0;
         top: 100px;
-        //transition: all .2s ease-in;
+        transition: all .2s ease-in-out;
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        //@include box-shadow;
-        box-shadow: .17em .17em .17em #8d8d8d;
-        border-left: solid 1px $silver;
-        li.main-nav__item {
+        li.tb-megamenu-item {
           margin-bottom: 8px;
           padding: 0 10px;
           display: block;
           a {
-            text-align:left;
-            padding:0;
-            @include link-colors($black, $hover: $orange, $active: $orange, $focus: $orange);
+            @include link-colors($zivtech-white, $hover: $zivtech-pale, $active: $zivtech-pale, $focus: $zivtech-pale);
             &:hover, &:focus {
               background: transparent;
               text-decoration: underline;
@@ -109,7 +109,7 @@ header nav {
             margin-bottom: 0;
           }
         }
-        .main-nav__item {
+        .tb-megamenu-item {
           text-transform: initial;
           margin-bottom: 0;
           &:hover,
@@ -165,48 +165,44 @@ header nav {
 // Support for SIDR responsive NAV
 //********************************
 
-.sidr {
-  font-family: $body-text-font-family;
-}
-
 #sidr-bttn,
 #mobile-nav {
   // this is what we use for our responsive menu
   $span-transition: all .3s cubic-bezier(0.7, 0, 0.36, 0.63);
-  margin-left: 20px;
+  margin: 0;
+  float: right;
+  background: $silver;
+  height: 40px;
+  padding: 7px 5px 7px 10px;
   #responsive-menu-button {
     display: block;
-    width: 45px;
-    height: 40px;
-    padding-left: 8px;
-    padding-top: 3px;
+    width: 25px;
+    height: 30px;
     position: relative;
-    float:right;
-    background-color: $silver;
   }
   span {
     display: block;
     position: relative;
-    background: $zivtech-dark;
-    height: 5px;
+    background: $navy;
+    height: 4px;
     transition: $span-transition;
-    width: 30px;
-    top: 15px;
+    width: 22px;
+    top: 10px;
     &:before, &:after {
       content: "";
       display: block;
-      background: $zivtech-dark;
-      height: 5px;
+      background: $navy;
+      height: 4px;
       margin-top: 0;
       position: absolute;
-      width: 30px;
+      width: 22px;
       transition: $span-transition;
     }
     &:before {
-      top: 8px;
+      top: 7px;
     }
     &:after {
-      top: -8px;
+      top: -7px;
     }
   }
 }
@@ -258,17 +254,13 @@ h2.sidr-class-visually-hidden {
   }
 }
 
-body
-.responsive-nav{
-  display:block;
-  overflow:hidden;
-
+.responsive-nav {
   @include breakpoint($breakpoint-medium-width) {
     display: none;
   }
 }
 
-  // Extra SIDR handling
+// Extra SIDR handling
 body.sidr-open {
   #header {
     .responsive-nav {
@@ -302,7 +294,8 @@ body.sidr-open {
   }
 }
 
-#block-bear-coat-main-menu {
+#main-nav__item {
+  @include content-container;
   &.mobile {
     float: none;
     ul.main-nav {
@@ -406,3 +399,55 @@ nav.ui.breadcrumb {
     display: none;
   }
 }
+
+#toolbar-administration {
+  clear: both;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.tb-megamenu {
+  background-color: $navy;
+}
+
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle,
+.tb-megamenu .nav > li.dropdown.open.active > a:hover,
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle,
+.tb-megamenu .nav > .active > a, .tb-megamenu .nav > .active > a:hover,
+.tb-megamenu .nav > .active > a:focus {
+  background-color: $white;
+  color: $orange;
+}
+
+.tb-megamenu .nav > li {
+  @include breakpoint($breakpoint-medium-width) {
+    @include col(1/6, $cycle: 6,  $gutter: 0);
+    text-align: center;
+  }
+
+  a {
+    border: none;
+    font-weight: normal;
+  }
+}
+
+.tb-megamenu .btn-navbar{
+  background: #cccccc;
+  color: black;
+  border: none;
+  border-radius: 0;
+  padding: 5px 7px 7px 10px;
+  float: right;
+  height: 40px;
+  margin: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before{
+  font-size:30px;
+}
+

@@ -41,7 +41,7 @@ $left-width: 350px;
 }
 
 .profile {
-  .field__label, .contact span, .field--name-user-picture{
+  .field__label, .contact span{
     font-weight: bold;
     font-size: 18px;
     text-align: center;
@@ -55,6 +55,15 @@ $left-width: 350px;
     }
   }
 
+  .field--name-user-picture{
+    text-align: center;
+    clear:both;
+    margin:0 auto;
+    @include breakpoint($breakpoint-med-small-width) {
+      width: $left-width;
+      position: absolute;
+    }
+  }
   .field__items, .contact-wrapper, .full-name  {
     clear: both;
     @include breakpoint($breakpoint-med-small-width) {
