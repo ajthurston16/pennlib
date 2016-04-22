@@ -606,22 +606,30 @@ blockquote {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  border: 1px solid #7ebfc9;
+  border: 1px solid #cdcdec;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
-  background-color: #A2D1D8;
+  background-color: #F2F2FA;
   color: #000000;
-  padding: 0.75em 1em;
-  border-radius: 5px;
+  padding: 0.25em 0.5em;
+  border-radius: 0;
   text-decoration: none;
   cursor: pointer;
-  line-height: 1.5; }
+  line-height: 1.5;
+  background-color: #d2d5d8;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
+  background-image: linear-gradient(to bottom, #F2F2FA, #d2d5d8);
+  border-color: #9ba2a9; }
   .button * {
     position: relative; }
   .button:hover, .button:focus {
-    background-color: #90c8d0;
+    background-color: #e0e0f3;
     text-decoration: none;
     color: #000000; }
+  .button:hover {
+    background-color: #F2F2FA;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
+    background-image: linear-gradient(to bottom, #d2d5d8, #F2F2FA); }
 
 footer {
   color: #ffffff;
