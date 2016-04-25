@@ -13,15 +13,22 @@ dependencies:
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
+    - field.field.user.user.field_languages
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_leadership_level
     - field.field.user.user.field_liaison_responsibility
+    - field.field.user.user.field_library
     - field.field.user.user.field_middle_name
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
     - field.field.user.user.field_phone
     - field.field.user.user.field_rank
+    - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_team
+    - field.field.user.user.field_technology_specialty
     - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
@@ -100,7 +107,7 @@ bundle: user
 mode: default
 content:
   field_additional_info:
-    weight: 9
+    weight: 12
     label: inline
     settings:
       trim_length: 80
@@ -126,7 +133,7 @@ content:
     third_party_settings: {  }
   field_department:
     type: entity_reference_entity_view
-    weight: 8
+    weight: 6
     label: inline
     settings:
       view_mode: default
@@ -144,6 +151,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+  field_languages:
+    weight: 7
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_last_name:
     weight: 4
     label: hidden
@@ -152,12 +167,20 @@ content:
     type: text_default
   field_liaison_responsibility:
     type: entity_reference_entity_view
-    weight: 6
+    weight: 5
     label: inline
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+  field_library:
+    weight: 8
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_middle_name:
     weight: 3
     label: hidden
@@ -177,12 +200,43 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
+  field_role:
+    weight: 9
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_screenname:
     weight: 13
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+  field_subject_specialty:
+    type: entity_reference_entity_view
+    weight: 10
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_team:
+    weight: 13
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_technology_specialty:
+    weight: 11
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_title:
     weight: 5
     label: hidden
@@ -202,9 +256,9 @@ hidden:
   field_division: true
   field_fax: true
   field_interest: true
+  field_leadership_level: true
   field_mobile: true
   field_pennkey: true
   field_rank: true
-  field_subject_specialty: true
   field_tool_expertise: true
   member_for: true

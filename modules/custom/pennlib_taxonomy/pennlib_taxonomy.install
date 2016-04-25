@@ -10,7 +10,7 @@ function pennlib_taxonomy_get_term_data($vocabulary) {
 }
 
 function pennlib_clean_term_for_url($term_name_url){
-  $term_name_url = strtolower(preg_replace('/-+/', '-', preg_replace('/[^\wáéíóú&]/', '-', $term_name_url)));
+  $term_name_url = strtolower(preg_replace('/-+/', '-', preg_replace('/([^a-zA-Z0-9\-]+)/', '-', $term_name_url)));
   return $term_name_url;
 }
 
@@ -19,6 +19,7 @@ function pennlib_taxonomy_install() {
     'departments',
     'divisions',
     'languages',
+    'libraries',
     'subject_specialities',
     'roles',
     'teams',

@@ -1,0 +1,9 @@
+uuid: a32d65a4-4601-4b1e-8ce8-0be02a128506
+langcode: en
+status: true
+dependencies: {  }
+name: Languages
+vid: languages
+description: ''
+hierarchy: 0
+weight: 0
