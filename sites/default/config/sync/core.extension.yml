@@ -14,6 +14,7 @@ module:
   contact: 0
   contextual: 0
   ctools: 0
+  ctools_block: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -43,7 +44,9 @@ module:
   options: 0
   page_cache: 0
   page_manager: 0
+  panelizer: 0
   panels: 0
+  panels_ipe: 0
   paragraphs: 0
   path: 0
   pennlib_taxonomy: 0

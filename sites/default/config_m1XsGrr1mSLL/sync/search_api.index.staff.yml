@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_division
+    - field.field.user.user.field_languages
     - field.field.user.user.field_library
     - field.field.user.user.field_pennkey
     - field.field.user.user.field_role
@@ -71,6 +72,11 @@ field_settings:
     label: Role
     datasource_id: 'entity:user'
     property_path: field_role
+    type: integer
+  field_languages:
+    label: Languages
+    datasource_id: 'entity:user'
+    property_path: field_languages
     type: integer
 processor_settings:
   add_url:
