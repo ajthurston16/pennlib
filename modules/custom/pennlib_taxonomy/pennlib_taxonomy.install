@@ -4,9 +4,14 @@
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\Yaml\Yaml;
 
-function pennlib_taxonomy_get_term_data($vocab) {
-  $terms_file_path = file_get_contents(drupal_get_path('module', 'pennlib_taxonomy') . '/vocabulary_data/' . $vocab . '.terms.yml');
+function pennlib_taxonomy_get_term_data($vocabulary) {
+  $terms_file_path = file_get_contents(drupal_get_path('module', 'pennlib_taxonomy') . '/vocabulary_data/' . $vocabulary . '.terms.yml');
   return Yaml::parse($terms_file_path, FALSE, TRUE, TRUE);
+}
+
+function pennlib_clean_term_for_url($term_name_url){
+  $term_name_url = strtolower(preg_replace('/-+/', '-', preg_replace('/[^\wáéíóú&]/', '-', $term_name_url)));
+  return $term_name_url;
 }
 
 function pennlib_taxonomy_install() {
@@ -38,7 +43,6 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
           'format' => 'full_html',
         ],
       ];
-
       if (!empty($termInfo['parent'])) {
         if ($preexisting_terms[$termInfo['parent']]) {
           $data['parent'] = [$preexisting_terms[$termInfo['parent']]];
@@ -58,6 +62,9 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
       $term->save();
     }
     $preexisting_terms[$term->getName()] = $term->id();
+    //clean and save taxonomy term name for url.
+    $term_name_url = pennlib_clean_term_for_url($term_name);
+    \Drupal::service('path.alias_storage')->save("/taxonomy/term/" . $term->id(), "/" . $term_name_url, "en");
   }
 }
 
