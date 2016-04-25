@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: staff_seach
 label: 'Staff Seach'
-use_admin_theme: null
-path: /staff-search
+use_admin_theme: false
+path: /library-info/staff
 access_logic: and
 access_conditions: {  }
 parameters: {  }

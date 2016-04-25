@@ -52,6 +52,7 @@ module:
   path: 0
   pennlib_taxonomy: 0
   quickedit: 0
+  radix_layouts: 0
   rdf: 0
   search: 0
   search_api: 0
