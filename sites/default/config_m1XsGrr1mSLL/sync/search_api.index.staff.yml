@@ -4,8 +4,14 @@ status: true
 dependencies:
   config:
     - search_api.server.solr
+    - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
+    - field.field.user.user.field_division
+    - field.field.user.user.field_library
     - field.field.user.user.field_pennkey
+    - field.field.user.user.field_role
+    - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_technology_specialty
   module:
     - search_api
     - user
@@ -26,11 +32,6 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: uid
     type: integer
-  roles:
-    label: Roles
-    datasource_id: 'entity:user'
-    property_path: roles
-    type: string
   field_pennkey:
     label: PennKey
     datasource_id: 'entity:user'
@@ -40,6 +41,36 @@ field_settings:
     label: Department
     datasource_id: 'entity:user'
     property_path: field_department
+    type: integer
+  field_division:
+    label: Division
+    datasource_id: 'entity:user'
+    property_path: field_division
+    type: integer
+  field_library:
+    label: Library
+    datasource_id: 'entity:user'
+    property_path: field_library
+    type: integer
+  field_collection_responsibility:
+    label: 'Collection Responsibility'
+    datasource_id: 'entity:user'
+    property_path: field_collection_responsibility
+    type: integer
+  field_subject_specialty:
+    label: 'Subject Specialty'
+    datasource_id: 'entity:user'
+    property_path: field_subject_specialty
+    type: integer
+  field_technology_specialty:
+    label: 'Technology Specialty'
+    datasource_id: 'entity:user'
+    property_path: field_technology_specialty
+    type: integer
+  field_role:
+    label: Role
+    datasource_id: 'entity:user'
+    property_path: field_role
     type: integer
 processor_settings:
   add_url:
