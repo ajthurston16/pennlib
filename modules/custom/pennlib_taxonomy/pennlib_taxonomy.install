@@ -6,7 +6,7 @@ use Symfony\Component\Yaml\Yaml;
 
 function pennlib_taxonomy_get_term_data($vocabulary) {
   $terms_file_path = file_get_contents(drupal_get_path('module', 'pennlib_taxonomy') . '/vocabulary_data/' . $vocabulary . '.terms.yml');
-  return Yaml::parse($terms_file_path, FALSE, TRUE, TRUE);
+  return Yaml::parse($terms_file_path);
 }
 
 function pennlib_clean_term_for_url($term_name_url){
