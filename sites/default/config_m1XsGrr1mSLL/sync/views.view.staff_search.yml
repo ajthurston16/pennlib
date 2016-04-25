@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_pennkey
+    - field.storage.user.field_role
     - search_api.index.staff
+    - system.menu.main-nav
   module:
     - search_api
     - text
@@ -358,6 +360,148 @@ display:
             multi_separator: ', '
           entity_type: user
           plugin_id: search_api_field
+        field_role:
+          id: field_role
+          table: search_api_datasource_staff_entity_user
+          field: field_role
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            id: ''
+            table: ''
+            field: ''
+            relationship: none
+            group_type: group
+            admin_label: ''
+            label: ''
+            exclude: false
+            alter:
+              alter_text: false
+              text: ''
+              make_link: false
+              path: ''
+              absolute: false
+              external: false
+              replace_spaces: false
+              path_case: none
+              trim_whitespace: false
+              alt: ''
+              rel: ''
+              link_class: ''
+              prefix: ''
+              suffix: ''
+              target: ''
+              nl2br: false
+              max_length: 0
+              word_boundary: true
+              ellipsis: true
+              more_link: false
+              more_link_text: ''
+              more_link_path: ''
+              strip_tags: false
+              trim: false
+              preserve_tags: ''
+              html: false
+            element_type: ''
+            element_class: ''
+            element_label_type: ''
+            element_label_class: ''
+            element_label_colon: true
+            element_wrapper_type: ''
+            element_wrapper_class: ''
+            element_default_classes: true
+            empty: ''
+            hide_empty: false
+            empty_zero: false
+            hide_alter_empty: true
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              collection_responsibilities:
+                display_method: label
+              departments:
+                display_method: label
+              digital_methods:
+                display_method: label
+              divisions:
+                display_method: label
+              languages:
+                display_method: label
+              libraries:
+                display_method: label
+              rank:
+                display_method: label
+              roles:
+                display_method: label
+              subject_specialities:
+                display_method: label
+              tags:
+                display_method: label
+              teams:
+                display_method: label
+              tools:
+                display_method: label
+          entity_type: user
+          plugin_id: search_api_field
       filters: {  }
       sorts: {  }
       title: 'Staff Search'
@@ -375,6 +519,7 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'
   page_1:
     display_plugin: page
     id: page_1
@@ -382,11 +527,20 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: staff-search
+      path: library-info/staff
       cache:
         type: none
       defaults:
         cache: false
+      menu:
+        type: normal
+        title: 'Staff Directory'
+        description: ''
+        expanded: false
+        parent: 'menu_link_content:bd3a951a-816a-4861-9303-3ceebdd5f302'
+        weight: 0
+        context: '0'
+        menu_name: main-nav
     cache_metadata:
       max-age: 0
       contexts:
@@ -395,3 +549,4 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'

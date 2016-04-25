@@ -44,7 +44,7 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content:  
+content:
   field_first_name:
     type: text_default
     weight: 1

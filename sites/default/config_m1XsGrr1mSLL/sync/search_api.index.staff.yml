@@ -3,16 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.user.field_pennkey
+    - field.storage.user.field_department
+    - field.storage.user.field_division
+    - field.storage.user.field_library
+    - field.storage.user.field_collection_responsibility
+    - field.storage.user.field_subject_specialty
+    - field.storage.user.field_technology_specialty
+    - field.storage.user.field_role
+    - field.storage.user.field_languages
+    - field.storage.user.field_team
     - search_api.server.solr
-    - field.field.user.user.field_collection_responsibility
-    - field.field.user.user.field_department
-    - field.field.user.user.field_division
-    - field.field.user.user.field_languages
-    - field.field.user.user.field_library
-    - field.field.user.user.field_pennkey
-    - field.field.user.user.field_role
-    - field.field.user.user.field_subject_specialty
-    - field.field.user.user.field_technology_specialty
   module:
     - search_api
     - user
@@ -38,46 +39,81 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: field_pennkey
     type: string
+    dependencies:
+      config:
+        - field.storage.user.field_pennkey
   field_department:
     label: Department
     datasource_id: 'entity:user'
     property_path: field_department
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_department
   field_division:
     label: Division
     datasource_id: 'entity:user'
     property_path: field_division
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_division
   field_library:
     label: Library
     datasource_id: 'entity:user'
     property_path: field_library
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_library
   field_collection_responsibility:
     label: 'Collection Responsibility'
     datasource_id: 'entity:user'
     property_path: field_collection_responsibility
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_collection_responsibility
   field_subject_specialty:
     label: 'Subject Specialty'
     datasource_id: 'entity:user'
     property_path: field_subject_specialty
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_subject_specialty
   field_technology_specialty:
     label: 'Technology Specialty'
     datasource_id: 'entity:user'
     property_path: field_technology_specialty
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_technology_specialty
   field_role:
     label: Role
     datasource_id: 'entity:user'
     property_path: field_role
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_role
   field_languages:
     label: Languages
     datasource_id: 'entity:user'
     property_path: field_languages
     type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_languages
+  field_team:
+    label: Team
+    datasource_id: 'entity:user'
+    property_path: field_team
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_team
 processor_settings:
   add_url:
     plugin_id: add_url
