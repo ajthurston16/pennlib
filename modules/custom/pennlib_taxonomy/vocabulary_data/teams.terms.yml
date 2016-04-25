@@ -27,17 +27,17 @@
 'SPIA Team':
 'Springshare Governance':
 'LibGuides Migration Team':
-  parent:'Springshare Governance'
+  parent: 'Springshare Governance'
 'Group on Library Diversity':
 'Book Club':
 'Representatives to University Council':
 'AFSCME Local 590':
 'Local 590 Executive Board':
-  parent:'AFSCME Local 590'
+  parent: 'AFSCME Local 590'
 'Labor/Management Committee':
-  parent:'AFSCME Local 590'
+  parent: 'AFSCME Local 590'
 'Local 590 Stewards':
-  parent:'AFSCME Local 590'
+  parent: 'AFSCME Local 590'
 'Labor/Management Health & Safety Committee':
-  parent:'AFSCME Local 590'
+  parent: 'AFSCME Local 590'
 'Liaison Council':

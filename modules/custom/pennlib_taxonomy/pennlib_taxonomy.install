@@ -1,4 +1,4 @@
-<?php
+  <?php
 // Programmatically create taxonomy terms for taxonomy vocabulary department on install.
 
 use Drupal\taxonomy\Entity\Term;

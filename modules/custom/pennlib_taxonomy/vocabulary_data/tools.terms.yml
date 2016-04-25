@@ -1,73 +1,73 @@
 # Tools Taxonomy terms.
 'Engaging students through technology':
 'Courseware':
-  parent:'Engaging students through technology'
+  parent: 'Engaging students through technology'
 'Equipment':
-  parent:'Engaging students through technology'
+  parent: 'Engaging students through technology'
 'Applications':
-  parent:'Engaging students through technology'
+  parent: 'Engaging students through technology'
 'Communication':
 'Collaboration':
-  parent:'Communication'
+  parent: 'Communication'
 'Publishing':
-  parent:'Communication'
+  parent: 'Communication'
 'Collaboration':
-  parent:'Communication'
+  parent: 'Communication'
 'Presentation':
-  parent:'Communication'
+  parent: 'Communication'
 'Productivity':
 'Organization':
-  parent:'Productivity'
+  parent: 'Productivity'
 'Research impact':
-   parent:'Productivity'
+  parent: 'Productivity'
 'Data management':
 'Data Analysis':
-  parent:'Data management'
+  parent: 'Data management'
 'Transaction analysis':
-  parent:'Data management'
+  parent: 'Data management'
 'Mapping & spatial methods':
-  parent:'Data management'
+  parent: 'Data management'
 'Content management':
 'Authoring interactive works':
-  parent:'Content management'
+  parent: 'Content management'
 'Bibliographic management':
-  parent:'Content management'
+  parent: 'Content management'
 'Image management':
-   parent:'Content management'
+   parent: 'Content management'
 'Image/graphics editing':
-   parent:'Content management'
+   parent: 'Content management'
 'Graphics':
-   parent:'Content management'
+   parent: 'Content management'
 'Publishing':
-   parent:'Content management'
+  parent: 'Content management'
 'Web development':
-   parent:'Content management'
+  parent: 'Content management'
 'Text Editor':
-   parent:'Content management'
+  parent: 'Content management'
 'Publishing':
-   parent:'Content management'
+  parent: 'Content management'
 'Scholarly & social networking':
- parent:'Content management'
+  parent: 'Content management'
 'Digitization':
- parent:'Content management'
+  parent: 'Content management'
 'Tool Development':
- parent:'Content management'
+  parent: 'Content management'
 'Digital Scholarship':
 'Text mining: Topic modeling':
-  parent:'Digital Scholarship'
+  parent: 'Digital Scholarship'
 'Text mining: Text analysis':
-  parent:'Digital Scholarship'
+  parent: 'Digital Scholarship'
 'Visualizations':
-  parent:'Digital Scholarship'
+  parent: 'Digital Scholarship'
 'Research':
-  parent:'Research'
+  parent: 'Research'
 'Databases':
-  parent:'Research'
+  parent: 'Research'
 'E-Resources':
-  parent:'Research'
+  parent: 'Research'
 'Accessibility':
 'Assistive techonology':
-  parent:'Accessibility'
+  parent: 'Accessibility'
 'Media production':
 'Audio':
   parent: 'Media production'
