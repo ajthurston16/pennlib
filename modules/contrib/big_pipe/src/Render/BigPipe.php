@@ -14,10 +14,11 @@ use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Asset\AttachedAssets;
 use Drupal\Core\Asset\AttachedAssetsInterface;
 use Drupal\Core\Render\HtmlResponse;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -27,6 +28,20 @@ use Symfony\Component\HttpKernel\KernelEvents;
  * The default BigPipe service.
  */
 class BigPipe implements BigPipeInterface {
+
+  /**
+   * The BigPipe placeholder replacements start signal.
+   *
+   * @var string
+   */
+  const START_SIGNAL = '<script type="application/vnd.drupal-ajax" data-big-pipe-event="start"></script>';
+
+  /**
+   * The BigPipe placeholder replacements stop signal.
+   *
+   * @var string
+   */
+  const STOP_SIGNAL = '<script type="application/vnd.drupal-ajax" data-big-pipe-event="stop"></script>';
 
   /**
    * The renderer.
@@ -155,7 +170,7 @@ class BigPipe implements BigPipeInterface {
 
       $html_response = new HtmlResponse();
       $html_response->setContent([
-        '#markup' => Markup::create($js_bottom_placeholder),
+        '#markup' => BigPipeMarkup::create($js_bottom_placeholder),
         '#attached' => [
           'drupalSettings' => $cumulative_assets->getSettings(),
           'library' => $cumulative_assets->getAlreadyLoadedLibraries(),
@@ -171,11 +186,8 @@ class BigPipe implements BigPipeInterface {
       // HTML response being processed by HtmlResponseAttachmentsProcessor and
       // hence the HTML to load the bottom JavaScript can be rendered.
       $fake_request = $this->requestStack->getMasterRequest()->duplicate();
-      $this->requestStack->push($fake_request);
-      $event = new FilterResponseEvent($this->httpKernel, $fake_request, HttpKernelInterface::SUB_REQUEST, $html_response);
-      $this->eventDispatcher->dispatch(KernelEvents::RESPONSE, $event);
-      $this->requestStack->pop();
-      $scripts_bottom = $event->getResponse()->getContent();
+      $html_response = $this->filterEmbeddedResponse($fake_request, $html_response);
+      $scripts_bottom = $html_response->getContent();
     }
 
     print $scripts_bottom;
@@ -193,6 +205,12 @@ class BigPipe implements BigPipeInterface {
    * @param \Drupal\Core\Asset\AttachedAssetsInterface $cumulative_assets
    *   The cumulative assets sent so far; to be updated while rendering no-JS
    *   BigPipe placeholders.
+   *
+   * @throws \Exception
+   *   If an exception is thrown during the rendering of a placeholder, it is
+   *   caught to allow the other placeholders to still be replaced. But when
+   *   error logging is configured to be verbose, the exception is rethrown to
+   *   simplify debugging.
    */
   protected function sendNoJsPlaceholders($html, $no_js_placeholders, AttachedAssetsInterface $cumulative_assets) {
     // Split the HTML on every no-JS placeholder string.
@@ -226,7 +244,19 @@ class BigPipe implements BigPipeInterface {
           ],
         ],
       ];
-      $elements = $this->renderPlaceholder($placeholder, $placeholder_plus_cumulative_settings);
+      try {
+        $elements = $this->renderPlaceholder($placeholder, $placeholder_plus_cumulative_settings);
+      }
+      catch (\Exception $e) {
+        if (\Drupal::config('system.logging')->get('error_level') === ERROR_REPORTING_DISPLAY_VERBOSE) {
+          throw $e;
+        }
+        else {
+          trigger_error($e, E_USER_ERROR);
+          continue;
+        }
+      }
+
 
       // Create a new HtmlResponse. Ensure the CSS and (non-bottom) JS is sent
       // before the HTML they're associated with. In other words: ensure the
@@ -235,7 +265,7 @@ class BigPipe implements BigPipeInterface {
       // @see template_preprocess_html()
       $css_placeholder = '<nojs-bigpipe-placeholder-styles-placeholder token="' . $token . '">';
       $js_placeholder = '<nojs-bigpipe-placeholder-scripts-placeholder token="' . $token . '">';
-      $elements['#markup'] = Markup::create($css_placeholder . $js_placeholder . (string) $elements['#markup']);
+      $elements['#markup'] = BigPipeMarkup::create($css_placeholder . $js_placeholder . (string) $elements['#markup']);
       $elements['#attached']['html_response_attachment_placeholders']['styles'] = $css_placeholder;
       $elements['#attached']['html_response_attachment_placeholders']['scripts'] = $js_placeholder;
 
@@ -251,11 +281,19 @@ class BigPipe implements BigPipeInterface {
       // - the HTML to load the JS (at the top) can be rendered.
       $fake_request = $this->requestStack->getMasterRequest()->duplicate();
       $fake_request->request->set('ajax_page_state', ['libraries' => implode(',', $cumulative_assets->getAlreadyLoadedLibraries())]);
-      $this->requestStack->push($fake_request);
-      $event = new FilterResponseEvent($this->httpKernel, $fake_request, HttpKernelInterface::SUB_REQUEST, $html_response);
-      $this->eventDispatcher->dispatch(KernelEvents::RESPONSE, $event);
-      $html_response = $event->getResponse();
-      $this->requestStack->pop();
+      try {
+        $html_response = $this->filterEmbeddedResponse($fake_request, $html_response);
+      }
+      catch (\Exception $e) {
+        if (\Drupal::config('system.logging')->get('error_level') === ERROR_REPORTING_DISPLAY_VERBOSE) {
+          throw $e;
+        }
+        else {
+          trigger_error($e, E_USER_ERROR);
+          continue;
+        }
+      }
+
 
       // Send this embedded HTML response.
       print $html_response->getContent();
@@ -264,7 +302,6 @@ class BigPipe implements BigPipeInterface {
       // Another placeholder was rendered and sent, track the set of asset
       // libraries sent so far. Any new settings also need to be tracked, so
       // they can be sent in ::sendPreBody().
-      // @todo What if drupalSettings already was printed in the HTML <head>? That case is not yet handled. In that case, no-JS BigPipe would cause broken (incomplete) drupalSettings… This would not matter if it were only used if JS is not enabled, but that's not the only use case. However, this
       $cumulative_assets->setAlreadyLoadedLibraries(array_merge($cumulative_assets->getAlreadyLoadedLibraries(), $html_response->getAttachments()['library']));
       $cumulative_assets->setSettings($html_response->getAttachments()['drupalSettings']);
     }
@@ -283,6 +320,12 @@ class BigPipe implements BigPipeInterface {
    * @param \Drupal\Core\Asset\AttachedAssetsInterface $cumulative_assets
    *   The cumulative assets sent so far; to be updated while rendering BigPipe
    *   placeholders.
+   *
+   * @throws \Exception
+   *   If an exception is thrown during the rendering of a placeholder, it is
+   *   caught to allow the other placeholders to still be replaced. But when
+   *   error logging is configured to be verbose, the exception is rethrown to
+   *   simplify debugging.
    */
   protected function sendPlaceholders(array $placeholders, array $placeholder_order, AttachedAssetsInterface $cumulative_assets) {
     // Return early if there are no BigPipe placeholders to send.
@@ -292,7 +335,8 @@ class BigPipe implements BigPipeInterface {
 
     // Send the start signal.
     print "\n";
-    print '<script type="application/json" data-big-pipe-event="start"></script>' . "\n";
+    print static::START_SIGNAL;
+    print "\n";
     flush();
 
     // A BigPipe response consists of a HTML response plus multiple embedded
@@ -303,7 +347,7 @@ class BigPipe implements BigPipeInterface {
     // to be returned.
     // @see \Drupal\Core\EventSubscriber\AjaxResponseSubscriber::onResponse()
     $fake_request = $this->requestStack->getMasterRequest()->duplicate();
-    $fake_request->headers->set('Accept', 'application/json');
+    $fake_request->headers->set('Accept', 'application/vnd.drupal-ajax');
 
     foreach ($placeholder_order as $placeholder_id) {
       if (!isset($placeholders[$placeholder_id])) {
@@ -312,7 +356,18 @@ class BigPipe implements BigPipeInterface {
 
       // Render the placeholder.
       $placeholder_render_array = $placeholders[$placeholder_id];
-      $elements = $this->renderPlaceholder($placeholder_id, $placeholder_render_array);
+      try {
+        $elements = $this->renderPlaceholder($placeholder_id, $placeholder_render_array);
+      }
+      catch (\Exception $e) {
+        if (\Drupal::config('system.logging')->get('error_level') === ERROR_REPORTING_DISPLAY_VERBOSE) {
+          throw $e;
+        }
+        else {
+          trigger_error($e, E_USER_ERROR);
+          continue;
+        }
+      }
 
       // Create a new AjaxResponse.
       $ajax_response = new AjaxResponse();
@@ -334,16 +389,23 @@ class BigPipe implements BigPipeInterface {
       //   allows us to track the total set of asset libraries sent in the
       //   initial HTML response plus all embedded AJAX responses sent so far.
       $fake_request->request->set('ajax_page_state', ['libraries' => implode(',', $cumulative_assets->getAlreadyLoadedLibraries())] + $cumulative_assets->getSettings()['ajaxPageState']);
-      $this->requestStack->push($fake_request);
-      $event = new FilterResponseEvent($this->httpKernel, $fake_request, HttpKernelInterface::SUB_REQUEST, $ajax_response);
-      $this->eventDispatcher->dispatch(KernelEvents::RESPONSE, $event);
-      $ajax_response = $event->getResponse();
-      $this->requestStack->pop();
+      try {
+        $ajax_response = $this->filterEmbeddedResponse($fake_request, $ajax_response);
+      }
+      catch (\Exception $e) {
+        if (\Drupal::config('system.logging')->get('error_level') === ERROR_REPORTING_DISPLAY_VERBOSE) {
+          throw $e;
+        }
+        else {
+          trigger_error($e, E_USER_ERROR);
+          continue;
+        }
+      }
 
       // Send this embedded AJAX response.
       $json = $ajax_response->getContent();
       $output = <<<EOF
-    <script type="application/json" data-big-pipe-replacement-for-placeholder-with-id="$placeholder_id">
+    <script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="$placeholder_id">
     $json
     </script>
 EOF;
@@ -359,8 +421,35 @@ EOF;
     }
 
     // Send the stop signal.
-    print '<script type="application/json" data-big-pipe-event="stop"></script>' . "\n";
+    print "\n";
+    print static::STOP_SIGNAL;
+    print "\n";
     flush();
+  }
+
+  /**
+   * Filters the given embedded response, using the cumulative AJAX page state.
+   *
+   * @param \Symfony\Component\HttpFoundation\Request $fake_request
+   *   A fake subrequest that contains the cumulative AJAX page state of the
+   *   HTML document and all preceding Embedded HTML or AJAX responses.
+   * @param \Symfony\Component\HttpFoundation\Response|\Drupal\Core\Render\HtmlResponse|\Drupal\Core\Ajax\AjaxResponse $embedded_response
+   *   Either a HTML response or an AJAX response that will be embedded in the
+   *   overall HTML response.
+   *
+   * @return \Symfony\Component\HttpFoundation\Response
+   *   The filtered response, which will load only the assets that $fake_request
+   *   did not indicate to already have been loaded, plus the updated cumulative
+   *   AJAX page state.
+   */
+  protected function filterEmbeddedResponse(Request $fake_request, Response $embedded_response) {
+    assert('$embedded_response instanceof \Drupal\Core\Render\HtmlResponse || $embedded_response instanceof \Drupal\Core\Ajax\AjaxResponse');
+    $this->requestStack->push($fake_request);
+    $event = new FilterResponseEvent($this->httpKernel, $fake_request, HttpKernelInterface::SUB_REQUEST, $embedded_response);
+    $this->eventDispatcher->dispatch(KernelEvents::RESPONSE, $event);
+    $filtered_response = $event->getResponse();
+    $this->requestStack->pop();
+    return $filtered_response;
   }
 
   /**

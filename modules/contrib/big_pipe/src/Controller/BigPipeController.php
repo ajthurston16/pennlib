@@ -52,11 +52,12 @@ class BigPipeController {
     }
 
     if (!$request->query->has('destination')) {
-      throw new HttpException(500, 'The original location is missing.');
+      throw new HttpException(400, 'The original location is missing.');
     }
 
     $response = new LocalRedirectResponse($request->query->get('destination'));
-    $response->headers->setCookie(new Cookie(BigPipeStrategy::NOJS_COOKIE, TRUE));
+    // Set cookie without httpOnly, so that JavaScript can delete it.
+    $response->headers->setCookie(new Cookie(BigPipeStrategy::NOJS_COOKIE, TRUE, 0, '/', NULL, FALSE, FALSE));
     $response->addCacheableDependency((new CacheableMetadata())->addCacheContexts(['cookies:' . BigPipeStrategy::NOJS_COOKIE, 'session.exists']));
     return $response;
   }
