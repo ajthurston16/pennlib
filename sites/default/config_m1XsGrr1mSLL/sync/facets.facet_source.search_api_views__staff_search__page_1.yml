@@ -1,8 +1,0 @@
-uuid: 5015f50a-50fd-43bd-b13a-5cda5a64a4da
-langcode: en
-status: true
-dependencies: {  }
-id: search_api_views__staff_search__page_1
-name: 'search_api_views:staff_search:page_1'
-filter_key: ''
-url_processor: query_string

@@ -60,7 +60,6 @@
 'Visualizations':
   parent: 'Digital Scholarship'
 'Research':
-  parent: 'Research'
 'Databases':
   parent: 'Research'
 'E-Resources':
