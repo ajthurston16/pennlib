@@ -10,6 +10,7 @@ namespace Drupal\big_pipe\Render\Placeholder;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Render\Placeholder\PlaceholderStrategyInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\SessionConfigurationInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -83,22 +84,37 @@ class BigPipeStrategy implements PlaceholderStrategyInterface {
   protected $requestStack;
 
   /**
+   * The current route match.
+   *
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  protected $routeMatch;
+
+  /**
    * Constructs a new BigPipeStrategy class.
    *
    * @param \Drupal\Core\Session\SessionConfigurationInterface $session_configuration
    *   The session configuration.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack.
+   * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
+   *   The current route match.
    */
-  public function __construct(SessionConfigurationInterface $session_configuration, RequestStack $request_stack) {
+  public function __construct(SessionConfigurationInterface $session_configuration, RequestStack $request_stack, RouteMatchInterface $route_match) {
     $this->sessionConfiguration = $session_configuration;
     $this->requestStack = $request_stack;
+    $this->routeMatch = $route_match;
   }
 
   /**
    * {@inheritdoc}
    */
   public function processPlaceholders(array $placeholders) {
+    // Routes can opt out from using the BigPipe HTML delivery technique.
+    if ($this->routeMatch->getRouteObject()->getOption('_no_big_pipe')) {
+      return [];
+    }
+
     if (!$this->sessionConfiguration->hasSession($this->requestStack->getCurrentRequest())) {
       return [];
     }
