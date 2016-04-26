@@ -8,7 +8,7 @@
   'use strict';
 
   /**
-   * Executes Ajax commands in <script type="application/json"> tag.
+   * Executes Ajax commands in <script type="application/vnd.drupal-ajax"> tag.
    *
    * These Ajax commands replace placeholders with HTML and load missing CSS/JS.
    *
@@ -27,7 +27,7 @@
       // commands is still arriving), textContent will be empty which will cause
       // JSON.parse() to fail. Remove once so that it can be processed again
       // later.
-      // @see bigPipeProcessContainer()
+      // @see bigPipeProcessDocument()
       if (content === '') {
         $(this).removeOnce('big-pipe');
       }
@@ -43,7 +43,7 @@
         });
         // Then, simulate an AJAX response having arrived, and let the Ajax
         // system handle it.
-        ajaxObject.success(response);
+        ajaxObject.success(response, 'success');
       }
     }
   }

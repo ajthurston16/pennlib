@@ -47,4 +47,5 @@ class BigPipeResponse extends HtmlResponse {
 
     return $this;
   }
+
 }

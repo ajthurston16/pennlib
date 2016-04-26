@@ -15,9 +15,10 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Field\PreconfiguredFieldUiOptionsInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\DataReferenceDefinition;
+use Drupal\Core\TypedData\DataReferenceTargetDefinition;
 use Drupal\Core\TypedData\OptionsProviderInterface;
+use Drupal\entity_reference_revisions\EntityNeedsSaveInterface;
 
 /**
  * Defines the 'entity_reference_revisions' entity field type.
@@ -110,7 +111,7 @@ class EntityReferenceRevisionsItem extends EntityReferenceItem implements Option
     $properties = parent::propertyDefinitions($field_definition);
 
     if ($target_type_info->getKey('revision')) {
-      $target_revision_id_definition = DataDefinition::create('integer')
+      $target_revision_id_definition = DataReferenceTargetDefinition::create('integer')
         ->setLabel(t('@label revision ID', array($target_type_info->getLabel())))
         ->setSetting('unsigned', TRUE);
 
@@ -167,10 +168,10 @@ class EntityReferenceRevisionsItem extends EntityReferenceItem implements Option
       if (is_array($values) && array_key_exists('target_id', $values) && !isset($values['entity'])) {
         $this->onChange('target_id', FALSE);
       }
-      elseif (is_array($values) && !array_key_exists('target_revision_id', $values) && isset($values['entity'])) {
+      elseif (is_array($values) && array_key_exists('target_revision_id', $values) && !isset($values['entity'])) {
         $this->onChange('target_revision_id', FALSE);
       }
-      elseif (is_array($values) && !array_key_exists('target_id', $values) && isset($values['entity'])) {
+      elseif (is_array($values) && !array_key_exists('target_id', $values) && !array_key_exists('target_revision_id', $values) && isset($values['entity'])) {
         $this->onChange('entity', FALSE);
       }
       elseif (is_array($values) && array_key_exists('target_id', $values) && isset($values['entity'])) {
@@ -197,20 +198,32 @@ class EntityReferenceRevisionsItem extends EntityReferenceItem implements Option
   /**
    * {@inheritdoc}
    */
+  public function getValue() {
+    $values = parent::getValue();
+    if ($this->entity instanceof EntityNeedsSaveInterface && $this->entity->needsSave()) {
+      $values['entity'] = $this->entity;
+    }
+    return $values;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function onChange($property_name, $notify = TRUE) {
     // Make sure that the target ID and the target property stay in sync.
     if ($property_name == 'entity') {
       $property = $this->get('entity');
       $target_id = $property->isTargetNew() ? NULL : $property->getTargetIdentifier();
       $this->writePropertyValue('target_id', $target_id);
+      $this->writePropertyValue('target_revision_id', $property->getValue()->getRevisionId());
     }
-    elseif ($property_name == 'target_id' && $this->target_id != NULL) {
+    elseif ($property_name == 'target_id' && $this->target_id != NULL && $this->target_revision_id) {
       $this->writePropertyValue('entity', array(
         'target_id' => $this->target_id,
         'target_revision_id' => $this->target_revision_id,
       ));
     }
-    elseif ($property_name == 'target_revision_id' && $this->target_revision_id) {
+    elseif ($property_name == 'target_revision_id' && $this->target_revision_id && $this->target_id) {
       $this->writePropertyValue('entity', array(
         'target_id' => $this->target_id,
         'target_revision_id' => $this->target_revision_id,
@@ -243,6 +256,9 @@ class EntityReferenceRevisionsItem extends EntityReferenceItem implements Option
    */
   public function preSave() {
     parent::preSave();
+    if ($this->entity instanceof EntityNeedsSaveInterface && $this->entity->needsSave()) {
+      $this->entity->save();
+    }
     $this->target_revision_id = $this->entity->getRevisionId();
   }
 
@@ -270,6 +286,62 @@ class EntityReferenceRevisionsItem extends EntityReferenceItem implements Option
   /**
    * {@inheritdoc}
    */
+  public function postSave($update) {
+    parent::postSave($update);
+    $needs_save = FALSE;
+    // If any of entity, parent type or parent id is missing then return.
+    if (!$this->entity || !$this->entity->getEntityType()->get('entity_revision_parent_type_field') || !$this->entity->getEntityType()->get('entity_revision_parent_id_field')) {
+      return;
+    }
+
+    $entity = $this->entity;
+    $parent_entity = $this->getEntity();
+
+    // If the entity has a parent field name get the key.
+    if ($entity->getEntityType()->get('entity_revision_parent_field_name_field')) {
+      $parent_field_name = $entity->getEntityType()->get('entity_revision_parent_field_name_field');
+
+      // If parent field name has changed then set it.
+      if ($entity->get($parent_field_name)->value != $this->getFieldDefinition()->getName()) {
+        $entity->set($parent_field_name, $this->getFieldDefinition()->getName());
+        $needs_save = TRUE;
+      }
+    }
+
+    $parent_type = $entity->getEntityType()->get('entity_revision_parent_type_field');
+    $parent_id = $entity->getEntityType()->get('entity_revision_parent_id_field');
+
+    // If the parent type has changed then set it.
+    if ($entity->get($parent_type)->value != $parent_entity->getEntityTypeId()) {
+      $entity->set($parent_type, $parent_entity->getEntityTypeId());
+      $needs_save = TRUE;
+    }
+    // If the parent id has changed then set it.
+    if ($entity->get($parent_id)->value != $parent_entity->id()) {
+      $entity->set($parent_id, $parent_entity->id());
+      $needs_save = TRUE;
+    }
+
+    if ($needs_save) {
+      // Check if any of the keys has changed, save it, do not create a new
+      // revision.
+      $entity->setNewRevision(FALSE);
+      $entity->save();
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function delete() {
+    parent::delete();
+    if ($this->entity && $this->entity->getEntityType()->get('entity_revision_parent_type_field') && $this->entity->getEntityType()->get('entity_revision_parent_id_field')) {
+      $this->entity->delete();
+    }
+}
+ /**
+ * {@inheritdoc}
+ */
   public static function onDependencyRemoval(FieldDefinitionInterface $field_definition, array $dependencies) {
     return FALSE;
   }

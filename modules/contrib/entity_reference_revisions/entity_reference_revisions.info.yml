@@ -5,8 +5,8 @@ description: Adds a Entity Reference field type with revision support.
 package: Field types
 
 
-# Information added by Drupal.org packaging script on 2015-11-17
-version: '8.x-1.0-rc4'
+# Information added by Drupal.org packaging script on 2016-04-13
+version: '8.x-1.0-rc6'
 core: '8.x'
 project: 'entity_reference_revisions'
-datestamp: 1447767486
+datestamp: 1460582042
