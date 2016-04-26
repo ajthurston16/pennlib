@@ -1,0 +1,9 @@
+uuid: 19e9f269-036a-4a58-83e1-a9fa04aea0f4
+langcode: en
+status: true
+dependencies: {  }
+name: Libraries
+vid: libraries
+description: 'Library Group for User Profiles'
+hierarchy: 0
+weight: 0

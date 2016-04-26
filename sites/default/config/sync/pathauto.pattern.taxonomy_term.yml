@@ -1,0 +1,31 @@
+uuid: bd87cfa8-08c1-4c56-bb53-834c0b5e69e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taxonomy_term
+label: 'Taxonomy Term'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria:
+  38545394-675c-4791-8400-c18aa7d89150:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      collection_responsibility: collection_responsibility
+      department: department
+      digital_method: digital_method
+      division: division
+      library_group: library_group
+      rank: rank
+      subject_specialty: subject_specialty
+      tags: tags
+      tools: tools
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 38545394-675c-4791-8400-c18aa7d89150
+selection_logic: and
+weight: -9
+relationships: {  }

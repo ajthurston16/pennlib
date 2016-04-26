@@ -1,0 +1,9 @@
+uuid: 94fcf7cb-ed2d-46df-b337-de61c20a32f1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Subject Specialities'
+vid: subject_specialities
+description: ''
+hierarchy: 0
+weight: 0

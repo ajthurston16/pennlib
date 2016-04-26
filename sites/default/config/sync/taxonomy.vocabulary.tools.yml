@@ -1,0 +1,9 @@
+uuid: 7d69ea4f-cdec-4b14-8900-df440dd33617
+langcode: en
+status: true
+dependencies: {  }
+name: Tools
+vid: tools
+description: 'Tool Expertise'
+hierarchy: 0
+weight: 0

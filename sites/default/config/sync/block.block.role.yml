@@ -1,0 +1,28 @@
+uuid: 1344efd1-f5c6-44a8-8923-59c98272e38f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.role
+  module:
+    - facets
+  theme:
+    - pennlib
+id: role
+theme: pennlib
+region: sidebar_first
+weight: null
+provider: null
+plugin: 'facet_block:role'
+settings:
+  id: 'facet_block:role'
+  label: Role
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

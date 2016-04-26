@@ -1,0 +1,28 @@
+uuid: 731a29a5-d9ee-4980-aa38-f3847c182f9c
+langcode: en
+status: true
+dependencies: {  }
+id: subject_specialty
+name: 'Subject Specialty'
+url_alias: subject_specialty
+weight: 1
+show_only_one_result: false
+field_identifier: field_subject_specialty
+query_type_name: null
+facet_source_id: 'search_api_views:staff_search:page_1'
+widget: links
+widget_configs:
+  show_numbers: '0'
+query_operator: OR
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none
+facet_configs: {  }

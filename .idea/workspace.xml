@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34caa5e8-094b-40b5-9ccc-5ac223a67aed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/.htaccess" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/README.txt" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/automated_cron.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.adminimal_theme_breadcrumbs.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.adminimal_theme_content.yml" />
@@ -30,6 +28,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.pennlib_powered.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.pennlib_search.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.pennlib_tools.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.role.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.seven_breadcrumbs.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.seven_content.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/block.block.seven_help.yml" />
@@ -88,7 +87,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.node.search_result.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.node.teaser.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.node.token.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.page_variant.token.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.paragraph.preview.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.paragraph.token.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/core.entity_view_mode.shortcut.token.yml" />
@@ -106,6 +104,17 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/diff.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/editor.editor.basic_html.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/editor.editor.full_html.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.collection_responsibility.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.department.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.division.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.language.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.library.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.role.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.subject_specialty.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.team.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet.technology_speciality.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet_source.search_api_views__staff_search__block_1.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/facets.facet_source.search_api_views__staff_search__page_1.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.block_content.basic.body.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.comment.comment.comment_body.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.node.article.body.yml" />
@@ -113,6 +122,34 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.node.article.field_image.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.node.article.field_tags.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.node.page.body.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_additional_info.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_bio.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_collection_responsibility.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_department.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_digital_methods.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_division.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_email_address.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_fax.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_first_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_interest.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_languages.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_last_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_leadership_level.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_liaison_responsibility.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_library.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_middle_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_mobile.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_office.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_pennkey.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_phone.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_rank.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_role.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_screenname.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_subject_specialty.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_team.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_technology_specialty.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_title.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.field_tool_expertise.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.field.user.user.user_picture.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.block_content.body.yml" />
@@ -121,6 +158,34 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.node.comment.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.node.field_image.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.node.field_tags.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_additional_info.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_bio.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_collection_responsibility.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_department.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_digital_methods.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_division.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_email_address.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_fax.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_first_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_interest.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_languages.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_last_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_leadership_level.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_liaison_responsibility.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_library.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_middle_name.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_mobile.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_office.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_pennkey.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_phone.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_rank.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_role.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_screenname.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_subject_specialty.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_team.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_technology_specialty.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_title.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.field_tool_expertise.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field.storage.user.user_picture.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/field_ui.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/file.settings.yml" />
@@ -134,11 +199,24 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/image.style.medium.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/image.style.thumbnail.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/menu_ui.settings.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.examples.default.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.default.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.family.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.formal.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.full.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.given.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.name_format.short_full.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/name.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/node.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/node.type.article.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/node.type.page.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/page_manager.page.node_view.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/page_manager.page.staff_seach.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/page_manager.page_variant.staff_panel_layout.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pathauto.pattern.basic_page.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pathauto.pattern.taxonomy_term.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pathauto.pattern.user.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pathauto.pattern.user_profiles.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pathauto.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/pennlib.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/rdf.mapping.comment.comment.yml" />
@@ -149,6 +227,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search.page.node_search.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search.page.user_search.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search.settings.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search_api.index.staff.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search_api.server.solr.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search_api.settings.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/search_api_solr.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/seven.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/shortcut.set.default.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/simple_sitemap.settings.yml" />
@@ -194,7 +276,18 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/system.theme.global.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/system.theme.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.settings.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.collection_responsibilities.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.departments.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.digital_methods.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.divisions.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.languages.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.libraries.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.rank.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.roles.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.subject_specialities.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.tags.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.teams.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/taxonomy.vocabulary.tools.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/text.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/tour.tour.views-ui.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/update.settings.yml" />
@@ -203,6 +296,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.administrator.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.anonymous.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.authenticated.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.hr_department.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.staff.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.role.web_admin.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/user.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.settings.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.archive.yml" />
@@ -213,225 +309,12 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.files.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.frontpage.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.glossary.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.staff_search.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.taxonomy_term.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.user_admin_people.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.who_s_new.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/default/config/sync/views.view.who_s_online.yml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/automated_cron.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_breadcrumbs.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_content.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_help.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_local_actions.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_login.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_messages.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_page_title.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_primary_local_tasks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.adminimal_theme_secondary_local_tasks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.footer.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.footercopyright.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.mainnav.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_account_menu.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_branding.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_breadcrumbs.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_content.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_help.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_local_actions.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_local_tasks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_messages.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_page_title.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_powered.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_search.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.pennlib_tools.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_breadcrumbs.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_content.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_help.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_local_actions.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_login.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_messages.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_page_title.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_primary_local_tasks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block.block.seven_secondary_local_tasks.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/block_content.type.basic.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/ckeditor_media_embed.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/coffee.configuration.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/comment.type.comment.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/contact.form.feedback.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/contact.form.personal.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/contact.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.base_field_override.node.page.promote.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.fallback.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_date.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_datetime.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_month.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_time.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_week.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_year.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.html_yearless_date.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.long.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.medium.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.date_format.short.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_display.block_content.basic.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_display.comment.comment.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_display.node.article.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_display.node.page.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_display.user.user.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_form_mode.user.register.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.block_content.basic.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.comment.comment.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.node.article.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.node.article.rss.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.node.article.teaser.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.node.page.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.node.page.teaser.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.user.user.compact.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_display.user.user.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.block.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.block_content.full.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.block_content.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.comment.full.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.comment.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.contact_message.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.file.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.menu_link_content.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.diff.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.full.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.rss.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.search_index.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.search_result.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.teaser.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.node.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.page_variant.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.paragraph.preview.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.paragraph.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.shortcut.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.taxonomy_term.full.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.taxonomy_term.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.tour.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.user.compact.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.user.full.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.entity_view_mode.user.token.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.extension.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/core.menu.static_menu_link_overrides.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/dblog.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/devel.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/diff.plugins.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/diff.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/editor.editor.basic_html.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/editor.editor.full_html.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.block_content.basic.body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.comment.comment.comment_body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.node.article.body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.node.article.comment.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.node.article.field_image.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.node.article.field_tags.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.node.page.body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.field.user.user.user_picture.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.block_content.body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.comment.comment_body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.node.body.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.node.comment.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.node.field_image.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.node.field_tags.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field.storage.user.user_picture.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/field_ui.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/file.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/filter.format.basic_html.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/filter.format.full_html.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/filter.format.plain_text.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/filter.format.restricted_html.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/filter.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/image.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/image.style.large.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/image.style.medium.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/image.style.thumbnail.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/menu_ui.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/node.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/node.type.article.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/node.type.page.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/page_manager.page.node_view.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/pathauto.pattern.basic_page.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/pathauto.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/pennlib.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/rdf.mapping.comment.comment.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/rdf.mapping.node.article.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/rdf.mapping.node.page.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/rdf.mapping.taxonomy_term.tags.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/rdf.mapping.user.user.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/search.page.node_search.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/search.page.user_search.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/search.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/seven.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/shortcut.set.default.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/simple_sitemap.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/stage_file_proxy.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.comment_publish_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.comment_save_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.comment_unpublish_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_delete_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_make_sticky_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_make_unsticky_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_promote_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_publish_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_save_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_unpromote_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.node_unpublish_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.pathauto_update_alias_node.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.pathauto_update_alias_user.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.user_add_role_action.administrator.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.user_block_user_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.user_cancel_user_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.user_remove_role_action.administrator.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.action.user_unblock_user_action.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.authorize.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.cron.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.date.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.diff.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.file.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.image.gd.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.image.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.logging.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.mail.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.maintenance.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.account.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.admin.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.devel.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.footer.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.main-nav.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.main.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.menu.tools.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.performance.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.rss.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.site.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.theme.global.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/system.theme.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/taxonomy.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/taxonomy.vocabulary.tags.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/text.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/tour.tour.views-ui.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/update.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.flood.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.mail.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.role.administrator.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.role.anonymous.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.role.authenticated.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/user.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.settings.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.archive.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.block_content.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.comments_recent.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.content.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.content_recent.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.files.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.frontpage.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.glossary.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.taxonomy_term.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.user_admin_people.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.who_s_new.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/default/config_m1XsGrr1mSLL/sync/views.view.who_s_online.yml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -453,11 +336,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.local.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.local.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/default/settings.local.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75206614">
-              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.0">
+              <caret line="132" column="2" selection-start-line="132" selection-start-column="2" selection-end-line="132" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site-settings.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/default/site-settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.08264463">
+              <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -472,6 +365,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/sites/default/settings.local.php" />
+        <option value="$PROJECT_DIR$/sites/default/site-settings.php" />
       </list>
     </option>
   </component>
@@ -484,9 +378,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1123" />
+    <option name="x" value="592" />
     <option name="y" value="59" />
-    <option name="width" value="1407" />
+    <option name="width" value="1938" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -513,7 +407,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -566,6 +459,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -589,28 +483,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1123" y="59" width="1407" height="877" extended-state="0" />
+    <frame x="592" y="59" width="1938" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2521097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -623,8 +517,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sites/default/settings.local.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75206614">
-          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="132" column="2" selection-start-line="132" selection-start-column="2" selection-end-line="132" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/default/site-settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08264463">
+          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
           <folding />
         </state>
       </provider>

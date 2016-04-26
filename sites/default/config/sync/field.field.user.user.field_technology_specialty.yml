@@ -1,0 +1,28 @@
+uuid: 92a82561-5e18-4836-927c-f59a555da43f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_technology_specialty
+    - taxonomy.vocabulary.subject_specialities
+  module:
+    - user
+id: user.user.field_technology_specialty
+field_name: field_technology_specialty
+entity_type: user
+bundle: user
+label: 'Technology Specialty'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subject_specialities: subject_specialities
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

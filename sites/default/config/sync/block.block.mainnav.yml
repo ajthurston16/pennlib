@@ -1,6 +1,6 @@
 uuid: ee78c066-b591-414b-9e2c-442ca363eb36
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - tb_megamenu
@@ -8,8 +8,8 @@ dependencies:
     - pennlib
 id: mainnav
 theme: pennlib
-region: '-1'
-weight: -4
+region: navigation
+weight: -8
 provider: null
 plugin: 'tb_megamenu_menu_block:main-nav'
 settings:

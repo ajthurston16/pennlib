@@ -1,0 +1,28 @@
+uuid: a2d8d8e8-b55b-4e7b-add3-d79cd0d7ce28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_library
+    - taxonomy.vocabulary.libraries
+  module:
+    - user
+id: user.user.field_library
+field_name: field_library
+entity_type: user
+bundle: user
+label: Library
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      libraries: libraries
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

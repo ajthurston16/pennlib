@@ -1,0 +1,14 @@
+uuid: bae441a1-7c0a-486a-a215-7e7541c63fd0
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user_profiles
+label: 'User Profiles'
+type: 'canonical_entities:user'
+pattern: 'library-info/staff/[user:field_last_name]'
+selection_criteria: {  }
+selection_logic: and
+weight: -8
+relationships: {  }

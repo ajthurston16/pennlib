@@ -1,16 +1,8 @@
 custom:
   -
     path: /
-    priority: !!float 1
-entity_types:
-  node_type:
-    menu_landing_page:
-      index: 1
-      priority: 0.5
-  menu:
-    main-nav:
-      index: 0
-      priority: 0.5
+    priority: 1
+entity_types: {  }
 settings:
   max_links: 2000
   cron_generate: true

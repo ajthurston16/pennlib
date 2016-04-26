@@ -1,0 +1,28 @@
+uuid: 1d606cfd-f473-4e85-a3e4-aa5dcd4646be
+langcode: en
+status: true
+dependencies: {  }
+id: role
+name: Role
+url_alias: role
+weight: 0
+show_only_one_result: false
+field_identifier: roles
+query_type_name: null
+facet_source_id: 'search_api_views:staff_search:page_1'
+widget: links
+widget_configs:
+  show_numbers: '1'
+query_operator: OR
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none
+facet_configs: {  }
