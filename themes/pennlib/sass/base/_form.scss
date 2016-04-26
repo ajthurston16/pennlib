@@ -56,21 +56,93 @@ input[type="search"] {
   box-sizing: border-box;
 }
 
+$fieldset-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
 fieldset {
   font-family: $body-text-font-family;
   border: 1px solid $bear-grey;
   background: white;
-  border-radius: 5px;
   padding: 15px;
-  color: $bear-greyer;
+
+  -webkit-box-shadow: $fieldset-box-shadow;
+  -moz-box-shadow: $fieldset-box-shadow;
+  box-shadow: $fieldset-box-shadow;
 }
 
 fieldset legend {
-  background: $bear-grey;
-  padding: 5px 10px ;
-  border-radius: 5px;
+  color: $penn-red;
+  font-weight: bold;
+  padding: 5px 15px ;
   margin-left: 20px;
 }
+
+.fieldgroup {
+  box-shadow: none;
+}
+
+.description {
+  color: $bear-greyer;
+}
+
+.machine-name-value  {
+  margin-right: 5px;
+}
+
+.form-required {
+  &::before {
+    content: '*';
+    color: $persian-red;
+    margin-right: 3px;
+  }
+}
+
+.form-item {
+  margin-bottom: 10px;
+
+  label:not(.option) {
+    color: $black;
+    font-weight: bold;
+    display: block;
+    vertical-align: top;
+  }
+}
+
+$form-left-width: 30%;
+@include breakpoint($breakpoint-medium-width) {
+  .form-item {
+
+    label:not(.option):not([for^="edit-text-format-value"]) {
+      display: inline-block;
+      width: $form-left-width;
+      text-align: right;
+      padding-right: 5px;
+    }
+
+    .form-managed-file,
+    //&.form-item-text-format-value div, //WYSIWYG area
+    &.form-item-textarea div {
+      display: inline-block;
+    }
+
+    .description,
+    .form-checkbox,
+    .form-radio,
+    //.filter-wrapper, //WYSIWYG filter text
+    .password-strength,
+    div.password-confirm {
+      margin-left: $form-left-width;
+    }
+
+    .password-strength {
+      max-width: 50%;
+    }
+  }
+
+  .form-submit,
+  .fieldgroup legend {
+    margin-left: $form-left-width;
+  }
+}
+
 //
 // Reusable classes
 //

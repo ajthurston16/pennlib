@@ -255,15 +255,36 @@ fieldset {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   border: 1px solid #e6e4e5;
   background: white;
-  border-radius: 5px;
   padding: 15px;
-  color: #837B80; }
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15); }
 
 fieldset legend {
-  background: #e6e4e5;
-  padding: 5px 10px;
-  border-radius: 5px;
+  color: #A30600;
+  font-weight: bold;
+  padding: 5px 15px;
   margin-left: 20px; }
+
+.fieldgroup {
+  box-shadow: none; }
+
+.description {
+  color: #837B80; }
+
+.machine-name-value {
+  margin-right: 5px; }
+
+.form-required::before {
+  content: '*';
+  color: #D13737;
+  margin-right: 3px; }
+
+.form-item {
+  margin-bottom: 10px; }
+  .form-item label:not(.option) {
+    color: #000000;
+    font-weight: bold;
+    display: block;
+    vertical-align: top; }
 
 body {
   margin: 0;
@@ -1046,19 +1067,26 @@ body {
 .wrapper--footer {
   background-color: #031b51; }
 
-@media (min-width: 75em) {
-  body.fluid-bear .site-header,
-  body.fluid-bear .breadcrumbs-wrapper,
-  body.fluid-bear .site-footer,
-  body.fluid-bear h1.main__title,
-  body.fluid-bear .breadcrumbs {
-    padding-left: 20px;
-    padding-right: 20px; }
-  body.fluid-bear:not(.page-panels) h1.main__title {
-    padding-left: 0;
-    padding-right: 0; } }
-
 @media (min-width: 50em) {
+  .form-item label:not(.option):not([for^="edit-text-format-value"]) {
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+    padding-right: 5px; }
+  .form-item .form-managed-file,
+  .form-item.form-item-textarea div {
+    display: inline-block; }
+  .form-item .description,
+  .form-item .form-checkbox,
+  .form-item .form-radio,
+  .form-item .password-strength,
+  .form-item div.password-confirm {
+    margin-left: 30%; }
+  .form-item .password-strength {
+    max-width: 50%; }
+  .form-submit,
+  .fieldgroup legend {
+    margin-left: 30%; }
   .layout-sidebar-first main {
     zoom: 1;
     float: left;
@@ -1254,6 +1282,18 @@ body {
   #block-pennlib-account-menu {
     display: block;
     float: right; } }
+
+@media (min-width: 75em) {
+  body.fluid-bear .site-header,
+  body.fluid-bear .breadcrumbs-wrapper,
+  body.fluid-bear .site-footer,
+  body.fluid-bear h1.main__title,
+  body.fluid-bear .breadcrumbs {
+    padding-left: 20px;
+    padding-right: 20px; }
+  body.fluid-bear:not(.page-panels) h1.main__title {
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 25em) {
   .is-phone {
