@@ -41,7 +41,7 @@
   parent: 'Business'
 'Real Estate':
   parent: 'Business'
-'Social Impace':
+'Social Impact':
   parent: 'Business'
 'Statistics':
   parent: 'Business'
@@ -155,7 +155,7 @@
   parent: 'Social Sciences'
 'Archaeology':
   parent: 'Social Sciences'
-'City & Regionl Planning':
+'City & Regional Planning':
   parent: 'Social Sciences'
 'Communication':
   parent: 'Social Sciences'
@@ -173,7 +173,7 @@
   parent: 'Social Sciences'
 'Nonprofit Leadership':
   parent: 'Social Sciences'
-'Organizational Dymanics':
+'Organizational Dynamics':
   parent: 'Social Sciences'
 'Philosophy, Politics, & Economics':
   parent: 'Social Sciences'
