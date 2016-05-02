@@ -40,4 +40,7 @@
   parent: 'AFSCME Local 590'
 'Labor/Management Health & Safety Committee':
   parent: 'AFSCME Local 590'
-'Liaison Council':
+'Liaisons Council':
+'Preservation Committee':
+'Disaster Planning Task Force':
+  parent: 'Preservation Committee'
