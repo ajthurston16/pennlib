@@ -10,6 +10,7 @@ dependencies:
     - field.storage.user.field_phone
     - field.storage.user.user_picture
     - image.style.thumbnail
+    - system.menu.main-nav
     - taxonomy.vocabulary.subject_specialities
   module:
     - image
@@ -525,17 +526,19 @@ display:
           entity_field: vid
           plugin_id: bundle
       sorts:
-        field_first_name_value:
-          id: field_first_name_value
-          table: user__field_first_name
-          field: field_first_name_value
-          relationship: reverse__user__field_subject_specialty
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: none
           group_type: group
           admin_label: ''
           order: ASC
           exposed: false
           expose:
             label: ''
+          entity_type: taxonomy_term
+          entity_field: name
           plugin_id: standard
       title: 'Subject Specialists'
       header: {  }
@@ -628,6 +631,7 @@ display:
       display_extenders: {  }
       displays:
         page_1: page_1
+        subject_specialists_all: subject_specialists_all
       fields:
         name_2:
           id: name_2
@@ -865,6 +869,42 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user.permissions
+      tags:
+        - 'config:field.storage.user.field_email_address'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_office'
+        - 'config:field.storage.user.field_phone'
+        - 'config:field.storage.user.user_picture'
+  subject_specialists_all:
+    display_plugin: page
+    id: subject_specialists_all
+    display_title: All
+    position: 4
+    display_options:
+      display_extenders: {  }
+      arguments: {  }
+      defaults:
+        arguments: false
+        title: false
+      path: research/subject-specialists/all
+      display_description: ''
+      title: 'Subject Specialists: All'
+      menu:
+        type: normal
+        title: 'Subject Specialists'
+        description: ''
+        expanded: false
+        parent: 'menu_link_content:66559c82-3e9e-4e1d-ac4f-79795e747635'
+        weight: 0
+        context: '0'
+        menu_name: main-nav
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - user.permissions
       tags:
         - 'config:field.storage.user.field_email_address'
