@@ -1,0 +1,18 @@
+grid_with_featured_item:
+ label: Grid With Featured Item
+ category: Custom
+ path: plugins/layouts/grid_with_featured_item
+ template: grid-with-featured-item
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   main:
+     label: Main
+   secondary:
+     label: Secondary
+   lower-first:
+     label: Lower First
+   lower-second:
+     label: Lower Second
+   lower-third:
+     label: Lower Third
