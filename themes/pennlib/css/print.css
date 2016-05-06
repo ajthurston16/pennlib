@@ -435,6 +435,18 @@ blockquote {
 .site-sidebars .block {
   margin-bottom: 30px; }
 
+#breadcrumb ul {
+  padding: 0; }
+
+#breadcrumb li {
+  display: inline; }
+  #breadcrumb li.active a {
+    color: #837B80; }
+  #breadcrumb li:not(:first-child)::before {
+    content: "/";
+    padding: 0 3px;
+    color: #d2d5d8; }
+
 .button {
   -webkit-appearance: none;
   -moz-appearance: none;

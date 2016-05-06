@@ -1,0 +1,18 @@
+#breadcrumb {
+	ul {
+		padding: 0;
+	}
+	li {
+		display: inline;
+
+		&.active a {
+			color: $bear-greyer;
+		}
+
+		&:not(:first-child)::before {
+			content: "/";
+			padding: 0 3px;
+			color: $grey-skies;
+		}
+	}
+}
