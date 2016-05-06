@@ -10,9 +10,127 @@ grid_with_featured_item:
      label: Main
    secondary:
      label: Secondary
-   lower-first:
+   lower_first:
      label: Lower First
-   lower-second:
+   lower_second:
      label: Lower Second
-   lower-third:
+   lower_third:
      label: Lower Third
+grid_with_featured_item_full_body:
+ label: Grid With Featured Item Full Body
+ category: Custom
+ path: plugins/layouts/grid_with_featured_item_full_body
+ template: grid-with-featured-item-full-body
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   main:
+     label: Main
+   secondary:
+     label: Secondary
+   middle:
+     label: Middle
+   lower_first:
+     label: Lower First
+   lower_second:
+     label: Lower Second
+   lower_third:
+     label: Lower Third
+one_column_top_and_bottom_rows:
+ label: One Column Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/one_column_top_and_bottom_rows
+ template: one-column-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+     label: Top Row
+   center:
+     label: Center Column
+   bottom:
+     label: Bottom Row
+sidebar_left_top_and_bottom_rows:
+ label: Sidebar Left Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/sidebar_left_top_and_bottom_rows
+ template: sidebar-left-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+     label: Top Row
+   center:
+     label: Center
+   left:
+     label: Left Sidebar
+   bottom:
+        label: Bottom Row
+sidebar_right_cleared_top_and_bottom_rows:
+ label: Sidebar Right Cleared Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/sidebar_right_cleared_top_and_bottom_rows
+ template: sidebar-right-cleared-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+     label: Top Row
+   center:
+     label: Center
+   right:
+     label: Right Sidebar
+   bottom:
+        label: Bottom Row
+sidebar_right_top_and_bottom_rows:
+ label: Sidebar Right Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/sidebar_right_top_and_bottom_rows
+ template: sidebar-right-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+     label: Top Row
+   right:
+     label: Right Sidebar
+   center:
+     label: Center
+   bottom:
+     label: Bottom Row
+three_columns_top_and_bottom_rows:
+ label: Three Columns Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/three_columns_top_and_bottom_rows
+ template: three-columns-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+     label: Top Row
+   center:
+     label: Center
+   left:
+     label: Left Sidebar
+   right:
+     label: Right Sidebar
+   bottom:
+     label: Bottom Row
+two_columns_top_and_bottom_rows:
+ label: Two Columns Top and Bottom Rows
+ category: Custom
+ path: plugins/layouts/two_columns_top_and_bottom_rows
+ template: two-columns-top-and-bottom-rows
+ icon: icon.png
+ library: panels_layouts/panels_layouts
+ regions:
+   top:
+    label: Top Row
+   center:
+    label: Center
+   left:
+    label: Left Sidebar
+   right:
+    label: Right Sidebar
+   bottom:
+    label: Bottom Row

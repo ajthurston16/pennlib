@@ -1,0 +1,41 @@
+{#
+/**
+* @file
+* Template for Grid With Featured Item Full Body
+*
+* Variables:
+* - $css_id: An optional CSS id to use for the layout.
+* - $content: An array of content, each item in the array is keyed to one
+* panel of the layout. This layout supports the following sections:
+*/
+#}
+
+<div class="panel-display panel-display--grid-with-featured-item-full-body clearfix {% if classes %}{{ classes }}{% endif %}{% if class %}{{ class }}{% endif %}" {% if css_id %}{{ css_id }}{% endif %}>
+
+  <div class="container-fluid">
+
+    <div class="column main">
+      {{ content.main }}
+    </div>
+
+    <div class="column secondary">
+      {{ content.secondary }}
+    </div>
+
+    <div class="column middle row">
+      {{ content.middle }}
+    </div>
+
+    <div class="column lower-first">
+      {{ content.lower_first }}
+    </div>
+    <div class="column lower-second">
+      {{ content.lower_second }}
+    </div>
+    <div class="column lower-third">
+      {{ content.lower_third }}
+    </div>
+
+  </div>
+
+</div><!-- /.Grid With Featured Item Full Body  -->
