@@ -3,6 +3,8 @@ global_scripts:
   js:
     js/vendor/modernizr.js: { scope: header }
     js/scripts.js: { scope: header }
+    //use.typekit.net/afx1vrb.js: { scope: header }
+    js/typekit.js: { scope: header }
   dependencies:
     - core/jquery
     - core/drupal.ajax

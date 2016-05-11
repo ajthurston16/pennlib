@@ -252,7 +252,7 @@ input[type="search"] {
   box-sizing: border-box; }
 
 fieldset {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "proxima-nova", sans-serif;
   border: 1px solid #e6e4e5;
   background: white;
   padding: 15px;
@@ -477,28 +477,28 @@ p:last-child, p:last-of-type {
   margin-bottom: 0; }
 
 .tiny {
-  font-size: 10px;
-  font-size: 0.96rem; }
+  font-size: 8px;
+  font-size: 0.84rem; }
 
 .smaller {
-  font-size: 11px;
-  font-size: 1.12rem; }
+  font-size: 10px;
+  font-size: 0.98rem; }
 
 .small {
-  font-size: 14px;
-  font-size: 1.44rem; }
+  font-size: 13px;
+  font-size: 1.26rem; }
 
 .large {
-  font-size: 18px;
-  font-size: 1.76rem; }
+  font-size: 15px;
+  font-size: 1.54rem; }
 
 .larger {
-  font-size: 19px;
-  font-size: 1.92rem; }
+  font-size: 17px;
+  font-size: 1.68rem; }
 
 .largest {
-  font-size: 21px;
-  font-size: 2.08rem; }
+  font-size: 18px;
+  font-size: 1.82rem; }
 
 html {
   height: 100%;
@@ -508,7 +508,7 @@ body {
   font-size: 16px;
   font-size: 1.6rem;
   color: #000000;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "proxima-nova", sans-serif;
   line-height: 1.5; }
 
 a {
@@ -529,37 +529,37 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "proxima-nova", sans-serif;
   line-height: 1.2; }
 
 h1, .h1 {
-  font-size: 60px;
-  font-size: 6rem; }
+  font-size: 28px;
+  font-size: 2.8rem; }
 
 h1.u-hidden {
   position: relative !important;
   margin: 0.4em 0; }
 
 h2, .h2 {
-  font-size: 36px;
-  font-size: 3.6rem; }
+  font-size: 24px;
+  font-size: 2.38rem; }
 
 h3, .h3 {
-  font-size: 21px;
-  font-size: 2.08rem; }
+  font-size: 18px;
+  font-size: 1.82rem; }
 
 h4, .h4 {
-  font-size: 19px;
-  font-size: 1.92rem; }
+  font-size: 17px;
+  font-size: 1.68rem; }
 
 h5, .h5 {
-  font-size: 13px;
-  font-size: 1.328rem;
+  font-size: 12px;
+  font-size: 1.162rem;
   text-transform: uppercase; }
 
 h6, .h6 {
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 11px;
+  font-size: 1.05rem;
   text-transform: uppercase; }
 
 mark {
@@ -1053,6 +1053,9 @@ nav.ui.breadcrumb {
 
 body {
   background: #ffffff; }
+
+.page-title {
+  color: #b33300; }
 
 #main .site-sidebars {
   padding-top: 30px; }
