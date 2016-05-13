@@ -1089,7 +1089,8 @@ body {
     text-align: right;
     padding-right: 5px; }
   .form-item .form-managed-file,
-  .form-item.form-item-textarea div {
+  .form-item.form-item-textarea div,
+  .form-item[class*="form-item-message"] div {
     display: inline-block; }
   .form-item .description,
   .form-item .form-checkbox,
@@ -1098,8 +1099,9 @@ body {
   .form-item div.password-confirm {
     margin-left: 30%; }
   .form-item .password-strength {
-    max-width: 50%; }
-  .form-submit,
+    width: 280px;
+    max-width: 100%; }
+  .form-submit:first-child,
   .fieldgroup legend {
     margin-left: 30%; }
   .layout-sidebar-first main {

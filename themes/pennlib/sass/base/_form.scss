@@ -33,6 +33,7 @@ form {
   padding: 0;
 }
 
+$inputwidth: 280px;
 input[type="text"],
 input[type="password"] {
   border: 1px solid #d6d6d6;
@@ -43,7 +44,7 @@ input[type="password"] {
   color: $base-font-color;
   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
   padding: 8px;
-  width: 280px;
+  width: $inputwidth;
   max-width: 100%;
   &:focus {
     border-color: #66afe9;
@@ -111,6 +112,7 @@ $form-left-width: 30%;
   .form-item {
 
     label:not(.option):not([for^="edit-text-format-value"]) {
+      // Labels that aren't .option and aren't for a WYSIWYG area.
       display: inline-block;
       width: $form-left-width;
       text-align: right;
@@ -119,7 +121,8 @@ $form-left-width: 30%;
 
     .form-managed-file,
     //&.form-item-text-format-value div, //WYSIWYG area
-    &.form-item-textarea div {
+    &.form-item-textarea div,
+    &[class*="form-item-message"] div { //needed on textarea in contact form
       display: inline-block;
     }
 
@@ -133,11 +136,12 @@ $form-left-width: 30%;
     }
 
     .password-strength {
-      max-width: 50%;
+      width: $inputwidth;
+      max-width: 100%;
     }
   }
 
-  .form-submit,
+  .form-submit:first-child,
   .fieldgroup legend {
     margin-left: $form-left-width;
   }
