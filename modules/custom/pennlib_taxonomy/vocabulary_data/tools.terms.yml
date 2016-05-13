@@ -11,8 +11,6 @@
   parent: 'Communication'
 'Publishing':
   parent: 'Communication'
-'Collaboration':
-  parent: 'Communication'
 'Presentation':
   parent: 'Communication'
 'Productivity':
@@ -20,13 +18,13 @@
   parent: 'Productivity'
 'Research impact':
   parent: 'Productivity'
-'Data management':
+'Data Management':
 'Data Analysis':
-  parent: 'Data management'
+  parent: 'Data Management'
 'Transaction analysis':
-  parent: 'Data management'
+  parent: 'Data Management'
 'Mapping & spatial methods':
-  parent: 'Data management'
+  parent: 'Data Management'
 'Content management':
 'Authoring interactive works':
   parent: 'Content management'

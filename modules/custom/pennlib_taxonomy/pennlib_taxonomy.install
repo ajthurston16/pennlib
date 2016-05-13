@@ -1,4 +1,4 @@
-  <?php
+<?php
 // Programmatically create taxonomy terms for taxonomy vocabulary department on install.
 
 use Drupal\taxonomy\Entity\Term;
@@ -9,7 +9,7 @@ function pennlib_taxonomy_get_term_data($vocabulary) {
   return Yaml::parse($terms_file_path);
 }
 
-function pennlib_clean_term_for_url($term_name_url){
+function pennlib_clean_term_for_url($term_name_url) {
   $term_name_url = strtolower(preg_replace('/-+/', '-', preg_replace('/([^a-zA-Z0-9\-]+)/', '-', $term_name_url)));
   return $term_name_url;
 }
@@ -44,19 +44,21 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
           'format' => 'full_html',
         ],
       ];
-      if (!empty($termInfo['parent'])) {
-        if ($preexisting_terms[$termInfo['parent']]) {
-          $data['parent'] = [$preexisting_terms[$termInfo['parent']]];
+      if (!empty($termInfo)) {
+        if (!empty($termInfo['parent'])) {
+          if ($preexisting_terms[$termInfo['parent']]) {
+            $data['parent'] = [$preexisting_terms[$termInfo['parent']]];
+          }
+          else {
+            $message = "The parent term {$termInfo['parent']} did not exist when trying to create {$term_name} in vocabulary {$vocabulary}.";
+            drupal_set_message($message, 'error');
+            \Drupal::logger('pennlib_taxonomy')->error($message);
+          }
         }
-        else {
-          $message = "The parent term {$termInfo['parent']} did not exist when trying to create {$term_name} in vocabulary {$vocabulary}.";
-          drupal_set_message($message, 'error');
-          \Drupal::logger('pennlib_taxonomy')->error($message);
-        }
-      }
-      if (!empty($termInfo['fields'])) {
-        foreach ($termInfo['fields'] as $field_name => $field_value) {
-          $data[$field_name] = $field_value;
+        if (!empty($termInfo['fields'])) {
+          foreach ($termInfo['fields'] as $field_name => $field_value) {
+            $data[$field_name] = $field_value;
+          }
         }
       }
       $term = Term::create($data);
@@ -65,7 +67,8 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
     $preexisting_terms[$term->getName()] = $term->id();
     //clean and save taxonomy term name for url.
     $term_name_url = pennlib_clean_term_for_url($term_name);
-    \Drupal::service('path.alias_storage')->save("/taxonomy/term/" . $term->id(), "/" . $term_name_url, "en");
+    \Drupal::service('path.alias_storage')
+      ->save("/taxonomy/term/" . $term->id(), "/" . $term_name_url, "en");
   }
 }
 
