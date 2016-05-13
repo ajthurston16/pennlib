@@ -1,74 +1,92 @@
 # Tools Taxonomy terms.
-'Engaging students through technology':
-'Courseware':
-  parent: 'Engaging students through technology'
-'Equipment':
-  parent: 'Engaging students through technology'
-'Applications':
-  parent: 'Engaging students through technology'
-'Communication':
+'Access':
+'Accessibility':
+  parent: 'Access'
+'Off-Campus':
+  parent: 'Access'
+'Mobile Delivery':
+  parent: 'Access'
 'Collaboration':
-  parent: 'Communication'
-'Publishing':
-  parent: 'Communication'
+'Virtual Meetings':
+  parent: 'Collaboration'
+'Project Management':
+  parent: 'Collaboration'
+'Courseware':
+'Canvas':
+  parent: 'Courseware'
+'Other Courseware':
+  parent: 'Courseware'
+'Canvas Plugin':
+  parent: 'Courseware'
+'Data Tools':
+'Data Analysis & Cleanup':
+  parent: 'Data Tools'
+'Data Collection':
+  parent: 'Data Tools'
+'Data Management':
+  parent: 'Data Tools'
+'Mapping & Spacial Methods':
+  parent: 'Data Tools'
+'Structure Visualizer':
+  parent: 'Data Tools'
+'Design & Image Management':
+'Image Collections':
+  parent: 'Design & Image Management'
+'Image/Graphics Editing':
+  parent: 'Design & Image Management'
+'Digital Scholarship':
+'Text Editor':
+  parent: 'Digital Scholarship'
+'Text Mining: Topic Modelling':
+  parent: 'Digital Scholarship'
+'Text Mining: Text Analysis':
+  parent: 'Digital Scholarship'
+'Media Production':
+'Audio':
+  parent: 'Media Production'
+'Authoring Tools':
+  parent: 'Media Production'
+'Steaming Video':
+  parent: 'Media Production'
+'Video':
+  parent: 'Media Production'
 'Presentation':
-  parent: 'Communication'
 'Productivity':
+'Apps':
+  parent: 'Productivity'
+'Authoring Tools':
+  parent: 'Productivity'
+'Brainstorms and Mind-Mapping':
+  parent: 'Productivity'
+'Equipment':
+  parent: 'Productivity'
 'Organization':
   parent: 'Productivity'
-'Research impact':
-  parent: 'Productivity'
-'Data Management':
-'Data Analysis':
-  parent: 'Data Management'
-'Transaction analysis':
-  parent: 'Data Management'
-'Mapping & spatial methods':
-  parent: 'Data Management'
-'Content management':
-'Authoring interactive works':
-  parent: 'Content management'
-'Bibliographic management':
-  parent: 'Content management'
-'Image management':
-   parent: 'Content management'
-'Image/graphics editing':
-   parent: 'Content management'
-'Graphics':
-   parent: 'Content management'
 'Publishing':
-  parent: 'Content management'
-'Web development':
-  parent: 'Content management'
-'Text Editor':
-  parent: 'Content management'
-'Publishing':
-  parent: 'Content management'
-'Scholarly & social networking':
-  parent: 'Content management'
-'Digitization':
-  parent: 'Content management'
-'Tool Development':
-  parent: 'Content management'
-'Digital Scholarship':
-'Text mining: Topic modeling':
-  parent: 'Digital Scholarship'
-'Text mining: Text analysis':
-  parent: 'Digital Scholarship'
-'Visualizations':
-  parent: 'Digital Scholarship'
+'Authoring Tools':
+  parent: 'Publishing'
+'Permissions':
+  parent: 'Publishing'
+'Publishers':
+  parent: 'Publishing'
 'Research':
-'Databases':
+'Bibliographic & Research Management':
   parent: 'Research'
-'E-Resources':
+'Alerting Services':
   parent: 'Research'
-'Accessibility':
-'Assistive techonology':
-  parent: 'Accessibility'
-'Media production':
-'Audio':
-  parent: 'Media production'
-'Video':
-  parent: 'Media production'
-'Streaming video':
-  parent: 'Media production'
+'Census':
+  parent: 'Research'
+'Databases & Article Indexes':
+  parent: 'Research'
+'Professional Profiles':
+  parent: 'Research'
+'Social Media':
+'Web Content':
+'Text & Code Editor':
+  parent: 'Web Content'
+'Web Data':
+  parent: 'Web Content'
+'Web Design':
+  parent: 'Web Content'
+'Web Presentation':
+  parent: 'Web Content'
