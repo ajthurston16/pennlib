@@ -1,9 +1,10 @@
 footer {
-  color: $white;
-	padding: 30px 0;
-  a{
-	color:$baby-blue;
-  }
+	font-size: $sub-footer-font-size;
+	color: $white;
+	padding: 1em 0;
+	a {
+		color: $baby-blue;
+	}
 	nav {
 		ul {
 			margin: 0;
@@ -13,4 +14,9 @@ footer {
 			}
 		}
 	}
+}
+
+.wrapper--nav-footer {
+	border-top: 1px solid $silver;
+	box-shadow: inset 0 4.1667em 6.667em -1.667em rgba(20,44,55,.13),8.333em 0 0 -1.667em rgba(3,27,81,.3);
 }
