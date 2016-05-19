@@ -1,0 +1,36 @@
+{#
+/**
+* @file
+* Template for Three Columns Top and Bottom Rows.
+*
+* Variables:
+* - $css_id: An optional CSS id to use for the layout.
+* - $content: An array of content, each item in the array is keyed to one
+* panel of the layout. This layout supports the following sections:
+*/
+#}
+
+<div class="panel-display panel-display--three-column clearfix {% if classes %}{{ classes }}{% endif %}{% if class %}{{ class }}{% endif %}" {% if css_id %}{{ css_id }}{% endif %}>
+
+  <div class="container-fluid">
+
+    <div class="column top row">
+      {{ content.top }}
+    </div>
+
+    <div class="column center row">
+      {{ content.center }}
+    </div>
+    <div class="column left row">
+      {{ content.left }}
+    </div>
+    <div class="column right row">
+      {{ content.right }}
+    </div>
+    <div class="column bottom row">
+      {{ content.bottom }}
+    </div>
+
+  </div>
+
+</div><!-- /.Three Columns Top and Bottom Rows  -->

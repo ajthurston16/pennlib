@@ -1,0 +1,34 @@
+{#
+/**
+* @file
+* Template for Sidebar Left Top and Bottom Rows.
+*
+* Variables:
+* - $css_id: An optional CSS id to use for the layout.
+* - $content: An array of content, each item in the array is keyed to one
+* panel of the layout. This layout supports the following sections:
+*/
+#}
+
+<div class="panel-display panel-display--left-sidebar clearfix {% if classes %}{{ classes }}{% endif %}{% if class %}{{ class }}{% endif %}" {% if css_id %}{{ css_id }}{% endif %}>
+
+  <div class="container-fluid">
+
+    <div class="column top row">
+      {{ content.top }}
+    </div>
+    <div class="row">
+      <div class="column center">
+        {{ content.center }}
+      </div>
+      <div class="column left">
+        {{ content.left }}
+      </div>
+    </div>
+    <div class="column bottom row">
+      {{ content.bottom }}
+    </div>
+
+  </div>
+
+</div><!-- /.Sidebar Left Top and Bottom Rows  -->

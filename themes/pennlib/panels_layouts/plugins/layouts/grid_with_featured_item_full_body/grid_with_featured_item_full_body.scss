@@ -1,6 +1,6 @@
-@import "../panels";
+@import "../../../panels";
 
-.panel-display--grid-with-featured-item {
+.panel-display--grid-with-featured-item-full-body {
 
   .column.main {
     @include breakpoint($breakpoint-med-small-width) {

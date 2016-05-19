@@ -1,0 +1,12 @@
+panels_layouts:
+ version: VERSION
+ css:
+   theme:
+     plugins/layouts/grid_with_featured_item/grid_with_featured_item.css: {}
+     plugins/layouts/grid_with_featured_item_full_body/grid_with_featured_item_full_body.css: {}
+     plugins/layouts/one_column_top_and_bottom_rows/one_column_top_and_bottom_rows.css: {}
+     plugins/layouts/sidebar_left_top_and_bottom_rows/sidebar_left_top_and_bottom_rows.css: {}
+     plugins/layouts/sidebar_right_cleared_top_and_bottom_rows/sidebar_right_cleared_top_and_bottom_rows.css: {}
+     plugins/layouts/sidebar_right_top_and_bottom_rows/sidebar_right_top_and_bottom_rows.css: {}
+     plugins/layouts/three_columns_top_and_bottom_rows/three_columns_top_and_bottom_rows.css: {}
+     plugins/layouts/two_columns_top_and_bottom_rows/two_columns_top_and_bottom_rows.css: {}
