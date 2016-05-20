@@ -1,0 +1,23 @@
+uuid: 18dc6e86-5cd3-4bc7-b71e-e4cc2ae393d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_image_and_link
+    - node.type.menu_landing_page
+  module:
+    - field_collection
+id: node.menu_landing_page.field_carousel_image_and_link
+field_name: field_carousel_image_and_link
+entity_type: node
+bundle: menu_landing_page
+label: 'Carousel Image and Link'
+description: 'Images and links to go into the menu landing sliders.'
+required: false
+translatable: false
+default_value:
+  - {  }
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

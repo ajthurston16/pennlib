@@ -1,0 +1,32 @@
+uuid: c1b339b0-e0ad-4427-bfdc-a9296100d124
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.menu_landing_page.body
+    - field.field.node.menu_landing_page.field_carousel_image_and_link
+    - node.type.menu_landing_page
+  module:
+    - field_collection
+    - text
+    - user
+id: node.menu_landing_page.default
+targetEntityType: node
+bundle: menu_landing_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_carousel_image_and_link:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  links:
+    weight: 100
+hidden: {  }

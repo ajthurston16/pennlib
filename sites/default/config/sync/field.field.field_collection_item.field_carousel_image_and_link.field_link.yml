@@ -1,0 +1,23 @@
+uuid: 83b8f7ca-266b-4807-9f38-c6a050f4df4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_link
+    - field_collection.field_collection.field_carousel_image_and_link
+  module:
+    - link
+id: field_collection_item.field_carousel_image_and_link.field_link
+field_name: field_link
+entity_type: field_collection_item
+bundle: field_carousel_image_and_link
+label: Link
+description: 'Link associated with image for carousel. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
