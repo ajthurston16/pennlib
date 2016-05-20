@@ -1,16 +1,16 @@
-uuid: d73d76e1-fb11-432b-8b0b-2615a8fee2ee
+uuid: 035133cb-7c71-4dc0-90a9-b5d77f1d35ba
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.field_collection_item.field_images
-    - field_collection.field_collection.field_carousel_image_and_link
+    - field.storage.node.field_images
+    - node.type.page
   module:
     - image
-id: field_collection_item.field_carousel_image_and_link.field_images
+id: node.page.field_images
 field_name: field_images
-entity_type: field_collection_item
-bundle: field_carousel_image_and_link
+entity_type: node
+bundle: page
 label: Images
 description: ''
 required: false
@@ -18,7 +18,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: carousel
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

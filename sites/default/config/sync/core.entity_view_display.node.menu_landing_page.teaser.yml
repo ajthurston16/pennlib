@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.menu_landing_page.body
+    - field.field.node.menu_landing_page.field_carousel_image_and_link
+    - field.field.node.menu_landing_page.field_see_also_link
+    - field.field.node.menu_landing_page.panelizer
     - node.type.menu_landing_page
   module:
     - text
@@ -23,4 +26,7 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_carousel_image_and_link: true
+  field_see_also_link: true
+  panelizer: true

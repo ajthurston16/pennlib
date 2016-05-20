@@ -1,0 +1,19 @@
+uuid: 79327c3d-033b-4390-b586-d89f4f258fba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_raw_image_link
+    - field_collection.field_collection.field_carousel_image_and_link
+id: field_collection_item.field_carousel_image_and_link.field_raw_image_link
+field_name: field_raw_image_link
+entity_type: field_collection_item
+bundle: field_carousel_image_and_link
+label: 'Raw Image Link'
+description: 'please put either the entire external url or the relative path to an internal node.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
