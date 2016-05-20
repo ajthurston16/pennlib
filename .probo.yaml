@@ -14,9 +14,5 @@ steps:
     command: "echo \"require_once('sites/default/site-settings.php');\" >> /var/www/html/sites/default/settings.php"
   - name: Load configuration
     command: "drush config-import -y"
-  - name: Running module database updates
-    command: 'drush --root="/var/www/pennlib/webroot" updb -y'
-  - name: Revert all features
-    command: 'drush --root="/var/www/pennlib/webroot" fra -y'
   - name: Create a one time login
     command: "drush uli"
