@@ -3,16 +3,23 @@ assets:
 steps:
   - name: Update Composer
     command: '/usr/local/bin/composer self-update'
-  - name: Install drush-master for d8
+  - name: Get proper drush version
     command: 'composer global require drush/drush:dev-master ; cd /usr/local/bin ; mv drush drush7 ; ln -s $HOME/.composer/vendor/bin/drush drush'
   - name: Probo site setup
     plugin: Drupal
     database: dev.sql.gz
     databaseGzipped: true
-    clearCaches: false # drush cc all is not available for d8. Use cache-rebuild.
-  - name: Append site-settings.php #append a hash_salt for probs to use drush 8x plugin
+    databaseUpdates: false
+    clearCaches: false
+  - name: Append site-settings.php
     command: "echo \"require_once('sites/default/site-settings.php');\" >> /var/www/html/sites/default/settings.php"
-  - name: Load configuration
-    command: "drush config-import -y"
-  - name: Create a one time login
-    command: "drush uli"
+  - name: Earlier cache clear
+    command: "drush --root='/var/www/html/' cr"
+  - name: Import configuration
+    command: "sleep 3 ; drush --root='/var/www/html/' config-import --source='/var/www/html/sites/default/config/sync' -y"
+  - name: Database Updates
+    command: "drush --root='/var/www/html/' updb -y"
+  - name: Rebuild caches
+    command: "drush --root='/var/www/html/' cache-rebuild"
+  - name: Generate login link
+    command: "drush --root='/var/www/html/' uli"
