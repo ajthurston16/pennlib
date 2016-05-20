@@ -63,17 +63,33 @@ display:
         options:
           offset: 0
       style:
-        type: default
+        type: html_list
         options:
           grouping:
             -
               field: name
               rendered: true
               rendered_strip: false
-          row_class: ''
-          default_row_class: true
+          row_class: specialist
+          default_row_class: false
+          type: ul
+          wrapper_class: subject
+          class: ''
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline:
+            name: name
+            field_first_name: field_first_name
+            field_last_name: field_last_name
+            user_picture: user_picture
+            view_user: view_user
+            field_office: field_office
+            field_phone: field_phone
+            field_email_address: field_email_address
+          separator: ''
+          hide_empty: false
       fields:
         name:
           id: name
@@ -361,7 +377,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -405,14 +421,14 @@ display:
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
+            nl2br: true
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -438,7 +454,7 @@ display:
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
+          multi_type: ul
           separator: ', '
           field_api_classes: false
           plugin_id: field
@@ -450,7 +466,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -492,7 +508,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: telephone_link
-          settings: {  }
+          settings:
+            title: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -514,8 +531,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ field_phone }}<span class="separator">|</span>{{ field_email_address }}'
             make_link: false
             path: ''
             absolute: false
@@ -659,6 +676,7 @@ display:
           entity_field: name
           plugin_id: string
       display_extenders: {  }
+      css_class: subjspec-wrapper
     cache_metadata:
       max-age: -1
       contexts:
@@ -821,6 +839,9 @@ display:
         arguments: false
         sorts: false
         relationships: false
+        style: false
+        row: false
+        css_class: false
       arguments:
         parent:
           id: parent
@@ -877,6 +898,20 @@ display:
           entity_field: name
           plugin_id: standard
       relationships: {  }
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: tab
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      css_class: tabgroup
     cache_metadata:
       max-age: -1
       contexts:

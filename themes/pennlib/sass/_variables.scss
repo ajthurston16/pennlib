@@ -170,10 +170,10 @@ $table-cell-text-align: left; // LTR
 //
 $tabs-container-margin: 1em 0 1.5em;
 $tabs-container-bg-color: transparent;
-$tabs-border-color: none;
-$tabs-height: 40px;
-$tabs-bg-color: transparent;
-$tabs-bg-color-hover: darken($tabs-bg-color, 5%);
+$tabs-border-color: $silver;
+$tabs-height: 33px;
+$tabs-bg-color: $concrete;
+$tabs-bg-color-hover: $danube;
 $tabs-border-radius: $border-radius;
 
 

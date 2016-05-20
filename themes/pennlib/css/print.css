@@ -241,12 +241,12 @@ body.with-sticky-footer .wrapper--main {
 .tabs-secondary {
   *zoom: 1;
   position: relative;
-  height: 40px;
+  height: 33px;
   background-color: transparent;
   width: 100%;
   padding: 0;
   margin: 1em 0 1.5em;
-  border-bottom: 1px solid none;
+  border-bottom: 1px solid #cccccc;
   white-space: nowrap;
   background: #eaeaea; }
   .tabs-primary:before, .tabs-primary:after,
@@ -262,17 +262,17 @@ body.with-sticky-footer .wrapper--main {
     display: block;
     float: left;
     text-align: center;
-    background-color: transparent;
-    line-height: 40px;
-    height: 40px;
+    background-color: #F2F2F2;
+    line-height: 33px;
+    height: 33px;
     padding: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border-right: 1px solid none;
+    border-right: 1px solid #cccccc;
     transition: background-color 0.5s ease; }
     .tabs-primary li:hover,
     .tabs-secondary li:hover {
-      background-color: transparent; }
+      background-color: #619fcd; }
   .tabs-primary a,
   .tabs-secondary a {
     color: #000000;
@@ -284,6 +284,53 @@ body.with-sticky-footer .wrapper--main {
     .tabs-primary a.is-active,
     .tabs-secondary a.is-active {
       border-bottom: 1px solid #000000; }
+
+.tab {
+  display: block;
+  float: left;
+  text-align: center;
+  background-color: #F2F2F2;
+  line-height: 33px;
+  height: 33px;
+  padding: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-right: 1px solid #cccccc;
+  transition: background-color 0.5s ease;
+  border: 1px solid #cccccc; }
+  .tab:hover {
+    background-color: #619fcd; }
+  .tab:hover {
+    background-color: #619fcd;
+    border-color: #3679ab; }
+    .tab:hover a {
+      color: #ffffff; }
+  .tab a {
+    color: #000000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: color 0.3s ease;
+    padding: 0 1em; }
+    .tab a.is-active {
+      border-bottom: 1px solid #000000; }
+
+.tabgroup {
+  *zoom: 1;
+  position: relative;
+  height: 33px;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+  margin: 1em 0 1.5em;
+  border-bottom: 1px solid #cccccc;
+  white-space: nowrap;
+  height: auto; }
+  .tabgroup:before, .tabgroup:after {
+    content: '';
+    display: table; }
+  .tabgroup:after {
+    clear: both; }
 
 p:first-child, p:first-of-type {
   margin-top: 0; }
