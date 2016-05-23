@@ -60,21 +60,6 @@ header nav {
      a{
        padding: 20px 0;
      }
-      &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid $zivtech-dark;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        bottom: -30px;
-        transition: all .2s ease-in-out;
-        opacity: 0;
-      }
       &:hover {
         &:after {
           opacity: .8;
@@ -131,7 +116,7 @@ header nav {
       }
     }
   }
-  /*.main-nav__sub {
+  .main-nav__sub {
     li.parent > a:after,
     li.parent:hover > a:after {
       content: "";
@@ -151,7 +136,7 @@ header nav {
     li.parent:after {
       display: none;
     }
-  }*/
+  }
   .main-menu--level-three {
     top: -10px;
   }

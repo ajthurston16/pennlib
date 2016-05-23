@@ -726,28 +726,7 @@ header nav {
   outline: 0;
   margin-left: 20px;
   max-width: 75em;
-  margin: 0 auto;
-  /*.main-nav__sub {
-    li.parent > a:after,
-    li.parent:hover > a:after {
-      content: "";
-      height: 0;
-      width: 0;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 5px solid $zivtech-white;
-      @include align(v);
-      right: -5px;
-      bottom: 0;
-      left: inherit;
-      margin: 3px 0 0 0;
-      display: inline-block !important;
-      opacity: 1 !important;
-    }
-    li.parent:after {
-      display: none;
-    }
-  }*/ }
+  margin: 0 auto; }
   header nav .nolink {
     cursor: pointer; }
   header nav ul.main-nav {
@@ -784,20 +763,6 @@ header nav {
       display: inline-block; }
       header nav ul.main-nav li.parent a {
         padding: 20px 0; }
-      header nav ul.main-nav li.parent:after {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid #261D19;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        bottom: -30px;
-        transition: all .2s ease-in-out;
-        opacity: 0; }
       header nav ul.main-nav li.parent:hover:after {
         opacity: .8;
         bottom: 5px; }
@@ -844,6 +809,27 @@ header nav {
             color: #728EAD; }
           header nav ul.main-nav li.parent ul.main-nav__sub .main-nav__item:after {
             display: none; }
+  header nav .main-nav__sub li.parent > a:after,
+  header nav .main-nav__sub li.parent:hover > a:after {
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid white;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: -5px;
+    bottom: 0;
+    left: inherit;
+    margin: 3px 0 0 0;
+    display: inline-block !important;
+    opacity: 1 !important; }
+  header nav .main-nav__sub li.parent:after {
+    display: none; }
   header nav .main-menu--level-three {
     top: -10px; }
 
