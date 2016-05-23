@@ -3,7 +3,7 @@
     <h2 class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
     <ul>
     {% for item in breadcrumb %}
-      <li>
+      <li {% if loop.last %} class="active" {% endif %}>
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
         {% else %}

@@ -108,10 +108,19 @@
   }
 }
 
+@mixin bear-button-gradient($color1: $button-primary-color, $color2: $button-primary-color, $font-color: $button-primary-font-color, $radius: $button-border-radius, $padding: $button-padding) {
+  @include bear-button($color1, $font-color, $radius, $padding);
+  @include bear-linear-gradient($color1, $color2);
+  border-color: darken($color2, 20%);
+  &:hover {
+    @include bear-linear-gradient($color2, $color1);
+  }
+}
+
 @mixin bear-linear-gradient($fromColor, $toColor) {
   background-color: $toColor;
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
-  background-image: linear-gradient(top, $fromColor, $toColor);
+  background-image: linear-gradient(to bottom, $fromColor, $toColor);
 }
 
 // element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
