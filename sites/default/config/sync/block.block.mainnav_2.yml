@@ -1,0 +1,24 @@
+uuid: 3f58df98-9068-45d8-b3be-6b129ab36669
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main-nav
+  module:
+    - system
+  theme:
+    - pennlib
+id: mainnav_2
+theme: pennlib
+region: navigation
+weight: null
+provider: null
+plugin: 'system_menu_block:main-nav'
+settings:
+  id: 'system_menu_block:main-nav'
+  label: 'Main Nav'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

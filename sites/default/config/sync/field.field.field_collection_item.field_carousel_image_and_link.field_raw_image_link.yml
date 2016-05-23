@@ -10,7 +10,7 @@ field_name: field_raw_image_link
 entity_type: field_collection_item
 bundle: field_carousel_image_and_link
 label: 'Raw Image Link'
-description: 'please put either the entire external url or the relative path to an internal node.'
+description: 'please put either the entire external url or the relative path to an internal node. For example do not use <front> just use /    If it is an external link please put in full path: for example: http://www.google.com'
 required: false
 translatable: false
 default_value: {  }

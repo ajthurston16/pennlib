@@ -9,7 +9,7 @@ _core:
 id: pennlib_local_actions
 theme: pennlib
 region: content
-weight: -7
+weight: -5
 provider: null
 plugin: local_actions_block
 settings:

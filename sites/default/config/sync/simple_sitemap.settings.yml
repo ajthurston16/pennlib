@@ -7,6 +7,10 @@ entity_types:
     menu_landing_page:
       index: 1
       priority: 0.5
+  menu:
+    main-nav:
+      index: 0
+      priority: 0.5
 settings:
   max_links: 2000
   cron_generate: true

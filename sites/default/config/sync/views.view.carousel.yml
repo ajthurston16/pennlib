@@ -261,7 +261,7 @@ display:
           relationship: field_carousel_image_and_link_node
           group_type: group
           admin_label: ''
-          default_action: ignore
+          default_action: default
           exception:
             value: all
             title_enable: false
