@@ -499,6 +499,9 @@ blockquote {
 .slick-dots {
   display: none !important; }
 
+.slick--skin--boxed .slide__content {
+  border: none; }
+
 footer {
   font-size: 12.88px;
   color: #ffffff;
