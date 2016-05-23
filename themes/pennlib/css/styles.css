@@ -726,7 +726,28 @@ header nav {
   outline: 0;
   margin-left: 20px;
   max-width: 75em;
-  margin: 0 auto; }
+  margin: 0 auto;
+  /*.main-nav__sub {
+    li.parent > a:after,
+    li.parent:hover > a:after {
+      content: "";
+      height: 0;
+      width: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid $zivtech-white;
+      @include align(v);
+      right: -5px;
+      bottom: 0;
+      left: inherit;
+      margin: 3px 0 0 0;
+      display: inline-block !important;
+      opacity: 1 !important;
+    }
+    li.parent:after {
+      display: none;
+    }
+  }*/ }
   header nav .nolink {
     cursor: pointer; }
   header nav ul.main-nav {
@@ -823,27 +844,6 @@ header nav {
             color: #728EAD; }
           header nav ul.main-nav li.parent ul.main-nav__sub .main-nav__item:after {
             display: none; }
-  header nav .main-nav__sub li.parent > a:after,
-  header nav .main-nav__sub li.parent:hover > a:after {
-    content: "";
-    height: 0;
-    width: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid white;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    right: -5px;
-    bottom: 0;
-    left: inherit;
-    margin: 3px 0 0 0;
-    display: inline-block !important;
-    opacity: 1 !important; }
-  header nav .main-nav__sub li.parent:after {
-    display: none; }
   header nav .main-menu--level-three {
     top: -10px; }
 
@@ -853,18 +853,21 @@ header nav {
   #sidr-bttn #responsive-menu-button,
   #mobile-nav #responsive-menu-button {
     display: block;
-    width: 25px;
-    height: 30px;
+    width: 45px;
+    height: 40px;
+    padding-left: 8px;
+    padding-top: 3px;
     position: relative;
-    float: right; }
+    float: right;
+    background-color: #cccccc; }
   #sidr-bttn span,
   #mobile-nav span {
     display: block;
     position: relative;
     background: #261D19;
-    height: 2px;
+    height: 5px;
     transition: all 0.3s cubic-bezier(0.7, 0, 0.36, 0.63);
-    width: 22px;
+    width: 30px;
     top: 15px; }
     #sidr-bttn span:before, #sidr-bttn span:after,
     #mobile-nav span:before,
@@ -872,17 +875,17 @@ header nav {
       content: "";
       display: block;
       background: #261D19;
-      height: 2px;
+      height: 5px;
       margin-top: 0;
       position: absolute;
-      width: 22px;
+      width: 30px;
       transition: all 0.3s cubic-bezier(0.7, 0, 0.36, 0.63); }
     #sidr-bttn span:before,
     #mobile-nav span:before {
-      top: 7px; }
+      top: 8px; }
     #sidr-bttn span:after,
     #mobile-nav span:after {
-      top: -7px; }
+      top: -8px; }
 
 .sidr-animating .wrapper--header {
   position: absolute; }
@@ -922,8 +925,7 @@ h2.sidr-class-visually-hidden {
             -ms-transform: rotate(-45deg);
                 transform: rotate(-45deg); }
 
-body
-.responsive-nav {
+body .responsive-nav {
   display: block;
   overflow: hidden; }
 
@@ -1260,6 +1262,8 @@ body {
     margin-right: 0%; }
   .wrapper--header.compressed header nav ul.main-nav {
     margin: 5px 0; }
+  body .responsive-nav {
+    display: none; }
   #block-pennlib-account-menu {
     display: block;
     float: right; } }

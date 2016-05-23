@@ -131,7 +131,7 @@ header nav {
       }
     }
   }
-  .main-nav__sub {
+  /*.main-nav__sub {
     li.parent > a:after,
     li.parent:hover > a:after {
       content: "";
@@ -151,7 +151,7 @@ header nav {
     li.parent:after {
       display: none;
     }
-  }
+  }*/
   .main-menu--level-three {
     top: -10px;
   }
@@ -178,34 +178,37 @@ header nav {
   margin-left: 20px;
   #responsive-menu-button {
     display: block;
-    width: 25px;
-    height: 30px;
+    width: 45px;
+    height: 40px;
+    padding-left: 8px;
+    padding-top: 3px;
     position: relative;
     float:right;
+    background-color: $silver;
   }
   span {
     display: block;
     position: relative;
     background: $zivtech-dark;
-    height: 2px;
+    height: 5px;
     transition: $span-transition;
-    width: 22px;
+    width: 30px;
     top: 15px;
     &:before, &:after {
       content: "";
       display: block;
       background: $zivtech-dark;
-      height: 2px;
+      height: 5px;
       margin-top: 0;
       position: absolute;
-      width: 22px;
+      width: 30px;
       transition: $span-transition;
     }
     &:before {
-      top: 7px;
+      top: 8px;
     }
     &:after {
-      top: -7px;
+      top: -8px;
     }
   }
 }
@@ -261,6 +264,10 @@ body
 .responsive-nav{
   display:block;
   overflow:hidden;
+
+  @include breakpoint($breakpoint-medium-width) {
+    display: none;
+  }
 }
 
   // Extra SIDR handling
