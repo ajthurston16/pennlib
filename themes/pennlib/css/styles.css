@@ -621,6 +621,17 @@ blockquote {
 .site-sidebars .block {
   margin-bottom: 30px; }
 
+.block-entity-fieldnodefield-see-also-link {
+  border: 1px solid #cccccc; }
+  .block-entity-fieldnodefield-see-also-link h2 {
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #cccccc;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 18.2px; }
+  .block-entity-fieldnodefield-see-also-link .content {
+    padding: 15px; }
+
 #breadcrumb ul {
   padding: 0; }
 
