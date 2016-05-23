@@ -3,3 +3,19 @@
 		margin-bottom: 30px;
 	}
 }
+
+.block-entity-fieldnodefield-see-also-link {
+	border: 1px solid $silver;
+
+	h2 {
+		background-color: $concrete;
+		border-bottom: 1px solid $silver;
+		margin: 0;
+		padding: 10px 15px;
+		font-size: $h3-font-size;
+	}
+
+	.content {
+		padding: 15px;
+	}
+}

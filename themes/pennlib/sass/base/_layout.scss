@@ -46,8 +46,7 @@ body {
 .site-header,
 .site-main,
 .breadcrumbs-wrapper,
-#footer,
-#breadcrumb {
+#footer {
   @include layout-padding;
 }
 
