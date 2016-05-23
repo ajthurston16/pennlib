@@ -22,16 +22,16 @@
     attach: function (context, settings) {
       context = context || document;
       settings = settings || Drupal.settings;
-
-      $(window).on('load scroll', function () {
-        var $top = $(window).scrollTop();
-        if ($top >= 50) {
-          $('.wrapper--header').addClass('compressed');
-        }
-        else {
-          $('.wrapper--header').removeClass('compressed');
-        }
-      });
+      //
+      //$(window).on('load scroll', function () {
+      //  var $top = $(window).scrollTop();
+      //  if ($top >= 50) {
+      //    $('.wrapper--header').addClass('compressed');
+      //  }
+      //  else {
+      //    $('.wrapper--header').removeClass('compressed');
+      //  }
+      //});
 
       //addclass to search wrapper on focus
       var $searchForm = $('#search-block-form', context);
@@ -87,18 +87,18 @@
       }
 
       // SIDR Menu
-      //if ($.fn.sidr instanceof Function) {
-      //  $('#sidr-bttn').css('display', '').sidr({
-      //    name: 'sidr-main',
-      //    source: 'header .main-nav',
-      //    side: 'right',
-      //  });
-      //}
-      //$(window).on('resize', function () {
-      //  if ($('body').hasClass('sidr-open') && $(window).width() >= 800) {
-      //    $.sidr('close', 'sidr-main');
-      //  }
-      //});
+      if ($.fn.sidr instanceof Function) {
+        $('#sidr-bttn').css('display', '').sidr({
+          name: 'sidr-main',
+          source: 'header .main-nav',
+          side: 'right',
+        });
+      }
+      $(window).on('resize', function () {
+        if ($('body').hasClass('sidr-open') && $(window).width() >= 800) {
+          $.sidr('close', 'sidr-main');
+        }
+      });
     }
   };
 
