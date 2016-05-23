@@ -15,20 +15,20 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{{ kint }}
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
+
 <div class="specialist-tabs">
-<a href="/research/subject-specialists/all">All</a>
-{% for row in rows %}
-  {%
-    set row_classes = [
-      default_row_class ? 'views-row',
-    ]
-  %}
-  <div{{ row.attributes.addClass(row_classes) }}>
-    {{ row.content }}
+  <div class="tab">
+    <a href="/research/subject-specialists/all">All</a>
   </div>
-{% endfor %}
+  {% for row in rows %}
+    {% set row_classes = [
+    default_row_class ? 'views-row',
+    ] %}
+    <div{{ row.attributes.addClass(row_classes) }}>
+      {{ row.content }}
+    </div>
+  {% endfor %}
 </div>
