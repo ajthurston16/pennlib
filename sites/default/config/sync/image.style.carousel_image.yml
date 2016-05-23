@@ -1,0 +1,14 @@
+uuid: 336bd12b-cabd-4366-8711-4ae2fd5e978e
+langcode: en
+status: true
+dependencies: {  }
+name: carousel_image
+label: 'Carousel Image (250 x 250)'
+effects:
+  acd49b30-5cda-4818-868a-ef3c26ae646c:
+    uuid: acd49b30-5cda-4818-868a-ef3c26ae646c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 250

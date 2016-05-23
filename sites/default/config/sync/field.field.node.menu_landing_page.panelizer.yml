@@ -1,0 +1,21 @@
+uuid: 14087f12-ab81-40ce-9a62-cf43b6421a06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.panelizer
+    - node.type.menu_landing_page
+  module:
+    - panelizer
+id: node.menu_landing_page.panelizer
+field_name: panelizer
+entity_type: node
+bundle: menu_landing_page
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

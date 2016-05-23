@@ -1,0 +1,22 @@
+uuid: cd6546e0-e800-45f6-9840-f606396be6f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.menu_landing_page
+  module:
+    - text
+id: node.menu_landing_page.body
+field_name: body
+entity_type: node
+bundle: menu_landing_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,58 @@
+uuid: 711561b3-dd81-4740-a43a-79824e67748c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.menu_landing_page.body
+    - field.field.node.menu_landing_page.field_carousel_image_and_link
+    - field.field.node.menu_landing_page.field_see_also_link
+    - field.field.node.menu_landing_page.panelizer
+    - node.type.menu_landing_page
+  module:
+    - field_collection
+    - link
+    - path
+    - text
+id: node.menu_landing_page.default
+targetEntityType: node
+bundle: menu_landing_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_carousel_image_and_link:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_see_also_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  path:
+    type: path
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  panelizer: true
+  promote: true
+  sticky: true
+  uid: true

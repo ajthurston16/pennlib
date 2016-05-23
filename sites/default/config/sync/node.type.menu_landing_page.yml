@@ -1,0 +1,18 @@
+uuid: cf6a4735-e946-454f-a6e1-dc4117113c21
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main-nav
+    parent: 'main-nav:'
+name: 'Menu Landing Page'
+type: menu_landing_page
+description: 'landing page for the parent menu item.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

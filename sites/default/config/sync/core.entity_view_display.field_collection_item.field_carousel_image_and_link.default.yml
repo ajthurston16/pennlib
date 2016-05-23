@@ -1,0 +1,41 @@
+uuid: cf557f38-a28f-4b84-8f75-b391839c3350
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_carousel_image_and_link.field_image
+    - field.field.field_collection_item.field_carousel_image_and_link.field_raw_image_link
+    - field_collection.field_collection.field_carousel_image_and_link
+  module:
+    - image
+    - linked_field
+id: field_collection_item.field_carousel_image_and_link.default
+targetEntityType: field_collection_item
+bundle: field_carousel_image_and_link
+mode: default
+content:
+  field_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings:
+      linked_field:
+        linked: '1'
+        destination: '[node:field_link]'
+        advanced:
+          title: ''
+          target: ''
+          class: ''
+          rel: ''
+          text: ''
+    type: image
+  field_raw_image_link:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }
