@@ -1,0 +1,11 @@
+.slick--view--carousel {
+	background-color: $silver;
+}
+
+.slick-arrow::before {
+	color: darken($silver, 50%);
+}
+
+.slick-dots {
+	display: none !important;
+}

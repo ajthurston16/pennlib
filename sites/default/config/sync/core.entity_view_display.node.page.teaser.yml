@@ -28,3 +28,4 @@ content:
     weight: 101
 hidden:
   field_images: true
+  panelizer: true

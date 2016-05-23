@@ -122,4 +122,5 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  panelizer: true

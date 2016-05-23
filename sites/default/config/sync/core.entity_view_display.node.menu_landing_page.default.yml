@@ -46,7 +46,7 @@ third_party_settings:
             weight: 1
           68bf3521-044c-46e3-8c85-df66bd36e2e4:
             id: 'entity_field:node:field_see_also_link'
-            label: 'See Also Link'
+            label: 'See Also'
             provider: ctools_block
             label_display: visible
             formatter:

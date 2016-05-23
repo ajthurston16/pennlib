@@ -6,7 +6,7 @@ dependencies:
     - field.storage.field_collection_item.field_image
     - field.storage.field_collection_item.field_raw_image_link
     - field_collection.field_collection.field_carousel_image_and_link
-    - image.style.slick_square
+    - image.style.carousel_image
   module:
     - field_collection
     - image
@@ -151,7 +151,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: slick_square
+            image_style: carousel_image
             image_link: ''
           group_column: ''
           group_columns: {  }

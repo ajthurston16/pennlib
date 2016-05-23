@@ -438,6 +438,15 @@ blockquote {
     text-decoration: none;
     color: #000000; }
 
+.slick--view--carousel {
+  background-color: #cccccc; }
+
+.slick-arrow::before {
+  color: #4d4d4d; }
+
+.slick-dots {
+  display: none !important; }
+
 footer {
   color: #ffffff;
   padding: 30px 0; }
