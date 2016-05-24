@@ -34,7 +34,6 @@ header nav {
       }
     }
     li a {
-      font-family: 'Droid Sans', sans-serif;
       text-decoration: none;
       transition: all .2s ease-in-out;
       font-size: 14px;
@@ -46,6 +45,7 @@ header nav {
         background: $white;
         color: $orange;
         text-decoration: none;
+        //border: 1px solid $silver;
       }
     }
   }
@@ -75,11 +75,13 @@ header nav {
         left: 0;
         right: 0;
         top: 100px;
-        transition: all .2s ease-in-out;
+        //transition: all .2s ease-in;
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        @include box-shadow;
+        //@include box-shadow;
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px $silver;
         li.main-nav__item {
           margin-bottom: 8px;
           padding: 0 10px;
@@ -155,6 +157,10 @@ header nav {
 //********************************
 // Support for SIDR responsive NAV
 //********************************
+
+.sidr {
+  font-family: $body-text-font-family;
+}
 
 #sidr-bttn,
 #mobile-nav {

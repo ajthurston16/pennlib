@@ -754,7 +754,6 @@ header nav {
         visibility: visible;
         z-index: 10; }
     header nav ul.main-nav li a {
-      font-family: 'Droid Sans', sans-serif;
       text-decoration: none;
       transition: all .2s ease-in-out;
       font-size: 14px;
@@ -788,11 +787,11 @@ header nav {
         left: 0;
         right: 0;
         top: 100px;
-        transition: all .2s ease-in-out;
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        box-shadow: 2px 2px 5px 0px #404040; }
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px #cccccc; }
         header nav ul.main-nav li.parent ul.main-nav__sub li.main-nav__item {
           margin-bottom: 8px;
           padding: 0 10px;
@@ -845,6 +844,9 @@ header nav {
     display: none; }
   header nav .main-menu--level-three {
     top: -10px; }
+
+.sidr {
+  font-family: "proxima-nova", sans-serif; }
 
 #sidr-bttn,
 #mobile-nav {
