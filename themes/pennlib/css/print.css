@@ -915,6 +915,29 @@ nav.ui.breadcrumb {
   nav.ui.breadcrumb i:last-child {
     display: none; }
 
+.pager__items {
+  list-style-type: none;
+  text-align: center; }
+
+.pager__item {
+  display: inline;
+  margin-left: -1px;
+  padding: 3px 8px;
+  border: 1px solid #cccccc; }
+  .pager__item:hover {
+    background-color: #F2F2F2; }
+  .pager__item.is-active {
+    background-color: #15428C;
+    border-color: #15428C; }
+    .pager__item.is-active a {
+      color: #ffffff; }
+  .pager__item:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .pager__item:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+
 body {
   background: #ffffff; }
 
