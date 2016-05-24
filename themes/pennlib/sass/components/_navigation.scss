@@ -26,17 +26,21 @@ header nav {
       margin: 0;
       &:hover {
         ul.main-nav__sub {
-          top: 41px;
+          top: 43px;
           opacity: 1;
           visibility: visible;
           z-index: 10;
         }
+        > a {
+          border: 1px solid $silver;
+          background: $white;
+          color: $orange;
+        }
       }
     }
     li a {
-      font-family: 'Droid Sans', sans-serif;
       text-decoration: none;
-      transition: all .2s ease-in-out;
+      //transition: all .2s ease-in-out;
       font-size: 14px;
       text-align:center;
       display:block;
@@ -51,13 +55,16 @@ header nav {
   }
   ul.main-nav {
     @include cf();
+    height: 2.75em;
     li.parent {
       position: relative;
       display: inline-block;
+      height: 100%;
       @include breakpoint($breakpoint-medium-width) {
         @include col(1/6, $gutter:0);
       }
-     a{
+     a {
+        height: 100%;
        padding: 10px 0;
      }
       &:hover {
@@ -75,11 +82,13 @@ header nav {
         left: 0;
         right: 0;
         top: 100px;
-        transition: all .2s ease-in-out;
+        //transition: all .2s ease-in;
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        @include box-shadow;
+        //@include box-shadow;
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px $silver;
         li.main-nav__item {
           margin-bottom: 8px;
           padding: 0 10px;
@@ -155,6 +164,10 @@ header nav {
 //********************************
 // Support for SIDR responsive NAV
 //********************************
+
+.sidr {
+  font-family: $body-text-font-family;
+}
 
 #sidr-bttn,
 #mobile-nav {

@@ -749,14 +749,16 @@ header nav {
     header nav ul.main-nav > li.main-nav__item {
       margin: 0; }
       header nav ul.main-nav > li.main-nav__item:hover ul.main-nav__sub {
-        top: 41px;
+        top: 43px;
         opacity: 1;
         visibility: visible;
         z-index: 10; }
+      header nav ul.main-nav > li.main-nav__item:hover > a {
+        border: 1px solid #cccccc;
+        background: #ffffff;
+        color: #CC6600; }
     header nav ul.main-nav li a {
-      font-family: 'Droid Sans', sans-serif;
       text-decoration: none;
-      transition: all .2s ease-in-out;
       font-size: 14px;
       text-align: center;
       display: block; }
@@ -765,7 +767,8 @@ header nav {
         color: #CC6600;
         text-decoration: none; }
   header nav ul.main-nav {
-    *zoom: 1; }
+    *zoom: 1;
+    height: 2.75em; }
     header nav ul.main-nav:before, header nav ul.main-nav:after {
       content: '';
       display: table; }
@@ -773,8 +776,10 @@ header nav {
       clear: both; }
     header nav ul.main-nav li.parent {
       position: relative;
-      display: inline-block; }
+      display: inline-block;
+      height: 100%; }
       header nav ul.main-nav li.parent a {
+        height: 100%;
         padding: 10px 0; }
       header nav ul.main-nav li.parent:hover:after {
         opacity: .8;
@@ -788,11 +793,11 @@ header nav {
         left: 0;
         right: 0;
         top: 100px;
-        transition: all .2s ease-in-out;
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        box-shadow: 2px 2px 5px 0px #404040; }
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px #cccccc; }
         header nav ul.main-nav li.parent ul.main-nav__sub li.main-nav__item {
           margin-bottom: 8px;
           padding: 0 10px;
@@ -845,6 +850,9 @@ header nav {
     display: none; }
   header nav .main-menu--level-three {
     top: -10px; }
+
+.sidr {
+  font-family: "proxima-nova", sans-serif; }
 
 #sidr-bttn,
 #mobile-nav {
@@ -1066,9 +1074,6 @@ body {
 
 .wrapper--header {
   background-color: #031b51; }
-
-.wrapper--breadcrumb {
-  border-top: 1px solid #ddd; }
 
 .wrapper--nav {
   background-color: #000033; }
