@@ -26,16 +26,21 @@ header nav {
       margin: 0;
       &:hover {
         ul.main-nav__sub {
-          top: 41px;
+          top: 43px;
           opacity: 1;
           visibility: visible;
           z-index: 10;
+        }
+        > a {
+          border: 1px solid $silver;
+          background: $white;
+          color: $orange;
         }
       }
     }
     li a {
       text-decoration: none;
-      transition: all .2s ease-in-out;
+      //transition: all .2s ease-in-out;
       font-size: 14px;
       text-align:center;
       display:block;
@@ -45,19 +50,21 @@ header nav {
         background: $white;
         color: $orange;
         text-decoration: none;
-        //border: 1px solid $silver;
       }
     }
   }
   ul.main-nav {
     @include cf();
+    height: 2.75em;
     li.parent {
       position: relative;
       display: inline-block;
+      height: 100%;
       @include breakpoint($breakpoint-medium-width) {
         @include col(1/6, $gutter:0);
       }
-     a{
+     a {
+        height: 100%;
        padding: 10px 0;
      }
       &:hover {
