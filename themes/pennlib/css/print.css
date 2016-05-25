@@ -1130,7 +1130,7 @@ body {
     overflow: auto;
     overflow: visible; }
   header nav ul.main-nav {
-    margin: 30px 30px 30px 0px; }
+    margin: 30px 30px 0 0; }
   header nav ul.main-nav li.parent {
     zoom: 1;
     float: left;
