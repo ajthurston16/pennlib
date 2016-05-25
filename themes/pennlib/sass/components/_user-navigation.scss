@@ -1,4 +1,3 @@
-
 #block-pennlib-account-menu {
   display: none;
   ul {
@@ -6,6 +5,8 @@
     li {
       display: inline;
       list-style: none;
+      margin: 0 10px;
+      font-size: $base-font-size * 0.95;
     }
   }
   @include breakpoint($breakpoint-medium-width) {
@@ -13,5 +14,3 @@
     float: right;
   }
 }
-
-

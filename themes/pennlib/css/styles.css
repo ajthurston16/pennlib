@@ -1093,7 +1093,9 @@ body {
     margin: 0; }
     #block-pennlib-account-menu ul li {
       display: inline;
-      list-style: none; }
+      list-style: none;
+      margin: 0 10px;
+      font-size: 13.3px; }
 
 .wrapper--header {
   background-color: #031b51; }
