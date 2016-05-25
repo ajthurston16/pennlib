@@ -621,7 +621,6 @@ header nav {
         color: #CC6600; }
     header nav ul.main-nav li a {
       text-decoration: none;
-      font-size: 14px;
       text-align: center;
       display: block; }
       header nav ul.main-nav li a:hover, header nav ul.main-nav li a:focus, header nav ul.main-nav li a.is-active {
