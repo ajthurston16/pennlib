@@ -220,6 +220,11 @@ h2.sidr-class-visually-hidden {
   @include bear-element-invisible;
 }
 
+.sidr-class-contextual,
+.sidr-class-main-nav__sub {
+  display: none !important;
+}
+
 //***********************
 // Regular responsive NAV
 //***********************

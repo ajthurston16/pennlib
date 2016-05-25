@@ -90,7 +90,7 @@
       if ($.fn.sidr instanceof Function) {
         $('#sidr-bttn').css('display', '').sidr({
           name: 'sidr-main',
-          source: 'header .main-nav',
+          source: '.wrapper--nav nav',
           side: 'right',
         });
       }

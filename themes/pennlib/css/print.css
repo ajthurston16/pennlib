@@ -765,6 +765,10 @@ h2.sidr-class-visually-hidden {
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px); }
 
+.sidr-class-contextual,
+.sidr-class-main-nav__sub {
+  display: none !important; }
+
 #mobile-nav {
   position: absolute;
   right: 10px;
