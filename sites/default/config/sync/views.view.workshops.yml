@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.aggregator_item.summary
   module:
     - aggregator
+    - user
 id: workshops
 label: Workshops
 module: views
@@ -22,8 +23,9 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access news feeds'
       cache:
         type: tag
         options: {  }
@@ -201,6 +203,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       tags: {  }
   workshops:
     display_plugin: block
@@ -217,4 +220,5 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       tags: {  }
