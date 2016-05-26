@@ -6,7 +6,7 @@ _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
 label: 'Anonymous user'
-weight: -10
+weight: 0
 is_admin: false
 permissions:
   - 'access content'
@@ -14,4 +14,4 @@ permissions:
   - 'access comments'
   - 'access site-wide contact form'
   - 'search content'
-  - view_field_rank
+  - 'access news feeds'
