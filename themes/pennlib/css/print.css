@@ -934,6 +934,19 @@ body {
       display: inline;
       list-style: none; }
 
+.block-views-blockworkshops-workshops .workshops-col:nth-of-type(odd) .views-row:nth-of-type(odd) {
+  background-color: #F2F2F2; }
+
+.block-views-blockworkshops-workshops .workshops-col:nth-of-type(even) .views-row:nth-of-type(even) {
+  background-color: #F2F2F2; }
+
+.block-views-blockworkshops-workshops h3 {
+  font-size: 14px;
+  margin: 10px; }
+
+.block-views-blockworkshops-workshops article > div {
+  display: none; }
+
 .wrapper--header {
   background-color: #031b51; }
 
@@ -1132,7 +1145,29 @@ body {
     display: none; }
   #block-pennlib-account-menu {
     display: block;
-    float: right; } }
+    float: right; }
+  .block-views-blockworkshops-workshops .workshops-col {
+    zoom: 1;
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    width: 48.5%;
+    margin-left: 0%;
+    margin-right: 3%; }
+  .block-views-blockworkshops-workshops .workshops-col:before, .block-views-blockworkshops-workshops .workshops-col:after {
+    content: '';
+    display: table; }
+  .block-views-blockworkshops-workshops .workshops-col:after {
+    clear: both; }
+  .block-views-blockworkshops-workshops .workshops-col:last-child {
+    margin-right: 0%; }
+  .block-views-blockworkshops-workshops .views-row:nth-of-type(odd) {
+    background-color: #F2F2F2; }
+  .block-views-blockworkshops-workshops .views-row:nth-of-type(even) {
+    background-color: transparent !important; } }
 
 @media (min-width: 75em) {
   body.fluid-bear .site-header,
