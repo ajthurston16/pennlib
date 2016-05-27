@@ -1,0 +1,39 @@
+.block-views-blockworkshops-workshops {
+
+	.workshops-col {
+		&:nth-of-type(odd) {
+			.views-row:nth-of-type(odd) {
+				background-color: $concrete;
+			}
+		}
+		&:nth-of-type(even) {
+			.views-row:nth-of-type(even) {
+				background-color: $concrete;
+			}
+		}
+	}
+
+	@include breakpoint($breakpoint-medium-width) {
+		.workshops-col {
+			@include col(1/2);
+		}
+		.views-row {
+			&:nth-of-type(odd) {
+				background-color: $concrete;
+			}
+			&:nth-of-type(even) {
+				background-color: transparent !important;
+			}
+		}
+	}
+
+	h3 {
+		font-size: $base-font-size;
+		margin: 10px;
+	}
+
+	// Hide feed title attached to each entry.
+	article > div {
+		display: none;
+	}
+}

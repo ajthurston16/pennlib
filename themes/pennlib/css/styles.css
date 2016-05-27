@@ -310,7 +310,7 @@ body {
 #footer,
 #breadcrumb {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 75em;
   margin: 0 auto; }
   .site-header:before, .site-header:after,
   .site-main:before,
@@ -348,7 +348,7 @@ body.page-panels .site-main {
 
 .panel-display .row {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 75em;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px; }
@@ -360,7 +360,7 @@ body.page-panels .site-main {
 
 .panel-display.empty-right .column.center, .panel-display.empty-left .column.center {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 75em;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px; }
@@ -725,7 +725,7 @@ header {
   margin-right: 30px; }
 
 .site-nav-footer {
-  max-width: 87.5em;
+  max-width: 75em;
   margin: 0 auto; }
 
 body.has-sidr header nav {
@@ -738,7 +738,7 @@ body.has-sidr header nav {
 header nav {
   outline: 0;
   margin-left: 20px;
-  max-width: 87.5em;
+  max-width: 75em;
   margin: 0 auto; }
   header nav .nolink {
     cursor: pointer; }
@@ -759,6 +759,7 @@ header nav {
         color: #CC6600; }
     header nav ul.main-nav li a {
       text-decoration: none;
+      font-size: 14px;
       text-align: center;
       display: block; }
       header nav ul.main-nav li a:hover, header nav ul.main-nav li a:focus, header nav ul.main-nav li a.is-active {
@@ -902,10 +903,6 @@ h2.sidr-class-visually-hidden {
   width: 0;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px); }
-
-.sidr-class-contextual,
-.sidr-class-main-nav__sub {
-  display: none !important; }
 
 #mobile-nav {
   position: absolute;
@@ -1056,29 +1053,6 @@ nav.ui.breadcrumb {
   nav.ui.breadcrumb i:last-child {
     display: none; }
 
-.pager__items {
-  list-style-type: none;
-  text-align: center; }
-
-.pager__item {
-  display: inline;
-  margin-left: -1px;
-  padding: 3px 8px;
-  border: 1px solid #cccccc; }
-  .pager__item:hover {
-    background-color: #F2F2F2; }
-  .pager__item.is-active {
-    background-color: #15428C;
-    border-color: #15428C; }
-    .pager__item.is-active a {
-      color: #ffffff; }
-  .pager__item:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px; }
-  .pager__item:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; }
-
 body {
   background: #ffffff; }
 
@@ -1096,9 +1070,20 @@ body {
     margin: 0; }
     #block-pennlib-account-menu ul li {
       display: inline;
-      list-style: none;
-      margin: 0 10px;
-      font-size: 13.3px; }
+      list-style: none; }
+
+.block-views-blockworkshops-workshops .workshops-col:nth-of-type(odd) .views-row:nth-of-type(odd) {
+  background-color: #F2F2F2; }
+
+.block-views-blockworkshops-workshops .workshops-col:nth-of-type(even) .views-row:nth-of-type(even) {
+  background-color: #F2F2F2; }
+
+.block-views-blockworkshops-workshops h3 {
+  font-size: 14px;
+  margin: 10px; }
+
+.block-views-blockworkshops-workshops article > div {
+  display: none; }
 
 .wrapper--header {
   background-color: #031b51; }
@@ -1273,7 +1258,7 @@ body {
     overflow: auto;
     overflow: visible; }
   header nav ul.main-nav {
-    margin: 30px 30px 0 0; }
+    margin: 30px 30px 30px 0px; }
   header nav ul.main-nav li.parent {
     zoom: 1;
     float: left;
@@ -1298,9 +1283,31 @@ body {
     display: none; }
   #block-pennlib-account-menu {
     display: block;
-    float: right; } }
+    float: right; }
+  .block-views-blockworkshops-workshops .workshops-col {
+    zoom: 1;
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    width: 48.5%;
+    margin-left: 0%;
+    margin-right: 3%; }
+  .block-views-blockworkshops-workshops .workshops-col:before, .block-views-blockworkshops-workshops .workshops-col:after {
+    content: '';
+    display: table; }
+  .block-views-blockworkshops-workshops .workshops-col:after {
+    clear: both; }
+  .block-views-blockworkshops-workshops .workshops-col:last-child {
+    margin-right: 0%; }
+  .block-views-blockworkshops-workshops .views-row:nth-of-type(odd) {
+    background-color: #F2F2F2; }
+  .block-views-blockworkshops-workshops .views-row:nth-of-type(even) {
+    background-color: transparent !important; } }
 
-@media (min-width: 87.5em) {
+@media (min-width: 75em) {
   body.fluid-bear .site-header,
   body.fluid-bear .breadcrumbs-wrapper,
   body.fluid-bear .site-footer,
