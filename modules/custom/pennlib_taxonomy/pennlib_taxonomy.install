@@ -16,14 +16,14 @@ function pennlib_clean_term_for_url($term_name_url) {
 
 function pennlib_taxonomy_install() {
   $vocabularies = [
-    'departments',
-    'divisions',
-    'languages',
-    'libraries',
-    'subject_specialities',
-    'roles',
-    'teams',
-    'tools',
+//    'departments',
+//    'divisions',
+//    'languages',
+//    'libraries',
+//    'subject_specialities',
+//    'roles',
+//    'teams',
+//    'tools',
   ];
   foreach ($vocabularies as $vocabulary) {
     pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary);
