@@ -4,39 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
-    - field.field.user.user.field_additional_info
-    - field.field.user.user.field_bio
-    - field.field.user.user.field_collection_responsibility
-    - field.field.user.user.field_department
-    - field.field.user.user.field_digital_methods
-    - field.field.user.user.field_division
-    - field.field.user.user.field_email_address
-    - field.field.user.user.field_fax
-    - field.field.user.user.field_first_name
-    - field.field.user.user.field_interest
-    - field.field.user.user.field_languages
-    - field.field.user.user.field_last_name
-    - field.field.user.user.field_leadership_level
-    - field.field.user.user.field_liaison_responsibility
-    - field.field.user.user.field_library
-    - field.field.user.user.field_middle_name
-    - field.field.user.user.field_mobile
-    - field.field.user.user.field_office
-    - field.field.user.user.field_pennkey
-    - field.field.user.user.field_phone
-    - field.field.user.user.field_rank
-    - field.field.user.user.field_role
-    - field.field.user.user.field_screenname
-    - field.field.user.user.field_subject_specialty
-    - field.field.user.user.field_team
-    - field.field.user.user.field_technology_specialty
-    - field.field.user.user.field_title
-    - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
     - image
-    - text
     - user
 _core:
   default_config_hash: C3k_McOy8bL8rTnIjspy5OfFdgqV1z6OdGZaI-tO5eM
@@ -45,18 +16,6 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
-  field_first_name:
-    type: text_default
-    weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_last_name:
-    type: text_default
-    weight: 2
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -66,30 +25,4 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  field_additional_info: true
-  field_bio: true
-  field_collection_responsibility: true
-  field_department: true
-  field_digital_methods: true
-  field_division: true
-  field_email_address: true
-  field_fax: true
-  field_interest: true
-  field_languages: true
-  field_leadership_level: true
-  field_liaison_responsibility: true
-  field_library: true
-  field_middle_name: true
-  field_mobile: true
-  field_office: true
-  field_pennkey: true
-  field_phone: true
-  field_rank: true
-  field_role: true
-  field_screenname: true
-  field_subject_specialty: true
-  field_team: true
-  field_technology_specialty: true
-  field_title: true
-  field_tool_expertise: true
   member_for: true

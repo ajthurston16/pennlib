@@ -3,6 +3,6 @@
 * Implement hook_update_N().
 * Enable Pennlib feature example.
 */
-//function pennlib_deploy_update_8000() {
-//\Drupal::service('module_installer')->install($modules, TRUE);
-//}
+function pennlib_deploy_update_8000() {
+module_enable(array('module_name'));
+}

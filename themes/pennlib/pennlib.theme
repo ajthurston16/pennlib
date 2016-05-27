@@ -27,6 +27,7 @@ function pennlib_theme($existing, $type, $theme, $path) {
  * Implements preprocess_html() to add classes to the body.
  */
 function pennlib_preprocess_html(&$variables) {
+
   if (theme_get_setting('semantic_ui')) {
     $variables['attributes']['class'][] = 'semantic-ui';
   }

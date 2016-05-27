@@ -10,9 +10,11 @@
     "replace": {
         "drupal/core": "~8.0",
         "drupal/webprofiler": "8.*",
+        "drupal/entity": "8.*",
         "drupal/page_manager": "8.*",
         "drupal/pathauto": "8.*",
-        "drupal/search_api_solr": "8.*"
+        "drupal/search_api_solr": "8.*",
+        "drupal/slick": "8.*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -29,9 +31,11 @@
             "include": [
                 "core/composer.json",
                 "modules/contrib/devel/webprofiler/composer.json",
+                "modules/contrib/entity/composer.json",
                 "modules/contrib/page_manager/composer.json",
                 "modules/contrib/pathauto/composer.json",
-                "modules/contrib/search_api_solr/composer.json"
+                "modules/contrib/search_api_solr/composer.json",
+                "modules/contrib/slick/composer.json"
             ],
             "recurse": false,
             "replace": false,
