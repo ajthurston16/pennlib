@@ -3,11 +3,102 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_additional_info
+    - field.field.user.user.field_bio
+    - field.field.user.user.field_collection_responsibility
+    - field.field.user.user.field_department
+    - field.field.user.user.field_digital_methods
+    - field.field.user.user.field_division
+    - field.field.user.user.field_email_address
+    - field.field.user.user.field_fax
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_interest
+    - field.field.user.user.field_languages
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_leadership_level
+    - field.field.user.user.field_liaison_responsibility
+    - field.field.user.user.field_library
+    - field.field.user.user.field_middle_name
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_office
+    - field.field.user.user.field_pennkey
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_rank
+    - field.field.user.user.field_role
+    - field.field.user.user.field_screenname
+    - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_team
+    - field.field.user.user.field_technology_specialty
+    - field.field.user.user.field_title
+    - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.medium
   module:
+    - field_group
     - image
+    - link
+    - telephone
+    - text
     - user
+third_party_settings:
+  field_group:
+    group_contact:
+      children:
+        - group_contact_wrapper
+      parent_name: ''
+      weight: 2
+      label: Contact
+      format_type: html_element
+      format_settings:
+        label: Contact
+        element: div
+        show_label: true
+        label_element: span
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: contact
+    group_full_name:
+      children:
+        - field_first_name
+        - field_middle_name
+        - field_last_name
+        - field_title
+        - field_bio
+      parent_name: ''
+      weight: 1
+      label: 'Full Name'
+      format_type: html_element
+      format_settings:
+        label: 'Full Name'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: full-name
+    group_contact_wrapper:
+      children:
+        - field_email_address
+        - field_phone
+        - field_screenname
+      parent_name: group_contact
+      weight: 8
+      label: 'Contact Wrapper'
+      format_type: html_element
+      format_settings:
+        label: 'Contact Wrapper'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: contact-wrapper
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
 id: user.user.default
@@ -15,14 +106,159 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  member_for:
+  field_additional_info:
+    weight: 12
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_bio:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_collection_responsibility:
+    type: entity_reference_entity_view
+    weight: 4
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_department:
+    type: entity_reference_entity_view
+    weight: 6
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_email_address:
+    weight: 11
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+  field_first_name:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_languages:
+    weight: 7
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_last_name:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_liaison_responsibility:
+    type: entity_reference_entity_view
     weight: 5
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_library:
+    weight: 8
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_middle_name:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_office:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_phone:
+    weight: 12
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+  field_role:
+    weight: 9
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_screenname:
+    weight: 13
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_subject_specialty:
+    type: entity_reference_entity_view
+    weight: 10
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_team:
+    weight: 13
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_technology_specialty:
+    weight: 11
+    label: inline
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_title:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   user_picture:
     type: image
     weight: 0
     settings:
-      image_style: thumbnail
-      image_link: content
+      image_style: medium
+      image_link: ''
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  field_digital_methods: true
+  field_division: true
+  field_fax: true
+  field_interest: true
+  field_leadership_level: true
+  field_mobile: true
+  field_pennkey: true
+  field_rank: true
+  field_tool_expertise: true
+  member_for: true

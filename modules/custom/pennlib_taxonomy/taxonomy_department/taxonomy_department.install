@@ -1,0 +1,49 @@
+<?php
+// Programmatically create taxonomy terms for taxonomy vocabulary department.
+
+use Drupal\taxonomy\Entity\Term;
+
+function taxonomy_term_info() {
+  $term_info = array(
+    'Area Studies Collections' => array(
+      'name' => 'Area Studies Collections',
+      'description' => 'Area Studies Collections Description',
+    ),
+    'Building & Security' => array(
+      'name' => 'Building & Security',
+      'description' => 'Area Studies Collections Description',
+    ),
+    'Business Office' => array(
+      'name' => 'Business Office',
+      'description' => 'Area Studies Collections Description',
+    ),
+    'Cataloging & Metadata' => array(
+      'name' => 'Cataloging & Metadata',
+      'description' => 'Area Studies Collections Description',
+    ),
+  ); // List of terms
+  return $term_info;
+};
+
+function taxonomy_department_install() {
+    foreach (taxonomy_term_info() as $term_info) {
+      $existing_terms = taxonomy_term_load_multiple_by_name($term_info['name']);
+      if (!$existing_terms) {
+      $term = Term::create(array(
+        'parent' => array(),
+        'name' => $term_info['name'],
+        'description' => [
+          'value' => $term_info['description'],
+          'format' => 'full_html',
+        ],
+        'vid' => 'department',
+      ));
+      $term->save();
+    };
+  };
+};
+
+
+
+
+

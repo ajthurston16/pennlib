@@ -1,0 +1,137 @@
+uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_pennkey
+    - field.storage.user.field_department
+    - field.storage.user.field_division
+    - field.storage.user.field_library
+    - field.storage.user.field_collection_responsibility
+    - field.storage.user.field_subject_specialty
+    - field.storage.user.field_technology_specialty
+    - field.storage.user.field_role
+    - field.storage.user.field_languages
+    - field.storage.user.field_team
+    - search_api.server.solr
+  module:
+    - search_api
+    - user
+id: staff
+name: Staff
+description: ''
+read_only: false
+field_settings:
+  search_api_language:
+    label: 'Item language'
+    datasource_id: null
+    property_path: search_api_language
+    type: string
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: 'User ID'
+    datasource_id: 'entity:user'
+    property_path: uid
+    type: integer
+  field_pennkey:
+    label: PennKey
+    datasource_id: 'entity:user'
+    property_path: field_pennkey
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_pennkey
+  field_department:
+    label: Department
+    datasource_id: 'entity:user'
+    property_path: field_department
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_department
+  field_division:
+    label: Division
+    datasource_id: 'entity:user'
+    property_path: field_division
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_division
+  field_library:
+    label: Library
+    datasource_id: 'entity:user'
+    property_path: field_library
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_library
+  field_collection_responsibility:
+    label: 'Collection Responsibility'
+    datasource_id: 'entity:user'
+    property_path: field_collection_responsibility
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_collection_responsibility
+  field_subject_specialty:
+    label: 'Subject Specialty'
+    datasource_id: 'entity:user'
+    property_path: field_subject_specialty
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_subject_specialty
+  field_technology_specialty:
+    label: 'Technology Specialty'
+    datasource_id: 'entity:user'
+    property_path: field_technology_specialty
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_technology_specialty
+  field_role:
+    label: Role
+    datasource_id: 'entity:user'
+    property_path: field_role
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_role
+  field_languages:
+    label: Languages
+    datasource_id: 'entity:user'
+    property_path: field_languages
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_languages
+  field_team:
+    label: Team
+    datasource_id: 'entity:user'
+    property_path: field_team
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_team
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  language:
+    plugin_id: language
+    settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:user':
+    plugin_id: 'entity:user'
+    settings:
+      default: '1'
+      languages: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: solr

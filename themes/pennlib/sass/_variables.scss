@@ -11,6 +11,7 @@ $baby-blue: #A2D1D8;
 //whites and greys
 $black: #000000;
 $silver: #cccccc;
+$grey: $silver;
 $concrete: #F2F2F2;
 $grey-skies: #d2d5d8;
 $gallery: #eeeeee;
@@ -169,10 +170,10 @@ $table-cell-text-align: left; // LTR
 //
 $tabs-container-margin: 1em 0 1.5em;
 $tabs-container-bg-color: transparent;
-$tabs-border-color: none;
-$tabs-height: 40px;
-$tabs-bg-color: transparent;
-$tabs-bg-color-hover: darken($tabs-bg-color, 5%);
+$tabs-border-color: $silver;
+$tabs-height: 33px;
+$tabs-bg-color: $concrete;
+$tabs-bg-color-hover: $danube;
 $tabs-border-radius: $border-radius;
 
 

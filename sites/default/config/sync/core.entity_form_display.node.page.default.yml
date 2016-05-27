@@ -4,11 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_images
-    - image.style.thumbnail
     - node.type.page
   module:
-    - image
     - path
     - text
 _core:
@@ -31,13 +28,6 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-  field_images:
-    weight: 32
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
   path:
     type: path
     weight: 30
@@ -70,5 +60,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  panelizer: true
+hidden: {  }

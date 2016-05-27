@@ -100,22 +100,6 @@ class YamlDumper extends Dumper
             $code .= sprintf("        synchronized: true\n");
         }
 
-        if ($definition->isDeprecated()) {
-            $code .= sprintf("        deprecated: %s\n", $definition->getDeprecationMessage('%service_id%'));
-        }
-
-        if ($definition->isAutowired()) {
-            $code .= "        autowire: true\n";
-        }
-
-        $autowiringTypesCode = '';
-        foreach ($definition->getAutowiringTypes() as $autowiringType) {
-            $autowiringTypesCode .= sprintf("            - %s\n", $this->dumper->dump($autowiringType));
-        }
-        if ($autowiringTypesCode) {
-            $code .= sprintf("        autowiring_types:\n%s", $autowiringTypesCode);
-        }
-
         if ($definition->getFactoryClass(false)) {
             $code .= sprintf("        factory_class: %s\n", $this->dumper->dump($definition->getFactoryClass(false)));
         }
@@ -144,22 +128,15 @@ class YamlDumper extends Dumper
             $code .= sprintf("        calls:\n%s\n", $this->dumper->dump($this->dumpValue($definition->getMethodCalls()), 1, 12));
         }
 
-        if (!$definition->isShared()) {
-            $code .= "        shared: false\n";
-        }
-
-        if (ContainerInterface::SCOPE_CONTAINER !== $scope = $definition->getScope(false)) {
+        if (ContainerInterface::SCOPE_CONTAINER !== $scope = $definition->getScope()) {
             $code .= sprintf("        scope: %s\n", $this->dumper->dump($scope));
         }
 
         if (null !== $decorated = $definition->getDecoratedService()) {
-            list($decorated, $renamedId, $priority) = $decorated;
+            list($decorated, $renamedId) = $decorated;
             $code .= sprintf("        decorates: %s\n", $decorated);
             if (null !== $renamedId) {
                 $code .= sprintf("        decoration_inner_name: %s\n", $renamedId);
-            }
-            if (0 !== $priority) {
-                $code .= sprintf("        decoration_priority: %s\n", $priority);
             }
         }
 

@@ -1,0 +1,8 @@
+uuid: 120b97dd-a3da-4367-a829-5b6fc19f8979
+langcode: en
+status: true
+dependencies: {  }
+id: search_api_views__staff_search__block_1
+name: 'search_api_views:staff_search:block_1'
+filter_key: null
+url_processor: query_string

@@ -57,3 +57,24 @@
     @include tab-link;
   }
 }
+
+// Tabs in Subject Specialists View
+.tab {
+  @include tab;
+  border: 1px solid $tabs-border-color;
+  &:hover {
+    background-color: $tabs-bg-color-hover;
+    border-color: darken($tabs-bg-color-hover, 15%);
+    a {
+      color: $white;
+    }
+  }
+
+  a {
+    @include tab-link;
+  }
+}
+.tabgroup {
+  @include tab-container;
+  height: auto;
+}

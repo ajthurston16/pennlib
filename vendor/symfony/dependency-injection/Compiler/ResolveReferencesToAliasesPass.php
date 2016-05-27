@@ -71,7 +71,7 @@ class ResolveReferencesToAliasesPass implements CompilerPassInterface
                 $defId = $this->getDefinitionId($id = (string) $argument);
 
                 if ($defId !== $id) {
-                    $arguments[$k] = new Reference($defId, $argument->getInvalidBehavior(), $argument->isStrict(false));
+                    $arguments[$k] = new Reference($defId, $argument->getInvalidBehavior(), $argument->isStrict());
                 }
             }
         }
@@ -97,7 +97,7 @@ class ResolveReferencesToAliasesPass implements CompilerPassInterface
         $defId = $this->getDefinitionId($id = (string) $factory[0]);
 
         if ($defId !== $id) {
-            $factory[0] = new Reference($defId, $factory[0]->getInvalidBehavior(), $factory[0]->isStrict(false));
+            $factory[0] = new Reference($defId, $factory[0]->getInvalidBehavior(), $factory[0]->isStrict());
         }
 
         return $factory;

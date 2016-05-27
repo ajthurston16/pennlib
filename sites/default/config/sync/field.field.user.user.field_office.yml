@@ -1,0 +1,21 @@
+uuid: 901149ac-5aab-4071-abd1-0ab6846c358c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_office
+  module:
+    - text
+    - user
+id: user.user.field_office
+field_name: field_office
+entity_type: user
+bundle: user
+label: Office
+description: 'Office or Room number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

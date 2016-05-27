@@ -1,0 +1,9 @@
+uuid: 66de75c2-d755-4fc1-a100-f4bcfc7245f2
+langcode: en
+status: true
+dependencies: {  }
+name: Rank
+vid: rank
+description: 'User profile Rank'
+hierarchy: 0
+weight: 0

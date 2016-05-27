@@ -1,0 +1,20 @@
+uuid: 254f54d4-9d2c-437f-9700-e890afa548b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_tool_expertise
+field_name: field_tool_expertise
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

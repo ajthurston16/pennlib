@@ -1,2 +1,2 @@
 <?php
-$settings['hash_salt'] = '62pYCQLlAuNwjufMKD77gOMfjMtfqdu4ezc9dHS42';
+$settings['hash_salt'] = 'Nltkxadz65F67_VGJxY38Ruw6W2xuYtDE96Lj-UsNnHWb9NJmGIXl2YqWGaQLmSRNkwlRkLf-g';
