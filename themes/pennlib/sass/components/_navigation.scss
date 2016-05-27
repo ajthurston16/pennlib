@@ -62,10 +62,10 @@ header nav {
       @include breakpoint($breakpoint-medium-width) {
         @include col(1/6, $gutter:0);
       }
-     a {
+      a {
         height: 100%;
-       padding: 10px 0;
-     }
+        padding: 10px 0;
+      }
       &:hover {
         &:after {
           opacity: .8;
@@ -272,7 +272,7 @@ body
   }
 }
 
-  // Extra SIDR handling
+// Extra SIDR handling
 body.sidr-open {
   #header {
     .responsive-nav {

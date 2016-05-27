@@ -7,7 +7,6 @@ dependencies:
     - field.storage.user.field_pennkey
     - field.storage.user.field_role
     - search_api.index.staff
-    - system.menu.main-nav
   module:
     - search_api
     - text
@@ -703,11 +702,11 @@ display:
       defaults:
         cache: false
       menu:
-        type: normal
+        type: none
         title: 'Staff Directory'
         description: ''
         expanded: false
-        parent: 'menu_link_content:bd3a951a-816a-4861-9303-3ceebdd5f302'
+        parent: ''
         weight: 0
         context: '0'
         menu_name: main-nav
