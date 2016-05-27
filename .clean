@@ -4,26 +4,26 @@ SITENAME=pennlib
 DBPATH=/var/www/$SITENAME/dev.sql
 
 echo ""
-echo -n "You are about to destory all of" $SITENAME"'s files not saved in git, drop the database and load a backup. Are you sure you want to do this?[Y/N]: "
+echo -n "You are about to destory all of" $SITENAME"'s files not saved in git, drop the database and load a backup. Are you sure you want to do this?[y/n]: "
 read YESNO
-  if [ "$YESNO" == "Y" ]
+  if [ "$YESNO" == "y" ]
   then
-    drush sql-drop -y; drush sql-cli < $DBPATH;
-    echo "One Time login"
-    drush uli
+    git clean -fd; drush sql-drop -y; drush sql-cli < $DBPATH;
 
 # check to see if site with name already exists
-  echo -n "Do you want to load" $SITENAME"'s configuration? [Y/N]:"
+  echo -n "Do you want to load" $SITENAME"'s configuration? [y/n]:"
   read YESNO
-  if [ "$YESNO" == "Y" ]
+  if [ "$YESNO" == "y" ]
   then
   drush config-import -y
   else
     echo ""
-    echo "Not loading the configuration."
+    echo "Not loading the configuration. Bye."
     echo ""
     exit
   fi
+  echo "One Time login"
+  drush uli
   else
     echo ""
     echo "This is not the droid you are looking for."
