@@ -1,15 +1,14 @@
 .slick--view--carousel {
 	background-color: $silver;
+	margin-bottom: 10px;
 }
 
 .slick-arrow::before {
 	color: darken($silver, 50%);
 }
 
-.slick-dots {
-	display: none !important;
-}
-
 .slick--skin--boxed .slide__content {
+	margin: 0 10px;
 	border: none;
+	border-radius: 0;
 }

@@ -21,7 +21,7 @@ options:
     asNavFor: ''
     accessibility: true
     adaptiveHeight: false
-    autoplay: true
+    autoplay: false
     autoplaySpeed: 3000
     pauseOnHover: true
     pauseOnDotsHover: false
@@ -33,7 +33,7 @@ options:
     downArrowOffset: 0
     centerMode: true
     centerPadding: 50px
-    dots: true
+    dots: false
     dotsClass: slick-dots
     appendDots: $(element)
     draggable: true
@@ -43,7 +43,7 @@ options:
     initialSlide: 0
     lazyLoad: ondemand
     mouseWheel: false
-    randomize: false
+    randomize: true
     respondTo: window
     rtl: false
     rows: 1

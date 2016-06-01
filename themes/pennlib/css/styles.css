@@ -723,16 +723,16 @@ blockquote {
     background-image: linear-gradient(to bottom, #d2d5d8, #F2F2FA); }
 
 .slick--view--carousel {
-  background-color: #cccccc; }
+  background-color: #cccccc;
+  margin-bottom: 10px; }
 
 .slick-arrow::before {
   color: #4d4d4d; }
 
-.slick-dots {
-  display: none !important; }
-
 .slick--skin--boxed .slide__content {
-  border: none; }
+  margin: 0 10px;
+  border: none;
+  border-radius: 0; }
 
 footer {
   font-size: 12.88px;
