@@ -1,0 +1,38 @@
+uuid: c996f451-9cd9-4545-9121-48cfe974f3b4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0ef45351-8b3c-4bb0-a2d5-79a293ce0090'
+  module:
+    - block_content
+    - facets
+    - system
+  theme:
+    - pennlib
+id: footerorrerycredits
+theme: pennlib
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:0ef45351-8b3c-4bb0-a2d5-79a293ce0090'
+settings:
+  id: 'block_content:0ef45351-8b3c-4bb0-a2d5-79a293ce0090'
+  label: 'Footer Orrery Credits'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

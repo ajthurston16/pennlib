@@ -11,7 +11,7 @@ dependencies:
 id: mainnav_2
 theme: pennlib
 region: navigation
-weight: null
+weight: -9
 provider: null
 plugin: 'system_menu_block:main-nav'
 settings:
