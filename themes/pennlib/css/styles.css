@@ -753,9 +753,9 @@ footer {
 header {
   background-color: #F2F2F2;
   display: block; }
-  header a {
+  header .main-nav a {
     color: #ffffff; }
-    header a:hover {
+    header .main-nav a:hover {
       color: #cccccc; }
   .front-page header {
     background-color: #031b51; }
@@ -1148,6 +1148,12 @@ body {
       list-style: none;
       margin: 0 10px;
       font-size: 13.3px; }
+  #block-pennlib-account-menu a {
+    color: #000000; }
+    .front-page #block-pennlib-account-menu a {
+      color: #ffffff; }
+    #block-pennlib-account-menu a:hover {
+      color: #cccccc; }
 
 .block-views-blockworkshops-workshops .workshops-col:nth-of-type(odd) .views-row:nth-of-type(odd) {
   background-color: #F2F2F2; }

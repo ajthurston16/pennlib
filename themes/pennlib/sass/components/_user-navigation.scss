@@ -9,6 +9,17 @@
       font-size: $base-font-size * 0.95;
     }
   }
+
+  a {
+    color: $black;
+    .front-page & {
+      color: $white;
+    }
+    &:hover {
+      color: $silver;
+    }
+  }
+
   @include breakpoint($breakpoint-medium-width) {
     display: block;
     float: right;
