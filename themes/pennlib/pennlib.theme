@@ -34,6 +34,12 @@ function pennlib_preprocess_html(&$variables) {
   if (theme_get_setting('sidr')) {
     $variables['attributes']['class'][] = 'has-sidr';
   }
+
+  /* Custom class based on contextual location in the site. */
+  $is_front_page = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front_page) {
+    $variables['attributes']['class'][] = 'front-page';
+  }
 }
 
 function pennlib_preprocess_input__submit(&$variables) {

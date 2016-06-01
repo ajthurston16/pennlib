@@ -751,12 +751,14 @@ footer {
   box-shadow: inset 0 4.1667em 6.667em -1.667em rgba(20, 44, 55, 0.13), 8.333em 0 0 -1.667em rgba(3, 27, 81, 0.3); }
 
 header {
-  background-color: #031b51;
+  background-color: #F2F2F2;
   display: block; }
   header a {
     color: #ffffff; }
     header a:hover {
       color: #cccccc; }
+  .front-page header {
+    background-color: #031b51; }
 
 .site-header {
   padding: 15px; }
