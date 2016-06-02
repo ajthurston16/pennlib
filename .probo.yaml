@@ -16,7 +16,7 @@ steps:
   - name: Earlier cache clear
     command: "drush --root='/var/www/html/' cr"
   - name: Import configuration
-    command: "sleep 3 ; drush --root='/var/www/html/' config-import --source='/var/www/html/sites/default/config/sync' -y"
+    command: "sleep 3 ; drush --root='/var/www/html/' config-import --source='/var/www/html/sites/default/config' -y"
   - name: Database Updates
     command: "drush --root='/var/www/html/' updb -y"
   - name: Rebuild caches
