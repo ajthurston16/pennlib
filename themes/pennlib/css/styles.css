@@ -730,7 +730,8 @@ blockquote {
 
 .slick--view--carousel {
   background-color: #cccccc;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  display: none; }
 
 .slick-arrow::before {
   color: #4d4d4d; }
@@ -1593,6 +1594,8 @@ body {
     display: none; } }
 
 @media (min-width: 40.5em) {
+  .slick--view--carousel {
+    display: block; }
   .profile .field__label, .profile .contact span {
     width: 350px;
     text-align: right;

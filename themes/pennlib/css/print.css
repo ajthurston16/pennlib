@@ -545,7 +545,8 @@ blockquote {
 
 .slick--view--carousel {
   background-color: #cccccc;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  display: none; }
 
 .slick-arrow::before {
   color: #4d4d4d; }
@@ -1236,6 +1237,10 @@ body {
 @media (min-width: 25em) {
   .is-phone {
     display: none; } }
+
+@media (min-width: 40.5em) {
+  .slick--view--carousel {
+    display: block; } }
 
 @media print {
   a:link,

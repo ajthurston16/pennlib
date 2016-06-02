@@ -1,6 +1,10 @@
 .slick--view--carousel {
 	background-color: $silver;
 	margin-bottom: 10px;
+	display: none;
+	@include breakpoint($breakpoint-med-small-width) {
+		display: block;
+	}
 }
 
 .slick-arrow::before {
