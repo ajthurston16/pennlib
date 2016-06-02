@@ -31,7 +31,7 @@ options:
     downArrow: false
     downArrowTarget: ''
     downArrowOffset: 0
-    centerMode: true
+    centerMode: false
     centerPadding: 50px
     dots: false
     dotsClass: slick-dots
