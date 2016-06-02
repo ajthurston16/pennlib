@@ -8,7 +8,6 @@ dependencies:
     - field_collection.field_collection.field_carousel_image_and_link
   module:
     - image
-    - linked_field
 id: field_collection_item.field_carousel_image_and_link.default
 targetEntityType: field_collection_item
 bundle: field_carousel_image_and_link
@@ -20,16 +19,7 @@ content:
     settings:
       image_style: ''
       image_link: ''
-    third_party_settings:
-      linked_field:
-        linked: '1'
-        destination: '[node:field_link]'
-        advanced:
-          title: ''
-          target: ''
-          class: ''
-          rel: ''
-          text: ''
+    third_party_settings: {  }
     type: image
   field_raw_image_link:
     weight: 4
