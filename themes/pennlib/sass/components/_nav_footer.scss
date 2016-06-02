@@ -1,3 +1,7 @@
 .site-nav-footer{
   @include content-container;
+
+  ul {
+    margin: 0;
+  }
 }
