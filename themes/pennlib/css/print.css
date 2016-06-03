@@ -1,47 +1,55 @@
-.messages {
+.messages,
+.main__highlighted [role="contentinfo"] {
   padding: 0.7em 1.5em;
-  border-radius: 5px;
-  background-color: #0844cc;
-  color: white;
-  border: 1px solid #06349b;
-  border-left-width: 10px;
+  background-color: #FFFFCC;
+  color: #000000;
   margin: 1em 0; }
-  .messages a {
-    color: white;
-    border-bottom: 1px dotted white; }
-    .messages a:hover {
-      color: white; }
-    .messages a:active {
-      color: white; }
-    .messages a:focus {
-      color: white; }
+  .messages a,
+  .main__highlighted [role="contentinfo"] a {
+    color: #000000;
+    border-bottom: 1px dotted #000000; }
+    .messages a:hover,
+    .main__highlighted [role="contentinfo"] a:hover {
+      color: #000000; }
+    .messages a:active,
+    .main__highlighted [role="contentinfo"] a:active {
+      color: #000000; }
+    .messages a:focus,
+    .main__highlighted [role="contentinfo"] a:focus {
+      color: #000000; }
 
-.messages--error, .messages.error {
-  border-color: #c9302c;
-  background-color: #d9534f; }
+.messages--error, .messages.error,
+.main__highlighted --error[role="contentinfo"],
+.main__highlighted [role="contentinfo"].error {
+  background-color: #eba5a3; }
 
-.messages--success, .messages--status, .messages.status, .messages.ok {
-  border-color: #329d62;
-  background-color: #40C27A; }
+.messages--success, .messages--status, .messages.status, .messages.ok,
+.main__highlighted --success[role="contentinfo"],
+.main__highlighted --status[role="contentinfo"],
+.main__highlighted [role="contentinfo"].status,
+.main__highlighted [role="contentinfo"].ok {
+  background-color: #8ddbb0; }
 
-.messages--warning, .messages.warning {
-  border-color: #ec971f;
+.messages--warning, .messages.warning,
+.main__highlighted --warning[role="contentinfo"],
+.main__highlighted [role="contentinfo"].warning {
   background-color: #f0ad4e; }
 
-.messages:first-of-type {
-  margin-top: 0; }
-
-.messages__list {
+.messages__list,
+.main__highlighted [role="contentinfo"]__list {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 1.5em; }
 
-.messages__item {
+.messages__item,
+.main__highlighted [role="contentinfo"]__item {
   margin-bottom: 0.8em; }
-  .messages__item:last-of-type {
+  .messages__item:last-of-type,
+  .main__highlighted [role="contentinfo"]__item:last-of-type {
     margin-bottom: 0; }
 
-.messages .krumo-root {
+.messages .krumo-root,
+.main__highlighted [role="contentinfo"] .krumo-root {
   color: #000000; }
 
 form {
