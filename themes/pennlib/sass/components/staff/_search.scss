@@ -1,0 +1,10 @@
+.staff-search-wrapper {
+	.views-row {
+		border-top: 1px solid $silver;
+		padding: 13px;
+
+		&:nth-of-type(even) {
+			background-color: $concrete;
+		}
+	}
+}

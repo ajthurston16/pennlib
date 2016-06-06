@@ -1,8 +1,9 @@
-uuid: b9717115-0aa1-41ff-8000-dc144294fc48
+uuid: 31c262f5-052d-4e5f-9137-6983bff2036e
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.user.normal
     - field.field.user.user.field_additional_info
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
@@ -32,56 +33,136 @@ dependencies:
     - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
+    - linked_field
+    - taxonomy
     - telephone
     - text
     - user
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
-id: user.user.default
+id: user.user.normal
 targetEntityType: user
 bundle: user
-mode: default
+mode: normal
 content:
+  field_department:
+    type: entity_reference_rss_category
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: department
+          rel: ''
+          text: ''
+        linked: 0
   field_email_address:
     type: email_mailto
-    weight: 4
-    label: above
+    weight: 6
+    label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: phone
+          rel: ''
+          text: ''
+        linked: 0
   field_first_name:
     type: text_trimmed
-    weight: 0
-    label: above
+    weight: 1
+    label: hidden
     settings:
       trim_length: 600
-    third_party_settings: {  }
+    third_party_settings:
+      linked_field:
+        linked: '1'
+        destination: '[user:url]'
+        advanced:
+          title: ''
+          target: ''
+          class: firstname
+          rel: ''
+          text: ''
   field_last_name:
     type: text_trimmed
-    weight: 1
-    label: above
+    weight: 2
+    label: hidden
     settings:
       trim_length: 600
-    third_party_settings: {  }
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: lastname
+          rel: ''
+          text: ''
+        linked: 0
   field_phone:
     type: telephone_link
-    weight: 3
-    label: above
+    weight: 5
+    label: hidden
     settings:
       title: ''
-    third_party_settings: {  }
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: phone
+          rel: ''
+          text: ''
+        linked: 0
   field_title:
     type: text_trimmed
-    weight: 2
-    label: above
+    weight: 3
+    label: hidden
     settings:
       trim_length: 600
-    third_party_settings: {  }
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: title
+          rel: ''
+          text: ''
+        linked: 0
+  user_picture:
+    type: image
+    weight: 0
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          title: ''
+          target: ''
+          class: picture
+          rel: ''
+          text: ''
+        linked: 0
+    label: hidden
 hidden:
   field_additional_info: true
   field_bio: true
   field_collection_responsibility: true
-  field_department: true
   field_digital_methods: true
   field_division: true
   field_fax: true
@@ -102,4 +183,3 @@ hidden:
   field_technology_specialty: true
   field_tool_expertise: true
   member_for: true
-  user_picture: true

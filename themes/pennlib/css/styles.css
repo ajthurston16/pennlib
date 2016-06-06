@@ -1233,6 +1233,12 @@ body {
 .wrapper--footer {
   background-color: #031b51; }
 
+.staff-search-wrapper .views-row {
+  border-top: 1px solid #cccccc;
+  padding: 13px; }
+  .staff-search-wrapper .views-row:nth-of-type(even) {
+    background-color: #F2F2F2; }
+
 .subjspec-wrapper h3 {
   font-style: italic;
   margin: 0; }
