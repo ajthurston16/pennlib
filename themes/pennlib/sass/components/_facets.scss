@@ -1,0 +1,43 @@
+$facet-border: 1px solid $silver;
+
+.block-facets {
+	border: $facet-border;
+	margin-bottom: 10px;
+
+	h2 {
+		margin: 0;
+		padding: 10px;
+		font-size: $base-font-size;
+		background-color: $gallery;
+		border-bottom: $facet-border;
+
+		&::before {
+			content: url(/sites/default/files/images/common/facetopen.gif);
+			margin-right: 5px;
+		}
+	}
+
+	.content {
+		padding: 10px;
+	}
+
+	/* For facets showing list of links. */
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	/* For facets showing list of checkboxes or dropdown.
+	 * Some overriding of styles from _form.scss is happening here. */
+	fieldset legend,
+	.js-form-type-select label {
+		display: none !important;
+	}
+	input {
+		margin: 0 !important;
+	}
+	select {
+		max-width: 100%;
+	}
+}
