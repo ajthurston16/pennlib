@@ -31,7 +31,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -95,7 +95,7 @@ display:
             mouseWheel: '0'
             randomize: '0'
             variableWidth: '0'
-          cache: -1
+          cache: 0
           current_view_mode: block_1
       row:
         type: fields
