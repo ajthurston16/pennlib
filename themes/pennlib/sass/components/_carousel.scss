@@ -1,6 +1,6 @@
 .slick--view--carousel {
 	background-color: $silver;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 	display: none;
 	@include breakpoint($breakpoint-med-small-width) {
 		display: block;
