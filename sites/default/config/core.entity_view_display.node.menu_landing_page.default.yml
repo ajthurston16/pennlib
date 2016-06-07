@@ -37,7 +37,7 @@ third_party_settings:
             label: 'Main Nav'
             provider: system
             label_display: '0'
-            level: 2
+            level: 1
             depth: 0
             context_mapping: {  }
             region: column1

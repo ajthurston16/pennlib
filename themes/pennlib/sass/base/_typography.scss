@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  @include rem(font-size, 16px);
+  @include rem(font-size, $body-font-size);
   color: $base-font-color;
   font-family: $body-text-font-family;
   line-height: 1.5;

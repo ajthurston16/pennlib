@@ -1,0 +1,10 @@
+uuid: d3a294e8-aecf-4d48-af30-8c85d657fd43
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.normal
+label: Normal
+targetEntityType: user
+cache: true

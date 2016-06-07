@@ -1,6 +1,10 @@
 .slick--view--carousel {
 	background-color: $silver;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
+	display: none;
+	@include breakpoint($breakpoint-med-small-width) {
+		display: block;
+	}
 }
 
 .slick-arrow::before {
@@ -8,7 +12,7 @@
 }
 
 .slick--skin--boxed .slide__content {
-	margin: 0 10px;
+	margin: 0 15px;
 	border: none;
 	border-radius: 0;
 }

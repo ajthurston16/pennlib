@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies: {  }
 name: carousel_image
-label: 'Carousel Image (250 x 250)'
+label: 'Carousel Image (221x216)'
 effects:
   acd49b30-5cda-4818-868a-ef3c26ae646c:
     uuid: acd49b30-5cda-4818-868a-ef3c26ae646c
     id: image_scale_and_crop
     weight: 1
     data:
-      width: 250
-      height: 250
+      width: 221
+      height: 216

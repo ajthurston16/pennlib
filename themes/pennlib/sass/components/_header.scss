@@ -1,16 +1,19 @@
 header {
-  background-color: $gulf-blue;
+  background-color: $concrete;
   display: block;
-  a{
-    color:$white;
-    &:hover{
-      color:$silver;
+  .main-nav a {
+    color: $white;
+    &:hover {
+      color: $silver;
     }
   }
   //div:first-child, div:nth-child(2) {
   //  float: left;
   //  width: 100%;
   //}
+  .front-page & {
+    background-color: $gulf-blue;
+  }
 }
 
 .site-header{

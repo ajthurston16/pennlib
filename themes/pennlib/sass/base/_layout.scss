@@ -28,6 +28,16 @@ body {
   padding-right: 20px;
 }
 
+//****************************
+// Wrapper widths & centering
+//****************************
+.wrapper--main,
+.wrapper--nav-footer,
+.front-page .wrapper--header {
+  max-width: $site-max-width;
+  margin: 0 auto;
+}
+
 //************************************
 // Padding/Layout rules for main pages
 //************************************

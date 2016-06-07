@@ -34,6 +34,22 @@ function pennlib_preprocess_html(&$variables) {
   if (theme_get_setting('sidr')) {
     $variables['attributes']['class'][] = 'has-sidr';
   }
+
+  /* Custom class based on contextual location in the site. */
+  $is_front_page = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front_page) {
+    $variables['attributes']['class'][] = 'front-page';
+  }
+}
+
+/**
+ * Implements preprocess_breadcrumb() to alter the breadcrumb.
+ */
+function pennlib_preprocess_breadcrumb(&$variables) {
+  // Change the first link in the breadcrumb from "Home" to "Penn Libraries".
+  if ($variables['breadcrumb'][0]['text'] == "Home" && $variables['breadcrumb'][0]['url'] == "/") {
+    $variables['breadcrumb'][0]['text'] = "Penn Libraries";
+  }
 }
 
 function pennlib_preprocess_input__submit(&$variables) {
