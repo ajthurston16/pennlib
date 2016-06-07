@@ -844,7 +844,7 @@ header nav {
     header nav ul.main-nav > li.main-nav__item {
       margin: 0; }
       header nav ul.main-nav > li.main-nav__item:hover ul.main-nav__sub {
-        top: 43px;
+        top: 37px;
         opacity: 1;
         visibility: visible;
         z-index: 10; }
