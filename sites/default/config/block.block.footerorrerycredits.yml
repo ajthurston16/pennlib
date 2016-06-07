@@ -1,9 +1,9 @@
-uuid: c1f5981b-9cb8-4399-8225-28cff752dc3a
+uuid: a0d16e7e-bc64-4038-9338-129715929e8d
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:c9f73ca5-db38-4ffc-9562-cfce974dd1ed'
+    - 'block_content:basic:67f93f36-5807-436c-99c4-1faa847d7c8a'
   module:
     - block_content
     - facets
@@ -15,9 +15,9 @@ theme: pennlib
 region: footer
 weight: -7
 provider: null
-plugin: 'block_content:c9f73ca5-db38-4ffc-9562-cfce974dd1ed'
+plugin: 'block_content:67f93f36-5807-436c-99c4-1faa847d7c8a'
 settings:
-  id: 'block_content:c9f73ca5-db38-4ffc-9562-cfce974dd1ed'
+  id: 'block_content:67f93f36-5807-436c-99c4-1faa847d7c8a'
   label: 'Footer Orrery Credits'
   provider: block_content
   label_display: '0'
