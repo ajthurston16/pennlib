@@ -33,7 +33,7 @@ dependencies:
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
   module:
-    - blazy
+    - image
     - link
     - taxonomy
     - telephone
@@ -236,27 +236,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   user_picture:
-    type: blazy
+    type: image
     weight: 0
     label: above
     settings:
-      icon: false
-      background: false
-      box_style: ''
-      breakpoints: {  }
-      caption: {  }
       image_style: ''
-      layout: ''
-      media_switch: ''
-      ratio: ''
-      responsive_image_style: ''
-      sizes: ''
-      thumbnail_style: ''
-      cache: -1
-      current_view_mode: ''
-      item_id: ''
-      optionset: default
-      skin: ''
+      image_link: ''
     third_party_settings: {  }
 hidden:
   member_for: true
