@@ -52,41 +52,41 @@ content:
     weight: 4
     label: hidden
     settings: {  }
-    third_party_settings: { }
+    third_party_settings: {  }
   field_email_address:
     type: email_mailto
     weight: 6
     label: hidden
     settings: {  }
-    third_party_settings: { }
+    third_party_settings: {  }
   field_first_name:
     type: text_trimmed
     weight: 1
     label: hidden
     settings:
       trim_length: 600
-    third_party_settings: { }
+    third_party_settings: {  }
   field_last_name:
     type: text_trimmed
     weight: 2
     label: hidden
     settings:
       trim_length: 600
-    third_party_settings: { }
+    third_party_settings: {  }
   field_phone:
     type: telephone_link
     weight: 5
     label: hidden
     settings:
       title: ''
-    third_party_settings: { }
+    third_party_settings: {  }
   field_title:
     type: text_trimmed
     weight: 3
     label: hidden
     settings:
       trim_length: 600
-    third_party_settings: { }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -94,7 +94,7 @@ content:
       image_style: thumbnail
       image_link: content
     third_party_settings:
-      linked_field: { }
+      linked_field: {  }
     label: hidden
 hidden:
   field_additional_info: true

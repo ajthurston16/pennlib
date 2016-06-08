@@ -974,7 +974,7 @@ display:
       defaults:
         arguments: false
         title: false
-      path: research/subject-specialists/all
+      path: research/subject-specialists
       display_description: ''
       title: 'Subject Specialists: All'
       menu:

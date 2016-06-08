@@ -115,11 +115,11 @@ field_settings:
       config:
         - field.storage.user.field_team
 processor_settings:
-  add_url:
-    plugin_id: add_url
-    settings: {  }
   language:
     plugin_id: language
+    settings: {  }
+  add_url:
+    plugin_id: add_url
     settings: {  }
 options:
   index_directly: true
