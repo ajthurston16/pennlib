@@ -33,6 +33,9 @@ dependencies:
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
   module:
+    - blazy
+    - link
+    - taxonomy
     - telephone
     - text
     - user
@@ -43,63 +46,217 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_email_address:
-    type: email_mailto
-    weight: 4
+  field_additional_info:
+    type: link
+    weight: 27
     label: above
-    settings: {  }
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
-  field_first_name:
+  field_bio:
     type: text_trimmed
-    weight: 0
+    weight: 5
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
-  field_last_name:
+  field_collection_responsibility:
+    type: entity_reference_rss_category
+    weight: 24
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_department:
+    type: entity_reference_rss_category
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_digital_methods:
+    type: entity_reference_rss_category
+    weight: 23
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_division:
+    type: entity_reference_rss_category
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_email_address:
+    type: email_mailto
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_fax:
+    type: telephone_link
+    weight: 15
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_first_name:
     type: text_trimmed
     weight: 1
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
-  field_phone:
-    type: telephone_link
+  field_interest:
+    type: text_trimmed
+    weight: 26
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_languages:
+    type: entity_reference_rss_category
+    weight: 19
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_last_name:
+    type: text_trimmed
     weight: 3
     label: above
     settings:
-      title: ''
+      trim_length: 600
     third_party_settings: {  }
-  field_title:
+  field_leadership_level:
+    type: number_decimal
+    weight: 28
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_liaison_responsibility:
+    type: entity_reference_rss_category
+    weight: 25
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_library:
+    type: entity_reference_rss_category
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_middle_name:
     type: text_trimmed
     weight: 2
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_mobile:
+    type: telephone_link
+    weight: 14
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_office:
+    type: text_trimmed
+    weight: 7
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_pennkey:
+    type: text_trimmed
+    weight: 17
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_phone:
+    type: telephone_link
+    weight: 13
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_rank:
+    type: entity_reference_rss_category
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_role:
+    type: entity_reference_rss_category
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_screenname:
+    type: text_trimmed
+    weight: 16
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_subject_specialty:
+    type: entity_reference_rss_category
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_team:
+    type: entity_reference_rss_category
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_technology_specialty:
+    type: entity_reference_rss_category
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: text_trimmed
+    weight: 4
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_tool_expertise:
+    type: entity_reference_rss_category
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: blazy
+    weight: 0
+    label: above
+    settings:
+      icon: false
+      background: false
+      box_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      layout: ''
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      thumbnail_style: ''
+      cache: -1
+      current_view_mode: ''
+      item_id: ''
+      optionset: default
+      skin: ''
+    third_party_settings: {  }
 hidden:
-  field_additional_info: true
-  field_bio: true
-  field_collection_responsibility: true
-  field_department: true
-  field_digital_methods: true
-  field_division: true
-  field_fax: true
-  field_interest: true
-  field_languages: true
-  field_leadership_level: true
-  field_liaison_responsibility: true
-  field_library: true
-  field_middle_name: true
-  field_mobile: true
-  field_office: true
-  field_pennkey: true
-  field_rank: true
-  field_role: true
-  field_screenname: true
-  field_subject_specialty: true
-  field_team: true
-  field_technology_specialty: true
-  field_tool_expertise: true
   member_for: true
-  user_picture: true

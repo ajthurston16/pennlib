@@ -33,9 +33,9 @@ dependencies:
     - field.field.user.user.field_title
     - field.field.user.user.field_tool_expertise
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
+    - telephone
+    - text
     - user
 _core:
   default_config_hash: C3k_McOy8bL8rTnIjspy5OfFdgqV1z6OdGZaI-tO5eM
@@ -44,14 +44,40 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
-  user_picture:
-    type: image
-    weight: 0
-    settings:
-      image_style: thumbnail
-      image_link: content
-    third_party_settings: {  }
+  field_email_address:
+    type: email_mailto
+    weight: 4
     label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_first_name:
+    type: text_trimmed
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_last_name:
+    type: text_trimmed
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_phone:
+    type: telephone_link
+    weight: 3
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_title:
+    type: text_trimmed
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
 hidden:
   field_additional_info: true
   field_bio: true
@@ -59,12 +85,9 @@ hidden:
   field_department: true
   field_digital_methods: true
   field_division: true
-  field_email_address: true
   field_fax: true
-  field_first_name: true
   field_interest: true
   field_languages: true
-  field_last_name: true
   field_leadership_level: true
   field_liaison_responsibility: true
   field_library: true
@@ -72,13 +95,12 @@ hidden:
   field_mobile: true
   field_office: true
   field_pennkey: true
-  field_phone: true
   field_rank: true
   field_role: true
   field_screenname: true
   field_subject_specialty: true
   field_team: true
   field_technology_specialty: true
-  field_title: true
   field_tool_expertise: true
   member_for: true
+  user_picture: true
