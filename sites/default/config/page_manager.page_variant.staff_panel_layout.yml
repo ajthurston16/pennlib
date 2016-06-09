@@ -111,17 +111,17 @@ variant_settings:
       label: Language
       provider: facets
       label_display: visible
-      context_mapping: {  }
       region: sidebar
-      uuid: 1f44cc5b-3007-485b-927e-bbbd7c086115
       weight: 9
+      context_mapping: {  }
+      uuid: 1f44cc5b-3007-485b-927e-bbbd7c086115
   id: panels_variant
   uuid: 76bba827-234b-477b-98b5-b28d82fc32df
   label: null
   weight: 0
   layout: radix_brenham
   layout_settings: {  }
-  page_title: ''
+  page_title: 'Libraries Staff Directory'
   storage_type: page_manager
   storage_id: staff_panel_layout
   builder: ipe
