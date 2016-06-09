@@ -1,0 +1,23 @@
+uuid: 7d7276af-a6d7-408b-a723-580348252bba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_citation_only
+    - field_collection.field_collection.field_languages
+id: field_collection_item.field_languages.field_citation_only
+field_name: field_citation_only
+entity_type: field_collection_item
+bundle: field_languages
+label: 'Citation Only'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

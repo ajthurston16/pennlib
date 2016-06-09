@@ -1,0 +1,28 @@
+uuid: fca2665b-2021-4554-917a-b17d2c80810a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_language
+    - field_collection.field_collection.field_languages
+    - taxonomy.vocabulary.languages
+id: field_collection_item.field_languages.field_language
+field_name: field_language
+entity_type: field_collection_item
+bundle: field_languages
+label: Language
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      languages: languages
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

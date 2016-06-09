@@ -34,6 +34,7 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - field_collection
     - image
     - link
     - path
@@ -64,7 +65,7 @@ content:
     third_party_settings: {  }
   field_bio:
     type: text_textarea
-    weight: 28
+    weight: 27
     settings:
       rows: 5
       placeholder: ''
@@ -111,16 +112,16 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_textfield
-    weight: 29
+    weight: 28
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_languages:
-    type: options_select
-    weight: 27
+    weight: 29
     settings: {  }
     third_party_settings: {  }
+    type: field_collection_embed
   field_last_name:
     type: text_textfield
     weight: 6
