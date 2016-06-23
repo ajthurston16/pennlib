@@ -2,6 +2,7 @@
 
 namespace Drupal\facets\Plugin\facets\widget;
 
+use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -23,6 +24,13 @@ class LinksWidget implements WidgetInterface {
   use StringTranslationTrait;
 
   /**
+   * A flag that indicates if we should display the numbers.
+   *
+   * @var bool
+   */
+  protected $showNumbers = FALSE;
+
+  /**
    * {@inheritdoc}
    */
   public function build(FacetInterface $facet) {
@@ -31,29 +39,22 @@ class LinksWidget implements WidgetInterface {
     $items = [];
 
     $configuration = $facet->getWidgetConfigs();
-    $show_numbers = empty($configuration['show_numbers']) ? FALSE : (bool) $configuration['show_numbers'];
+    $this->showNumbers = empty($configuration['show_numbers']) ? FALSE : (bool) $configuration['show_numbers'];
 
     foreach ($results as $result) {
-      // Get the link.
-      $text = $result->getDisplayValue();
-      if ($show_numbers) {
-        $text .= ' (' . $result->getCount() . ')';
-      }
-      if ($result->isActive()) {
-        $text = '(-) ' . $text;
-      }
-
       if (is_null($result->getUrl())) {
-        $items[] = $text;
+        $text = $this->extractText($result);
+        $items[] = ['#markup' => $text];
       }
       else {
-        $items[] = $this->buildListItems($result, $show_numbers);
+        $items[] = $this->buildListItems($result);
       }
     }
 
     $build = [
       '#theme' => 'item_list',
       '#items' => $items,
+      '#attributes' => ['data-drupal-facet-id' => $facet->id()],
       '#cache' => [
         'contexts' => [
           'url.path',
@@ -61,6 +62,12 @@ class LinksWidget implements WidgetInterface {
         ],
       ],
     ];
+
+    if (!empty($configuration['soft_limit'])) {
+      $build['#attached']['library'][] = 'facets/soft-limit';
+      $build['#attached']['drupalSettings']['facets']['softLimit'][$facet->id()] = (int) $configuration['soft_limit'];
+    }
+
     return $build;
   }
 
@@ -69,40 +76,38 @@ class LinksWidget implements WidgetInterface {
    *
    * @param \Drupal\facets\Result\ResultInterface $result
    *   A result item.
-   * @param bool $show_numbers
-   *   A boolean that's true when the numbers should be shown.
    *
-   * @return array|Link|string
-   *   A renderable array of the result or a link when the result has no
-   *   children.
+   * @return array
+   *   A renderable array of the result.
    */
-  protected function buildListItems(ResultInterface $result, $show_numbers) {
+  protected function buildListItems(ResultInterface $result) {
+
+    $classes = ['facet-item'];
+
     if ($children = $result->getChildren()) {
-      $link = $this->prepareLink($result, $show_numbers);
+      $items = $this->prepareLink($result);
 
       $children_markup = [];
       foreach ($children as $child) {
-        $children_markup[] = $this->buildChildren($child, $show_numbers);
+        $children_markup[] = $this->buildChildren($child);
       }
 
-      if ($link instanceof Link) {
-        $items = $link->toRenderable();
-        $items['#wrapper_attibutes'] = ['class' => ['expanded']];
-        $items['children'] = [$children_markup];
-      }
-      else {
-        $items = [
-          '#markup' => $link,
-          '#wrapper_attributes' => [
-            'class' => ['expanded'],
-          ],
-          'children' => [$children_markup],
-        ];
+      $classes[] = 'expanded';
+      $items['children'] = [$children_markup];
+
+      if ($result->isActive()) {
+        $items['#attributes'] = ['class' => 'active-trail'];
       }
     }
     else {
-      $items = $this->prepareLink($result, $show_numbers);
+      $items = $this->prepareLink($result);
+
+      if ($result->isActive()) {
+        $items['#attributes'] = ['class' => 'is-active'];
+      }
     }
+
+    $items['#wrapper_attributes'] = ['class' => $classes];
 
     return $items;
   }
@@ -112,27 +117,19 @@ class LinksWidget implements WidgetInterface {
    *
    * @param \Drupal\facets\Result\ResultInterface $result
    *   A result item.
-   * @param bool $show_numbers
-   *   A boolean that's true when the numbers should be shown.
    *
-   * @return Link|string
-   *   The item, can be a link or just the text.
+   * @return array
+   *   The item, as a renderable array.
    */
-  protected function prepareLink(ResultInterface $result, $show_numbers) {
-    $text = $result->getDisplayValue();
-
-    if ($show_numbers && $result->getCount()) {
-      $text .= ' (' . $result->getCount() . ')';
-    }
-    if ($result->isActive()) {
-      $text = '(-) ' . $text;
-    }
+  protected function prepareLink(ResultInterface $result) {
+    $text = $this->extractText($result);
 
     if (is_null($result->getUrl())) {
-      $link = $text;
+      $link = ['#markup' => $text];
     }
     else {
       $link = new Link($text, $result->getUrl());
+      $link = $link->toRenderable();
     }
 
     return $link;
@@ -143,54 +140,52 @@ class LinksWidget implements WidgetInterface {
    *
    * @param \Drupal\facets\Result\ResultInterface $child
    *   A result item.
-   * @param bool $show_numbers
-   *   A boolean that's true when the numbers should be shown.
    *
-   * @return array|Link|string
+   * @return array
    *   A renderable array of the result.
    */
-  protected function buildChildren(ResultInterface $child, $show_numbers) {
-    $text = $child->getDisplayValue();
-    if ($show_numbers && $child->getCount()) {
-      $text .= ' (' . $child->getCount() . ')';
-    }
-    if ($child->isActive()) {
-      $text = '(-) ' . $text;
-    }
+  protected function buildChildren(ResultInterface $child) {
+    $text = $this->extractText($child);
 
     if (!is_null($child->getUrl())) {
       $link = new Link($text, $child->getUrl());
-      $link = $link->toRenderable();
-      $link['#wrapper_attributes'] = ['class' => ['leaf']];
+      $item = $link->toRenderable();
     }
     else {
-      $link = [
-        '#markup' => $text,
-        '#wrapper_attributes' => [
-          'class' => ['leaf'],
-        ],
-      ];
+      $item = ['#markup' => $text];
     }
 
-    return $link;
+    $item['#wrapper_attributes'] = ['class' => ['leaf']];
+
+    return $item;
   }
 
   /**
    * {@inheritdoc}
+   *
+   * @todo This is inheriting nothing. We need a method on the interface and,
+   *   probably, a base class.
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state, $config) {
+    $widget_configs = !is_null($config) ? $config->get('widget_configs') : [];
+    // Assure sane defaults.
+    // @todo This should be handled upstream, in facet entity. Facet schema
+    //   should be fixed and all configs should get sane defaults.
+    $widget_configs += ['show_numbers' => FALSE, 'soft_limit' => 0];
 
     $form['show_numbers'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show the amount of results'),
+      '#default_value' => $widget_configs['show_numbers'],
     ];
-
-    if (!is_null($config)) {
-      $widget_configs = $config->get('widget_configs');
-      if (isset($widget_configs['show_numbers'])) {
-        $form['show_numbers']['#default_value'] = $widget_configs['show_numbers'];
-      }
-    }
+    $options = [50, 40, 30, 20, 15, 10, 5, 3];
+    $form['soft_limit'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Soft limit'),
+      '#default_value' => $widget_configs['soft_limit'],
+      '#options' => [0 => $this->t('No limit')] + array_combine($options, $options),
+      '#description' => $this->t('Limits the number of displayed facets via JavaScript.'),
+    ];
 
     return $form;
   }
@@ -200,6 +195,26 @@ class LinksWidget implements WidgetInterface {
    */
   public function getQueryType($query_types) {
     return $query_types['string'];
+  }
+
+  /**
+   * Extracts the text for a result to display in the UI.
+   *
+   * @param \Drupal\facets\Result\ResultInterface $result
+   *   The result to extract the text for.
+   *
+   * @return string
+   *   The text to display.
+   */
+  protected function extractText(ResultInterface $result) {
+    $text = new FormattableMarkup('@text', ['@text' => $result->getDisplayValue(), '@count' => $result->getCount()]);
+    if ($this->showNumbers && $result->getCount()) {
+      $text->string .= ' <span class="facet-count">(@count)</span>';
+    }
+    if ($result->isActive()) {
+      $text->string = '<span class="facet-deactivate">(-)</span> ' . $text->string;
+    }
+    return $text;
   }
 
 }

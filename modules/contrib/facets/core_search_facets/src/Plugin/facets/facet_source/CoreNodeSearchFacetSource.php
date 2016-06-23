@@ -187,8 +187,8 @@ class CoreNodeSearchFacetSource extends FacetSourcePluginBase implements CoreSea
     $form['field_identifier'] = [
       '#type' => 'select',
       '#options' => $this->getFields(),
-      '#title' => $this->t('Facet field'),
-      '#description' => $this->t('Choose the indexed field.'),
+      '#title' => $this->t('Field'),
+      '#description' => $this->t('The field from the selected facet source which contains the data to build a facet for.'),
       '#required' => TRUE,
       '#default_value' => $this->facet->getFieldIdentifier(),
     ];
@@ -211,7 +211,7 @@ class CoreNodeSearchFacetSource extends FacetSourcePluginBase implements CoreSea
     /** @var \Drupal\Field\FieldConfigInterface $field */
     foreach ($fields as $field) {
       // Verify if the target type is allowed for entity reference fields,
-      // otherwise verify the field type(i.e. integer, float...).
+      // otherwise verify the field type (that is, integer, float...).
       $target_is_allowed = in_array($field->getFieldStorageDefinition()->getSetting('target_type'), $allowed_field_types);
       $field_is_allowed = in_array($field->getFieldStorageDefinition()->getType(), $allowed_field_types);
       if ($target_is_allowed || $field_is_allowed) {

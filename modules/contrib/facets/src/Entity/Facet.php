@@ -15,9 +15,9 @@ use Drupal\facets\FacetInterface;
  *     "storage" = "Drupal\Core\Config\Entity\ConfigEntityStorage",
  *     "list_builder" = "Drupal\facets\FacetListBuilder",
  *     "form" = {
- *       "default" = "Drupal\facets\Form\FacetForm",
+ *       "default" = "Drupal\facets\Form\FacetSettingsForm",
  *       "edit" = "Drupal\facets\Form\FacetForm",
- *       "display" = "Drupal\facets\Form\FacetDisplayForm",
+ *       "settings" = "Drupal\facets\Form\FacetSettingsForm",
  *       "delete" = "Drupal\facets\Form\FacetDeleteConfirmForm",
  *     },
  *   },
@@ -52,7 +52,7 @@ use Drupal\facets\FacetInterface;
  *     "canonical" = "/admin/config/search/facets",
  *     "add-form" = "/admin/config/search/facets/add-facet",
  *     "edit-form" = "/admin/config/search/facets/{facets_facet}/edit",
- *     "display-form" = "/admin/config/search/facets/{facets_facet}/display",
+ *     "settings-form" = "/admin/config/search/facets/{facets_facet}/settings",
  *     "delete-form" = "/admin/config/search/facets/{facets_facet}/delete",
  *   }
  * )
@@ -165,13 +165,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * @var \Drupal\facets\Result\ResultInterface[]
    */
   protected $results = [];
-
-  /**
-   * The results.
-   *
-   * @var \Drupal\facets\Result\ResultInterface[]
-   */
-  protected $unfiltered_results = [];
 
   /**
    * An array of active values.
@@ -570,20 +563,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
-  public function setUnfilteredResults(array $all_results = []) {
-    $this->unfiltered_results = $all_results;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getUnfilteredResults() {
-    return $this->unfiltered_results;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function isActiveValue($value) {
     $is_active = FALSE;
     if (in_array($value, $this->active_values)) {
@@ -649,14 +628,13 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * {@inheritdoc}
    */
   public function getProcessorsByStage($stage, $only_enabled = TRUE) {
-    $processors = $this->loadProcessors();
+    $processors = $this->getProcessors($only_enabled);
     $processor_settings = $this->getProcessorConfigs();
     $processor_weights = array();
 
-    // Get a list of all processors meeting the criteria (stage and, optionally,
-    // enabled) along with their effective weights (user-set or default).
+    // Get a list of all processors for given stage.
     foreach ($processors as $name => $processor) {
-      if ($processor->supportsStage($stage) && !($only_enabled && empty($processor_settings[$name]))) {
+      if ($processor->supportsStage($stage)) {
         if (!empty($processor_settings[$name]['weights'][$stage])) {
           $processor_weights[$name] = $processor_settings[$name]['weights'][$stage];
         }

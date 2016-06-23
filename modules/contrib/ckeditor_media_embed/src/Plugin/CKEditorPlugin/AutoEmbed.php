@@ -1,11 +1,8 @@
 <?php
 
-/**
- * @file
- * Definition of \Drupal\ckeditor_media_embed\Plugin\CKEditorPlugin\AutoEmbed.
- */
-
 namespace Drupal\ckeditor_media_embed\Plugin\CKEditorPlugin;
+
+use Drupal\ckeditor_media_embed\AssetManager;
 
 use Drupal\Core\Plugin\PluginBase;
 use Drupal\editor\Entity\Editor;
@@ -63,7 +60,7 @@ class AutoEmbed extends PluginBase implements CKEditorPluginInterface, CKEditorP
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'ckeditor_media_embed') . '/js/plugins/autoembed/plugin.js';
+    return AssetManager::getCKEditorLibraryPluginPath() . $this->getPluginId() . '/plugin.js';
   }
 
   /**

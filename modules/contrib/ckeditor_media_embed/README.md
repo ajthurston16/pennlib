@@ -1,10 +1,42 @@
 # CKEditor Media Embed Plugin
 
-A module that register the Media Embed CKEditor plugin: http://ckeditor.com/addon/embed
+A module that adds support for CKEditor plugins Media Embed, Semantic Media Embed,
+and Auto Embed to Drupal core's CKEditor.
 
 ## Installation
 
-Install per normal https://www.drupal.org/documentation/install/modules-themes/modules-8.
+Install the module per normal https://www.drupal.org/documentation/install/modules-themes/modules-8
+then follow the instructions for installing the CKEditor plugins below.
+
+### Install CKEditor plugins
+
+#### Easiest
+
+1. [Install Drupal Console](https://github.com/hechoendrupal/DrupalConsole#installing-drupal-console).
+2. Run `drupal ckeditor_media_embed:install`.
+
+#### Harder
+
+1. Download the [Full "dev" package for CKEditor](https://github.com/ckeditor/ckeditor-dev/archive/release/4.5.x.zip).
+2. Unzip the package and place its contents into `DRUPAL_ROOT/libraries/ckeditor`.
+3. Clear the cache
+
+#### Hardest
+
+1. Download the following plugins:
+
+  * [Media Embed](http://ckeditor.com/addon/embed)
+  * [Media Semantic Embed](http://ckeditor.com/addon/embedsemantic)
+  * [Media Embed Base](http://ckeditor.com/addon/embedbase)
+  * [Auto Embed](http://ckeditor.com/addon/autoembed)
+  * [Auto Link](http://ckeditor.com/addon/autolink)
+  * [Notification](http://ckeditor.com/addon/notification)
+  * [Notification Aggregator](http://ckeditor.com/addon/notificationaggregator)
+
+2. Unzip and place the contents for each plugin in the the following directory:
+
+  * `DRUPAL_ROOT/libraries/ckeditor/plugins/PLUGIN_NAME`
+3. Clear the cache
 
 ## Configuration
 

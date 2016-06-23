@@ -14,8 +14,9 @@ use Drupal\facets\Result\Result;
  *   id = "active_widget_order",
  *   label = @Translation("Sort by active state"),
  *   description = @Translation("Sorts the widget results by active state."),
+ *   default_enabled = TRUE,
  *   stages = {
- *     "build" = 50
+ *     "sort" = 20
  *   }
  * )
  */
@@ -24,21 +25,7 @@ class ActiveWidgetOrderProcessor extends WidgetOrderPluginBase implements Widget
   /**
    * {@inheritdoc}
    */
-  public function sortResults(array $results, $order = 'ASC') {
-    if ($order === 'ASC') {
-      usort($results, 'self::sortActiveAsc');
-    }
-    else {
-      usort($results, 'self::sortActiveDesc');
-    }
-
-    return $results;
-  }
-
-  /**
-   * Sorts ascending.
-   */
-  protected static function sortActiveAsc(Result $a, Result $b) {
+  public function sortResults(Result $a, Result $b) {
     if ($a->isActive() == $b->isActive()) {
       return 0;
     }
@@ -46,13 +33,10 @@ class ActiveWidgetOrderProcessor extends WidgetOrderPluginBase implements Widget
   }
 
   /**
-   * Sorts descending.
+   * {@inheritdoc}
    */
-  protected static function sortActiveDesc(Result $a, Result $b) {
-    if ($a->isActive() == $b->isActive()) {
-      return 0;
-    }
-    return ($a->isActive()) ? 1 : -1;
+  public function defaultConfiguration() {
+    return ['sort' => 'DESC'];
   }
 
 }

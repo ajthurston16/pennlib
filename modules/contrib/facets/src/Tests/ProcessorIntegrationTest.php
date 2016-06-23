@@ -43,7 +43,7 @@ class ProcessorIntegrationTest extends WebTestBase {
 
     // Go to the processors form and check that the count limit processor is not
     // checked.
-    $this->drupalGet('admin/config/search/facets/' . $facet_id . '/display');
+    $this->drupalGet('admin/config/search/facets/' . $facet_id . '/edit');
     $this->assertNoFieldChecked('edit-facet-settings-count-limit-status');
 
     $form = ['facet_settings[count_limit][status]' => TRUE];
@@ -94,10 +94,9 @@ class ProcessorIntegrationTest extends WebTestBase {
   public function testProcessorIntegration() {
     $facet_name = "Vicuña";
     $facet_id = "vicuna";
-    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/display';
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
 
     $this->createFacet($facet_name, $facet_id, 'keywords');
-    $this->createFacetBlock($facet_id);
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertText('Displaying 10 search results');
@@ -119,10 +118,9 @@ class ProcessorIntegrationTest extends WebTestBase {
   public function testSortingWidgets() {
     $facet_name = "Huacaya alpaca";
     $facet_id = "huacaya_alpaca";
-    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/display';
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
 
     $this->createFacet($facet_name, $facet_id, 'keywords');
-    $this->createFacetBlock($facet_id);
 
     $this->checkSortByActive();
     $this->checkSortByCount();
@@ -131,9 +129,94 @@ class ProcessorIntegrationTest extends WebTestBase {
   }
 
   /**
+   * Tests sorting of results.
+   */
+  public function testResultSorting() {
+    $id = 'burrowing_owl';
+    $name = 'Burrowing owl';
+    $this->editForm = 'admin/config/search/facets/' . $id . '/edit';
+
+    $this->createFacet($name, $id, 'keywords');
+    $this->disableAllFacetSorts();
+
+    $values = [
+      'facet_sorting[display_value_widget_order][status]' => TRUE,
+      'widget_configs[show_numbers]' => TRUE,
+    ];
+    $this->drupalPostForm($this->editForm, $values, $this->t('Save'));
+
+    $expected_results = [
+      'apple',
+      'banana',
+      'grape',
+      'orange',
+      'strawberry',
+    ];
+
+    $this->drupalGet('search-api-test-fulltext');
+    foreach ($expected_results as $k => $link) {
+      if ($k > 0) {
+        $x = $expected_results[($k - 1)];
+        $y = $expected_results[$k];
+        $this->assertStringPosition($x, $y);
+      }
+    }
+
+    // Sort by count, then by display value.
+    $values['facet_sorting[count_widget_order][status]'] = TRUE;
+    $values['facet_sorting[count_widget_order][settings][sort]'] = 'ASC';
+    $values['processors[count_widget_order][weights][sort]'] = 1;
+    $values['facet_sorting[display_value_widget_order][status]'] = TRUE;
+    $values['processors[display_value_widget_order][weights][sort]'] = 2;
+    $this->disableAllFacetSorts();
+    $this->drupalPostForm($this->editForm, $values, $this->t('Save'));
+
+    $expected_results = [
+      'banana',
+      'apple',
+      'strawberry',
+      'grape',
+      'orange',
+    ];
+
+    $this->drupalGet('search-api-test-fulltext');
+    foreach ($expected_results as $k => $link) {
+      if ($k > 0) {
+        $x = $expected_results[($k - 1)];
+        $y = $expected_results[$k];
+        $this->assertStringPosition($x, $y);
+      }
+    }
+
+    $values['facet_sorting[display_value_widget_order][status]'] = TRUE;
+    $values['facet_sorting[count_widget_order][status]'] = TRUE;
+    $values['facet_sorting[count_widget_order][settings][sort]'] = 'ASC';
+    $this->drupalPostForm($this->editForm, $values, $this->t('Save'));
+    $this->assertFieldChecked('edit-facet-sorting-display-value-widget-order-status');
+    $this->assertFieldChecked('edit-facet-sorting-count-widget-order-status');
+
+    $expected_results = [
+      'banana',
+      'apple',
+      'strawberry',
+      'grape',
+      'orange',
+    ];
+
+    $this->drupalGet('search-api-test-fulltext');
+    foreach ($expected_results as $k => $link) {
+      if ($k > 0) {
+        $x = $expected_results[($k - 1)];
+        $y = $expected_results[$k];
+        $this->assertStringPosition($x, $y);
+      }
+    }
+  }
+
+  /**
    * Tests the count limit processor.
    */
-  private function checkCountLimitProcessor() {
+  protected function checkCountLimitProcessor() {
     $this->drupalGet($this->editForm);
 
     $form = [
@@ -158,8 +241,9 @@ class ProcessorIntegrationTest extends WebTestBase {
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertText('Displaying 10 search results');
-    $this->assertText('grape (6)');
+    $this->assertRaw('grape <span class="facet-count">(6)');
     $this->assertNoText('apple (4)');
+    $this->assertNoRaw('apple <span class="facet-count">(4)');
 
     $form = [
       'widget_configs[show_numbers]' => TRUE,
@@ -184,7 +268,7 @@ class ProcessorIntegrationTest extends WebTestBase {
   /**
    * Tests the exclude items.
    */
-  private function checkExcludeItems() {
+  protected function checkExcludeItems() {
     $form = [
       'facet_settings[exclude_specified_items][status]' => TRUE,
     ];
@@ -222,14 +306,14 @@ class ProcessorIntegrationTest extends WebTestBase {
   /**
    * Tests hiding non-narrowing results.
    */
-  private function checkHideNonNarrowingProcessor() {
+  protected function checkHideNonNarrowingProcessor() {
     $this->drupalGet('search-api-test-fulltext');
     $this->assertText('Displaying 10 search results');
-    $this->assertLink('grape');
+    $this->assertLink('apple');
 
-    $this->clickLink('grape');
-    $this->assertText('Displaying 6 search results');
-    $this->assertLink('orange');
+    $this->clickLink('apple');
+    $this->assertText('Displaying 4 search results');
+    $this->assertLink('grape');
 
     $form = [
       'facet_settings[hide_non_narrowing_result_processor][status]' => TRUE,
@@ -238,11 +322,11 @@ class ProcessorIntegrationTest extends WebTestBase {
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertText('Displaying 10 search results');
-    $this->assertLink('grape');
+    $this->assertLink('apple');
 
-    $this->clickLink('grape');
-    $this->assertText('Displaying 6 search results');
-    $this->assertNoLink('orange');
+    $this->clickLink('apple');
+    $this->assertText('Displaying 4 search results');
+    $this->assertNoLink('grape');
 
     $form = [
       'facet_settings[hide_non_narrowing_result_processor][status]' => FALSE,
@@ -253,7 +337,7 @@ class ProcessorIntegrationTest extends WebTestBase {
   /**
    * Tests hiding active results.
    */
-  private function checkHideActiveItems() {
+  protected function checkHideActiveItems() {
     $form = [
       'facet_settings[hide_active_items_processor][status]' => TRUE,
     ];
@@ -279,14 +363,16 @@ class ProcessorIntegrationTest extends WebTestBase {
    * Tests the active widget order.
    */
   protected function checkSortByActive() {
+    $this->disableAllFacetSorts();
     $form = [
       'facet_sorting[active_widget_order][status]' => TRUE,
+      'facet_sorting[active_widget_order][settings][sort]' => 'ASC',
     ];
     $this->drupalPostForm($this->editForm, $form, $this->t('Save'));
 
     $this->drupalGet('search-api-test-fulltext');
     $this->clickLink('strawberry');
-    $this->assertStringPosition('(-) strawberry', 'grape');
+    $this->assertStringPosition('<span class="facet-deactivate">(-)</span> strawberry', 'grape');
 
     $form = [
       'facet_sorting[active_widget_order][status]' => TRUE,
@@ -296,7 +382,7 @@ class ProcessorIntegrationTest extends WebTestBase {
 
     $this->drupalGet('search-api-test-fulltext');
     $this->clickLink('strawberry');
-    $this->assertStringPosition('grape', '(-) strawberry');
+    $this->assertStringPosition('grape', '<span class="facet-deactivate">(-)</span> strawberry');
 
     $form = [
       'facet_sorting[active_widget_order][status]' => FALSE,
@@ -308,9 +394,11 @@ class ProcessorIntegrationTest extends WebTestBase {
    * Tests the active widget order.
    */
   protected function checkSortByCount() {
+    $this->disableAllFacetSorts();
     $form = [
       'widget_configs[show_numbers]' => TRUE,
       'facet_sorting[count_widget_order][status]' => TRUE,
+      'facet_sorting[count_widget_order][settings][sort]' => 'ASC',
     ];
     $this->drupalPostForm($this->editForm, $form, $this->t('Save'));
 
@@ -340,10 +428,9 @@ class ProcessorIntegrationTest extends WebTestBase {
   /**
    * Tests the display order.
    */
-  public function checkSortByDisplay() {
-    $form = [
-      'facet_sorting[display_value_widget_order][status]' => TRUE,
-    ];
+  protected function checkSortByDisplay() {
+    $this->disableAllFacetSorts();
+    $form = ['facet_sorting[display_value_widget_order][status]' => TRUE];
     $this->drupalPostForm($this->editForm, $form, $this->t('Save'));
 
     $this->drupalGet('search-api-test-fulltext');
@@ -360,16 +447,15 @@ class ProcessorIntegrationTest extends WebTestBase {
     $this->assertStringPosition('strawberry', 'grape');
     $this->assertStringPosition('banana', 'apple');
 
-    $form = [
-      'facet_sorting[display_value_widget_order][status]' => FALSE,
-    ];
+    $form = ['facet_sorting[display_value_widget_order][status]' => FALSE];
     $this->drupalPostForm($this->editForm, $form, $this->t('Save'));
   }
 
   /**
    * Tests the display order.
    */
-  public function checkSortByRaw() {
+  protected function checkSortByRaw() {
+    $this->disableAllFacetSorts();
     $form = [
       'facet_sorting[raw_value_widget_order][status]' => TRUE,
     ];
@@ -408,6 +494,22 @@ class ProcessorIntegrationTest extends WebTestBase {
       'id' => str_replace('_', '-', $id),
     ];
     $this->blocks[$id] = $this->drupalPlaceBlock($plugin_id, $settings);
+  }
+
+  /**
+   * Disables all sorting processors for a clean testing base.
+   */
+  protected function disableAllFacetSorts($path = FALSE) {
+    $settings = [
+      'facet_sorting[raw_value_widget_order][status]' => FALSE,
+      'facet_sorting[display_value_widget_order][status]' => FALSE,
+      'facet_sorting[count_widget_order][status]' => FALSE,
+      'facet_sorting[active_widget_order][status]' => FALSE,
+    ];
+    if (!$path) {
+      $path = $this->editForm;
+    }
+    $this->drupalPostForm($path, $settings, $this->t('Save'));
   }
 
 }

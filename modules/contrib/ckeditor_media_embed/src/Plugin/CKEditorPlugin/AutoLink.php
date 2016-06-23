@@ -1,11 +1,8 @@
 <?php
 
-/**
- * @file
- * Definition of \Drupal\ckeditor_media_embed\Plugin\CKEditorPlugin\MediaEmbedBase.
- */
-
 namespace Drupal\ckeditor_media_embed\Plugin\CKEditorPlugin;
+
+use Drupal\ckeditor_media_embed\AssetManager;
 
 use Drupal\Core\Plugin\PluginBase;
 use Drupal\editor\Entity\Editor;
@@ -47,7 +44,7 @@ class AutoLink extends PluginBase implements CKEditorPluginInterface {
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'ckeditor_media_embed') . '/js/plugins/autolink/plugin.js';
+    return AssetManager::getCKEditorLibraryPluginPath() . $this->getPluginId() . '/plugin.js';
   }
 
   /**

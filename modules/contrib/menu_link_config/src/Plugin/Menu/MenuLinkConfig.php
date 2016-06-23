@@ -8,7 +8,6 @@
 namespace Drupal\menu_link_config\Plugin\Menu;
 
 use Drupal\Component\Plugin\Exception\PluginException;
-use Drupal\Component\Utility\String;
 use Drupal\config_translation\ConfigMapperManagerInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -106,7 +105,7 @@ class MenuLinkConfig extends MenuLinkContent {
         $entity = $storage->load($this->getDerivativeId());
       }
       if (!$entity) {
-        throw new PluginException(String::format('Entity not found through the menu link plugin definition and could not fallback on ID @id', array('@uuid' => $this->getDerivativeId())));
+        throw new PluginException(sprintf('Entity not found through the menu link plugin definition and could not fallback on ID %s', $this->getDerivativeId()));
       }
       // Clone the entity object to avoid tampering with the static cache.
       $this->entity = clone $entity;

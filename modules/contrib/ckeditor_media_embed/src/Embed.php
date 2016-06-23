@@ -1,14 +1,9 @@
 <?php
-/**
- * @file
- * Contains \Drupal\ckeditor_media_embed\Embed.
- */
 
 namespace Drupal\ckeditor_media_embed;
 
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
-use Drupal\Core\Http\ClientFactory;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Utility\UnroutedUrlAssemblerInterface;
@@ -17,6 +12,9 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\TransferException;
 use Symfony\Component\HttpFoundation\RequestStack;
 
+/**
+ * The default CKEditor Media Embed class.
+ */
 class Embed implements EmbedInterface {
   use StringTranslationTrait;
 
@@ -28,11 +26,15 @@ class Embed implements EmbedInterface {
   protected $httpClient;
 
   /**
+   * The unrouted URL assembler service.
+   *
    * @var Drupal\Core\Utility\UnroutedUrlAssemblerInterface
    */
   protected $urlAssembler;
 
   /**
+   * The request stack.
+   *
    * @var Symfony\Component\HttpFoundation\RequestStack
    */
   protected $requestStack;
@@ -42,8 +44,10 @@ class Embed implements EmbedInterface {
    *
    * @param ClientInterface $httpClient
    *   The http client used to do retrieval of embed codes.
-   * @param UnroutedUrlAssemblerInterface
+   * @param UnroutedUrlAssemblerInterface $urlAssembler
    *   The url assembler used to create url from a parsed url.
+   * @param RequestStack $requestStack
+   *   The request stack.
    */
   public function __construct(ClientInterface $httpClient, UnroutedUrlAssemblerInterface $urlAssembler, RequestStack $requestStack) {
     $this->httpClient = $httpClient;
@@ -81,7 +85,7 @@ class Embed implements EmbedInterface {
       watchdog_exception('ckeditor_media_embed', $e);
     }
 
-     return $embed;
+    return $embed;
   }
 
   /**
@@ -90,6 +94,7 @@ class Embed implements EmbedInterface {
    * @return string
    *   The provider url with the media url injected.
    */
+  // @codingStandardsIgnoreLine
   protected function getEmbedProviderURL($url) {
     $provider = $this->embed_provider;
 
@@ -97,7 +102,7 @@ class Embed implements EmbedInterface {
       $provider = $this->requestStack->getCurrentRequest()->getScheme() . ':' . $provider;
     }
 
-    return str_replace('%7Burl%7D', $url, $provider);
+    return str_replace('%7Burl%7D', urlencode($url), $provider);
   }
 
   /**
@@ -129,7 +134,7 @@ class Embed implements EmbedInterface {
   /**
    * Replace <oembed> tags with their respected embed HTML.
    *
-   * @param DOMNode $node
+   * @param \DOMNode $node
    *   The DOMNode object of the <oembed> tag.
    * @param object $embed
    *   The embed json decoded object as provided by Embed::getEmbedOjbect().
