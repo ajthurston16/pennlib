@@ -13,6 +13,7 @@ dependencies:
     - field.storage.user.field_role
     - field.storage.user.field_team
     - field.storage.user.field_languages
+    - search_api.server.default_server
   module:
     - search_api
     - user
@@ -26,8 +27,6 @@ field_settings:
     datasource_id: null
     property_path: search_api_language
     type: string
-    indexed_locked: true
-    type_locked: true
   uid:
     label: 'User ID'
     datasource_id: 'entity:user'
@@ -117,9 +116,6 @@ processor_settings:
   add_url:
     plugin_id: add_url
     settings: {  }
-  language:
-    plugin_id: language
-    settings: {  }
 options:
   index_directly: true
   cron_limit: 50
@@ -127,10 +123,11 @@ datasource_settings:
   'entity:user':
     plugin_id: 'entity:user'
     settings:
-      default: '1'
-      languages: {  }
+      languages:
+        default: false
+        selected: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
-server: ''
+server: default_server
