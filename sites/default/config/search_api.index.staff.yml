@@ -1,6 +1,6 @@
 uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.user.field_pennkey
@@ -13,7 +13,6 @@ dependencies:
     - field.storage.user.field_role
     - field.storage.user.field_team
     - field.storage.user.field_languages
-    - search_api.server.solr
   module:
     - search_api
     - user
@@ -134,4 +133,4 @@ tracker_settings:
   default:
     plugin_id: default
     settings: {  }
-server: solr
+server: ''

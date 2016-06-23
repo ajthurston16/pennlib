@@ -422,10 +422,8 @@ body.fluid-bear:not(.page-panels) .site-main {
 
 body.with-sticky-footer {
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   min-height: 100vh;
-  -webkit-flex-direction: column;
   -ms-flex-direction: column;
       flex-direction: column; }
 
@@ -944,7 +942,6 @@ header nav {
     border-left: 5px solid white;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: -5px;
@@ -1035,13 +1032,11 @@ h2.sidr-class-visually-hidden {
       #mobile-nav #mobile-button.on span:before, #mobile-nav #mobile-button.on span:after {
         top: 0; }
       #mobile-nav #mobile-button.on span:before {
-        -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-                transform: rotate(45deg); }
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
       #mobile-nav #mobile-button.on span:after {
-        -webkit-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-                transform: rotate(-45deg); }
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
 
 body .responsive-nav {
   display: block;
@@ -1060,13 +1055,11 @@ body.sidr-open #header #sidr-bttn {
     body.sidr-open #header #sidr-bttn span:before, body.sidr-open #header #sidr-bttn span:after {
       top: 0; }
     body.sidr-open #header #sidr-bttn span:before {
-      -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-              transform: rotate(45deg); }
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
     body.sidr-open #header #sidr-bttn span:after {
-      -webkit-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
-              transform: rotate(-45deg); }
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
 
 .sidr-animating .wrapper--header {
   position: absolute; }
@@ -1704,7 +1697,6 @@ body {
     text-align: right;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
   .profile .field--name-user-picture {
