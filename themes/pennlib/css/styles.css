@@ -422,10 +422,8 @@ body.fluid-bear:not(.page-panels) .site-main {
 
 body.with-sticky-footer {
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   min-height: 100vh;
-  -webkit-flex-direction: column;
   -ms-flex-direction: column;
       flex-direction: column; }
 
@@ -944,7 +942,6 @@ header nav {
     border-left: 5px solid white;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: -5px;
@@ -1035,13 +1032,11 @@ h2.sidr-class-visually-hidden {
       #mobile-nav #mobile-button.on span:before, #mobile-nav #mobile-button.on span:after {
         top: 0; }
       #mobile-nav #mobile-button.on span:before {
-        -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-                transform: rotate(45deg); }
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
       #mobile-nav #mobile-button.on span:after {
-        -webkit-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-                transform: rotate(-45deg); }
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
 
 body .responsive-nav {
   display: block;
@@ -1060,13 +1055,11 @@ body.sidr-open #header #sidr-bttn {
     body.sidr-open #header #sidr-bttn span:before, body.sidr-open #header #sidr-bttn span:after {
       top: 0; }
     body.sidr-open #header #sidr-bttn span:before {
-      -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-              transform: rotate(45deg); }
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
     body.sidr-open #header #sidr-bttn span:after {
-      -webkit-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
-              transform: rotate(-45deg); }
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
 
 .sidr-animating .wrapper--header {
   position: absolute; }
@@ -1207,6 +1200,51 @@ body {
   padding-top: 30px; }
   #main .site-sidebars .block h2 {
     margin-top: 0; }
+
+/* Borrowing Pages sidebar navigation */
+.side-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.side-nav a {
+  display: block;
+  padding: 0.65em 15px;
+  color: #000000;
+  background: #F2F2F2;
+  border: 1px solid #cccccc;
+  border-top: 0; }
+  .side-nav a.active, .side-nav a:active, .side-nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 1px 1px #3373a5;
+    border-left: 1px solid #2373a5;
+    border-right: 1px solid #2373a5; }
+  .side-nav a.active {
+    background: #6facd5;
+    background: linear-gradient(to bottom, #6facd5 0%, #5393c5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6facd5', endColorstr='#5393c5',GradientType=0 ); }
+  .side-nav a:active, .side-nav a:hover {
+    background: #5393c5;
+    background: linear-gradient(to bottom, #5393c5 0%, #6facd5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393c5', endColorstr='#6facd5',GradientType=0 ); }
+
+.side-nav li:first-child {
+  border-top: 1px solid #cccccc; }
+
+.side-nav li ul {
+  margin-left: 0.56em; }
+  .side-nav li ul a {
+    background-color: white;
+    padding: .65em 15px .65em 27px; }
+    .side-nav li ul a.active, .side-nav li ul a:active, .side-nav li ul a:hover {
+      color: #000000;
+      font-weight: bold;
+      text-shadow: none;
+      border-color: #cccccc;
+      background-image: url("//s3.amazonaws.com/libapps/customers/220/images/arrow16ccc.png");
+      background-repeat: no-repeat;
+      background-position: 0 5px;
+      text-decoration: none; }
 
 #block-pennlib-account-menu {
   display: none; }
@@ -1659,7 +1697,6 @@ body {
     text-align: right;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
   .profile .field--name-user-picture {

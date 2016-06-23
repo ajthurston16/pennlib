@@ -1,6 +1,6 @@
 uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.user.field_pennkey
@@ -11,9 +11,8 @@ dependencies:
     - field.storage.user.field_subject_specialty
     - field.storage.user.field_technology_specialty
     - field.storage.user.field_role
-    - field.storage.user.field_languages
     - field.storage.user.field_team
-    - search_api.server.solr
+    - field.storage.user.field_languages
   module:
     - search_api
     - user
@@ -98,14 +97,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_role
-  field_languages:
-    label: Languages
-    datasource_id: 'entity:user'
-    property_path: field_languages
-    type: integer
-    dependencies:
-      config:
-        - field.storage.user.field_languages
   field_team:
     label: Team
     datasource_id: 'entity:user'
@@ -114,12 +105,20 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_team
+  field_languages:
+    label: Languages
+    datasource_id: 'entity:user'
+    property_path: field_languages
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_languages
 processor_settings:
-  language:
-    plugin_id: language
-    settings: {  }
   add_url:
     plugin_id: add_url
+    settings: {  }
+  language:
+    plugin_id: language
     settings: {  }
 options:
   index_directly: true
@@ -134,4 +133,4 @@ tracker_settings:
   default:
     plugin_id: default
     settings: {  }
-server: solr
+server: ''

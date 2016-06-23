@@ -8,3 +8,77 @@
 		}
 	}
 }
+
+/* Borrowing Pages sidebar navigation */
+$side-nav-border: 1px solid $silver;
+.side-nav {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		display: block;
+		padding: 0.65em 15px;
+		color: $base-font-color;
+		background: $concrete;
+		border: $side-nav-border;
+		border-top: 0;
+
+		&.active,
+		&:active,
+		&:hover {
+			color: $white;
+			text-shadow: 0 1px 1px #3373a5;
+			border-left: 1px solid #2373a5;
+			border-right: 1px solid #2373a5;
+		}
+
+		&.active {
+			background: #6facd5;
+			background: -moz-linear-gradient(top, #6facd5 0%, #5393c5 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6facd5), color-stop(100%,#5393c5));
+			background: -webkit-linear-gradient(top, #6facd5 0%,#5393c5 100%);
+			background: -o-linear-gradient(top, #6facd5 0%,#5393c5 100%);
+			background: -ms-linear-gradient(top, #6facd5 0%,#5393c5 100%);
+			background: linear-gradient(to bottom, #6facd5 0%,#5393c5 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6facd5', endColorstr='#5393c5',GradientType=0 );
+		}
+		&:active,
+		&:hover {
+			background: #5393c5;
+			background: -moz-linear-gradient(top, #5393c5 0%, #6facd5 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5393c5), color-stop(100%,#6facd5));
+			background: -webkit-linear-gradient(top, #5393c5 0%,#6facd5 100%);
+			background: -o-linear-gradient(top, #5393c5 0%,#6facd5 100%);
+			background: -ms-linear-gradient(top, #5393c5 0%,#6facd5 100%);
+			background: linear-gradient(to bottom, #5393c5 0%,#6facd5 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393c5', endColorstr='#6facd5',GradientType=0 );
+		}
+	}
+	li {
+		&:first-child {
+			border-top: $side-nav-border;
+		}
+		ul {
+			margin-left: 0.56em;
+			a {
+				background-color: white;
+				padding: .65em 15px .65em 27px;
+
+				&.active,
+				&:active,
+				&:hover {
+					color: $base-font-color;
+					font-weight: bold;
+					text-shadow: none;
+					border-color: $silver;
+					background-image: url("//s3.amazonaws.com/libapps/customers/220/images/arrow16ccc.png");
+					background-repeat: no-repeat;
+					background-position: 0 5px;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
