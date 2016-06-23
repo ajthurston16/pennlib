@@ -1,0 +1,92 @@
+# Tools Taxonomy terms.
+'Access':
+'Accessibility':
+  parent: 'Access'
+'Off-Campus':
+  parent: 'Access'
+'Mobile Delivery':
+  parent: 'Access'
+'Collaboration':
+'Virtual Meetings':
+  parent: 'Collaboration'
+'Project Management':
+  parent: 'Collaboration'
+'Courseware':
+'Canvas':
+  parent: 'Courseware'
+'Other Courseware':
+  parent: 'Courseware'
+'Canvas Plugin':
+  parent: 'Courseware'
+'Data Tools':
+'Data Analysis & Cleanup':
+  parent: 'Data Tools'
+'Data Collection':
+  parent: 'Data Tools'
+'Data Management':
+  parent: 'Data Tools'
+'Mapping & Spacial Methods':
+  parent: 'Data Tools'
+'Structure Visualizer':
+  parent: 'Data Tools'
+'Design & Image Management':
+'Image Collections':
+  parent: 'Design & Image Management'
+'Image/Graphics Editing':
+  parent: 'Design & Image Management'
+'Digital Scholarship':
+'Text Editor':
+  parent: 'Digital Scholarship'
+'Text Mining: Topic Modelling':
+  parent: 'Digital Scholarship'
+'Text Mining: Text Analysis':
+  parent: 'Digital Scholarship'
+'Media Production':
+'Audio':
+  parent: 'Media Production'
+'Authoring Tools':
+  parent: 'Media Production'
+'Steaming Video':
+  parent: 'Media Production'
+'Video':
+  parent: 'Media Production'
+'Presentation':
+'Productivity':
+'Apps':
+  parent: 'Productivity'
+'Authoring Tools':
+  parent: 'Productivity'
+'Brainstorms and Mind-Mapping':
+  parent: 'Productivity'
+'Equipment':
+  parent: 'Productivity'
+'Organization':
+  parent: 'Productivity'
+'Publishing':
+'Authoring Tools':
+  parent: 'Publishing'
+'Permissions':
+  parent: 'Publishing'
+'Publishers':
+  parent: 'Publishing'
+'Research':
+'Bibliographic & Research Management':
+  parent: 'Research'
+'Alerting Services':
+  parent: 'Research'
+'Census':
+  parent: 'Research'
+'Databases & Article Indexes':
+  parent: 'Research'
+'Professional Profiles':
+  parent: 'Research'
+'Social Media':
+'Web Content':
+'Text & Code Editor':
+  parent: 'Web Content'
+'Web Data':
+  parent: 'Web Content'
+'Web Design':
+  parent: 'Web Content'
+'Web Presentation':
+  parent: 'Web Content'
