@@ -1,6 +1,6 @@
 uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.user.field_pennkey
@@ -124,7 +124,7 @@ datasource_settings:
     plugin_id: 'entity:user'
     settings:
       languages:
-        default: false
+        default: true
         selected: {  }
 tracker_settings:
   default:
