@@ -52,6 +52,8 @@ class IntegrationTest extends WebTestBase {
       'administer search_api',
       'access administration pages',
       'administer nodes',
+      'bypass node access',
+      'administer content types',
       'administer node fields',
     ));
     $this->drupalLogin($this->adminUser);
@@ -76,6 +78,7 @@ class IntegrationTest extends WebTestBase {
     $this->addFieldsToIndex();
     $this->checkDataTypesTable();
     $this->removeFieldsFromIndex();
+    $this->checkReferenceFieldsNonBaseFields();
 
     $this->configureFilter();
     $this->configureFilterPage();
@@ -99,7 +102,6 @@ class IntegrationTest extends WebTestBase {
    * server also has an integer as id/label.
    */
   public function testIntegerIndex() {
-    $this->drupalLogin($this->adminUser);
     $this->getTestServer(789, 456);
 
     $this->drupalCreateNode(array('type' => 'article'));
@@ -345,6 +347,7 @@ class IntegrationTest extends WebTestBase {
     $edit['tracker_config[foo]'] = 'foobar';
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
     $this->assertResponse(200);
+    $this->assertText($this->t('The index was successfully saved.'));
 
     // Verify that everything was changed correctly.
     $index = $this->getIndex(TRUE);
@@ -357,6 +360,7 @@ class IntegrationTest extends WebTestBase {
     $edit = array('tracker' => 'default');
     $this->drupalPostForm($edit_path, $edit, $this->t('Save'));
     $this->assertResponse(200);
+    $this->assertText($this->t('The index was successfully saved.'));
   }
 
   /**
@@ -417,11 +421,12 @@ class IntegrationTest extends WebTestBase {
     $this->drupalGet($settings_path);
     $edit = array(
       'status' => FALSE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => FALSE,
-      'datasource_configs[entity:node][bundles][page]' => FALSE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => FALSE,
+      'datasource_configs[entity:node][bundles][selected][page]' => FALSE,
     );
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 0, 'No items are tracked.');
@@ -431,11 +436,12 @@ class IntegrationTest extends WebTestBase {
 
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => TRUE,
-      'datasource_configs[entity:node][bundles][page]' => TRUE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => TRUE,
+      'datasource_configs[entity:node][bundles][selected][page]' => TRUE,
     );
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 3, 'Three items are tracked.');
@@ -444,11 +450,12 @@ class IntegrationTest extends WebTestBase {
     // items from the tracking table.
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => FALSE,
-      'datasource_configs[entity:node][bundles][page]' => FALSE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => FALSE,
+      'datasource_configs[entity:node][bundles][selected][page]' => FALSE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 0, 'No items are tracked.');
@@ -457,11 +464,12 @@ class IntegrationTest extends WebTestBase {
     // re-add the two articles to the tracking table.
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => TRUE,
-      'datasource_configs[entity:node][bundles][page]' => FALSE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => TRUE,
+      'datasource_configs[entity:node][bundles][selected][page]' => FALSE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 2, 'Two items are tracked.');
@@ -470,11 +478,12 @@ class IntegrationTest extends WebTestBase {
     // result in only the page being present in the tracking table.
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => FALSE,
-      'datasource_configs[entity:node][bundles][page]' => TRUE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => FALSE,
+      'datasource_configs[entity:node][bundles][selected][page]' => TRUE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 1, 'One item is tracked.');
@@ -483,11 +492,12 @@ class IntegrationTest extends WebTestBase {
     // change the tracking table, which should still only contain the page.
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 1,
-      'datasource_configs[entity:node][bundles][article]' => TRUE,
-      'datasource_configs[entity:node][bundles][page]' => FALSE,
+      'datasource_configs[entity:node][bundles][default]' => 1,
+      'datasource_configs[entity:node][bundles][selected][article]' => TRUE,
+      'datasource_configs[entity:node][bundles][selected][page]' => FALSE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 1, 'One item is tracked.');
@@ -496,11 +506,12 @@ class IntegrationTest extends WebTestBase {
     // should result in only the articles being tracked.
     $edit = array(
       'status' => TRUE,
-      'datasource_configs[entity:node][default]' => 1,
-      'datasource_configs[entity:node][bundles][article]' => FALSE,
-      'datasource_configs[entity:node][bundles][page]' => TRUE,
+      'datasource_configs[entity:node][bundles][default]' => 1,
+      'datasource_configs[entity:node][bundles][selected][article]' => FALSE,
+      'datasource_configs[entity:node][bundles][selected][page]' => TRUE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, 2, 'Two items are tracked.');
@@ -559,14 +570,6 @@ class IntegrationTest extends WebTestBase {
    * Tests that field labels are always properly escaped.
    */
   protected function checkFieldLabels() {
-    $permissions = array(
-      'administer search_api',
-      'access administration pages',
-      'administer content types',
-      'administer node fields',
-    );
-    $this->drupalLogin($this->createUser($permissions));
-
     $content_type_name = '&%@Content()_=';
 
     // Add a new content type with funky chars.
@@ -601,11 +604,12 @@ class IntegrationTest extends WebTestBase {
     $this->assertHtmlEscaped($field_name);
 
     $edit = array(
-      'datasource_configs[entity:node][default]' => 1,
+      'datasource_configs[entity:node][bundles][default]' => 1,
     );
     $this->drupalGet($this->getIndexPath('edit'));
     $this->assertHtmlEscaped($content_type_name);
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $this->drupalGet($this->getIndexPath('processors'));
     $this->assertHtmlEscaped($content_type_name);
@@ -709,15 +713,20 @@ class IntegrationTest extends WebTestBase {
   protected function addField($datasource_id, $property_path, $label = NULL) {
     $path = $this->getIndexPath('fields/add');
     $url_options = array('query' => array('datasource' => $datasource_id));
-    if ($this->getUrl() === $this->buildUrl($path, $url_options)) {
-      $path = NULL;
+    list($parent_path) = Utility::splitPropertyPath($property_path);
+    if ($parent_path) {
+      $url_options['query']['property_path'] = $parent_path;
+    }
+    if ($this->getUrl() !== $this->buildUrl($path, $url_options)) {
+      $this->drupalGet($path, $url_options);
     }
 
     // Unfortunately it doesn't seem possible to specify the clicked button by
     // anything other than label, so we have to pass it as extra POST data.
     $combined_property_path = Utility::createCombinedId($datasource_id, $property_path);
+    $this->assertRaw('name="' . $combined_property_path . '"');
     $post = '&' . $this->serializePostValues(array($combined_property_path => $this->t('Add')));
-    $this->drupalPostForm($path, array(), NULL, $url_options, array(), NULL, $post);
+    $this->drupalPostForm(NULL, array(), NULL, array(), array(), NULL, $post);
     if ($label) {
       $args['%label'] = $label;
       $this->assertRaw($this->t('Field %label was added to the index.', $args));
@@ -819,12 +828,36 @@ class IntegrationTest extends WebTestBase {
   }
 
   /**
+   * Tests if non-base fields of referenced entities can be added.
+   */
+  protected function checkReferenceFieldsNonBaseFields() {
+    // Add a entity_reference field.
+    $field_label = 'reference_field';
+    $edit = array(
+      'new_storage_type' => 'entity_reference',
+      'label' => $field_label,
+      'field_name' => '_reference_field_',
+    );
+    $this->drupalPostForm('admin/structure/types/manage/article/fields/add-field', $edit, $this->t('Save and continue'));
+    $this->drupalPostForm(NULL, array('cardinality' => -1), $this->t('Save field settings'));
+
+    $node_label = $this->getIndex()->getDatasource('entity:node')->label();
+    $field_label = "$field_label » $node_label » $field_label";
+    $this->addField('entity:node', 'field__reference_field_:entity:field__reference_field_', $field_label);
+
+    $this->drupalGet('node/2/edit');
+    $edit = array('field__reference_field_[0][target_id]' => 'Something (2)');
+    $this->drupalPostForm('node/2/edit', $edit, $this->t('Save and keep published'));
+    $indexed_values = \Drupal::state()->get("search_api_test_backend.indexed.{$this->indexId}", array());
+    $this->assertEqual(array(2), $indexed_values['entity:node/2:en']['field__reference_field_'], 'Correct value indexed for nested non-base field.');
+  }
+
+  /**
    * Tests that configuring a processor works.
    */
   protected function configureFilter() {
     $edit = array(
       'status[ignorecase]' => 1,
-      'processors[ignorecase][settings][fields][search_api_language]' => FALSE,
       'processors[ignorecase][settings][fields][title]' => 'title',
     );
     $this->drupalPostForm($this->getIndexPath('processors'), $edit, $this->t('Save'));
@@ -832,7 +865,13 @@ class IntegrationTest extends WebTestBase {
     $processors = $index->getProcessors();
     if (isset($processors['ignorecase'])) {
       $configuration = $processors['ignorecase']->getConfiguration();
-      $this->assertTrue(empty($configuration['fields']['search_api_language']), 'Language field disabled for ignore case filter.');
+      unset($configuration['weights']);
+      $expected = array(
+        'fields' => array(
+          'title',
+        ),
+      );
+      $this->assertEqual($expected, $configuration, 'Title field enabled for ignore case filter.');
     }
     else {
       $this->fail('"Ignore case" processor not enabled.');
@@ -855,7 +894,6 @@ class IntegrationTest extends WebTestBase {
   protected function checkProcessorChanges() {
     $edit = array(
       'status[ignorecase]' => 1,
-      'processors[ignorecase][settings][fields][search_api_language]' => FALSE,
       'processors[ignorecase][settings][fields][title]' => 'title',
     );
     // Enable just the ignore case processor, just to have a clean default state
@@ -916,11 +954,12 @@ class IntegrationTest extends WebTestBase {
     $edit = array(
       'status' => TRUE,
       'read_only' => TRUE,
-      'datasource_configs[entity:node][default]' => 0,
-      'datasource_configs[entity:node][bundles][article]' => TRUE,
-      'datasource_configs[entity:node][bundles][page]' => TRUE,
+      'datasource_configs[entity:node][bundles][default]' => 0,
+      'datasource_configs[entity:node][bundles][selected][article]' => TRUE,
+      'datasource_configs[entity:node][bundles][selected][page]' => TRUE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $index = $this->getIndex(TRUE);
     $remaining_before = $this->countRemainingItems();
@@ -938,11 +977,12 @@ class IntegrationTest extends WebTestBase {
     // Disable "read only" and verify indexing now works again.
     $edit = array(
       'read_only' => FALSE,
-      'datasource_configs[entity:node][default]' => TRUE,
-      'datasource_configs[entity:node][bundles][article]' => FALSE,
-      'datasource_configs[entity:node][bundles][page]' => FALSE,
+      'datasource_configs[entity:node][bundles][default]' => 1,
+      'datasource_configs[entity:node][bundles][selected][article]' => FALSE,
+      'datasource_configs[entity:node][bundles][selected][page]' => FALSE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $this->drupalPostForm($index_path, array(), $this->t('Index now'));
 
@@ -965,6 +1005,7 @@ class IntegrationTest extends WebTestBase {
       'status' => FALSE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual(0, $tracked_items, 'No items are tracked after disabling the index.');
@@ -978,6 +1019,7 @@ class IntegrationTest extends WebTestBase {
       'status' => TRUE,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual(2, $tracked_items, 'After enabling the index, 2 items are tracked.');
@@ -1003,6 +1045,7 @@ class IntegrationTest extends WebTestBase {
       'datasources[]' => array('entity:user', 'entity:node'),
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, $user_count + $node_count, 'Correct number of items tracked after enabling the "User" datasource.');
@@ -1012,6 +1055,7 @@ class IntegrationTest extends WebTestBase {
       'datasources[]' => array('entity:node'),
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     $tracked_items = $this->countTrackedItems();
     $this->assertEqual($tracked_items, $node_count, 'Correct number of items tracked after disabling the "User" datasource.');
@@ -1045,6 +1089,7 @@ class IntegrationTest extends WebTestBase {
       'server' => $this->serverId,
     );
     $this->drupalPostForm($settings_path, $edit, $this->t('Save'));
+    $this->assertText($this->t('The index was successfully saved.'));
 
     // After saving the new index, we should have called reindex.
     $remaining_items = $this->countRemainingItems();

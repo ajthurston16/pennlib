@@ -6,6 +6,7 @@ use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\search_api\IndexInterface;
 use Drupal\search_api\SearchApiException;
+use Drupal\search_api\Utility;
 
 /**
  * Provides a standard implementation for a Search API query.
@@ -47,6 +48,13 @@ class Query implements QueryInterface {
   protected $parseMode = 'terms';
 
   /**
+   * The language codes which should be searched by this query.
+   *
+   * @var string[]|null
+   */
+  protected $languages;
+
+  /**
    * The search keys.
    *
    * If NULL, this will be a filter-only search.
@@ -82,6 +90,13 @@ class Query implements QueryInterface {
    * @var array
    */
   protected $sorts = array();
+
+  /**
+   * Information about whether the query has been aborted or not.
+   *
+   * @var \Drupal\Component\Render\MarkupInterface|string|true|null
+   */
+  protected $aborted;
 
   /**
    * Options configuring this query.
@@ -243,6 +258,21 @@ class Query implements QueryInterface {
   /**
    * {@inheritdoc}
    */
+  public function getLanguages() {
+    return $this->languages;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setLanguages(array $languages = NULL) {
+    $this->languages = $languages;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function createConditionGroup($conjunction = 'AND', array $tags = array()) {
     return new ConditionGroup($conjunction, $tags);
   }
@@ -306,9 +336,41 @@ class Query implements QueryInterface {
   /**
    * {@inheritdoc}
    */
+  public function abort($error_message = NULL) {
+    $this->aborted = isset($error_message) ? $error_message : TRUE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function wasAborted() {
+    return $this->aborted !== NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getAbortMessage() {
+    return is_bool($this->aborted) ? $this->aborted : NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function execute() {
+    // Check for aborted status both before and after calling preExecute().
+    $response = $this->getAbortResults();
+    if ($response) {
+      return $response;
+    }
+
     // Prepare the query for execution by the server.
     $this->preExecute();
+
+    $response = $this->getAbortResults();
+    if ($response) {
+      return $response;
+    }
 
     // Execute query.
     $response = $this->index->getServerInstance()->search($this);
@@ -316,9 +378,21 @@ class Query implements QueryInterface {
     // Postprocess the search results.
     $this->postExecute($response);
 
-    // Store search for later retrieval for facets, etc.
-    // @todo Figure out how to store the executed searches for the request.
-    // search_api_current_search(NULL, $this, $response);
+    return $response;
+  }
+
+  /**
+   * Creates and returns an empty result set if the query was aborted.
+   *
+   * @return \Drupal\search_api\Query\ResultSetInterface|null
+   *   An empty result set if the query was aborted, NULL otherwise.
+   */
+  protected function getAbortResults() {
+    if (!$this->wasAborted() && $this->languages !== array()) {
+      return NULL;
+    }
+    $response = Utility::createSearchResultSet($this);
+    $this->postExecute($response);
     return $response;
   }
 
@@ -426,53 +500,6 @@ class Query implements QueryInterface {
   }
 
   /**
-   * Implements the magic __sleep() method to avoid serializing the index.
-   */
-  public function __sleep() {
-    $this->indexId = $this->index->id();
-    $keys = get_object_vars($this);
-    unset($keys['index'], $keys['resultsCache'], $keys['stringTranslation']);
-    return array_keys($keys);
-  }
-
-  /**
-   * Implements the magic __wakeup() method to reload the query's index.
-   */
-  public function __wakeup() {
-    if (!isset($this->index) && !empty($this->indexId)) {
-      $this->index = \Drupal::entityTypeManager()->getStorage('search_api_index')->load($this->indexId);
-      unset($this->indexId);
-    }
-  }
-
-  /**
-   * Implements the magic __toString() method to simplify debugging.
-   */
-  public function __toString() {
-    $ret = 'Index: ' . $this->index->id() . "\n";
-    $ret .= 'Keys: ' . str_replace("\n", "\n  ", var_export($this->origKeys, TRUE)) . "\n";
-    if (isset($this->keys)) {
-      $ret .= 'Parsed keys: ' . str_replace("\n", "\n  ", var_export($this->keys, TRUE)) . "\n";
-      $ret .= 'Searched fields: ' . (isset($this->fields) ? implode(', ', $this->fields) : '[ALL]') . "\n";
-    }
-    if ($conditions = (string) $this->conditionGroup) {
-      $conditions = str_replace("\n", "\n  ", $conditions);
-      $ret .= "Conditions:\n  $conditions\n";
-    }
-    if ($this->sorts) {
-      $sorts = array();
-      foreach ($this->sorts as $field => $order) {
-        $sorts[] = "$field $order";
-      }
-      $ret .= 'Sorting: ' . implode(', ', $sorts) . "\n";
-    }
-    // @todo Fix for entities contained in options (which might kill
-    //   var_export() due to circular references).
-    $ret .= 'Options: ' . str_replace("\n", "\n  ", var_export($this->options, TRUE)) . "\n";
-    return $ret;
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function addTag($tag) {
@@ -506,6 +533,79 @@ class Query implements QueryInterface {
    */
   public function &getTags() {
     return $this->tags;
+  }
+
+  /**
+   * Implements the magic __sleep() method to avoid serializing the index.
+   */
+  public function __sleep() {
+    $this->indexId = $this->index->id();
+    $keys = get_object_vars($this);
+    unset($keys['index'], $keys['resultsCache'], $keys['stringTranslation']);
+    return array_keys($keys);
+  }
+
+  /**
+   * Implements the magic __wakeup() method to reload the query's index.
+   */
+  public function __wakeup() {
+    if (!isset($this->index) && !empty($this->indexId)) {
+      $this->index = \Drupal::entityTypeManager()
+        ->getStorage('search_api_index')
+        ->load($this->indexId);
+      unset($this->indexId);
+    }
+  }
+
+  /**
+   * Implements the magic __toString() method to simplify debugging.
+   */
+  public function __toString() {
+    $ret = 'Index: ' . $this->index->id() . "\n";
+    $ret .= 'Keys: ' . str_replace("\n", "\n  ", var_export($this->origKeys, TRUE)) . "\n";
+    if (isset($this->keys)) {
+      $ret .= 'Parsed keys: ' . str_replace("\n", "\n  ", var_export($this->keys, TRUE)) . "\n";
+      $ret .= 'Searched fields: ' . (isset($this->fields) ? implode(', ', $this->fields) : '[ALL]') . "\n";
+    }
+    if (isset($this->languages)) {
+      $ret .= 'Searched languages: ' . implode(', ', $this->languages) . "\n";
+    }
+    if ($conditions = (string) $this->conditionGroup) {
+      $conditions = str_replace("\n", "\n  ", $conditions);
+      $ret .= "Conditions:\n  $conditions\n";
+    }
+    if ($this->sorts) {
+      $sorts = array();
+      foreach ($this->sorts as $field => $order) {
+        $sorts[] = "$field $order";
+      }
+      $ret .= 'Sorting: ' . implode(', ', $sorts) . "\n";
+    }
+    $options = $this->sanitizeOptions($this->options);
+    $options = str_replace("\n", "\n  ", var_export($options, TRUE));
+    $ret .= 'Options: ' . $options . "\n";
+    return $ret;
+  }
+
+  /**
+   * Sanitizes an array of options in a way that plays nice with var_export().
+   *
+   * @param array $options
+   *   An array of options.
+   *
+   * @return array
+   *   The sanitized options.
+   */
+  protected function sanitizeOptions(array $options) {
+    foreach ($options as $key => $value) {
+      if (is_object($value)) {
+        $options[$key] = 'object (' . get_class($value) . ')';
+      }
+      elseif (is_array($value)) {
+        $options[$key] = $this->sanitizeOptions($value);
+      }
+    }
+    return $options;
   }
 
 }

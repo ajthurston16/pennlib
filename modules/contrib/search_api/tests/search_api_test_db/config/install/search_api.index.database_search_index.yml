@@ -14,6 +14,11 @@ field_settings:
     datasource_id: 'entity:entity_test'
     property_path: name
     boost: 5.0
+  created:
+    label: Authored on
+    type: date
+    datasource_id: 'entity:entity_test'
+    property_path: created
   body:
     label: Body
     type: text
@@ -39,12 +44,6 @@ field_settings:
     type: decimal
     datasource_id: 'entity:entity_test'
     property_path: width
-  search_api_language:
-    label: 'Item language'
-    type: string
-    property_path: search_api_language
-    index_locked: true
-    type_locked: true
 processor_settings:
   add_url:
     plugin_id: add_url

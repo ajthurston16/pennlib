@@ -6,6 +6,15 @@ search_api.overview:
   requirements:
     _permission: 'administer search_api'
 
+entity.search_api_server.execute_tasks:
+  path: '/admin/config/search/search-api/execute-tasks'
+  defaults:
+    _controller: '\Drupal\search_api\Controller\ServerController::executeTasks'
+    _title: 'Execute pending server tasks'
+  requirements:
+    _permission: 'administer search_api'
+    _search_api_tasks: 'TRUE'
+
 entity.search_api_server.add_form:
   path: '/admin/config/search/search-api/add-server'
   defaults:
@@ -108,7 +117,7 @@ entity.search_api_index.fields:
     search_api_index:
       view:
         tempstore: TRUE
-        type: entity:search_api_index
+        type: 'entity:search_api_index'
   defaults:
     _entity_form: 'search_api_index.fields'
   requirements:
@@ -120,7 +129,7 @@ entity.search_api_index.add_fields:
     search_api_index:
       view:
         tempstore: TRUE
-        type: entity:search_api_index
+        type: 'entity:search_api_index'
   defaults:
     _entity_form: 'search_api_index.add_fields'
   requirements:
@@ -132,7 +141,7 @@ entity.search_api_index.remove_field:
     search_api_index:
       view:
         tempstore: TRUE
-        type: entity:search_api_index
+        type: 'entity:search_api_index'
   defaults:
     _controller: 'Drupal\search_api\Controller\IndexController::removeField'
   requirements:

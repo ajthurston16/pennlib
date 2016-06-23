@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\filter\Plugin\Filter\FilterCKEditorMediaEmbed.
- */
-
 namespace Drupal\ckeditor_media_embed\Plugin\Filter;
 
 use Drupal\ckeditor_media_embed\EmbedInterface;
@@ -31,7 +26,7 @@ class FilterCKEditorMediaEmbed extends FilterBase implements ContainerFactoryPlu
    *
    * @var Drupal\ckeditor_media_embed\Embed
    */
-  protected $ckeditor_media_embed;
+  protected $ckeditorMediaEmbed;
 
   /**
    * {@inheritdoc}
@@ -39,7 +34,7 @@ class FilterCKEditorMediaEmbed extends FilterBase implements ContainerFactoryPlu
   public function __construct(array $configuration, $plugin_id, $plugin_definition, EmbedInterface $ckeditor_media_embed) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->ckeditor_media_embed = $ckeditor_media_embed;
+    $this->ckeditorMediaEmbed = $ckeditor_media_embed;
   }
 
   /**
@@ -68,12 +63,11 @@ class FilterCKEditorMediaEmbed extends FilterBase implements ContainerFactoryPlu
     $result = new FilterProcessResult($text);
 
     if (strpos($text, '<oembed') !== FALSE) {
-      $result->setProcessedText($this->ckeditor_media_embed->processEmbeds($text));
+      $result->setProcessedText($this->ckeditorMediaEmbed->processEmbeds($text));
     }
 
     return $result;
   }
-
 
   /**
    * {@inheritdoc}
@@ -86,7 +80,7 @@ class FilterCKEditorMediaEmbed extends FilterBase implements ContainerFactoryPlu
    * {@inheritdoc}
    */
   public function getDescription() {
-    return $this->t('The provider specified as the @link will be used.', array('@link' => $this->ckeditor_media_embed->getSettingsLink()));
+    return $this->t('The provider specified as the @link will be used.', array('@link' => $this->ckeditorMediaEmbed->getSettingsLink()));
   }
 
 }

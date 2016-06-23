@@ -9,6 +9,7 @@ use Drupal\facets\Exception\InvalidProcessorException;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\FacetSource\FacetSourcePluginManager;
 use Drupal\facets\Processor\BuildProcessorInterface;
+use Drupal\facets\Processor\PostQueryProcessorInterface;
 use Drupal\facets\Processor\PreQueryProcessorInterface;
 use Drupal\facets\Processor\ProcessorInterface;
 use Drupal\facets\Processor\ProcessorPluginManager;
@@ -142,12 +143,7 @@ class DefaultFacetManager {
     foreach ($this->getFacetsByFacetSourceId($facetsource_id) as $facet) {
       /** @var \Drupal\facets\QueryType\QueryTypeInterface $query_type_plugin */
       $query_type_plugin = $this->queryTypePluginManager->createInstance($facet->getQueryType(), ['query' => $query, 'facet' => $facet]);
-      $unfiltered_results = $query_type_plugin->execute();
-
-      // Save unfiltered results in facet.
-      if (!is_null($unfiltered_results)) {
-        $facet->setUnfilteredResults($unfiltered_results);
-      }
+      $query_type_plugin->execute();
     }
   }
 
@@ -204,6 +200,18 @@ class DefaultFacetManager {
 
       $this->processedFacetSources[$facetsource_id] = TRUE;
     }
+
+    foreach ($this->facets as $facet) {
+      foreach ($facet->getProcessorsByStage(ProcessorInterface::STAGE_POST_QUERY) as $processor) {
+        /** @var \Drupal\facets\processor\PostQueryProcessorInterface $post_query_processor */
+        $post_query_processor = $this->processorPluginManager->createInstance($processor->getPluginDefinition()['id'], ['facet' => $facet]);
+        if (!$post_query_processor instanceof PostQueryProcessorInterface) {
+          throw new InvalidProcessorException(new FormattableMarkup("The processor @processor has a post_query definition but doesn't implement the required PostQueryProcessor interface", ['@processor' => $processor->getPluginDefinition()['id']]));
+        }
+        $post_query_processor->postQuery($facet);
+      }
+    }
+
   }
 
   /**
@@ -216,7 +224,6 @@ class DefaultFacetManager {
     if (empty($this->facets)) {
       $this->facets = $this->getEnabledFacets();
       foreach ($this->facets as $facet) {
-
         foreach ($facet->getProcessorsByStage(ProcessorInterface::STAGE_PRE_QUERY) as $processor) {
           /** @var PreQueryProcessorInterface $pre_query_processor */
           $pre_query_processor = $this->processorPluginManager->createInstance($processor->getPluginDefinition()['id'], ['facet' => $facet]);
@@ -280,13 +287,30 @@ class DefaultFacetManager {
     $results = $facet->getResults();
 
     foreach ($facet->getProcessorsByStage(ProcessorInterface::STAGE_BUILD) as $processor) {
-      /** @var \Drupal\facets\Processor\BuildProcessorInterface $build_processor */
-      $build_processor = $this->processorPluginManager->createInstance($processor->getPluginDefinition()['id'], ['facet' => $facet]);
-      if (!$build_processor instanceof BuildProcessorInterface) {
-        throw new InvalidProcessorException(new FormattableMarkup("The processor @processor has a build definition but doesn't implement the required BuildProcessorInterface interface", ['@processor' => $processor['processor_id']]));
+      if (!$processor instanceof BuildProcessorInterface) {
+        throw new InvalidProcessorException("The processor {$processor->getPluginDefinition()['id']} has a build definition but doesn't implement the required BuildProcessorInterface interface");
       }
-      $results = $build_processor->build($facet, $results);
+      $results = $processor->build($facet, $results);
     }
+
+    // Trigger sort stage.
+    $active_sort_processors = [];
+    foreach ($facet->getProcessorsByStage(ProcessorInterface::STAGE_SORT) as $processor) {
+      $active_sort_processors[] = $processor;
+    }
+    uasort($results, function ($a, $b) use ($active_sort_processors) {
+      $return = 0;
+      foreach ($active_sort_processors as $sort_processor) {
+        if ($return = $sort_processor->sortResults($a, $b)) {
+          if ($sort_processor->getConfiguration()['sort'] == 'DESC') {
+            $return *= -1;
+          }
+          break;
+        }
+      }
+      return $return;
+    });
+
     $facet->setResults($results);
 
     // No results behavior handling. Return a custom text or false depending on
@@ -294,7 +318,7 @@ class DefaultFacetManager {
     if (empty($facet->getResults())) {
       $empty_behavior = $facet->getEmptyBehavior();
       if ($empty_behavior['behavior'] == 'text') {
-        return ['#markup' => $empty_behavior['text']];
+        return [['#markup' => $empty_behavior['text']]];
       }
       else {
         return [];
@@ -305,7 +329,7 @@ class DefaultFacetManager {
     /** @var \Drupal\facets\Widget\WidgetInterface $widget */
     $widget = $this->widgetPluginManager->createInstance($facet->getWidget());
 
-    return $widget->build($facet);
+    return [$widget->build($facet)];
   }
 
   /**

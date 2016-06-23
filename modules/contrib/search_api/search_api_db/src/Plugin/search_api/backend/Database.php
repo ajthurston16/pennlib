@@ -692,7 +692,7 @@ class Database extends BackendPluginBase {
         'fields' => array(
           'item_id' => array(
             'type' => 'varchar',
-            'length' => 50,
+            'length' => 150,
             'description' => 'The primary identifier of the item',
             'not null' => TRUE,
           ),
@@ -737,12 +737,11 @@ class Database extends BackendPluginBase {
     //
     // In SQLite, indexes and tables can't have the same name, which is
     // the case for Search API DB. We have following situation:
-    // - a table named search_api_db_default_index_search_api_language
+    // - a table named search_api_db_default_index_title
     // - a table named search_api_db_default_index
     //
-    // The last table has an index on the search_api_language column,
-    // which results in an index with the same as the first table, which
-    // conflicts in SQLite.
+    // The last table has an index on the title column, which results in an
+    // index with the same as the first table, which conflicts in SQLite.
     //
     // The core issue addressing this (https://www.drupal.org/node/1008128) was
     // closed as it fixed the PostgresSQL part. The SQLite fix is added in
@@ -829,6 +828,7 @@ class Database extends BackendPluginBase {
       $db_info = $this->getIndexDbInfo($index);
       $fields = &$db_info['field_tables'];
       $new_fields = $index->getFields();
+      $new_fields += $this->getSpecialFields($index);
 
       $reindex = FALSE;
       $cleared = FALSE;
@@ -944,7 +944,7 @@ class Database extends BackendPluginBase {
           'fields' => array(
             'item_id' => array(
               'type' => 'varchar',
-              'length' => 50,
+              'length' => 150,
               'description' => 'The primary identifier of the item',
               'not null' => TRUE,
             ),
@@ -1110,7 +1110,9 @@ class Database extends BackendPluginBase {
 
       $denormalized_values = array();
       $text_inserts = array();
-      foreach ($item->getFields() as $field_id => $field) {
+      $item_fields = $item->getFields();
+      $item_fields += $this->getSpecialFields($index, $item);
+      foreach ($item_fields as $field_id => $field) {
         // Sometimes index changes are not triggering the update hooks
         // correctly. Therefore, to avoid DB errors, we re-check the tables
         // here before indexing.
@@ -1176,7 +1178,7 @@ class Database extends BackendPluginBase {
 
             // Store the first 30 characters of the string as the denormalized
             // value.
-            if (strlen($denormalized_value) < 30) {
+            if (Unicode::strlen($denormalized_value) < 30) {
               $denormalized_value .= $word . ' ';
             }
 
@@ -1208,7 +1210,7 @@ class Database extends BackendPluginBase {
               $unique_tokens[$word_base_form]['score'] += $score;
             }
           }
-          $denormalized_values[$column] = Unicode::truncateBytes(trim($denormalized_value), 30);
+          $denormalized_values[$column] = Unicode::substr(trim($denormalized_value), 0, 30);
           if ($unique_tokens) {
             $field_name = self::getTextFieldName($field_id);
             $boost = $field_info['boost'];
@@ -1324,9 +1326,9 @@ class Database extends BackendPluginBase {
         $ret = array();
         foreach (preg_split('/[^\p{L}\p{N}]+/u', $value, -1, PREG_SPLIT_NO_EMPTY) as $v) {
           if ($v) {
-            if (strlen($v) > 50) {
+            if (Unicode::strlen($v) > 50) {
               $this->getLogger()->warning('An overlong word (more than 50 characters) was encountered while indexing: %word.<br />Database search servers currently cannot index such words correctly – the word was therefore trimmed to the allowed length. Ensure you are using a tokenizer preprocessor.', array('%word' => $v));
-              $v = Unicode::truncateBytes($v, 50);
+              $v = Unicode::substr($v, 0, 50);
             }
             $ret[] = array(
               'value' => $v,
@@ -1343,9 +1345,9 @@ class Database extends BackendPluginBase {
             // Check for over-long tokens.
             $score = $v['score'];
             $v = $v['value'];
-            if (strlen($v) > 50) {
+            if (Unicode::strlen($v) > 50) {
               $words = preg_split('/[^\p{L}\p{N}]+/u', $v, -1, PREG_SPLIT_NO_EMPTY);
-              if (count($words) > 1 && max(array_map('strlen', $words)) <= 50) {
+              if (count($words) > 1 && max(array_map('Drupal\Component\Utility\Unicode::strlen', $words)) <= 50) {
                 // Overlong token is due to bad tokenizing.
                 // Check for "Tokenizer" preprocessor on index.
                 if (empty($index->getProcessors()['tokenizer'])) {
@@ -1358,9 +1360,9 @@ class Database extends BackendPluginBase {
 
               $tokens = array();
               foreach ($words as $word) {
-                if (strlen($word) > 50) {
+                if (Unicode::strlen($word) > 50) {
                   $this->getLogger()->warning('An overlong word (more than 50 characters) was encountered while indexing: %word.<br />Database search servers currently cannot index such words correctly – the word was therefore trimmed to the allowed length.', array('%word' => $word));
-                  $word = Unicode::truncateBytes($word, 50);
+                  $word = Unicode::substr($word, 0, 50);
                 }
                 $tokens[] = array(
                   'value' => $word,
@@ -1382,8 +1384,8 @@ class Database extends BackendPluginBase {
         if ($original_type == 'date') {
           return date('c', $value);
         }
-        if (strlen($value) > 255) {
-          $value = Unicode::truncateBytes($value, 255);
+        if (Unicode::strlen($value) > 255) {
+          $value = Unicode::substr($value, 0, 255);
           $this->getLogger()->warning('An overlong value (more than 255 characters) was encountered while indexing: %value.<br />Database search servers currently cannot index such values correctly – the value was therefore trimmed to the allowed length.', array('%value' => $value));
         }
         return $value;
@@ -1618,6 +1620,7 @@ class Database extends BackendPluginBase {
     }
 
     $condition_group = $query->getConditionGroup();
+    $this->addLanguageConditions($condition_group, $query);
     if ($condition_group->getConditions()) {
       $condition = $this->createDbCondition($condition_group, $fields, $db_query, $query->getIndex());
       if ($condition) {
@@ -1859,7 +1862,8 @@ class Database extends BackendPluginBase {
           // multiple keywords. We also remember the column name so we can
           // afterwards verify that each word matched at least once.
           $alias = 'w' . $i;
-          $alias = $db_query->addExpression("t.word LIKE '%" . $this->database->escapeLike($word) . "%'", $alias);
+          $like = '%' . $this->database->escapeLike($word) . '%';
+          $alias = $db_query->addExpression("CASE WHEN t.word LIKE :like_$alias THEN 1 ELSE 0 END", $alias, array(":like_$alias" => $like));
           $db_query->groupBy($alias);
           $keyword_hits[] = $alias;
         }
@@ -1977,6 +1981,23 @@ class Database extends BackendPluginBase {
   }
 
   /**
+   * Adds item language conditions to the condition group, if applicable.
+   *
+   * @param \Drupal\search_api\Query\ConditionGroupInterface $condition_group
+   *   The condition group on which to set conditions.
+   * @param \Drupal\search_api\Query\QueryInterface $query
+   *   The query to inspect for language settings.
+   *
+   * @see \Drupal\search_api\Query\QueryInterface::getLanguages()
+   */
+  protected function addLanguageConditions(ConditionGroupInterface $condition_group, QueryInterface $query) {
+    $languages = $query->getLanguages();
+    if ($languages !== NULL) {
+      $condition_group->addCondition('search_api_language', $languages, 'IN');
+    }
+  }
+
+  /**
    * Creates a database query condition for a given search filter.
    *
    * Used as a helper method in createDbQuery().
@@ -2015,23 +2036,9 @@ class Database extends BackendPluginBase {
         $field = $condition->getField();
         $operator = $condition->getOperator();
         $value = $condition->getValue();
-        $not_equals = in_array($operator, array('<>', '!=', 'NOT IN'));
+        $not_equals = in_array($operator, array('<>', '!=', 'NOT IN', 'NOT BETWEEN'));
+        $not_between = $operator == 'NOT BETWEEN';
 
-        // We don't index the datasource explicitly, so this needs a bit of
-        // magic.
-        // @todo Index the datasource explicitly so this doesn't need magic.
-        if ($field === 'search_api_datasource') {
-          if (empty($tables[NULL])) {
-            $table = array(
-              'table' => $db_info['index_table'],
-            );
-            $tables[NULL] = $this->getTableAlias($table, $db_query);
-          }
-          $operator = $not_equals ? 'NOT LIKE' : 'LIKE';
-          $prefix = Utility::createCombinedId($value, '');
-          $db_condition->condition($tables[NULL] . '.item_id', $this->database->escapeLike($prefix) . '%', $operator);
-          continue;
-        }
         if (!isset($fields[$field])) {
           throw new SearchApiException(new FormattableMarkup('Unknown field in filter clause: @field.', array('@field' => $field)));
         }
@@ -2047,6 +2054,13 @@ class Database extends BackendPluginBase {
           if ($value === NULL) {
             $method = $not_equals ? 'isNotNull' : 'isNull';
             $db_condition->$method($column);
+          }
+          elseif ($not_between) {
+            $nested_condition = new Condition('OR');
+            $nested_condition->condition($column, $value[0], '<');
+            $nested_condition->condition($column, $value[1], '>');
+            $nested_condition->isNull($column);
+            $db_condition->condition($nested_condition);
           }
           else {
             $db_condition->condition($column, $value, $operator);
@@ -2071,9 +2085,17 @@ class Database extends BackendPluginBase {
           // this condition. Probably the most performant way to do this is to
           // do a LEFT JOIN with a positive filter on the excluded values in the
           // ON clause and then make sure we have no value for the field.
-          $wildcard = ':values_' . ++$wildcard_count . '[]';
-          $arguments = array($wildcard => (array) $value);
-          $additional_on = "%alias.value IN ($wildcard)";
+          if ($not_between) {
+            $wildcard1 = ':values_' . ++$wildcard_count;
+            $wildcard2 = ':values_' . ++$wildcard_count;
+            $arguments = array_combine(array($wildcard1, $wildcard2), $value);
+            $additional_on = "%alias.value BETWEEN $wildcard1 AND $wildcard2";
+          }
+          else {
+            $wildcard = ':values_' . ++$wildcard_count . '[]';
+            $arguments = array($wildcard => (array) $value);
+            $additional_on = "%alias.value IN ($wildcard)";
+          }
           $alias = $this->getTableAlias($field_info, $db_query, TRUE, 'leftJoin', $additional_on, $arguments);
           $db_condition->isNull($alias . '.value');
         }

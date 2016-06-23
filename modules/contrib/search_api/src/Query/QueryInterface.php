@@ -72,6 +72,26 @@ interface QueryInterface extends ConditionSetInterface {
   public function setParseMode($parse_mode);
 
   /**
+   * Retrieves the languages that will be searched by this query.
+   *
+   * @return string[]|null
+   *   The language codes of languages that will be searched by this query, or
+   *   NULL if there shouldn't be any restriction on the language.
+   */
+  public function getLanguages();
+
+  /**
+   * Sets the languages that should be searched by this query.
+   *
+   * @param string[]|null $languages
+   *   The language codes to search for, or NULL to not restrict the query to
+   *   specific languages.
+   *
+   * @return $this
+   */
+  public function setLanguages(array $languages = NULL);
+
+  /**
    * Creates a new condition group to use with this query object.
    *
    * @param string $conjunction
@@ -144,6 +164,37 @@ interface QueryInterface extends ConditionSetInterface {
    * @return $this
    */
   public function range($offset = NULL, $limit = NULL);
+
+  /**
+   * Aborts this query.
+   *
+   * This will mean that, while the query object otherwise acts normally, it
+   * won't be passed to the server and won't return any results.
+   *
+   * @param \Drupal\Component\Render\MarkupInterface|string|null $error_message
+   *   (optional) A translated error message explaining the reason why the
+   *   query was aborted.
+   *
+   * @return $this
+   */
+  public function abort($error_message = NULL);
+
+  /**
+   * Determines whether this query was aborted.
+   *
+   * @return bool
+   *   TRUE if the query was aborted, FALSE otherwise.
+   */
+  public function wasAborted();
+
+  /**
+   * Retrieves the error message explaining why this query was aborted, if any.
+   *
+   * @return \Drupal\Component\Render\MarkupInterface|string|null
+   *   An error message, if set, or NULL if none was set. Please be aware that
+   *   a NULL message does not have to mean that the query was not aborted.
+   */
+  public function getAbortMessage();
 
   /**
    * Executes this search query.

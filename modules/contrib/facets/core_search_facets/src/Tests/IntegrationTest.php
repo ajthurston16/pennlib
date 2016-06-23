@@ -2,24 +2,17 @@
 
 namespace Drupal\core_search_facets\Tests;
 
-use Drupal\facets\Tests\ExampleContentTrait;
+use Drupal\facets\Tests\BlockTestTrait;
 use Drupal\node\Entity\Node;
 
 /**
  * Tests the admin UI with the core search facet source.
  *
- * @group core_search_facets
+ * @group facets
  */
 class IntegrationTest extends WebTestBase {
 
-  use ExampleContentTrait;
-
-  /**
-   * The block entities used by this test.
-   *
-   * @var \Drupal\block\BlockInterface[]
-   */
-  protected $blocks;
+  use BlockTestTrait;
 
   /**
    * {@inheritdoc}
@@ -30,7 +23,9 @@ class IntegrationTest extends WebTestBase {
     $this->drupalLogin($this->adminUser);
 
     // Index the content.
-    \Drupal::service('plugin.manager.search')->createInstance('node_search')->updateIndex();
+    \Drupal::service('plugin.manager.search')
+      ->createInstance('node_search')
+      ->updateIndex();
     search_update_totals();
 
     // Make absolutely sure the ::$blocks variable doesn't pass information
@@ -42,7 +37,6 @@ class IntegrationTest extends WebTestBase {
    * Tests various operations via the Facets' admin UI.
    */
   public function testFramework() {
-
     $facet_id = 'test_facet_name';
     $facet_name = 'Test Facet Name';
 
@@ -50,10 +44,10 @@ class IntegrationTest extends WebTestBase {
     $this->checkEmptyOverview();
 
     // Add a new facet and edit it.
-    $this->addFacet($facet_id, $facet_name, 'type');
+    $this->addFacet($facet_id, $facet_name);
 
     // Create and place a block for "Test Facet name" facet.
-    $this->createFacetBlock($facet_id);
+    $this->blocks[$facet_id] = $this->createBlock($facet_id);
 
     // Verify that the facet results are correct.
     $this->drupalGet('search/node', ['query' => ['keys' => 'test']]);
@@ -67,17 +61,17 @@ class IntegrationTest extends WebTestBase {
 
     // Verify that the number of results per item.
     $this->drupalGet('search/node', ['query' => ['keys' => 'test']]);
-    $this->assertLink('page (19)');
-    $this->assertLink('article (10)');
+    $this->assertRaw('page <span class="facet-count">(19)</span>');
+    $this->assertRaw('article <span class="facet-count">(10)</span>');
 
     // Verify that the label is correct for a clicked link.
-    $this->clickLink('page (19)');
-    $this->assertLink('(-) page (19)');
+    $this->clickLinkPartialName('page');
+    $this->assertRaw('<span class="facet-deactivate">(-)</span> page <span class="facet-count">(19)</span>');
 
-    // Do not show the block on empty behaviors.
-    // Truncate the search_index table because, for the moment, we don't have
-    // the possibility to clear the index from the API.
-    // See https://www.drupal.org/node/326062
+    // To make sure we have an empty result, we truncate the search_index table
+    // because, for the moment, we don't have the possibility to clear the index
+    // from the API.
+    // @see https://www.drupal.org/node/326062
     \Drupal::database()->truncate('search_index')->execute();
 
     // Verify that no facet blocks appear. Empty behavior "None" is selected by
@@ -97,7 +91,6 @@ class IntegrationTest extends WebTestBase {
     // Delete the facet and make sure the overview is empty again.
     $this->deleteUnusedFacet($facet_id, $facet_name);
     $this->checkEmptyOverview();
-
   }
 
   /**
@@ -108,32 +101,32 @@ class IntegrationTest extends WebTestBase {
     $facet_id = 'tardigrade';
 
     $this->addFacet($facet_id, $facet_name, 'created');
-    $this->createFacetBlock($facet_id);
+    $this->blocks[$facet_id] = $this->createBlock($facet_id);
     $this->setShowAmountOfResults($facet_id, TRUE);
 
     // Assert date facets.
     $this->drupalGet('search/node', ['query' => ['keys' => 'test']]);
-    $this->assertLink('February 2016 (9)');
-    $this->assertLink('March 2016 (10)');
-    $this->assertLink('April 2016 (10)');
+    $this->assertRaw('February 2016 <span class="facet-count">(9)</span>');
+    $this->assertRaw('March 2016 <span class="facet-count">(10)</span>');
+    $this->assertRaw('April 2016 <span class="facet-count">(10)</span>');
     $this->assertResponse(200);
 
-    $this->clickLink('March 2016 (10)');
+    $this->clickLinkPartialName('March 2016');
     $this->assertResponse(200);
-    $this->assertLink('March 8, 2016 (1)');
-    $this->assertLink('March 9, 2016 (2)');
+    $this->assertRaw('March 8, 2016 <span class="facet-count">(1)</span>');
+    $this->assertRaw('March 9, 2016 <span class="facet-count">(2)</span>');
 
-    $this->clickLink('March 9, 2016 (2)');
+    $this->clickLinkPartialName('March 9');
     $this->assertResponse(200);
-    $this->assertLink('10 AM (1)');
-    $this->assertLink('12 PM (1)');
+    $this->assertRaw('10 AM <span class="facet-count">(1)</span>');
+    $this->assertRaw('12 PM <span class="facet-count">(1)</span>');
 
     $this->drupalGet('search/node', ['query' => ['keys' => 'test']]);
-    $this->assertLink('April 2016 (10)');
-    $this->clickLink('April 2016 (10)');
+    $this->assertRaw('April 2016 <span class="facet-count">(10)</span>');
+    $this->clickLinkPartialName('April 2016');
     $this->assertResponse(200);
-    $this->assertLink('April 1, 2016 (1)');
-    $this->assertLink('April 2, 2016 (1)');
+    $this->assertRaw('April 1, 2016 <span class="facet-count">(1)</span>');
+    $this->assertRaw('April 2, 2016 <span class="facet-count">(1)</span>');
   }
 
   /**
@@ -144,7 +137,7 @@ class IntegrationTest extends WebTestBase {
     $facet_id = 'tardigrade';
 
     $this->addFacet($facet_id, $facet_name, 'changed');
-    $this->createFacetBlock($facet_id);
+    $this->blocks[$facet_id] = $this->createBlock($facet_id);
     $this->setShowAmountOfResults($facet_id, TRUE);
 
     // Update the changed date. The nodes were created on February/March 2016
@@ -155,40 +148,34 @@ class IntegrationTest extends WebTestBase {
     $node->save();
 
     // Index the content.
-    \Drupal::service('plugin.manager.search')->createInstance('node_search')->updateIndex();
+    \Drupal::service('plugin.manager.search')
+      ->createInstance('node_search')
+      ->updateIndex();
     search_update_totals();
 
     $this->drupalGet('search/node', ['query' => ['keys' => 'test']]);
-    $this->assertLink('December 2016 (1)');
-    $this->clickLink('December 2016 (1)');
+    $this->assertRaw('December 2016 <span class="facet-count">(1)</span>');
+    $this->clickLinkPartialName('December 2016');
     $this->assertResponse(200);
-    $this->assertLink('December 3, 2016 (1)');
-    $this->clickLink('December 3, 2016 (1)');
+    $this->assertRaw('December 3, 2016 <span class="facet-count">(1)</span>');
+    $this->clickLinkPartialName('December 3, 2016');
     $this->assertResponse(200);
-
   }
 
   /**
-   * Tests for CRUD operations.
+   * Tests for CRUD operations in the admin UI.
    */
   public function testCrudFacet() {
     $facet_name = "Test Facet name";
     $facet_id = 'test_facet_name';
 
-    // Check if the overview is empty.
     $this->checkEmptyOverview();
 
-    // Add a new facet and edit it.
     $this->addFacetCheck($facet_id, $facet_name, 'type');
     $this->editFacetCheck($facet_id, $facet_name);
+    $this->blocks[$facet_id] = $this->createBlock($facet_id);
 
-    // Create and place a block.
-    $this->createFacetBlock($facet_id);
-
-    // Delete the block.
     $this->deleteBlock($facet_id);
-
-    // Delete the facet.
     $this->deleteUnusedFacet($facet_id, $facet_name);
   }
 
@@ -202,14 +189,12 @@ class IntegrationTest extends WebTestBase {
    * @param string $type
    *   The field type.
    */
-  public function addFacet($id, $name, $type) {
+  protected function addFacet($id, $name, $type = 'type') {
     $this->drupalGet('admin/config/search/facets/add-facet');
     $form_values = [
       'id' => $id,
       'status' => 1,
-      'url_alias' => $id,
       'name' => $name,
-      'weight' => 2,
       'facet_source_id' => 'core_node_search:node_search',
       'facet_source_configs[core_node_search:node_search][field_identifier]' => $type,
     ];
@@ -218,7 +203,7 @@ class IntegrationTest extends WebTestBase {
   }
 
   /**
-   * Configures the possibility to show the amount of results for facet blocks.
+   * Configures the possibility to show the amount of results for facet items.
    *
    * @param string $facet_id
    *   The id of the facet.
@@ -226,60 +211,15 @@ class IntegrationTest extends WebTestBase {
    *   Boolean to determine if we want to show the amount of results.
    */
   protected function setShowAmountOfResults($facet_id, $show = TRUE) {
+    $facet_edit_page = '/admin/config/search/facets/' . $facet_id . '/edit';
 
-    $facet_display_page = '/admin/config/search/facets/' . $facet_id . '/display';
-
-    // Go to the facet edit page and make sure "edit facet %facet" is present.
-    $this->drupalGet($facet_display_page);
+    $this->drupalGet($facet_edit_page);
     $this->assertResponse(200);
 
-    // Configure the text for empty results behavior.
     $edit = [
       'widget_configs[show_numbers]' => $show,
     ];
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
-  }
-
-  /**
-   * Deletes a facet block by id.
-   *
-   * @param string $id
-   *   The id of the block.
-   */
-  protected function deleteBlock($id) {
-    $this->drupalGet('admin/structure/block/manage/' . $this->blocks[$id]->id(), array('query' => array('destination' => 'admin')));
-    $this->clickLink(t('Delete'));
-    $this->drupalPostForm(NULL, array(), t('Delete'));
-    $this->assertRaw(t('The block %name has been deleted.', array('%name' => $this->blocks[$id]->label())));
-  }
-
-  /**
-   * Asserts that a facet block does not appear.
-   */
-  protected function assertNoFacetBlocksAppear() {
-    foreach ($this->blocks as $block) {
-      $this->assertNoBlockAppears($block);
-    }
-  }
-
-  /**
-   * Asserts that a facet block appears.
-   */
-  protected function assertFacetBlocksAppear() {
-    foreach ($this->blocks as $block) {
-      $this->assertBlockAppears($block);
-    }
-  }
-
-  /**
-   * Creates a facet block by id.
-   *
-   * @param string $id
-   *   The id of the block.
-   */
-  protected function createFacetBlock($id) {
-    $block_values = ['region' => 'footer', 'id' => str_replace('_', '-', $id)];
-    $this->blocks[$id] = $this->drupalPlaceBlock('facet_block:' . $id, $block_values);
   }
 
   /**
@@ -291,10 +231,10 @@ class IntegrationTest extends WebTestBase {
   protected function setEmptyBehaviorFacetText($facet_name) {
     $facet_id = $this->convertNameToMachineName($facet_name);
 
-    $facet_display_page = '/admin/config/search/facets/' . $facet_id . '/display';
+    $facet_edit_page = '/admin/config/search/facets/' . $facet_id . '/edit';
 
     // Go to the facet edit page and make sure "edit facet %facet" is present.
-    $this->drupalGet($facet_display_page);
+    $this->drupalGet($facet_edit_page);
     $this->assertResponse(200);
 
     // Configure the text for empty results behavior.
@@ -314,8 +254,8 @@ class IntegrationTest extends WebTestBase {
   protected function setOptionShowOnlyWhenFacetSourceVisible($facet_name) {
     $facet_id = $this->convertNameToMachineName($facet_name);
 
-    $facet_display_page = '/admin/config/search/facets/' . $facet_id . '/display';
-    $this->drupalGet($facet_display_page);
+    $facet_edit_page = '/admin/config/search/facets/' . $facet_id . '/edit';
+    $this->drupalGet($facet_edit_page);
     $this->assertResponse(200);
 
     $edit = [
@@ -359,14 +299,12 @@ class IntegrationTest extends WebTestBase {
       'name' => '',
       'id' => $facet_id,
       'status' => 1,
-      'url_alias' => $facet_id,
-      'weight' => 4,
     ];
 
     // Try filling out the form, but without having filled in a name for the
     // facet to test for form errors.
     $this->drupalPostForm($facet_add_page, $form_values, $this->t('Save'));
-    $this->assertText($this->t('Facet name field is required.'));
+    $this->assertText($this->t('Name field is required.'));
     $this->assertText($this->t('Facet source field is required.'));
 
     // Make sure that when filling out the name, the form error disappears.
@@ -380,7 +318,7 @@ class IntegrationTest extends WebTestBase {
 
     // The facet field is still required.
     $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
-    $this->assertText($this->t('Facet field field is required.'));
+    $this->assertText($this->t('Field field is required.'));
 
     // Fill in all fields and make sure the 'field is required' message is no
     // longer shown.
@@ -392,7 +330,7 @@ class IntegrationTest extends WebTestBase {
 
     // Make sure that the redirection to the display page is correct.
     $this->assertRaw(t('Facet %name has been created.', ['%name' => $facet_name]));
-    $this->assertUrl('admin/config/search/facets/' . $facet_id . '/display');
+    $this->assertUrl('admin/config/search/facets/' . $facet_id . '/edit');
 
     $this->drupalGet('admin/config/search/facets');
   }
@@ -405,13 +343,13 @@ class IntegrationTest extends WebTestBase {
    * @param string $facet_name
    *   The name of the facet.
    */
-  public function editFacetCheck($facet_id, $facet_name) {
-    $facet_edit_page = '/admin/config/search/facets/' . $facet_id . '/edit';
+  protected function editFacetCheck($facet_id, $facet_name) {
+    $facet_edit_page = '/admin/config/search/facets/' . $facet_id . '/settings';
 
     // Go to the facet edit page and make sure "edit facet %facet" is present.
     $this->drupalGet($facet_edit_page);
     $this->assertResponse(200);
-    $this->assertRaw($this->t('Edit facet @facet', ['@facet' => $facet_name]));
+    $this->assertRaw($this->t('Facet settings for @facet facet', ['@facet' => $facet_name]));
 
     // Change the facet name to add in "-2" to test editing of a facet works.
     $form_values = ['name' => $facet_name . ' - 2'];
@@ -423,7 +361,7 @@ class IntegrationTest extends WebTestBase {
 
     // Make sure the "-2" suffix is still on the facet when editing a facet.
     $this->drupalGet($facet_edit_page);
-    $this->assertRaw($this->t('Edit facet @facet', ['@facet' => $facet_name . ' - 2']));
+    $this->assertRaw($this->t('Facet settings for @facet facet', ['@facet' => $facet_name . ' - 2']));
 
     // Edit the form and change the facet's name back to the initial name.
     $form_values = ['name' => $facet_name];

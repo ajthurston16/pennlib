@@ -24,6 +24,12 @@ use Drupal\views\Views;
  * @ConfigEntityType(
  *   id = "search_api_index",
  *   label = @Translation("Search index"),
+ *   label_singular = @Translation("search index"),
+ *   label_plural = @Translation("search indexes"),
+ *   label_count = @PluralTranslation(
+ *     singular = "@count search index",
+ *     plural = "@count search indexes",
+ *   ),
  *   handlers = {
  *     "storage" = "Drupal\Core\Config\Entity\ConfigEntityStorage",
  *     "list_builder" = "Drupal\search_api\IndexListBuilder",
@@ -37,7 +43,7 @@ use Drupal\views\Views;
  *       "delete" = "Drupal\search_api\Form\IndexDeleteConfirmForm",
  *       "disable" = "Drupal\search_api\Form\IndexDisableConfirmForm",
  *       "reindex" = "Drupal\search_api\Form\IndexReindexConfirmForm",
- *       "clear" = "Drupal\search_api\Form\IndexClearConfirmForm"
+ *       "clear" = "Drupal\search_api\Form\IndexClearConfirmForm",
  *     },
  *   },
  *   admin_permission = "administer search_api",
@@ -46,7 +52,7 @@ use Drupal\views\Views;
  *     "id" = "id",
  *     "label" = "name",
  *     "uuid" = "uuid",
- *     "status" = "status"
+ *     "status" = "status",
  *   },
  *   config_export = {
  *     "id",
@@ -553,8 +559,9 @@ class Index extends ConfigEntityBase implements IndexInterface {
     $processor_weights = array();
     foreach ($processors as $name => $processor) {
       if ($processor->supportsStage($stage)) {
-        if (!empty($processor_settings[$name]['settings']['weights'][$stage])) {
-          $processor_weights[$name] = $processor_settings[$name]['settings']['weights'][$stage];
+        $processor_settings = $processor->getConfiguration();
+        if (isset($processor_settings['weights'][$stage])) {
+          $processor_weights[$name] = $processor_settings['weights'][$stage];
         }
         else {
           $processor_weights[$name] = $processor->getDefaultWeight($stage);
@@ -869,9 +876,6 @@ class Index extends ConfigEntityBase implements IndexInterface {
     }
     if (!$this->status) {
       throw new SearchApiException(new FormattableMarkup("Couldn't index values on index %index (index is disabled)", array('%index' => $this->label())));
-    }
-    if (empty($this->getFields())) {
-      throw new SearchApiException(new FormattableMarkup("Couldn't index values on index %index (no fields selected)", array('%index' => $this->label())));
     }
 
     /** @var \Drupal\search_api\Item\ItemInterface[] $items */

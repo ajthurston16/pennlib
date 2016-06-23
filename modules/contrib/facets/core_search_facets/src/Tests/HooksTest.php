@@ -8,7 +8,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 /**
  * Tests integration of hooks.
  *
- * @group core_search_facets
+ * @group facets
  */
 class HooksTest extends WebTestBase {
 
@@ -29,23 +29,19 @@ class HooksTest extends WebTestBase {
     parent::setUp();
 
     // Create a field of type float.
-    FieldStorageConfig::create(
-      [
-        'field_name' => 'float',
-        'entity_type' => 'node',
-        'type' => 'float',
-      ]
-    )->save();
+    FieldStorageConfig::create([
+      'field_name' => 'float',
+      'entity_type' => 'node',
+      'type' => 'float',
+    ])->save();
 
     // Create an instance of the float field on the "page" content type.
-    FieldConfig::create(
-      [
-        'field_name' => 'float',
-        'entity_type' => 'node',
-        'bundle' => 'page',
-        'label' => 'Float Field Label',
-      ]
-    )->save();
+    FieldConfig::create([
+      'field_name' => 'float',
+      'entity_type' => 'node',
+      'bundle' => 'page',
+      'label' => 'Float Field Label',
+    ])->save();
 
     // Log in, so we can test all the things.
     $this->drupalLogin($this->adminUser);

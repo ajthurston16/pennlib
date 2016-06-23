@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @FacetsUrlProcessor(
  *   id = "query_string",
  *   label = @Translation("Query string"),
- *   description = @Translation("Query string is the default Facets URL processor, and uses GET parameters, e.g. ?f[0]=brand:drupal&f[1]=color:blue")
+ *   description = @Translation("Query string is the default Facets URL processor, and uses GET parameters, for example ?f[0]=brand:drupal&f[1]=color:blue")
  * )
  */
 class QueryString extends UrlProcessorPluginBase {
@@ -58,6 +58,11 @@ class QueryString extends UrlProcessorPluginBase {
     // First get the current list of get parameters.
     $get_params = $this->request->query;
 
+    // When adding/removing a filter the number of pages may have changed,
+    // possibly resulting in an invalid page parameter.
+    $current_page = $get_params->get('page');
+    $get_params->remove('page');
+
     // Set the url alias from the the facet object.
     $this->urlAlias = $facet->getUrlAlias();
 
@@ -70,8 +75,6 @@ class QueryString extends UrlProcessorPluginBase {
 
     /** @var \Drupal\facets\Result\ResultInterface[] $results */
     foreach ($results as &$result) {
-      // Flag if children filter params need to be removed.
-      $remove_children = FALSE;
       // Sets the url for children.
       if ($children = $result->getChildren()) {
         $this->buildUrls($facet, $children);
@@ -85,10 +88,6 @@ class QueryString extends UrlProcessorPluginBase {
       if ($result->isActive()) {
         foreach ($filter_params as $key => $filter_param) {
           if ($filter_param == $filter_string) {
-            $remove_children = TRUE;
-            unset($filter_params[$key]);
-          }
-          elseif ($remove_children) {
             unset($filter_params[$key]);
           }
         }
@@ -112,7 +111,7 @@ class QueryString extends UrlProcessorPluginBase {
         }
       }
 
-      $result_get_params->set($this->filterKey, $filter_params);
+      $result_get_params->set($this->filterKey, array_values($filter_params));
 
       $url = clone $url;
       $url->setOption('query', $result_get_params->all());
@@ -120,6 +119,8 @@ class QueryString extends UrlProcessorPluginBase {
       $result->setUrl($url);
     }
 
+    // Restore page parameter again. See https://www.drupal.org/node/2726455.
+    $get_params->set('page', $current_page);
     return $results;
   }
 

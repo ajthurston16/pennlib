@@ -5,6 +5,7 @@ namespace Drupal\search_api;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Config\ConfigImporter;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\TypedData\EntityDataDefinitionInterface;
 use Drupal\Core\TypedData\ComplexDataDefinitionInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\Core\TypedData\DataDefinitionInterface;
@@ -106,6 +107,7 @@ class Utility {
           'float',
         ),
         'date' => array(
+          'date',
           'datetime_iso8601',
           'timestamp',
         ),
@@ -174,11 +176,14 @@ class Utility {
   /**
    * Extracts specific field values from a complex data object.
    *
+   * The values will be set directly on the given field objects, nothing is
+   * returned.
+   *
    * @param \Drupal\Core\TypedData\ComplexDataInterface $item
    *   The item from which fields should be extracted.
-   * @param \Drupal\search_api\Item\FieldInterface[] $fields
-   *   The field objects into which data should be extracted, keyed by their
-   *   property paths on $item.
+   * @param \Drupal\search_api\Item\FieldInterface[][] $fields
+   *   An associative array, keyed by property paths, mapped to field objects
+   *   with that property path.
    */
   public static function extractFields(ComplexDataInterface $item, array $fields) {
     // Figure out which fields are directly on the item and which need to be
@@ -197,7 +202,10 @@ class Utility {
     // Extract the direct fields.
     foreach ($direct_fields as $key) {
       try {
-        self::extractField($item->get($key), $fields[$key]);
+        $data = $item->get($key);
+        foreach ($fields[$key] as $field) {
+          self::extractField($data, $field);
+        }
       }
       catch (\InvalidArgumentException $e) {
         // This can happen with properties added by processors.
@@ -219,7 +227,9 @@ class Utility {
         }
         elseif ($item_nested instanceof ListInterface && !$item_nested->isEmpty()) {
           foreach ($item_nested as $list_item) {
-            self::extractFields($list_item, $fields_nested);
+            if ($list_item instanceof ComplexDataInterface && !$list_item->isEmpty()) {
+              self::extractFields($list_item, $fields_nested);
+            }
           }
         }
       }
@@ -292,6 +302,33 @@ class Utility {
   }
 
   /**
+   * Retrieves a list of nested properties from a complex property.
+   *
+   * Takes care of including bundle-specific properties for entity reference
+   * properties.
+   *
+   * @param \Drupal\Core\TypedData\ComplexDataDefinitionInterface $property
+   *   The base definition.
+   *
+   * @return \Drupal\Core\TypedData\DataDefinitionInterface[]
+   *   The nested properties, keyed by property name.
+   */
+  public static function getNestedProperties(ComplexDataDefinitionInterface $property) {
+    $nested_properties = $property->getPropertyDefinitions();
+    if ($property instanceof EntityDataDefinitionInterface) {
+      $container = \Drupal::getContainer();
+      $bundles = $container->get('entity_type.bundle.info')
+        ->getBundleInfo($property->getEntityTypeId());
+      $field_manager = $container->get('entity_field.manager');
+      foreach ($bundles as $bundle => $bundle_label) {
+        $bundle_properties = $field_manager->getFieldDefinitions($property->getEntityTypeId(), $bundle);
+        $nested_properties += $bundle_properties;
+      }
+    }
+    return $nested_properties;
+  }
+
+  /**
    * Retrieves a nested property from a list of properties.
    *
    * @param \Drupal\Core\TypedData\DataDefinitionInterface[] $properties
@@ -308,16 +345,16 @@ class Utility {
       return NULL;
     }
 
+    $property = static::getInnerProperty($properties[$key]);
     if (!isset($nested_path)) {
-      return $properties[$key];
+      return $property;
     }
 
-    $property = static::getInnerProperty($properties[$key]);
     if (!$property instanceof ComplexDataDefinitionInterface) {
       return NULL;
     }
 
-    return static::retrieveNestedProperty($property->getPropertyDefinitions(), $nested_path);
+    return static::retrieveNestedProperty(static::getNestedProperties($property), $nested_path);
   }
 
   /**
@@ -394,6 +431,7 @@ class Utility {
     $reserved_ids = array_flip(array(
       'search_api_id',
       'search_api_datasource',
+      'search_api_language',
       'search_api_relevance',
     ));
     return isset($reserved_ids[$field_id]);
@@ -741,7 +779,10 @@ class Utility {
    *   element 0 will be NULL.
    */
   public static function splitCombinedId($combined_id) {
-    return static::splitPropertyPath($combined_id, TRUE, IndexInterface::DATASOURCE_ID_SEPARATOR);
+    if (strpos($combined_id, IndexInterface::DATASOURCE_ID_SEPARATOR) !== FALSE) {
+      return explode(IndexInterface::DATASOURCE_ID_SEPARATOR, $combined_id, 2);
+    }
+    return array(NULL, $combined_id);
   }
 
 }

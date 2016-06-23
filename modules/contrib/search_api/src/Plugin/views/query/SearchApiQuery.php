@@ -103,7 +103,7 @@ class SearchApiQuery extends QueryPluginBase {
    *
    * @var array
    */
-  protected $conditions = array();
+  protected $where = array();
 
   /**
    * The conjunction with which multiple filter groups are combined.
@@ -199,6 +199,15 @@ class SearchApiQuery extends QueryPluginBase {
       $this->query->addTag('views_' . $view->id());
       $this->query->setOption('search_api_view', $view);
 
+      // We only provide a display plugin for Views page displays.
+      // @todo figure out how to allow new displays for other views display
+      //   types to be added. Do we need a hook for this?
+      if ($display->getPluginId() == 'page') {
+        // Load the Search API display and attach it to the query.
+        $display_plugin_manager = \Drupal::service('plugin.manager.search_api.display');
+        $search_api_display = $display_plugin_manager->createInstance('views_page:' . $view->id() . '__' . $view->current_display);
+        $this->query->setOption('search_api_display', $search_api_display);
+      }
     }
     catch (\Exception $e) {
       $this->abort($e->getMessage());
@@ -352,7 +361,7 @@ class SearchApiQuery extends QueryPluginBase {
     }
 
     // Setup the nested filter structure for this query.
-    if (!empty($this->conditions)) {
+    if (!empty($this->where)) {
       // If the different groups are combined with the OR operator, we have to
       // add a new OR filter to the query to which the filters for the groups
       // will be added.
@@ -364,7 +373,7 @@ class SearchApiQuery extends QueryPluginBase {
         $base = $this->query;
       }
       // Add a nested filter for each filter group, with its set conjunction.
-      foreach ($this->conditions as $group_id => $group) {
+      foreach ($this->where as $group_id => $group) {
         if (!empty($group['conditions']) || !empty($group['condition_groups'])) {
           $group += array('type' => 'AND');
           // For filters without a group, we want to always add them directly to
@@ -491,7 +500,7 @@ class SearchApiQuery extends QueryPluginBase {
    * Used by handlers to flag a fatal error which shouldn't be displayed but
    * still lead to the view returning empty and the search not being executed.
    *
-   * @param string|null $msg
+   * @param \Drupal\Component\Render\MarkupInterface|string|null $msg
    *   Optionally, a translated, unescaped error message to display.
    */
   public function abort($msg = NULL) {
@@ -499,6 +508,9 @@ class SearchApiQuery extends QueryPluginBase {
       $this->errors[] = $msg;
     }
     $this->abort = TRUE;
+    if (isset($this->query)) {
+      $this->query->abort($msg);
+    }
   }
 
   /**
@@ -554,6 +566,7 @@ class SearchApiQuery extends QueryPluginBase {
       }
       $values['search_api_id'] = $item_id;
       $values['search_api_datasource'] = $result->getDatasourceId();
+      $values['search_api_language'] = $result->getLanguage();
       $values['search_api_relevance'] = $result->getScore();
       $values['search_api_excerpt'] = $result->getExcerpt() ?: '';
 
@@ -655,6 +668,40 @@ class SearchApiQuery extends QueryPluginBase {
   //
 
   /**
+   * Retrieves the languages that will be searched by this query.
+   *
+   * @return string[]|null
+   *   The language codes of languages that will be searched by this query, or
+   *   NULL if there shouldn't be any restriction on the language.
+   *
+   *  @see \Drupal\search_api\Query\QueryInterface::getLanguages()
+   */
+  public function getLanguages() {
+    if (!$this->shouldAbort()) {
+      return $this->query->getLanguages();
+    }
+    return NULL;
+  }
+
+  /**
+   * Sets the languages that should be searched by this query.
+   *
+   * @param string[]|null $languages
+   *   The language codes to search for, or NULL to not restrict the query to
+   *   specific languages.
+   *
+   * @return $this
+   *
+   * @see \Drupal\search_api\Query\QueryInterface::setLanguages()
+   */
+  public function setLanguages(array $languages = NULL) {
+    if (!$this->shouldAbort()) {
+      $this->query->setLanguages($languages);
+    }
+    return $this;
+  }
+
+  /**
    * Creates a new condition group to use with this query object.
    *
    * @param string $conjunction
@@ -740,7 +787,7 @@ class SearchApiQuery extends QueryPluginBase {
       if (empty($group)) {
         $group = 0;
       }
-      $this->conditions[$group]['condition_groups'][] = $condition_group;
+      $this->where[$group]['condition_groups'][] = $condition_group;
     }
     return $this;
   }
@@ -777,7 +824,7 @@ class SearchApiQuery extends QueryPluginBase {
         $group = 0;
       }
       $condition = array($field, $value, $operator);
-      $this->conditions[$group]['conditions'][] = $condition;
+      $this->where[$group]['conditions'][] = $condition;
     }
     return $this;
   }
@@ -836,7 +883,7 @@ class SearchApiQuery extends QueryPluginBase {
         $field = $this->transformDbCondition($field);
       }
       if ($field instanceof ConditionGroupInterface) {
-        $this->conditions[$group]['condition_groups'][] = $field;
+        $this->where[$group]['condition_groups'][] = $field;
       }
       elseif (!$this->shouldAbort()) {
         // We only need to abort  if that wasn't done by transformDbCondition()
@@ -850,10 +897,33 @@ class SearchApiQuery extends QueryPluginBase {
         $value,
         $this->sanitizeOperator($operator),
       );
-      $this->conditions[$group]['conditions'][] = $condition;
+      $this->where[$group]['conditions'][] = $condition;
     }
 
     return $this;
+  }
+
+  /**
+   * Retrieves the conjunction with which multiple filter groups are combined.
+   *
+   * @return string
+   *   Either "AND" or "OR".
+   */
+  public function getGroupOperator() {
+    return $this->groupOperator;
+  }
+
+  /**
+   * Returns the group type of the given group.
+   *
+   * @param int $group
+   *   The group whose type should be retrieved.
+   *
+   * @return string
+   *   The group type – "AND" or "OR".
+   */
+  public function getGroupType($group) {
+    return !empty($this->where[$group]) ? $this->where[$group] : 'AND';
   }
 
   /**

@@ -16,6 +16,12 @@ use Drupal\search_api\ServerInterface;
  * @ConfigEntityType(
  *   id = "search_api_server",
  *   label = @Translation("Search server"),
+ *   label_singular = @Translation("search server"),
+ *   label_plural = @Translation("search servers"),
+ *   label_count = @PluralTranslation(
+ *     singular = "@count search server",
+ *     plural = "@count search servers",
+ *   ),
  *   handlers = {
  *     "storage" = "Drupal\Core\Config\Entity\ConfigEntityStorage",
  *     "form" = {
@@ -23,7 +29,7 @@ use Drupal\search_api\ServerInterface;
  *       "edit" = "Drupal\search_api\Form\ServerForm",
  *       "delete" = "Drupal\search_api\Form\ServerDeleteConfirmForm",
  *       "disable" = "Drupal\search_api\Form\ServerDisableConfirmForm",
- *       "clear" = "Drupal\search_api\Form\ServerClearConfirmForm"
+ *       "clear" = "Drupal\search_api\Form\ServerClearConfirmForm",
  *     },
  *   },
  *   admin_permission = "administer search_api",
@@ -32,7 +38,7 @@ use Drupal\search_api\ServerInterface;
  *     "id" = "id",
  *     "label" = "name",
  *     "uuid" = "uuid",
- *     "status" = "status"
+ *     "status" = "status",
  *   },
  *   config_export = {
  *     "id",
@@ -204,7 +210,10 @@ class Server extends ConfigEntityBase implements ServerInterface {
     $server_task_manager->delete(NULL, $this, $index);
 
     try {
-      $this->getBackend()->addIndex($index);
+      if ($server_task_manager->execute($this)) {
+        $this->getBackend()->addIndex($index);
+        return;
+      }
     }
     catch (SearchApiException $e) {
       $vars = array(
@@ -247,7 +256,10 @@ class Server extends ConfigEntityBase implements ServerInterface {
     $server_task_manager->delete(NULL, $this, $index);
 
     try {
-      $this->getBackend()->removeIndex($index);
+      if ($server_task_manager->execute($this)) {
+        $this->getBackend()->removeIndex($index);
+        return;
+      }
     }
     catch (SearchApiException $e) {
       $vars = array(
@@ -312,6 +324,15 @@ class Server extends ConfigEntityBase implements ServerInterface {
     }
 
     $server_task_manager = \Drupal::getContainer()->get('search_api.server_task_manager');
+
+    // Remove all other delete operations for this index from the server tasks –
+    // no point in executing those when we want to delete all items anyways.
+    $types = array(
+      'deleteItems',
+      'deleteAllIndexItems',
+    );
+    $server_task_manager->delete(NULL, $this, $index, $types);
+
     try {
       if ($server_task_manager->execute($this)) {
         $this->getBackend()->deleteAllIndexItems($index);
@@ -355,7 +376,14 @@ class Server extends ConfigEntityBase implements ServerInterface {
       $message = new FormattableMarkup('Deleting all items from server %server failed for the following (write-enabled) indexes: @indexes.', $args);
       throw new SearchApiException($message, 0, $e);
     }
-    return $this;
+
+    $types = array(
+      'deleteItems',
+      'deleteAllIndexItems',
+    );
+    \Drupal::getContainer()
+      ->get('search_api.server_task_manager')
+      ->delete(NULL, $this, NULL, $types);
   }
 
   /**

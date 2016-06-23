@@ -22,18 +22,25 @@ class FacetSourceTest extends WebTestBase {
   ];
 
   /**
-   * Tests the facet source editing.
+   * {@inheritdoc}
    */
-  public function testEditFilterKey() {
+  public function setUp() {
+    parent::setUp();
+
     // Make sure we're logged in with a user that has sufficient permissions.
     $this->drupalLogin($this->adminUser);
 
-    // Test the overview.
+    // Go to the overview and click the first configure link.
     $this->drupalGet('admin/config/search/facets');
     $this->assertLink($this->t('Configure'));
     $this->clickLink($this->t('Configure'));
+  }
 
-    // Test the edit page.
+  /**
+   * Tests the facet source editing.
+   */
+  public function testEditFilterKey() {
+    // Change the filter key.
     $edit = array(
       'filter_key' => 'fq',
     );
@@ -41,6 +48,10 @@ class FacetSourceTest extends WebTestBase {
     $this->assertField('url_processor');
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
     $this->assertResponse(200);
+
+    $this->assertUrl('admin/config/search/facets');
+    $this->assertText('Facet source search_api_views:search_api_test_view:block_1 has been saved.');
+    $this->clickLink($this->t('Configure'));
 
     // Test that saving worked filter_key has the new value.
     $this->assertField('filter_key');
@@ -52,15 +63,7 @@ class FacetSourceTest extends WebTestBase {
    * Tests editing the url processor.
    */
   public function testEditUrlProcessor() {
-    // Make sure we're logged in with a user that has sufficient permissions.
-    $this->drupalLogin($this->adminUser);
-
-    // Test the overview.
-    $this->drupalGet('admin/config/search/facets');
-    $this->assertLink($this->t('Configure'));
-    $this->clickLink($this->t('Configure'));
-
-    // Test the edit page.
+    // Change the url processor.
     $edit = array(
       'url_processor' => 'dummy_query',
     );
@@ -68,6 +71,10 @@ class FacetSourceTest extends WebTestBase {
     $this->assertField('url_processor');
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
     $this->assertResponse(200);
+
+    $this->assertUrl('admin/config/search/facets');
+    $this->assertText('Facet source search_api_views:search_api_test_view:block_1 has been saved.');
+    $this->clickLink($this->t('Configure'));
 
     // Test that saving worked and that the url processor has the new value.
     $this->assertField('filter_key');

@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\ckeditor_media_embed\Form\CKEditorMediaEmbedSettingsForm.
- */
-
 namespace Drupal\ckeditor_media_embed\Form;
+
+use Drupal\ckeditor_media_embed\AssetManager;
 
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Routing\UrlGeneratorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -69,9 +65,7 @@ class CKEditorMediaEmbedSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return [
-      'ckeditor_media_embed.settings'
-    ];
+    return ['ckeditor_media_embed.settings'];
   }
 
   /**
@@ -87,13 +81,18 @@ class CKEditorMediaEmbedSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('ckeditor_media_embed.settings');
 
+    if (!AssetManager::pluginsAreInstalled()) {
+      drupal_set_message(_ckeditor_media_embed_get_install_instructions(), 'warning');
+      return array();
+    }
+
     $form['embed_provider'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Provider URL'),
       '#default_value' => $config->get('embed_provider'),
       '#description' => $this->t('A template for the URL of the provider endpoint.
         This URL will be queried for each resource to be embedded. By default CKEditor uses the Iframely service.<br />
-        <strong>Example</strong> <code>//example.com/api/oembed-proxy?resource-url={url}&callback={callback}</code><br />
+        <strong>Example</strong> <code>//example.com/api/oembed-proxy?resource-url={url}&callback={callback}&api_token=MYAPITOKEN</code><br />
         <strong>Default</strong> <code>//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}</code><br />
       '),
     );
@@ -126,10 +125,6 @@ class CKEditorMediaEmbedSettingsForm extends ConfigFormBase {
    *
    * @param string $embed_provider
    *   The embed provider that should be prepared for validation.
-   *
-   * @return string
-   *   The embed provider url with a schema and escaped tokens so that it has
-   *   a chance to validate.
    *
    * @return $this
    */

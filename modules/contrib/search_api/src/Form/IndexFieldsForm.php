@@ -230,7 +230,7 @@ class IndexFieldsForm extends EntityForm {
     $fallback_mapping = Utility::getDataTypeFallbackMapping($index);
 
     $data_types = array();
-    foreach($instances as $name => $type) {
+    foreach ($instances as $name => $type) {
       $data_types[$name] = [
         'label' => $type->label(),
         'description' => $type->getDescription(),
@@ -308,6 +308,13 @@ class IndexFieldsForm extends EntityForm {
       '#open' => TRUE,
       '#theme' => 'search_api_admin_fields_table',
       '#parents' => array(),
+      '#header' => array(
+        t('Field'),
+        t('Machine name'),
+        t('Type'),
+        t('Boost'),
+        t('Remove'),
+      ),
     );
 
     foreach ($fields as $key => $field) {

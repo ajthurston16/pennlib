@@ -1,4 +1,10 @@
 services:
+  access_check.search_api_tasks:
+    class: Drupal\search_api\Controller\ExecuteTasksAccessCheck
+    arguments: ['@search_api.server_task_manager']
+    tags:
+      - { name: access_check, applies_to: _search_api_tasks }
+
   paramconverter.search_api:
     class: Drupal\search_api\ParamConverter\SearchApiConverter
     arguments: ['@entity.manager', '@user.shared_tempstore', '@current_user']
@@ -16,6 +22,10 @@ services:
 
   plugin.manager.search_api.datasource:
     class: Drupal\search_api\Datasource\DatasourcePluginManager
+    parent: default_plugin_manager
+
+  plugin.manager.search_api.display:
+    class: Drupal\search_api\Display\DisplayPluginManager
     parent: default_plugin_manager
 
   plugin.manager.search_api.processor:
