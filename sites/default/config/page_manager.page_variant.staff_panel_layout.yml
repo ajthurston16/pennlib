@@ -3,7 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - facets.facet.collection_responsibility
+    - facets.facet.department
+    - facets.facet.division
+    - facets.facet.language
     - facets.facet.library
+    - facets.facet.role
+    - facets.facet.subject_specialty
+    - facets.facet.team
+    - facets.facet.technology_specialty
     - page_manager.page.staff_seach
     - views.view.staff_search
   module:
@@ -35,6 +43,78 @@ variant_settings:
       region: sidebar
       uuid: 4948e364-bee1-4dd9-896b-ed1d90de5747
       weight: 1
+    cda8fb45-e73d-4dcc-aa72-ad8a86267010:
+      id: 'facet_block:subject_specialty'
+      label: 'Subject Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: cda8fb45-e73d-4dcc-aa72-ad8a86267010
+      weight: 2
+    fc6c15f7-ef95-4e6e-8aae-a026863c0a54:
+      id: 'facet_block:collection_responsibility'
+      label: 'Collection Responsibility'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: fc6c15f7-ef95-4e6e-8aae-a026863c0a54
+      weight: 3
+    6887c5fe-313c-432e-8612-011d16e2041c:
+      id: 'facet_block:technology_specialty'
+      label: 'Technology Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 6887c5fe-313c-432e-8612-011d16e2041c
+      weight: 4
+    5d80de86-6476-4e10-aecf-bda414e23b30:
+      id: 'facet_block:division'
+      label: Division
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 5d80de86-6476-4e10-aecf-bda414e23b30
+      weight: 5
+    984ea04c-5aed-4790-8556-29d571a93073:
+      id: 'facet_block:department'
+      label: Department
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 984ea04c-5aed-4790-8556-29d571a93073
+      weight: 6
+    ea27c190-6bbf-4507-ab5b-dfdaee3bab06:
+      id: 'facet_block:role'
+      label: Role
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: ea27c190-6bbf-4507-ab5b-dfdaee3bab06
+      weight: 7
+    f070eaae-c28b-4676-a687-1ad7eefe343b:
+      id: 'facet_block:language'
+      label: Language
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: f070eaae-c28b-4676-a687-1ad7eefe343b
+      weight: 8
+    c9245129-a614-4f29-80a0-54491acd372e:
+      id: 'facet_block:team'
+      label: Team
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: c9245129-a614-4f29-80a0-54491acd372e
+      weight: 9
   id: panels_variant
   uuid: 76bba827-234b-477b-98b5-b28d82fc32df
   label: null

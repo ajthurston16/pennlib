@@ -1,18 +1,18 @@
-uuid: 3d7760f4-3ef2-48b5-bc0c-25de92a3473d
+uuid: 0d9415fb-c31c-497a-bbde-65164ce6a8d8
 langcode: en
 status: true
 dependencies: {  }
-id: library
-name: Library
-url_alias: library
+id: collection_responsibility
+name: 'Collection Responsibility'
+url_alias: collection_responsibility
 weight: 0
 show_only_one_result: false
-field_identifier: field_library
+field_identifier: field_collection_responsibility
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '1'
+  show_numbers: '0'
   soft_limit: '0'
 query_operator: OR
 exclude: false

@@ -1,18 +1,18 @@
-uuid: 3d7760f4-3ef2-48b5-bc0c-25de92a3473d
+uuid: 1a06d508-9e4b-4fcf-8e12-f36cb248f989
 langcode: en
 status: true
 dependencies: {  }
-id: library
-name: Library
-url_alias: library
+id: team
+name: Team
+url_alias: team
 weight: 0
 show_only_one_result: false
-field_identifier: field_library
+field_identifier: field_team
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '1'
+  show_numbers: '0'
   soft_limit: '0'
 query_operator: OR
 exclude: false

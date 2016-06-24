@@ -1,18 +1,18 @@
-uuid: 3d7760f4-3ef2-48b5-bc0c-25de92a3473d
+uuid: 0a502a26-ac49-4be2-86b3-d16ea36e7dcf
 langcode: en
 status: true
 dependencies: {  }
-id: library
-name: Library
-url_alias: library
+id: technology_specialty
+name: 'Technology Specialty'
+url_alias: technology_specialty
 weight: 0
 show_only_one_result: false
-field_identifier: field_library
+field_identifier: field_technology_specialty
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '1'
+  show_numbers: '0'
   soft_limit: '0'
 query_operator: OR
 exclude: false

@@ -1,18 +1,18 @@
-uuid: 3d7760f4-3ef2-48b5-bc0c-25de92a3473d
+uuid: b72460eb-9aff-4577-9e8e-891cbd9b4698
 langcode: en
 status: true
 dependencies: {  }
-id: library
-name: Library
-url_alias: library
+id: role
+name: Role
+url_alias: role
 weight: 0
 show_only_one_result: false
-field_identifier: field_library
+field_identifier: field_role
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '1'
+  show_numbers: '0'
   soft_limit: '0'
 query_operator: OR
 exclude: false
@@ -24,18 +24,6 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: ASC
   translate_taxonomy:
     processor_id: translate_taxonomy
     weights:

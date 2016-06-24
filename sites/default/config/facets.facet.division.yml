@@ -1,13 +1,13 @@
-uuid: 3d7760f4-3ef2-48b5-bc0c-25de92a3473d
+uuid: 6d460c22-725f-4c9e-a4a0-a8d94a60ed53
 langcode: en
 status: true
 dependencies: {  }
-id: library
-name: Library
-url_alias: library
+id: division
+name: Division
+url_alias: division
 weight: 0
 show_only_one_result: false
-field_identifier: field_library
+field_identifier: field_division
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
