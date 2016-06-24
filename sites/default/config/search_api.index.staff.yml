@@ -115,7 +115,17 @@ field_settings:
 processor_settings:
   add_url:
     plugin_id: add_url
-    settings: {  }
+    settings:
+      weights:
+        preprocess_index: -30
+  role_filter:
+    plugin_id: role_filter
+    settings:
+      default: false
+      roles:
+        staff: staff
+      weights:
+        preprocess_index: -10
 options:
   index_directly: true
   cron_limit: 50
