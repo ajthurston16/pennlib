@@ -43,6 +43,7 @@ module:
   kint: 0
   layout_plugin: 0
   link: 0
+  menu_block: 0
   menu_link_config: 0
   menu_ui: 0
   name: 0
@@ -50,6 +51,7 @@ module:
   options: 0
   page_cache: 0
   page_manager: 0
+  page_manager_ui: 0
   panelizer: 0
   panels: 0
   panels_ipe: 0

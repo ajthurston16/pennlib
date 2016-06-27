@@ -32,17 +32,6 @@ third_party_settings:
             region: header
             uuid: 807e5d3e-b704-42f0-9e3b-77102791c4dc
             weight: 1
-          4fd1f3d3-8bdb-4dcd-84f4-8b86dcf21a27:
-            id: 'system_menu_block:main-nav'
-            label: 'Main Nav'
-            provider: system
-            label_display: '0'
-            level: 2
-            depth: 0
-            context_mapping: {  }
-            region: column1
-            uuid: 4fd1f3d3-8bdb-4dcd-84f4-8b86dcf21a27
-            weight: 1
           68bf3521-044c-46e3-8c85-df66bd36e2e4:
             id: 'entity_field:node:field_see_also_link'
             label: 'See Also'
@@ -63,6 +52,19 @@ third_party_settings:
               entity: '@panelizer.entity_context:entity'
             region: column2
             uuid: 68bf3521-044c-46e3-8c85-df66bd36e2e4
+            weight: 1
+          3c8bbc8a-7fbd-49a2-bcd5-b9ba19caf23e:
+            id: 'menu_block:main-nav'
+            label: 'Main Nav (extended config)'
+            provider: menu_block
+            label_display: '0'
+            level: 1
+            depth: 0
+            expand: 1
+            parent: 'main-nav:'
+            context_mapping: {  }
+            region: column1
+            uuid: 3c8bbc8a-7fbd-49a2-bcd5-b9ba19caf23e
             weight: 1
         id: panels_variant
         uuid: c6357d68-4a36-42fc-9476-2ebe2229347d

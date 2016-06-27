@@ -817,6 +817,14 @@ header {
   padding: 10px 0 20px 0;
   margin-right: 30px; }
 
+.node--type-menu_landing_page {
+  /* Styling for the landing page's menu links. */ }
+  .node--type-menu_landing_page .main-nav,
+  .node--type-menu_landing_page .main-nav__sub {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+
 .site-nav-footer {
   max-width: 87.5em;
   margin: 0 auto; }
