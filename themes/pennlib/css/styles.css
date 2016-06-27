@@ -736,7 +736,7 @@ blockquote {
 
 .slick--view--carousel {
   background-color: #cccccc;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   display: none; }
 
 .slick-arrow::before {
@@ -816,19 +816,6 @@ header {
 #block-bear-skin-branding {
   padding: 10px 0 20px 0;
   margin-right: 30px; }
-
-.node--type-menu_landing_page .main-nav,
-.node--type-menu_landing_page .main-nav__sub {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-
-.node--type-menu_landing_page .main-nav__item.parent {
-  display: none; }
-  .node--type-menu_landing_page .main-nav__item.parent .is-active {
-    display: none; }
-  .node--type-menu_landing_page .main-nav__item.parent.active {
-    display: block; }
 
 .site-nav-footer {
   max-width: 87.5em;
