@@ -61,6 +61,17 @@ function pennlib_preprocess_breadcrumb(&$variables) {
   if ($variables['breadcrumb'][0]['text'] == "Home" && $variables['breadcrumb'][0]['url'] == "/") {
     $variables['breadcrumb'][0]['text'] = "Penn Libraries";
   }
+
+  // Add the current page title to the end of the breadcrumb.
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+  if ($page_title != "") {
+    $variables['breadcrumb'][] = array(
+      'text' => $page_title
+    );
+  }
 }
 
 function pennlib_preprocess_input__submit(&$variables) {

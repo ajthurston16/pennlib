@@ -695,7 +695,7 @@ blockquote {
 
 #breadcrumb li {
   display: inline; }
-  #breadcrumb li.active a {
+  #breadcrumb li.active {
     color: #837B80; }
   #breadcrumb li:not(:first-child)::before {
     content: "/";
