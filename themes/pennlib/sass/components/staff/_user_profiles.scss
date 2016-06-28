@@ -1,7 +1,7 @@
 $left-width: 350px;
 
 //top of profile
-.profile{
+.user-profile{
   .field--name-user-picture{
     img{
       margin:0 auto;
@@ -27,7 +27,7 @@ $left-width: 350px;
 }
 
 // grey details
-.profile {
+.user-profile {
   .field, .contact {
     background: $concrete;
     margin: 5px 0;
@@ -40,7 +40,7 @@ $left-width: 350px;
   }
 }
 
-.profile {
+.user-profile {
   .field__label, .contact span{
     font-weight: bold;
     font-size: 18px;

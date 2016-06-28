@@ -1327,35 +1327,35 @@ body {
 .specialist {
   margin-top: 13px; }
 
-.profile .field--name-user-picture img {
+.user-profile .field--name-user-picture img {
   margin: 0 auto;
   text-align: center; }
 
-.profile .full-name .field--name-field-first-name, .profile .full-name .field--name-field-middle-name, .profile .full-name .field--name-field-last-name {
+.user-profile .full-name .field--name-field-first-name, .user-profile .full-name .field--name-field-middle-name, .user-profile .full-name .field--name-field-last-name {
   font-weight: bold;
   font-size: 22px; }
 
-.profile .full-name div {
+.user-profile .full-name div {
   display: inline-block; }
 
-.profile .full-name .field--name-field-title {
+.user-profile .full-name .field--name-field-title {
   font-style: italic;
   font-weight: bold;
   font-size: 20px;
   clear: both;
   display: block; }
 
-.profile .field, .profile .contact {
+.user-profile .field, .user-profile .contact {
   background: #F2F2F2;
   margin: 5px 0;
   padding: 10px 0;
   position: relative; }
 
-.profile .field--name-user-picture, .profile .field--name-field-bio, .profile .full-name .field {
+.user-profile .field--name-user-picture, .user-profile .field--name-field-bio, .user-profile .full-name .field {
   background: #ffffff;
   padding: 0; }
 
-.profile .field__label, .profile .contact span {
+.user-profile .field__label, .user-profile .contact span {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
@@ -1363,19 +1363,19 @@ body {
   min-height: 30px;
   display: block; }
 
-.profile .field--name-user-picture {
+.user-profile .field--name-user-picture {
   text-align: center;
   clear: both;
   margin: 0 auto; }
 
-.profile .field__items,
-.profile .field > .field__item,
-.profile .contact-wrapper,
-.profile .full-name,
-.profile .field--name-field-bio {
+.user-profile .field__items,
+.user-profile .field > .field__item,
+.user-profile .contact-wrapper,
+.user-profile .full-name,
+.user-profile .field--name-field-bio {
   clear: both; }
 
-.profile .contact-wrapper .field__items {
+.user-profile .contact-wrapper .field__items {
   margin-left: 0; }
 
 .contact-wrapper div {
@@ -1697,19 +1697,19 @@ body {
 @media (min-width: 40.5em) {
   .slick--view--carousel {
     display: block; }
-  .profile .field__label, .profile .contact span {
+  .user-profile .field__label, .user-profile .contact span {
     width: 350px;
     text-align: right;
     position: absolute;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
-  .profile .field--name-user-picture {
+  .user-profile .field--name-user-picture {
     width: 350px;
     position: absolute; }
-  .profile .field__items,
-    .profile .field > .field__item,
-    .profile .contact-wrapper,
-    .profile .full-name,
-    .profile .field--name-field-bio {
+  .user-profile .field__items,
+    .user-profile .field > .field__item,
+    .user-profile .contact-wrapper,
+    .user-profile .full-name,
+    .user-profile .field--name-field-bio {
     margin-left: 390px; } }
