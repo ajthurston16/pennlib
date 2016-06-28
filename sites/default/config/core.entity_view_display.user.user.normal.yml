@@ -36,6 +36,7 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
+    - linked_field
     - taxonomy
     - telephone
     - text

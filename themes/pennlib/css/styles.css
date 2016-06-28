@@ -1368,7 +1368,11 @@ body {
   clear: both;
   margin: 0 auto; }
 
-.profile .field__items, .profile .contact-wrapper, .profile .full-name {
+.profile .field__items,
+.profile .field > .field__item,
+.profile .contact-wrapper,
+.profile .full-name,
+.profile .field--name-field-bio {
   clear: both; }
 
 .profile .contact-wrapper .field__items {
@@ -1703,5 +1707,9 @@ body {
   .profile .field--name-user-picture {
     width: 350px;
     position: absolute; }
-  .profile .field__items, .profile .contact-wrapper, .profile .full-name {
+  .profile .field__items,
+    .profile .field > .field__item,
+    .profile .contact-wrapper,
+    .profile .full-name,
+    .profile .field--name-field-bio {
     margin-left: 390px; } }

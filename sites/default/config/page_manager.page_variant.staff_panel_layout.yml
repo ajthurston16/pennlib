@@ -29,7 +29,7 @@ variant_settings:
       provider: views
       label_display: '0'
       views_label: ''
-      items_per_page: '10'
+      items_per_page: none
       region: contentmain
       weight: 1
       uuid: 77a23975-5322-41be-a87a-e09e5abfb451

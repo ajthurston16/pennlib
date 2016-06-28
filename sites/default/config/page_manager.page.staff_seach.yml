@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: staff_seach
-label: 'Staff Seach'
+label: 'Staff Search'
 use_admin_theme: false
 path: /library-info/staff
 access_logic: and

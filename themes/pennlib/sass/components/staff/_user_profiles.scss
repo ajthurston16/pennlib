@@ -64,7 +64,11 @@ $left-width: 350px;
       position: absolute;
     }
   }
-  .field__items, .contact-wrapper, .full-name  {
+  .field__items,
+  .field > .field__item,
+  .contact-wrapper,
+  .full-name,
+  .field--name-field-bio  {
     clear: both;
     @include breakpoint($breakpoint-med-small-width) {
       margin-left: $left-width + 40;
