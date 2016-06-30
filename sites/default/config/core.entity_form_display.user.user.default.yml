@@ -22,7 +22,6 @@ dependencies:
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
-    - field.field.user.user.field_phone
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
@@ -58,36 +57,36 @@ content:
     third_party_settings: {  }
   field_additional_info:
     type: link_default
-    weight: 30
+    weight: 29
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
   field_bio:
     type: text_textarea
-    weight: 27
+    weight: 26
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_collection_responsibility:
     type: options_select
-    weight: 25
+    weight: 24
     settings: {  }
     third_party_settings: {  }
   field_department:
     type: options_select
-    weight: 14
+    weight: 13
     settings: {  }
     third_party_settings: {  }
   field_digital_methods:
     type: options_select
-    weight: 24
+    weight: 23
     settings: {  }
     third_party_settings: {  }
   field_division:
     type: options_select
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
   field_email_address:
@@ -99,7 +98,7 @@ content:
     third_party_settings: {  }
   field_fax:
     type: telephone_default
-    weight: 18
+    weight: 17
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -112,13 +111,13 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_textfield
-    weight: 28
+    weight: 27
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_languages:
-    weight: 29
+    weight: 28
     settings: {  }
     third_party_settings: {  }
     type: field_collection_embed
@@ -131,18 +130,18 @@ content:
     third_party_settings: {  }
   field_leadership_level:
     type: number
-    weight: 32
+    weight: 31
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_liaison_responsibility:
     type: options_select
-    weight: 26
+    weight: 25
     settings: {  }
     third_party_settings: {  }
   field_library:
     type: options_select
-    weight: 12
+    weight: 11
     settings: {  }
     third_party_settings: {  }
   field_middle_name:
@@ -154,28 +153,20 @@ content:
     third_party_settings: {  }
   field_mobile:
     type: telephone_default
-    weight: 17
+    weight: 16
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_office:
-    type: text_textfield
-    weight: 11
-    settings:
-      size: 60
-      placeholder: ''
+    weight: 14
+    settings: {  }
     third_party_settings: {  }
+    type: field_collection_embed
   field_pennkey:
     type: text_textfield
-    weight: 19
+    weight: 18
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_phone:
-    type: telephone_default
-    weight: 16
-    settings:
       placeholder: ''
     third_party_settings: {  }
   field_rank:
@@ -190,24 +181,24 @@ content:
     third_party_settings: {  }
   field_screenname:
     type: text_textfield
-    weight: 20
+    weight: 19
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_subject_specialty:
     type: options_select
-    weight: 21
+    weight: 20
     settings: {  }
     third_party_settings: {  }
   field_team:
     type: options_select
-    weight: 31
+    weight: 30
     settings: {  }
     third_party_settings: {  }
   field_technology_specialty:
     type: options_select
-    weight: 22
+    weight: 21
     settings: {  }
     third_party_settings: {  }
   field_title:
@@ -219,7 +210,7 @@ content:
     third_party_settings: {  }
   field_tool_expertise:
     type: options_select
-    weight: 23
+    weight: 22
     settings: {  }
     third_party_settings: {  }
   language:

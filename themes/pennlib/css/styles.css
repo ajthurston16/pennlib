@@ -1635,7 +1635,7 @@ body {
     float: right; }
   .subjspec-wrapper .views-field-view-user:nth-child(4n + 1) {
     clear: both; }
-  .subjspec-wrapper .views-field-field-office {
+  .subjspec-wrapper .views-field-field-room {
     zoom: 1;
     float: left;
     display: inline;
@@ -1646,15 +1646,15 @@ body {
     width: 31.33333%;
     margin-left: 0%;
     margin-right: 3%; }
-  .subjspec-wrapper .views-field-field-office:before, .subjspec-wrapper .views-field-field-office:after {
+  .subjspec-wrapper .views-field-field-room:before, .subjspec-wrapper .views-field-field-room:after {
     content: '';
     display: table; }
-  .subjspec-wrapper .views-field-field-office:after {
+  .subjspec-wrapper .views-field-field-room:after {
     clear: both; }
-  .subjspec-wrapper .views-field-field-office:nth-child(4n) {
+  .subjspec-wrapper .views-field-field-room:nth-child(4n) {
     margin-right: 0%;
     float: right; }
-  .subjspec-wrapper .views-field-field-office:nth-child(4n + 1) {
+  .subjspec-wrapper .views-field-field-room:nth-child(4n + 1) {
     clear: both; }
   .subjspec-wrapper .views-field-field-email-address {
     zoom: 1;

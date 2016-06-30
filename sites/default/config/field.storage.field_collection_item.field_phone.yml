@@ -1,13 +1,13 @@
-uuid: 0744747f-0448-48ff-a02d-45b601277155
+uuid: ca6dff9e-cd0f-461a-80bb-40f455d20923
 langcode: en
 status: true
 dependencies:
   module:
+    - field_collection
     - telephone
-    - user
-id: user.field_phone
+id: field_collection_item.field_phone
 field_name: field_phone
-entity_type: user
+entity_type: field_collection_item
 type: telephone
 settings: {  }
 module: telephone

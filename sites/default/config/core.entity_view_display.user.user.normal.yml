@@ -23,7 +23,6 @@ dependencies:
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
-    - field.field.user.user.field_phone
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
@@ -35,10 +34,10 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - field_collection
     - image
     - linked_field
     - taxonomy
-    - telephone
     - text
     - user
 _core:
@@ -74,12 +73,11 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-  field_phone:
-    type: telephone_link
+  field_office:
+    type: field_collection_items
     weight: 5
     label: hidden
-    settings:
-      title: ''
+    settings: {  }
     third_party_settings: {  }
   field_title:
     type: text_trimmed
@@ -111,7 +109,6 @@ hidden:
   field_library: true
   field_middle_name: true
   field_mobile: true
-  field_office: true
   field_pennkey: true
   field_rank: true
   field_role: true

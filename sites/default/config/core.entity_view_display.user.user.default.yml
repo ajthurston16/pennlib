@@ -22,7 +22,6 @@ dependencies:
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
     - field.field.user.user.field_pennkey
-    - field.field.user.user.field_phone
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
@@ -72,7 +71,7 @@ mode: default
 content:
   field_additional_info:
     type: link
-    weight: 28
+    weight: 23
     label: above
     settings:
       trim_length: 80
@@ -83,47 +82,47 @@ content:
     third_party_settings: {  }
   field_bio:
     type: text_default
-    weight: 6
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_collection_responsibility:
     type: entity_reference_label
-    weight: 24
+    weight: 19
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_department:
     type: entity_reference_label
-    weight: 12
+    weight: 6
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_digital_methods:
     type: entity_reference_label
-    weight: 23
+    weight: 18
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_division:
     type: entity_reference_label
-    weight: 11
+    weight: 7
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_email_address:
     type: email_mailto
-    weight: 13
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
   field_fax:
     type: telephone_link
-    weight: 16
+    weight: 11
     label: above
     settings:
       title: ''
@@ -136,12 +135,12 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_default
-    weight: 26
+    weight: 21
     label: above
     settings: {  }
     third_party_settings: {  }
   field_languages:
-    weight: 27
+    weight: 22
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -154,14 +153,14 @@ content:
     third_party_settings: {  }
   field_liaison_responsibility:
     type: entity_reference_label
-    weight: 25
+    weight: 20
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_library:
     type: entity_reference_label
-    weight: 7
+    weight: 8
     label: above
     settings:
       link: true
@@ -174,29 +173,22 @@ content:
     third_party_settings: {  }
   field_mobile:
     type: telephone_link
-    weight: 15
+    weight: 12
     label: above
     settings:
       title: ''
     third_party_settings: {  }
   field_office:
-    type: text_default
-    weight: 8
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
+    type: field_collection_items
   field_pennkey:
     type: text_default
-    weight: 18
+    weight: 13
     label: above
     settings: {  }
-    third_party_settings: {  }
-  field_phone:
-    type: telephone_link
-    weight: 14
-    label: above
-    settings:
-      title: ''
     third_party_settings: {  }
   field_rank:
     type: entity_reference_label
@@ -214,27 +206,27 @@ content:
     third_party_settings: {  }
   field_screenname:
     type: text_default
-    weight: 17
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
   field_subject_specialty:
     type: entity_reference_label
-    weight: 20
+    weight: 15
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_team:
     type: entity_reference_label
-    weight: 19
+    weight: 14
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_technology_specialty:
     type: entity_reference_label
-    weight: 21
+    weight: 16
     label: above
     settings:
       link: true
@@ -247,7 +239,7 @@ content:
     third_party_settings: {  }
   field_tool_expertise:
     type: entity_reference_label
-    weight: 22
+    weight: 17
     label: above
     settings:
       link: true
