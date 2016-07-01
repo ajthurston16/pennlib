@@ -826,7 +826,8 @@ header {
 
 .site-nav-footer {
   max-width: 87.5em;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1em; }
   .site-nav-footer ul {
     margin: 0; }
 
