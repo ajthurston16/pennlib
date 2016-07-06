@@ -20,7 +20,10 @@
             item.below ? 'parent'
           ]
         %}
-        <li{{ item.attributes.addClass(classes) }}>
+        {% if menu_level == 0 %}
+          {% set itemid = 'main-nav-' ~ item.title|lower|replace(' ', '-') %}
+        {% endif %}
+        <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
           {{ link(item.title, item.url) }}
 
           {% if item.below %}
