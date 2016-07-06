@@ -316,7 +316,7 @@ body {
 .wrapper--main,
 .wrapper--nav-footer,
 .front-page .wrapper--header {
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto; }
 
 .site-header,
@@ -324,7 +324,7 @@ body {
 #footer,
 #breadcrumb {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto; }
   .site-header:before, .site-header:after,
   .site-main:before,
@@ -362,7 +362,7 @@ body.page-panels .site-main {
 
 .panel-display .row {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px; }
@@ -374,7 +374,7 @@ body.page-panels .site-main {
 
 .panel-display.empty-right .column.center, .panel-display.empty-left .column.center {
   *zoom: 1;
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px; }
@@ -837,7 +837,7 @@ body:not(.front-page) .wrapper--main {
     padding: 0; }
 
 .site-nav-footer {
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto; }
   .site-nav-footer ul {
     margin: 0; }
@@ -856,7 +856,7 @@ body.has-sidr header nav {
 header nav {
   outline: 0;
   margin-left: 20px;
-  max-width: 87.5em;
+  max-width: 100em;
   margin: 0 auto; }
   header nav .nolink {
     cursor: pointer; }
@@ -1689,7 +1689,7 @@ body {
   .subjspec-wrapper .views-field-field-email-address:nth-child(4n + 1) {
     clear: both; } }
 
-@media (min-width: 87.5em) {
+@media (min-width: 100em) {
   body.fluid-bear .site-header,
   body.fluid-bear .breadcrumbs-wrapper,
   body.fluid-bear .site-footer,
