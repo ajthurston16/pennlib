@@ -597,16 +597,16 @@ blockquote {
 .facets-soft-limit-link {
   font-style: italic; }
 
-footer {
+.site-footer {
   font-size: 12.88px;
   color: #ffffff;
   padding: 1em 0; }
-  footer a {
+  .site-footer a {
     color: #A2D1D8; }
-  footer nav ul {
+  .site-footer nav ul {
     margin: 0;
     padding: 0; }
-    footer nav ul li {
+    .site-footer nav ul li {
       list-style-type: none; }
 
 header {
