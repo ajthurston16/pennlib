@@ -1,0 +1,59 @@
+#toggle-view-mode {
+	.label {
+		&::after {
+			content: url(/sites/default/files/images/common/arrowdownarrow.gif);
+			margin-left: 5px;
+		}
+		&::before {
+			content: url(/sites/default/files/images/common/fullview-option.gif);
+			margin-right: 5px;
+		}
+	}
+	.dropdown {
+		display: none;
+		position: absolute;
+		z-index: 999;
+		background: $white;
+		width: 100px;
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		border: 1px solid $silver;
+		border-top: none;
+	}
+	&.open {
+		.label::after {
+			content: url(/sites/default/files/images/common/arrowdownminus.gif);
+		}
+		.dropdown {
+			display: block;
+		}
+	}
+	li:hover {
+		background-color: $concrete;
+	}
+}
+
+// Switch the toggle's icon when in brief mode.
+.brief #toggle-view-mode .label::before {
+	content: url(/sites/default/files/images/common/briefview-option.gif);
+}
+
+#view-mode-normal {
+	span::before {
+		margin: 0 5px;
+		content: url(/sites/default/files/images/common/fullview-option.gif);
+	}
+	&.checked span::before {
+		content: url(/sites/default/files/images/common/fullview-selected.gif);
+	}
+}
+#view-mode-brief {
+	span::before {
+		margin: 0 5px;
+		content: url(/sites/default/files/images/common/briefview-option.gif);
+	}
+	&.checked span::before {
+		content: url(/sites/default/files/images/common/briefview-selected.gif);
+	}
+}
