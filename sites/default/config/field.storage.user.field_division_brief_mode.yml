@@ -1,16 +1,14 @@
-uuid: d2552a38-4d0f-4a9d-acaf-76ed2abe9134
+uuid: 44603b31-92da-4fd2-8e9a-995389634ed2
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.field_leadership_level
-field_name: field_leadership_level
+id: user.field_division_brief_mode
+field_name: field_division_brief_mode
 entity_type: user
-type: decimal
-settings:
-  precision: 10
-  scale: 2
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

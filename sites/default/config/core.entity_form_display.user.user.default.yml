@@ -7,17 +7,17 @@ dependencies:
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
-    - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
+    - field.field.user.user.field_division_brief_mode
     - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
     - field.field.user.user.field_languages
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_leadership_level
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
+    - field.field.user.user.field_library_suppress
     - field.field.user.user.field_middle_name
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
@@ -79,16 +79,17 @@ content:
     weight: 13
     settings: {  }
     third_party_settings: {  }
-  field_digital_methods:
-    type: options_select
-    weight: 23
-    settings: {  }
-    third_party_settings: {  }
   field_division:
     type: options_select
     weight: 12
     settings: {  }
     third_party_settings: {  }
+  field_division_brief_mode:
+    weight: 31
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_email_address:
     type: email_default
     weight: 15
@@ -128,12 +129,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_leadership_level:
-    type: number
-    weight: 31
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_liaison_responsibility:
     type: options_select
     weight: 25
@@ -144,6 +139,12 @@ content:
     weight: 11
     settings: {  }
     third_party_settings: {  }
+  field_library_suppress:
+    weight: 32
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_middle_name:
     type: text_textfield
     weight: 5

@@ -1,0 +1,18 @@
+uuid: afc89b06-4fb7-4a6c-bc6e-945232b8c1c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_library_suppress
+field_name: field_library_suppress
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

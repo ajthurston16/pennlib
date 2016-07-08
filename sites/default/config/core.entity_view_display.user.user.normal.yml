@@ -8,17 +8,17 @@ dependencies:
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
-    - field.field.user.user.field_digital_methods
     - field.field.user.user.field_division
+    - field.field.user.user.field_division_brief_mode
     - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
     - field.field.user.user.field_languages
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_leadership_level
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
+    - field.field.user.user.field_library_suppress
     - field.field.user.user.field_middle_name
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
@@ -37,7 +37,6 @@ dependencies:
     - field_collection
     - image
     - linked_field
-    - taxonomy
     - text
     - user
 _core:
@@ -48,14 +47,41 @@ bundle: user
 mode: normal
 content:
   field_department:
-    type: entity_reference_rss_category
+    type: entity_reference_label
     weight: 4
     label: hidden
-    settings: {  }
+    settings:
+      link: false
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          text: ''
+        linked: 0
+  field_division:
+    type: entity_reference_label
+    weight: 5
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          text: ''
+        linked: 0
+  field_division_brief_mode:
+    type: boolean
+    weight: 6
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
   field_email_address:
     type: email_mailto
-    weight: 6
+    weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -73,9 +99,25 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_library:
+    type: entity_reference_label
+    weight: 7
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_library_suppress:
+    type: boolean
+    weight: 8
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_office:
     type: field_collection_items
-    weight: 5
+    weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -99,14 +141,10 @@ hidden:
   field_additional_info: true
   field_bio: true
   field_collection_responsibility: true
-  field_digital_methods: true
-  field_division: true
   field_fax: true
   field_interest: true
   field_languages: true
-  field_leadership_level: true
   field_liaison_responsibility: true
-  field_library: true
   field_middle_name: true
   field_mobile: true
   field_pennkey: true
