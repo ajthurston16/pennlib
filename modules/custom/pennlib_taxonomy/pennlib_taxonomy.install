@@ -68,8 +68,9 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
     $preexisting_terms[$term->getName()] = $term->id();
     //clean and save taxonomy term name for url.
     $term_name_url = pennlib_clean_term_for_url($term_name);
+    $vocabulary_url = pennlib_clean_term_for_url($vocabulary);
     \Drupal::service('path.alias_storage')
-      ->save("/taxonomy/term/" . $term->id(), "/" . $term_name_url, "en");
+      ->save("/taxonomy/term/" . $term->id(), "/" . $vocabulary_url . "/" . $term_name_url, "en");
   }
 }
 
