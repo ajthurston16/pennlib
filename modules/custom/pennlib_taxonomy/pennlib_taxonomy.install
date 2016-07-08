@@ -74,15 +74,19 @@ function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
 }
 
 /*
- * Just in case we want to delete terms. Do not delete terms on uninstall.
- * Be careful of deleting taxonomy terms, because they provide structure of the site.
+ * Just in case we want to delete terms. Do not delete terms on uninstall unless you specifically know you want to.
+ * Be careful of deleting taxonomy terms, because they provide structure of the site. Change 'department' to the vocabulary you wish to delete.
  */
-function pennlib_taxonomy_remove_created_terms() {
-  $terms_info = pennlib_taxonomy_get_term_data('department');
-  foreach ($terms_info as $term_name => $termInfo) {
-    $terms = taxonomy_term_load_multiple_by_name($term_name);
-    foreach ($terms as $term) {
-      $term->delete();
-    }
-  }
-}
+//function pennlib_taxonomy_remove_created_terms() {
+//  $terms_info = pennlib_taxonomy_get_term_data('department');
+//  foreach ($terms_info as $term_name => $termInfo) {
+//    $terms = taxonomy_term_load_multiple_by_name($term_name);
+//    foreach ($terms as $term) {
+//      $term->delete();
+//    }
+//  }
+//}
+//
+//function pennlib_taxonomy_uninstall() {
+//  pennlib_taxonomy_remove_created_terms();
+//}
