@@ -2,91 +2,103 @@
 'Access':
 'Accessibility':
   parent: 'Access'
-'Off-Campus':
+'Off-campus':
   parent: 'Access'
-'Mobile Delivery':
+'Mobile delivery':
   parent: 'Access'
 'Collaboration':
-'Virtual Meetings':
+'Virtual meetings':
   parent: 'Collaboration'
-'Project Management':
+'Project management':
   parent: 'Collaboration'
 'Courseware':
 'Canvas':
   parent: 'Courseware'
-'Other Courseware':
+'Other courseware':
   parent: 'Courseware'
-'Canvas Plugin':
+'Canvas plugin':
   parent: 'Courseware'
-'Data Tools':
-'Data Analysis & Cleanup':
-  parent: 'Data Tools'
-'Data Collection':
-  parent: 'Data Tools'
-'Data Management':
-  parent: 'Data Tools'
-'Mapping & Spacial Methods':
-  parent: 'Data Tools'
-'Structure Visualizer':
-  parent: 'Data Tools'
-'Design & Image Management':
-'Image Collections':
-  parent: 'Design & Image Management'
-'Image/Graphics Editing':
-  parent: 'Design & Image Management'
-'Digital Scholarship':
-'Text Editor':
-  parent: 'Digital Scholarship'
-'Text Mining: Topic Modelling':
-  parent: 'Digital Scholarship'
-'Text Mining: Text Analysis':
-  parent: 'Digital Scholarship'
-'Media Production':
+'Data tools':
+'Audience response':
+  parent: 'Data tools'
+'Computation':
+  parent: 'Data tools'
+'Business data':
+  parent: 'Data tools'
+'Data analysis & cleanup':
+  parent: 'Data tools'
+'Data collection':
+  parent: 'Data tools'
+'Data management':
+  parent: 'Data tools'
+'Mapping & spacial methods':
+  parent: 'Data tools'
+'Structure visualizer':
+  parent: 'Data tools'
+'Visualizer':
+  parent: 'Data tools'
+'Design & image management':
+'Image collections':
+  parent: 'Design & image management'
+'Image/Graphics editing':
+  parent: 'Design & image management'
+'Digital scholarship':
+'Text editor':
+  parent: 'Digital scholarship'
+'Text mining: Topic modelling':
+  parent: 'Digital scholarship'
+'Text mining: Text analysis':
+  parent: 'Digital scholarship'
+'Media production':
 'Audio':
-  parent: 'Media Production'
-'Authoring Tools':
-  parent: 'Media Production'
-'Steaming Video':
-  parent: 'Media Production'
+  parent: 'Media production'
+'Authoring tools':
+  parent: 'Media production'
+'Steaming video':
+  parent: 'Media production'
 'Video':
-  parent: 'Media Production'
+  parent: 'Media production'
 'Presentation':
 'Productivity':
 'Apps':
   parent: 'Productivity'
-'Authoring Tools':
+'Authoring tools':
   parent: 'Productivity'
-'Brainstorms and Mind-Mapping':
+'Brainstorms & mind-mapping':
   parent: 'Productivity'
 'Equipment':
   parent: 'Productivity'
 'Organization':
   parent: 'Productivity'
 'Publishing':
-'Authoring Tools':
+'Authoring tools':
   parent: 'Publishing'
 'Permissions':
   parent: 'Publishing'
 'Publishers':
   parent: 'Publishing'
 'Research':
-'Bibliographic & Research Management':
+'Bibliographic & research management':
   parent: 'Research'
-'Alerting Services':
+'Alerting services':
   parent: 'Research'
 'Census':
   parent: 'Research'
-'Databases & Article Indexes':
+'Databases & article indexes':
   parent: 'Research'
-'Professional Profiles':
+'Professional profiles':
   parent: 'Research'
-'Social Media':
-'Web Content':
-'Text & Code Editor':
-  parent: 'Web Content'
-'Web Data':
-  parent: 'Web Content'
-'Web Design':
-  parent: 'Web Content'
-'Web Presentation':
-  parent: 'Web Content'
+'Veterinary medicine':
+  parent: 'Research'
+'Social media':
+'Web content management':
+'Text & code editor':
+  parent: 'Web content management'
+'Web data':
+  parent: 'Web content management'
+'Web design':
+  parent: 'Web content management'
+'Web presentation':
+  parent: 'Web content management'
+'Web publishing':
+  parent: 'Web content management'
