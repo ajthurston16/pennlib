@@ -101,8 +101,7 @@
       });
 
       /* to generate the dropdown from the view button when it is clicked - so adding a class 'active' to it
-      The class 'active' will take care of the dropdown visibility in CSS
-      Whenever a click is made anywhere on the page, hide the dropdown by removing the 'active' class*/
+      The class 'active' will take care of the dropdown visibility in CSS*/
       $('#toggle-view-mode .label').click(function(){
           $('#toggle-view-mode').toggleClass('active');
       });
@@ -121,6 +120,15 @@
         if(!($(this).hasClass('checked'))){
           $(this).addClass('checked');
         }
+        /*Though the value corresponding to 'briefview' is expected to yield either an empty string or a true value at all times, we add this 
+          condition so that the code doesn't break at any point of time in the future*/
+        if(getCookie("briefview")=="" || getCookie("briefview")=="true"){
+          document.cookie = "briefview=true;path=/";
+          // should evaluate to "true"
+          console.display(getCookie('briefview'));
+          // should evaluate to "false"
+          console.display(getCookie('normalview'));
+        }
         $('#view-mode-normal').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('normalview')){
           $('.block-views-blockstaff-search-block-1').removeClass('normalview');
@@ -136,6 +144,15 @@
       $('#view-mode-normal').click(function(){
         if(!($(this).hasClass('checked'))){
           $(this).addClass('checked');
+        }
+        /*Though the value corresponding to 'normalview' is expected to yield either an empty string or a true value at all times, we add this 
+          condition so that the code doesn't break at any point of time in the future*/
+        if(getCookie("normalview")=="" || getCookie("normalview")=="true"){
+          document.cookie = "normalview=true;path=/";
+          // should evaluate to "false"
+          console.display(getCookie('briefview'));
+          // should evaluate to to "true"
+          console.display(getCookie('normalview'));
         }
         $('#view-mode-brief').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('briefview')){
