@@ -1392,13 +1392,14 @@ body {
 .contact-wrapper div {
   display: inline-block; }
 
-#toggle-view-mode .label::after {
-  content: url(/sites/default/files/images/common/arrowdownarrow.gif);
-  margin-left: 5px; }
-
-#toggle-view-mode .label::before {
-  content: url(/sites/default/files/images/common/fullview-option.gif);
-  margin-right: 5px; }
+#toggle-view-mode .label {
+  cursor: pointer; }
+  #toggle-view-mode .label::after {
+    content: url(/sites/default/files/images/common/arrowdownarrow.gif);
+    margin-left: 5px; }
+  #toggle-view-mode .label::before {
+    content: url(/sites/default/files/images/common/fullview-option.gif);
+    margin-right: 5px; }
 
 #toggle-view-mode .dropdown {
   display: none;
@@ -1437,6 +1438,14 @@ body {
 
 #view-mode-brief.checked span::before {
   content: url(/sites/default/files/images/common/briefview-selected.gif); }
+
+.block-views-blockstaff-search-block-1.normalview .field--name-field-room,
+.block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
+  display: block; }
+
+.block-views-blockstaff-search-block-1.briefview .field--name-field-room,
+.block-views-blockstaff-search-block-1.briefview .field--name-user-picture {
+  display: none; }
 
 @media (min-width: 50em) {
   .form-item label:not(.option):not([for^="edit-text-format-value"]) {

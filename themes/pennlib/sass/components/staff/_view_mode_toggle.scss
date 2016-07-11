@@ -1,5 +1,6 @@
 #toggle-view-mode {
 	.label {
+		cursor: pointer;
 		&::after {
 			content: url(/sites/default/files/images/common/arrowdownarrow.gif);
 			margin-left: 5px;
@@ -56,4 +57,13 @@
 	&.checked span::before {
 		content: url(/sites/default/files/images/common/briefview-selected.gif);
 	}
+}
+.block-views-blockstaff-search-block-1.normalview .field--name-field-room,
+.block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
+	display:block;
+}
+
+.block-views-blockstaff-search-block-1.briefview .field--name-field-room,
+.block-views-blockstaff-search-block-1.briefview .field--name-user-picture{
+	display:none;
 }
