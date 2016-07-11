@@ -21,7 +21,7 @@
 		border: 1px solid $silver;
 		border-top: none;
 	}
-	&.open {
+	&.active {
 		.label::after {
 			content: url(/sites/default/files/images/common/arrowdownminus.gif);
 		}
@@ -35,7 +35,7 @@
 }
 
 // Switch the toggle's icon when in brief mode.
-.brief #toggle-view-mode .label::before {
+.briefview #toggle-view-mode .label::before {
 	content: url(/sites/default/files/images/common/briefview-option.gif);
 }
 

@@ -1412,16 +1412,16 @@ body {
   border: 1px solid #cccccc;
   border-top: none; }
 
-#toggle-view-mode.open .label::after {
+#toggle-view-mode.active .label::after {
   content: url(/sites/default/files/images/common/arrowdownminus.gif); }
 
-#toggle-view-mode.open .dropdown {
+#toggle-view-mode.active .dropdown {
   display: block; }
 
 #toggle-view-mode li:hover {
   background-color: #F2F2F2; }
 
-.brief #toggle-view-mode .label::before {
+.briefview #toggle-view-mode .label::before {
   content: url(/sites/default/files/images/common/briefview-option.gif); }
 
 #view-mode-normal span::before {

@@ -109,7 +109,7 @@
       $(document).ready(function() {
         $(document).click(function(event){
           if(event.target.id!="" && $('#toggle-view-mode').hasClass('active')){
-            $('#toggle-view-mode').removeClass('active'); 
+            $('#toggle-view-mode').removeClass('active');
           }
         });
       });
@@ -174,13 +174,13 @@
         var searchString = cookieName + "=";
         var searchStringLen = searchString.length;
         //To generate an array of k-v pairs corresponding to the elements in document.cookie 
-        var kvPairs = document.cookie.split(;);
+        var kvPairs = document.cookie.split(";");
         var len = kvPairs.length;
         var i = 0;
         //Iterating over all the k-v pairs searching for the searchString, returning its value if it is present , else returning an empty string
         for(i=0; i<len; i++){
           var kvPair = kvPairs[i];
-          var kvPairLen = temp.length; 
+          var kvPairLen = temp.length;
           while(kvPair.charAt(0)==' '){
             kvPair = kvPair.substring(1,kvPairLen);
           }
