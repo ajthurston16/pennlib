@@ -121,14 +121,14 @@
           $(this).addClass('checked');
         }
         /*Though the value corresponding to 'briefview' is expected to yield either an empty string or a true value at all times, we add this 
-          condition so that the code doesn't break at any point of time in the future*/
+          condition so that the code doesn't break at any point of time in the future
         if(getCookie("briefview")=="" || getCookie("briefview")=="true"){
           document.cookie = "briefview=true;path=/";
           // should evaluate to "true"
           console.display(getCookie('briefview'));
           // should evaluate to "false"
           console.display(getCookie('normalview'));
-        }
+        }*/
         $('#view-mode-normal').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('normalview')){
           $('.block-views-blockstaff-search-block-1').removeClass('normalview');
@@ -146,14 +146,14 @@
           $(this).addClass('checked');
         }
         /*Though the value corresponding to 'normalview' is expected to yield either an empty string or a true value at all times, we add this 
-          condition so that the code doesn't break at any point of time in the future*/
+          condition so that the code doesn't break at any point of time in the future
         if(getCookie("normalview")=="" || getCookie("normalview")=="true"){
           document.cookie = "normalview=true;path=/";
           // should evaluate to "false"
           console.display(getCookie('briefview'));
           // should evaluate to to "true"
           console.display(getCookie('normalview'));
-        }
+        }*/
         $('#view-mode-brief').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('briefview')){
           $('.block-views-blockstaff-search-block-1').removeClass('briefview');
