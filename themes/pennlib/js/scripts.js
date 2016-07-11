@@ -99,6 +99,81 @@
           $.sidr('close', 'sidr-main');
         }
       });
+
+      /* to generate the dropdown from the view button when it is clicked - so adding a class 'active' to it
+      The class 'active' will take care of the dropdown visibility in CSS
+      Whenever a click is made anywhere on the page, hide the dropdown by removing the 'active' class*/
+      $('#toggle-view-mode .label').click(function(){
+          $('#toggle-view-mode').toggleClass('active');
+      });
+
+      $(document).ready(function() {
+        $(document).click(function(event){
+          if(event.target.id!="" && $('#toggle-view-mode').hasClass('active')){
+            $('#toggle-view-mode').removeClass('active'); 
+          }
+        });
+      });
+
+      /* When the mode is brief, we add a class 'checked' to it so that it has a checkbox, remove that of the normal mode by removing the class
+      If the staff search block has a normal view, change it to brief */
+      $('#view-mode-brief').click(function(){
+        if(!($(this).hasClass('checked'))){
+          $(this).addClass('checked');
+        }
+        $('#view-mode-normal').removeClass('checked');
+        if($('.block-views-blockstaff-search-block-1').hasClass('normalview')){
+          $('.block-views-blockstaff-search-block-1').removeClass('normalview');
+          $('.block-views-blockstaff-search-block-1').addClass('briefview');
+        }
+        else{
+          $('.block-views-blockstaff-search-block-1').addClass('briefview');
+        }
+      });
+
+      /* When the mode is normal, we add a class 'checked' to it so that it has a checkbox, remove that of the brief mode by removing the class
+      If the staff search block has a brief view, change it to normal */
+      $('#view-mode-normal').click(function(){
+        if(!($(this).hasClass('checked'))){
+          $(this).addClass('checked');
+        }
+        $('#view-mode-brief').removeClass('checked');
+        if($('.block-views-blockstaff-search-block-1').hasClass('briefview')){
+          $('.block-views-blockstaff-search-block-1').removeClass('briefview');
+          $('.block-views-blockstaff-search-block-1').addClass('normalview');
+        }
+        else{
+          $('.block-view-views-blockstaff-search-block1').addClass('normalview');
+        }
+      });
+
+      
+      /* 
+      *  get the value of cookie corresponding to a particular cookie name (cookieName)
+      *  @param cookieName (name of the cookie)
+      */
+      function getCookie(cookieName){
+        //The string to be searched for in document.cookie's k-v pairs
+        var searchString = cookieName + "=";
+        var searchStringLen = searchString.length;
+        //To generate an array of k-v pairs corresponding to the elements in document.cookie 
+        var kvPairs = document.cookie.split(;);
+        var len = kvPairs.length;
+        var i = 0;
+        //Iterating over all the k-v pairs searching for the searchString, returning its value if it is present , else returning an empty string
+        for(i=0; i<len; i++){
+          var kvPair = kvPairs[i];
+          var kvPairLen = temp.length; 
+          while(kvPair.charAt(0)==' '){
+            kvPair = kvPair.substring(1,kvPairLen);
+          }
+          if(kvPair.indexOf(searchString) == 0){
+            return kvPair.substring(searchStringLen, kvPairLen);
+          }
+        }
+        return "";
+      }
+
     }
   };
 
