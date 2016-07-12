@@ -31,3 +31,19 @@ header {
   padding: 10px 0 20px 0;
   margin-right: 30px;
 }
+
+/* Temporary styling to imitate search bar until functionality is implemented. */
+body:not(.front-page) {
+  .wrapper--header {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      min-height: 5em;
+      background-color: $concrete;
+    }
+  }
+  .wrapper--main {
+    margin-top: -3.25em;
+  }
+}

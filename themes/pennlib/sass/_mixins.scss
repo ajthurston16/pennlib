@@ -58,8 +58,8 @@
 
 @mixin inline-block {
   display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: top;
+  *vertical-align: top;
   *zoom: 1;
   *display: inline;
 }

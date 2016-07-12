@@ -1,20 +1,9 @@
 .node--type-menu_landing_page {
+	/* Styling for the landing page's menu links. */
 	.main-nav,
 	.main-nav__sub {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
-	}
-
-	.main-nav__item.parent {
-		display: none;
-
-		.is-active {
-			display: none;
-		}
-
-		&.active {
-			display: block;
-		}
 	}
 }

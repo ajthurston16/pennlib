@@ -1,22 +1,46 @@
-uuid: 551baf37-d033-4183-9e68-9525d9ab9a34
+uuid: f31f0674-4385-4042-aaef-e17a4773a2c0
 langcode: en
 status: true
 dependencies: {  }
 id: department
 name: Department
 url_alias: department
-weight: 4
+weight: 0
 show_only_one_result: false
 field_identifier: field_department
 query_type_name: null
-facet_source_id: 'search_api_views:staff_search:page_1'
+facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '0'
+  show_numbers: '1'
+  soft_limit: '5'
 query_operator: OR
 exclude: false
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  translate_taxonomy:
+    processor_id: translate_taxonomy
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

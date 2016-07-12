@@ -1,0 +1,93 @@
+<?php
+// Programmatically create taxonomy terms for taxonomy vocabulary department on install.
+
+use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\Yaml\Yaml;
+
+
+function pennlib_taxonomy_install() {
+  $vocabularies = [
+    'departments',
+    'divisions',
+    'languages',
+    'libraries',
+    'subject_specialities',
+    'roles',
+    'teams',
+    'tools',
+  ];
+  foreach ($vocabularies as $vocabulary) {
+    pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary);
+  }
+}
+
+function pennlib_taxonomy_get_term_data($vocabulary) {
+  $terms_file_path = file_get_contents(drupal_get_path('module', 'pennlib_taxonomy') . '/vocabulary_data/' . $vocabulary . '.terms.yml');
+  return Yaml::parse($terms_file_path);
+}
+
+function pennlib_clean_term_for_url($term_name_url) {
+  $term_name_url = strtolower(preg_replace('/-+/', '-', preg_replace('/([^a-zA-Z0-9\-]+)/', '-', $term_name_url)));
+  return $term_name_url;
+}
+
+function pennlib_taxonomy_import_term_data_for_vocabulary($vocabulary) {
+  $terms_info = pennlib_taxonomy_get_term_data($vocabulary);
+  $preexisting_terms = [];
+  foreach ($terms_info as $term_name => $termInfo) {
+    $term = array_pop(taxonomy_term_load_multiple_by_name($term_name, $vocabulary));
+    if (!$term) {
+      $data = [
+        'vid' => $vocabulary,
+        'name' => $term_name,
+        'description' => [
+          'value' => 'The term: ' . $term_name . ' belongs to the ' . $vocabulary . ' taxonomy vocabulary.',
+          'format' => 'full_html',
+        ],
+      ];
+      if (!empty($termInfo)) {
+        if (!empty($termInfo['parent'])) {
+          if ($preexisting_terms[$termInfo['parent']]) {
+            $data['parent'] = [$preexisting_terms[$termInfo['parent']]];
+          }
+          else {
+            $message = "The parent term {$termInfo['parent']} did not exist when trying to create {$term_name} in vocabulary {$vocabulary}.";
+            drupal_set_message($message, 'error');
+            \Drupal::logger('pennlib_taxonomy')->error($message);
+          }
+        }
+        if (!empty($termInfo['fields'])) {
+          foreach ($termInfo['fields'] as $field_name => $field_value) {
+            $data[$field_name] = $field_value;
+          }
+        }
+      }
+      $term = Term::create($data);
+      $term->save();
+    }
+    $preexisting_terms[$term->getName()] = $term->id();
+    //clean and save taxonomy term name for url.
+    $term_name_url = pennlib_clean_term_for_url($term_name);
+    $vocabulary_url = pennlib_clean_term_for_url($vocabulary);
+    \Drupal::service('path.alias_storage')
+      ->save("/taxonomy/term/" . $term->id(), "/" . $vocabulary_url . "/" . $term_name_url, "en");
+  }
+}
+
+/*
+ * Just in case we want to delete terms. Do not delete terms on uninstall unless you specifically know you want to.
+ * Be careful of deleting taxonomy terms, because they provide structure of the site. Change 'department' to the vocabulary you wish to delete.
+ */
+//function pennlib_taxonomy_remove_created_terms() {
+//  $terms_info = pennlib_taxonomy_get_term_data('department');
+//  foreach ($terms_info as $term_name => $termInfo) {
+//    $terms = taxonomy_term_load_multiple_by_name($term_name);
+//    foreach ($terms as $term) {
+//      $term->delete();
+//    }
+//  }
+//}
+//
+//function pennlib_taxonomy_uninstall() {
+//  pennlib_taxonomy_remove_created_terms();
+//}

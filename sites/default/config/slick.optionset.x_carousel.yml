@@ -15,7 +15,7 @@ group: ''
 skin: boxed-carousel
 breakpoints: 1
 options:
-  options__active_tab: edit-options-responsives
+  options__active_tab: edit-options-settings
   settings:
     mobileFirst: false
     asNavFor: ''
@@ -31,7 +31,7 @@ options:
     downArrow: false
     downArrowTarget: ''
     downArrowOffset: 0
-    centerMode: false
+    centerMode: true
     centerPadding: 50px
     dots: false
     dotsClass: slick-dots
@@ -47,9 +47,9 @@ options:
     respondTo: window
     rtl: false
     rows: 1
-    slidesPerRow: 1
+    slidesPerRow: 4
     slide: ''
-    slidesToShow: 3
+    slidesToShow: 4
     slidesToScroll: 1
     speed: 500
     swipe: false

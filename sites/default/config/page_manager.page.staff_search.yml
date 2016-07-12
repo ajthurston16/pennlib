@@ -2,8 +2,8 @@ uuid: 07c37db8-d016-4bd8-b83e-11e48613fe20
 langcode: en
 status: true
 dependencies: {  }
-id: staff_seach
-label: 'Staff Seach'
+id: staff_search
+label: Staff
 use_admin_theme: false
 path: /library-info/staff
 access_logic: and

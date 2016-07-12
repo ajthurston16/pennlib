@@ -1,0 +1,5 @@
+name: Pennlib Taxonomy
+type: module
+description: This module is designed to deploy all of PennLibs taxonomies in code rather than manually entering in content into each staging environments database.
+core: 8.x
+package: PennLib

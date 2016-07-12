@@ -3,13 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_library
-    - field.storage.user.field_pennkey
-    - field.storage.user.field_role
     - search_api.index.staff
   module:
     - search_api
-    - text
     - user
 id: staff_search
 label: 'Staff Search'
@@ -663,14 +659,10 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags:
-        - 'config:field.storage.user.field_library'
-        - 'config:field.storage.user.field_pennkey'
-        - 'config:field.storage.user.field_role'
+      tags: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -678,7 +670,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      block_description: 'staff search'
+      block_description: 'Staff Search'
       cache:
         type: none
       defaults:
@@ -686,43 +678,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags:
-        - 'config:field.storage.user.field_library'
-        - 'config:field.storage.user.field_pennkey'
-        - 'config:field.storage.user.field_role'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: staff-search
-      cache:
-        type: none
-      defaults:
-        cache: false
-      menu:
-        type: none
-        title: 'Staff Directory'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main-nav
-    cache_metadata:
-      max-age: 0
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - user.permissions
-      tags:
-        - 'config:field.storage.user.field_library'
-        - 'config:field.storage.user.field_pennkey'
-        - 'config:field.storage.user.field_role'
+      tags: {  }

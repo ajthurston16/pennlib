@@ -1,6 +1,6 @@
 uuid: e8a2794c-9559-44d0-9a81-7f88ac97074b
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.user.field_pennkey
@@ -13,6 +13,7 @@ dependencies:
     - field.storage.user.field_role
     - field.storage.user.field_team
     - field.storage.user.field_languages
+    - search_api.server.default_server
   module:
     - search_api
     - user
@@ -26,8 +27,6 @@ field_settings:
     datasource_id: null
     property_path: search_api_language
     type: string
-    indexed_locked: true
-    type_locked: true
   uid:
     label: 'User ID'
     datasource_id: 'entity:user'
@@ -116,10 +115,17 @@ field_settings:
 processor_settings:
   add_url:
     plugin_id: add_url
-    settings: {  }
-  language:
-    plugin_id: language
-    settings: {  }
+    settings:
+      weights:
+        preprocess_index: -30
+  role_filter:
+    plugin_id: role_filter
+    settings:
+      default: false
+      roles:
+        staff: staff
+      weights:
+        preprocess_index: -10
 options:
   index_directly: true
   cron_limit: 50
@@ -127,10 +133,11 @@ datasource_settings:
   'entity:user':
     plugin_id: 'entity:user'
     settings:
-      default: '1'
-      languages: {  }
+      languages:
+        default: true
+        selected: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
-server: ''
+server: default_server

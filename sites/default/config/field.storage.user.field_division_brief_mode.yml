@@ -1,16 +1,15 @@
-uuid: 0744747f-0448-48ff-a02d-45b601277155
+uuid: 44603b31-92da-4fd2-8e9a-995389634ed2
 langcode: en
 status: true
 dependencies:
   module:
-    - telephone
     - user
-id: user.field_phone
-field_name: field_phone
+id: user.field_division_brief_mode
+field_name: field_division_brief_mode
 entity_type: user
-type: telephone
+type: boolean
 settings: {  }
-module: telephone
+module: core
 locked: false
 cardinality: 1
 translatable: true

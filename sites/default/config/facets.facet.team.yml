@@ -1,26 +1,51 @@
-uuid: 507d20a6-32f4-48bb-a518-c202142b4144
+uuid: 1a06d508-9e4b-4fcf-8e12-f36cb248f989
 langcode: en
 status: true
 dependencies: {  }
 id: team
 name: Team
 url_alias: team
-weight: 8
+weight: 0
 show_only_one_result: false
 field_identifier: field_team
 query_type_name: null
-facet_source_id: 'search_api_views:staff_search:page_1'
+facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
-widget_configs: {  }
-query_operator: null
-exclude: null
-only_visible_when_facet_source_is_visible: true
+widget_configs:
+  show_numbers: '0'
+  soft_limit: '5'
+query_operator: OR
+exclude: false
+only_visible_when_facet_source_is_visible: false
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  translate_taxonomy:
+    processor_id: translate_taxonomy
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
-      pre_query: 50
-      build: 15
+      pre_query: -10
+      build: -10
     settings: {  }
 empty_behavior:
   behavior: none

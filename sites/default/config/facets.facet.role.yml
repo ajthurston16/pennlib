@@ -1,4 +1,4 @@
-uuid: 1d606cfd-f473-4e85-a3e4-aa5dcd4646be
+uuid: b72460eb-9aff-4577-9e8e-891cbd9b4698
 langcode: en
 status: true
 dependencies: {  }
@@ -7,16 +7,28 @@ name: Role
 url_alias: role
 weight: 0
 show_only_one_result: false
-field_identifier: roles
+field_identifier: field_role
 query_type_name: null
-facet_source_id: 'search_api_views:staff_search:page_1'
+facet_source_id: 'search_api_views:staff_search:block_1'
 widget: links
 widget_configs:
-  show_numbers: '1'
+  show_numbers: '0'
+  soft_limit: '5'
 query_operator: OR
 exclude: false
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  translate_taxonomy:
+    processor_id: translate_taxonomy
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

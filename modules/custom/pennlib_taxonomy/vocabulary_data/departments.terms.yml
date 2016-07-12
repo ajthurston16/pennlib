@@ -1,0 +1,100 @@
+# Department Taxonomy terms.
+'Access Services':
+'Periodicals':
+  parent: 'Access Services'
+'Rosengarten Reserve':
+  parent: 'Access Services'
+'Stacks':
+  parent: 'Access Services'
+'Acquisitions & Serials (Biddle)':
+'Acquisitions, Access, & licensing':
+'Electronic Resources & Licensing':
+  parent: 'Acquisitions, Access, & licensing'
+'Monographic Acquisitions':
+  parent: 'Acquisitions, Access, & licensing'
+'Electronoc Formats Acquisitions':
+  parent: 'Acquisitions, Access, & licensing'
+'Electronic Resources Cataloging':
+  parent: 'Acquisitions, Access, & licensing'
+'Administration':
+'Area Studies Collections':
+'African Collection':
+  parent: 'Area Studies Collections'
+'East Asia Collection':
+  parent: 'Area Studies Collections'
+'Chinese Collection':
+  parent: 'East Asia Collection'
+'Japanese Collection':
+  parent: 'East Asia Collection'
+'Korean Collection':
+  parent: 'East Asia Collection'
+'Judaica Collection':
+  parent: 'Area Studies Collections'
+'Latin American Collection':
+  parent: 'Area Studies Collections'
+'Middle East Collection':
+  parent: 'Area Studies Collections'
+'South Asia Collection':
+  parent: 'Area Studies Collections'
+'Building & Security':
+'Business Office':
+'Information Processing Center':
+'Cataloging & Metadata':
+  parent: 'Information Processing Center'
+'Cataloging':
+  parent: 'Cataloging & Metadata'
+'Metadata Services':
+  parent: 'Cataloging & Metadata'
+'Postcataloging':
+  parent: 'Information Processing Center'
+'Schoenberg Institute for Manuscript Studies':
+  parent: 'Information Processing Center'
+'Digital Assets Management':
+  parent: 'Schoenberg Institute for Manuscript Studies'
+'Area Studies Technical Services':
+  parent: 'Information Processing Center'
+'Cataloging (Biddle)':
+'Circulation & Collection Maintenance (Biddle)':
+'Collection Development (Biddle)':
+'Collection Development & Analysis':
+'Conservation':
+'Courseware Services':
+'Data Management':
+'Events':
+'Exhibits':
+'EZBorrow':
+'Facilities Planning & Construction':
+'Fine Arts Library':
+'Fine Arts Image Collection':
+  parent: 'Fine Arts Library'
+'Foreign and International Law (Biddle)':
+'Information Services (Biomedical)':
+'Kislak Center Reading Room':
+'Liaison Services':
+'Libraries Research Annex and Associated Collaborative Partnerships':
+'Library Technology Services':
+'Digital Library Development and Systems':
+  parent: 'Library Technology Services'
+'Web Unit':
+  parent: 'Library Technology Services'
+'Desktop Operations':
+  parent: 'Library Technology Services'
+'Museum Library':
+'Office of the Director (Biddle)':
+'Patron Services (Biomedical Library)':
+'Reference Services (Biddle)':
+'Researcher Services':
+'Resource Sharing Services':
+'FacultyEXPRESS':
+  parent: 'Resource Sharing Services'
+'Scanning Center':
+  parent: 'Resource Sharing Services'
+'LIBRA Processing':
+  parent: 'Resource Sharing Services'
+'Special Collections & Archives (Biddle)':
+'Special Collections Processing Center':
+'Strategic Initiatives':
+'Teaching & Learning Services':
+'The Robert & Molly Freedman Jewish Sound Archive':
+'Weigle Information Commons':
+'Vitale Digital Media Lab':

@@ -1,16 +1,14 @@
-uuid: d2552a38-4d0f-4a9d-acaf-76ed2abe9134
+uuid: afc89b06-4fb7-4a6c-bc6e-945232b8c1c3
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.field_leadership_level
-field_name: field_leadership_level
+id: user.field_library_suppress
+field_name: field_library_suppress
 entity_type: user
-type: decimal
-settings:
-  precision: 10
-  scale: 2
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

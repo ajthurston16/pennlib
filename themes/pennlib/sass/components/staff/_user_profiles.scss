@@ -1,7 +1,7 @@
 $left-width: 350px;
 
 //top of profile
-.profile{
+.user-profile{
   .field--name-user-picture{
     img{
       margin:0 auto;
@@ -27,7 +27,7 @@ $left-width: 350px;
 }
 
 // grey details
-.profile {
+.user-profile {
   .field, .contact {
     background: $concrete;
     margin: 5px 0;
@@ -40,7 +40,7 @@ $left-width: 350px;
   }
 }
 
-.profile {
+.user-profile {
   .field__label, .contact span{
     font-weight: bold;
     font-size: 18px;
@@ -64,7 +64,11 @@ $left-width: 350px;
       position: absolute;
     }
   }
-  .field__items, .contact-wrapper, .full-name  {
+  .field__items,
+  .field > .field__item,
+  .contact-wrapper,
+  .full-name,
+  .field--name-field-bio  {
     clear: both;
     @include breakpoint($breakpoint-med-small-width) {
       margin-left: $left-width + 40;

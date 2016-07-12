@@ -11,8 +11,8 @@ dependencies:
     - facets.facet.role
     - facets.facet.subject_specialty
     - facets.facet.team
-    - facets.facet.technology_speciality
-    - page_manager.page.staff_seach
+    - facets.facet.technology_specialty
+    - page_manager.page.staff_search
     - views.view.staff_search
   module:
     - facets
@@ -23,98 +23,98 @@ label: 'Staff Panel Layout'
 variant: panels_variant
 variant_settings:
   blocks:
-    e232bc65-e893-4ad3-b9f8-805df8c48ccb:
-      id: 'facet_block:collection_responsibility'
-      label: 'Collection Responsibility'
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 3
-      uuid: e232bc65-e893-4ad3-b9f8-805df8c48ccb
-      context_mapping: {  }
-    51b9c321-ce66-4641-b694-9ffa9320e6fb:
-      id: 'facet_block:division'
-      label: Division
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 4
-      uuid: 51b9c321-ce66-4641-b694-9ffa9320e6fb
-      context_mapping: {  }
-    6074ba11-e49f-4012-94cd-0bb7359bad77:
-      id: 'facet_block:team'
-      label: Team
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 6
-      uuid: 6074ba11-e49f-4012-94cd-0bb7359bad77
-      context_mapping: {  }
-    a7975de9-7b93-4ca9-8175-518fef0a0c56:
-      id: 'facet_block:subject_specialty'
-      label: 'Subject Specialty'
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 2
-      uuid: a7975de9-7b93-4ca9-8175-518fef0a0c56
-      context_mapping: {  }
-    e2f5151d-9a1a-4360-9b8b-5574b1caf70e:
-      id: 'facet_block:library'
-      label: Library
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 1
-      uuid: e2f5151d-9a1a-4360-9b8b-5574b1caf70e
-      context_mapping: {  }
-    b4bac278-77ba-48d9-a43e-895b50475ca0:
-      id: 'facet_block:technology_speciality'
-      label: 'Technology Speciality'
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 7
-      uuid: b4bac278-77ba-48d9-a43e-895b50475ca0
-      context_mapping: {  }
-    ea1cc367-b540-4dfb-9d90-7d9600cfa3c6:
-      id: 'facet_block:department'
-      label: Department
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 5
-      uuid: ea1cc367-b540-4dfb-9d90-7d9600cfa3c6
-      context_mapping: {  }
-    ac51729b-9031-45a4-bd25-633a11bf4295:
-      id: 'facet_block:role'
-      label: Role
-      provider: facets
-      label_display: visible
-      region: sidebar
-      weight: 8
-      uuid: ac51729b-9031-45a4-bd25-633a11bf4295
-      context_mapping: {  }
     77a23975-5322-41be-a87a-e09e5abfb451:
       id: 'views_block:staff_search-block_1'
       label: ''
       provider: views
       label_display: '0'
       views_label: ''
-      items_per_page: '10'
+      items_per_page: none
       region: contentmain
       weight: 1
       uuid: 77a23975-5322-41be-a87a-e09e5abfb451
       context_mapping: {  }
-    1f44cc5b-3007-485b-927e-bbbd7c086115:
+    4948e364-bee1-4dd9-896b-ed1d90de5747:
+      id: 'facet_block:library'
+      label: Library
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 4948e364-bee1-4dd9-896b-ed1d90de5747
+      weight: 1
+    cda8fb45-e73d-4dcc-aa72-ad8a86267010:
+      id: 'facet_block:subject_specialty'
+      label: 'Subject Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: cda8fb45-e73d-4dcc-aa72-ad8a86267010
+      weight: 2
+    fc6c15f7-ef95-4e6e-8aae-a026863c0a54:
+      id: 'facet_block:collection_responsibility'
+      label: 'Collection Responsibility'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: fc6c15f7-ef95-4e6e-8aae-a026863c0a54
+      weight: 3
+    6887c5fe-313c-432e-8612-011d16e2041c:
+      id: 'facet_block:technology_specialty'
+      label: 'Technology Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 6887c5fe-313c-432e-8612-011d16e2041c
+      weight: 4
+    5d80de86-6476-4e10-aecf-bda414e23b30:
+      id: 'facet_block:division'
+      label: Division
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 5d80de86-6476-4e10-aecf-bda414e23b30
+      weight: 5
+    984ea04c-5aed-4790-8556-29d571a93073:
+      id: 'facet_block:department'
+      label: Department
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 984ea04c-5aed-4790-8556-29d571a93073
+      weight: 6
+    ea27c190-6bbf-4507-ab5b-dfdaee3bab06:
+      id: 'facet_block:role'
+      label: Role
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: ea27c190-6bbf-4507-ab5b-dfdaee3bab06
+      weight: 7
+    f070eaae-c28b-4676-a687-1ad7eefe343b:
       id: 'facet_block:language'
       label: Language
       provider: facets
       label_display: visible
-      region: sidebar
-      weight: 9
       context_mapping: {  }
-      uuid: 1f44cc5b-3007-485b-927e-bbbd7c086115
+      region: sidebar
+      uuid: f070eaae-c28b-4676-a687-1ad7eefe343b
+      weight: 8
+    c9245129-a614-4f29-80a0-54491acd372e:
+      id: 'facet_block:team'
+      label: Team
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: c9245129-a614-4f29-80a0-54491acd372e
+      weight: 9
   id: panels_variant
   uuid: 76bba827-234b-477b-98b5-b28d82fc32df
   label: null
@@ -125,7 +125,7 @@ variant_settings:
   storage_type: page_manager
   storage_id: staff_panel_layout
   builder: ipe
-page: staff_seach
+page: staff_search
 weight: 0
 selection_criteria: {  }
 selection_logic: and

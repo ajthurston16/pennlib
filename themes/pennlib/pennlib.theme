@@ -43,12 +43,34 @@ function pennlib_preprocess_html(&$variables) {
 }
 
 /**
+ * Implements preprocess_user() to add classes to the user profile.
+ */
+function pennlib_preprocess_user(&$variables) {
+  $current_path = \Drupal::request()->getRequestUri();
+  /* If the current path points to the user profile page, add a custom class. */
+  if (0 === strpos($current_path, "/library-info/staff/") || 0 === strpos($current_path, "/user/")) {
+    $variables['attributes']['class'][] = 'user-profile';
+  }
+}
+
+/**
  * Implements preprocess_breadcrumb() to alter the breadcrumb.
  */
 function pennlib_preprocess_breadcrumb(&$variables) {
   // Change the first link in the breadcrumb from "Home" to "Penn Libraries".
   if ($variables['breadcrumb'][0]['text'] == "Home" && $variables['breadcrumb'][0]['url'] == "/") {
     $variables['breadcrumb'][0]['text'] = "Penn Libraries";
+  }
+
+  // Add the current page title to the end of the breadcrumb.
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+  if ($page_title != "") {
+    $variables['breadcrumb'][] = array(
+      'text' => $page_title
+    );
   }
 }
 

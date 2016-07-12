@@ -1,0 +1,104 @@
+# Tools Taxonomy terms.
+'Access':
+'Accessibility':
+  parent: 'Access'
+'Off-campus':
+  parent: 'Access'
+'Mobile delivery':
+  parent: 'Access'
+'Collaboration':
+'Virtual meetings':
+  parent: 'Collaboration'
+'Project management':
+  parent: 'Collaboration'
+'Courseware':
+'Canvas':
+  parent: 'Courseware'
+'Other courseware':
+  parent: 'Courseware'
+'Canvas plugin':
+  parent: 'Courseware'
+'Data tools':
+'Audience response':
+  parent: 'Data tools'
+'Computation':
+  parent: 'Data tools'
+'Business data':
+  parent: 'Data tools'
+'Data analysis & cleanup':
+  parent: 'Data tools'
+'Data collection':
+  parent: 'Data tools'
+'Data management':
+  parent: 'Data tools'
+'Mapping & spacial methods':
+  parent: 'Data tools'
+'Structure visualizer':
+  parent: 'Data tools'
+'Visualizer':
+  parent: 'Data tools'
+'Design & image management':
+'Image collections':
+  parent: 'Design & image management'
+'Image/Graphics editing':
+  parent: 'Design & image management'
+'Digital scholarship':
+'Text editor':
+  parent: 'Digital scholarship'
+'Text mining: Topic modelling':
+  parent: 'Digital scholarship'
+'Text mining: Text analysis':
+  parent: 'Digital scholarship'
+'Media production':
+'Audio':
+  parent: 'Media production'
+'Authoring tools':
+  parent: 'Media production'
+'Steaming video':
+  parent: 'Media production'
+'Video':
+  parent: 'Media production'
+'Presentation':
+'Productivity':
+'Apps':
+  parent: 'Productivity'
+'Authoring tools':
+  parent: 'Productivity'
+'Brainstorms & mind-mapping':
+  parent: 'Productivity'
+'Equipment':
+  parent: 'Productivity'
+'Organization':
+  parent: 'Productivity'
+'Publishing':
+'Authoring tools':
+  parent: 'Publishing'
+'Permissions':
+  parent: 'Publishing'
+'Publishers':
+  parent: 'Publishing'
+'Research':
+'Bibliographic & research management':
+  parent: 'Research'
+'Alerting services':
+  parent: 'Research'
+'Census':
+  parent: 'Research'
+'Databases & article indexes':
+  parent: 'Research'
+'Professional profiles':
+  parent: 'Research'
+'Veterinary medicine':
+  parent: 'Research'
+'Social media':
+'Web content management':
+'Text & code editor':
+  parent: 'Web content management'
+'Web data':
+  parent: 'Web content management'
+'Web design':
+  parent: 'Web content management'
+'Web presentation':
+  parent: 'Web content management'
+'Web publishing':
+  parent: 'Web content management'

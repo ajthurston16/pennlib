@@ -3,16 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.field_collection_item.field_phone
+    - field.storage.field_collection_item.field_room
     - field.storage.user.field_email_address
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
-    - field.storage.user.field_office
-    - field.storage.user.field_phone
     - field.storage.user.user_picture
     - image.style.thumbnail
     - system.menu.main-nav
     - taxonomy.vocabulary.subject_specialities
   module:
+    - field_collection
     - image
     - taxonomy
     - telephone
@@ -396,11 +397,11 @@ display:
           text: ''
           entity_type: user
           plugin_id: entity_link
-        field_office:
-          id: field_office
-          table: user__field_office
-          field: field_office
-          relationship: reverse__user__field_subject_specialty
+        field_room:
+          id: field_room
+          table: field_collection_item__field_room
+          field: field_room
+          relationship: field_office_value
           group_type: group
           admin_label: ''
           label: ''
@@ -421,14 +422,14 @@ display:
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: true
+            nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
+            strip_tags: false
             trim: false
             preserve_tags: ''
             html: false
@@ -445,8 +446,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
-          settings: {  }
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -454,15 +456,15 @@ display:
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: ul
+          multi_type: separator
           separator: ', '
           field_api_classes: false
           plugin_id: field
         field_phone:
           id: field_phone
-          table: user__field_phone
+          table: field_collection_item__field_phone
           field: field_phone
-          relationship: reverse__user__field_subject_specialty
+          relationship: field_office_value
           group_type: group
           admin_label: ''
           label: ''
@@ -644,6 +646,16 @@ display:
           admin_label: Parent
           required: true
           plugin_id: standard
+        field_office_value:
+          id: field_office_value
+          table: user__field_office
+          field: field_office_value
+          relationship: reverse__user__field_subject_specialty
+          group_type: group
+          admin_label: Office
+          required: false
+          delta: '0'
+          plugin_id: field_collection_handler_relationship
       arguments:
         name:
           id: name
@@ -689,6 +701,7 @@ display:
           plugin_id: string
       display_extenders: {  }
       css_class: subjspec-wrapper
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -697,11 +710,11 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.field_collection_item.field_phone'
+        - 'config:field.storage.field_collection_item.field_room'
         - 'config:field.storage.user.field_email_address'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_office'
-        - 'config:field.storage.user.field_phone'
         - 'config:field.storage.user.user_picture'
   attachment_1:
     display_plugin: attachment
@@ -947,11 +960,11 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.field_collection_item.field_phone'
+        - 'config:field.storage.field_collection_item.field_room'
         - 'config:field.storage.user.field_email_address'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_office'
-        - 'config:field.storage.user.field_phone'
         - 'config:field.storage.user.user_picture'
   page_1:
     display_plugin: page
@@ -969,11 +982,11 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.field_collection_item.field_phone'
+        - 'config:field.storage.field_collection_item.field_room'
         - 'config:field.storage.user.field_email_address'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_office'
-        - 'config:field.storage.user.field_phone'
         - 'config:field.storage.user.user_picture'
   subject_specialists_all:
     display_plugin: page
@@ -1039,9 +1052,9 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.field_collection_item.field_phone'
+        - 'config:field.storage.field_collection_item.field_room'
         - 'config:field.storage.user.field_email_address'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-        - 'config:field.storage.user.field_office'
-        - 'config:field.storage.user.field_phone'
         - 'config:field.storage.user.user_picture'

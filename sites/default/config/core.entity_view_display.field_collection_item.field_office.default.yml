@@ -1,0 +1,30 @@
+uuid: 0a6533b6-5970-4261-8ec8-293bcb3ea807
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_office.field_phone
+    - field.field.field_collection_item.field_office.field_room
+    - field_collection.field_collection.field_office
+  module:
+    - telephone
+id: field_collection_item.field_office.default
+targetEntityType: field_collection_item
+bundle: field_office
+mode: default
+content:
+  field_phone:
+    weight: 1
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+  field_room:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }
