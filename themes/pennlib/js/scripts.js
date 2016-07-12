@@ -112,6 +112,41 @@
             $('#toggle-view-mode').removeClass('active'); 
           }
         });
+        if((getCookie('briefview')==='null' && getCookie('normalview')==='null')|| (getCookie('briefview')==='null' && getCookie('normalview')==='true')){
+          // should evaluate to 'null'
+          console.log('Brief view: '+ getCookie('briefview'));
+          // should evaluate to 'null'
+          console.log('Normal view: '+ getCookie('normalview'));
+          if(!($('.block-views-blockstaff-search-block-1').hasClass('normalview'))){
+           $('.block-views-blockstaff-search-block-1').addClass('normalview');
+          }
+        }
+        if(getCookie('briefview')==='true'){
+          if(!($('#view-mode-brief').hasClass('checked'))){
+            $('#view-mode-brief').addClass('checked');
+          } 
+          $('#view-mode-normal').removeClass('checked');
+          if($('.block-views-blockstaff-search-block-1').hasClass('normalview')){
+            $('.block-views-blockstaff-search-block-1').removeClass('normalview');
+            $('.block-views-blockstaff-search-block-1').addClass('briefview');
+          }
+          else{
+            $('.block-views-blockstaff-search-block-1').addClass('briefview');
+          }
+        }
+        else{
+          if(!($('#view-mode-normal').hasClass('checked'))){
+            $('#view-mode-normal').addClass('checked');
+          }
+          $('#view-mode-brief').removeClass('checked');
+          if($('.block-views-blockstaff-search-block-1').hasClass('briefview')){
+            $('.block-views-blockstaff-search-block-1').removeClass('briefview');
+            $('.block-views-blockstaff-search-block-1').addClass('normalview');
+          }
+          else{
+            $('.block-view-views-blockstaff-search-block1').addClass('normalview');
+          }
+        }
       });
 
       /* When the mode is brief, we add a class 'checked' to it so that it has a checkbox, remove that of the normal mode by removing the class
@@ -120,15 +155,6 @@
         if(!($(this).hasClass('checked'))){
           $(this).addClass('checked');
         }
-        /*Though the value corresponding to 'briefview' is expected to yield either an empty string or a true value at all times, we add this 
-          condition so that the code doesn't break at any point of time in the future
-        if(getCookie("briefview")=="" || getCookie("briefview")=="true"){
-          document.cookie = "briefview=true;path=/";
-          // should evaluate to "true"
-          console.display(getCookie('briefview'));
-          // should evaluate to "false"
-          console.display(getCookie('normalview'));
-        }*/
         $('#view-mode-normal').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('normalview')){
           $('.block-views-blockstaff-search-block-1').removeClass('normalview');
@@ -137,6 +163,18 @@
         else{
           $('.block-views-blockstaff-search-block-1').addClass('briefview');
         }
+        
+        if(getCookie('briefview')==='null' || getCookie('briefview')==='true'){
+          //$.cookie('normalview',null,{path: '/'});
+          //$.cookie('briefview','true',{path: '/'});
+          document.cookie = 'normalview=null;path=/';
+          document.cookie = 'briefview=true;path=/';
+          // should evaluate to "true"
+          //console.log('Brief view: '+ getCookie('briefview'));
+          // should evaluate to "false"
+          //console.log('Normal view: '+ getCookie('normalview'));
+        }
+
       });
 
       /* When the mode is normal, we add a class 'checked' to it so that it has a checkbox, remove that of the brief mode by removing the class
@@ -145,15 +183,6 @@
         if(!($(this).hasClass('checked'))){
           $(this).addClass('checked');
         }
-        /*Though the value corresponding to 'normalview' is expected to yield either an empty string or a true value at all times, we add this 
-          condition so that the code doesn't break at any point of time in the future
-        if(getCookie("normalview")=="" || getCookie("normalview")=="true"){
-          document.cookie = "normalview=true;path=/";
-          // should evaluate to "false"
-          console.display(getCookie('briefview'));
-          // should evaluate to to "true"
-          console.display(getCookie('normalview'));
-        }*/
         $('#view-mode-brief').removeClass('checked');
         if($('.block-views-blockstaff-search-block-1').hasClass('briefview')){
           $('.block-views-blockstaff-search-block-1').removeClass('briefview');
@@ -161,6 +190,15 @@
         }
         else{
           $('.block-view-views-blockstaff-search-block1').addClass('normalview');
+        }
+        
+        if(getCookie('normalview')==='null' || getCookie('normalview')==='true'){
+          document.cookie = 'briefview=null;path=/';
+          document.cookie = 'normalview=true;path=/';
+          // should evaluate to "false"
+          //console.log('Brief view: '+getCookie('briefview'));
+          // should evaluate to to "true"
+          //console.log('Normal view: '+ getCookie('normalview'));
         }
       });
 
@@ -180,7 +218,7 @@
         //Iterating over all the k-v pairs searching for the searchString, returning its value if it is present , else returning an empty string
         for(i=0; i<len; i++){
           var kvPair = kvPairs[i];
-          var kvPairLen = temp.length; 
+          var kvPairLen = kvPair.length; 
           while(kvPair.charAt(0)==' '){
             kvPair = kvPair.substring(1,kvPairLen);
           }
@@ -188,7 +226,7 @@
             return kvPair.substring(searchStringLen, kvPairLen);
           }
         }
-        return "";
+        return 'null';
       }
 
     }
