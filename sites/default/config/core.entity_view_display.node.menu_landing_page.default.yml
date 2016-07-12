@@ -50,7 +50,7 @@ third_party_settings:
               weight: 0
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-            region: column2
+            region: sidebar
             uuid: 68bf3521-044c-46e3-8c85-df66bd36e2e4
             weight: 1
           3c8bbc8a-7fbd-49a2-bcd5-b9ba19caf23e:
@@ -63,14 +63,14 @@ third_party_settings:
             expand: 1
             parent: 'main-nav:'
             context_mapping: {  }
-            region: column1
+            region: contentmain
             uuid: 3c8bbc8a-7fbd-49a2-bcd5-b9ba19caf23e
             weight: 1
         id: panels_variant
         uuid: c6357d68-4a36-42fc-9476-2ebe2229347d
         label: ''
         weight: 0
-        layout: radix_sutro
+        layout: radix_brenham_flipped
         layout_settings: {  }
         page_title: '[node:title]'
         storage_type: panelizer_default
