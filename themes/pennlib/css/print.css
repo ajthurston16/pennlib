@@ -1032,6 +1032,9 @@ body {
   .front-page .wrapper--main {
     box-shadow: none; }
 
+h1.page-title {
+  margin-top: 0; }
+
 .page-title {
   color: #900; }
 
