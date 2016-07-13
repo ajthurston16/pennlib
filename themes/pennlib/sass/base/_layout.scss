@@ -87,7 +87,7 @@ body.page-panels {
     @include cf;
     max-width: $site-max-width;
     margin: 0 auto;
-    @@include layout-row-padding;
+    @include layout-row-padding;
   }
   &.empty-right,
   &.empty-left {
