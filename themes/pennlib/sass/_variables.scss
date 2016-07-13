@@ -1,6 +1,12 @@
 // PennLib Library colors
 //For Semantics use : http://chir.ag/projects/name-that-color/
 
+//ourlinks
+$contentlink: #0782c1;
+$contentlinkhover: #57a1c7;
+$breadcrumblink: #57a1c7;
+$breadcrumblinkhover: #4598cb;
+
 //blues
 $navy: #000033;
 $gulf-blue: #031b51;
@@ -151,8 +157,8 @@ $header-font-family: $proxima-nova;
 $body-text-font-family: $proxima-nova;
 $base-font-color: $black;
 $page-title-font-color: $red-orange;
-$link-color: $chathams-blue;
-$link-color-hover: $orange;
+$link-color: $contentlink;
+$link-color-hover: $contentlinkhover;
 
 
 //

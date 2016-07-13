@@ -1,4 +1,10 @@
 #breadcrumb {
+	a, a:visited {
+		color: $breadcrumblink;
+	}
+	a:hover, a:visited:hover {
+		color: $breadcrumblinkhover;
+	}
 	ul {
 		padding: 0;
 	}

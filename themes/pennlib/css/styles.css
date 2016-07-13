@@ -571,16 +571,16 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #15428C;
+  color: #0782c1;
   text-decoration: none;
   transition: color 0.25s ease;
   -webkit-tap-highlight-color: transparent; }
   a:hover {
-    color: #CC6600; }
+    color: #57a1c7; }
   a:active {
-    color: #15428C; }
+    color: #0782c1; }
   a:focus {
-    color: #15428C; }
+    color: #0782c1; }
 
 h1, .h1,
 h2, .h2,
@@ -689,6 +689,12 @@ blockquote {
     font-size: 18.2px; }
   .block-entity-fieldnodefield-see-also-link .content {
     padding: 15px; }
+
+#breadcrumb a, #breadcrumb a:visited {
+  color: #57a1c7; }
+
+#breadcrumb a:hover, #breadcrumb a:visited:hover {
+  color: #4598cb; }
 
 #breadcrumb ul {
   padding: 0; }
@@ -838,7 +844,8 @@ body:not(.front-page) .wrapper--main {
 
 .site-nav-footer {
   max-width: 100em;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1em; }
   .site-nav-footer ul {
     margin: 0; }
 
