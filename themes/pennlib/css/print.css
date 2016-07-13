@@ -505,23 +505,24 @@ blockquote {
   .block-entity-fieldnodefield-see-also-link .content {
     padding: 15px; }
 
-#breadcrumb a, #breadcrumb a:visited {
-  color: #57a1c7; }
-
-#breadcrumb a:hover, #breadcrumb a:visited:hover {
-  color: #4598cb; }
-
-#breadcrumb ul {
-  padding: 0; }
-
-#breadcrumb li {
-  display: inline; }
-  #breadcrumb li.active {
-    color: #837B80; }
-  #breadcrumb li:not(:first-child)::before {
-    content: "/";
-    padding: 0 3px;
-    color: #d2d5d8; }
+#breadcrumb {
+  padding-left: 20px;
+  padding-right: 20px; }
+  #breadcrumb a, #breadcrumb a:visited {
+    color: #57a1c7; }
+  #breadcrumb a:hover, #breadcrumb a:visited:hover {
+    color: #4598cb; }
+  #breadcrumb ul {
+    padding: 0;
+    margin: .5rem 0 0 0; }
+  #breadcrumb li {
+    display: inline; }
+    #breadcrumb li.active {
+      color: #837B80; }
+    #breadcrumb li:not(:first-child)::before {
+      content: "/";
+      padding: 0 3px;
+      color: #d2d5d8; }
 
 .button {
   -webkit-appearance: none;
@@ -1029,6 +1030,10 @@ body {
 
 .page-title {
   color: #b33300; }
+
+#block-pennlib-page-title {
+  padding-left: 20px;
+  padding-right: 20px; }
 
 #main .site-sidebars {
   padding-top: 30px; }

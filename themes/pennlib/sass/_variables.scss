@@ -15,13 +15,13 @@ $danube: #619fcd;
 $baby-blue: #A2D1D8;
 
 //whites and greys
-$black: #000000;
-$silver: #cccccc;
+$black: #000;
+$silver: #ccc;
 $grey: $silver;
-$concrete: #F2F2F2;
+$concrete: #f2f2f2;
 $grey-skies: #d2d5d8;
 $gallery: #eeeeee;
-$ghost-white: #F8F8F8;
+$ghost-white: #f8f8f8;
 $white-lilac: #F2F2FA;
 $white: #ffffff;
 
@@ -31,7 +31,7 @@ $comet: rgba(82,93,133,.85);
 
 //yellows
 $hokey-pokey: #C7B422;
-$cream: #FFFFCC;
+$cream: #ffc;
 
 
 //reds and oranges
@@ -39,8 +39,8 @@ $persian-red:#D13737;
 $mahogany:#620606;
 $penn-red: #A30600;
 $red-orange: #b33300;
-$orange: #CC6600;
-
+$orange: #c60;
+$pennred: #900;
 
 
 
@@ -156,7 +156,7 @@ $proxima-nova: "proxima-nova",sans-serif;
 $header-font-family: $proxima-nova;
 $body-text-font-family: $proxima-nova;
 $base-font-color: $black;
-$page-title-font-color: $red-orange;
+$page-title-font-color: $pennred;
 $link-color: $contentlink;
 $link-color-hover: $contentlinkhover;
 

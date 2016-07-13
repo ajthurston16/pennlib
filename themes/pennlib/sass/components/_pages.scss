@@ -19,3 +19,6 @@ body {
 .page-title {
   color: $page-title-font-color;
 }
+#block-pennlib-page-title {
+  @include layout-padding;
+}

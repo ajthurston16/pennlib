@@ -187,3 +187,13 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+// Clearfix less vspace
+@mixin cf-no-table() {
+  *zoom: 1;
+  &:before, &:after {
+    content: '';
+  }
+  &:after {
+    clear: both;
+  }
+}
