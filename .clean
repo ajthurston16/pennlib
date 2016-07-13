@@ -2,34 +2,57 @@
 
 SITENAME=pennlib
 DBPATH=/var/www/$SITENAME/dev.sql
+PANTHEONDB=/var/www/$SITENAME/dev-pantheon.sql
 
+# check to see if you want to load all configuration helper function.
+function configuration_gen() {
+  echo -n "Do you want to load "$SITENAME"'s configuration? [y/n]:"
+  read YESNO
+   if [ "$YESNO" == "y" ]
+   then
+    drush config-import -y
+   else
+    echo ""
+    echo "Not loading the configuration. Goodbye."
+    echo ""
+    exit
+   fi
+    echo "One Time login"
+    drush uli
+    exit
+}
+
+#Do all the things
 echo ""
 echo -n "You are about to destory all of" $SITENAME"'s files not saved in git, drop the database and load a backup. Are you sure you want to do this?[y/n]: "
 read YESNO
   if [ "$YESNO" == "y" ]
   then
-    git clean -fd; drush sql-drop -y; drush sql-cli < $DBPATH;
+    git clean -fd; drush sql-drop -y;
+#load database from local or Pantheon
+    echo -n "Do you want to load the database from a Local backup?[y/n] "
+    read YESNO
+      if [ "$YESNO" == "y" ]
+        then
+         drush sql-cli < $DBPATH;
+         configuration_gen
+      else
+       echo -n "Do you want pull the current database from Pantheon?[y/n] "
+       read YESNO
+       fi
+        if [ "$YESNO" == "y" ]
+        then
+         drush @pantheon.penn-libraries-web.dev sql-dump > $PANTHEONDB;
+         drush sql-cli < $PANTHEONDB;
+         configuration_gen
+         else
+          echo -n "Goodbye. "
+         fi
 
-# check to see if site with name already exists
-  echo -n "Do you want to load" $SITENAME"'s configuration? [y/n]:"
-  read YESNO
-  if [ "$YESNO" == "y" ]
-  then
-  drush config-import -y
-  else
-    echo ""
-    echo "Not loading the configuration. Bye."
-    echo ""
-    exit
-  fi
-  echo "One Time login"
-  drush uli
-  else
-    echo ""
-    echo "This is not the droid you are looking for."
-    echo ""
-    exit
+   else
+      echo ""
+      echo "This is not the droid you are looking for."
+      echo ""
+      exit
+
 fi
-
-
-#git clean -fd; drush sql-drop -y; drush sql-cli < /var/www/pennlib/dev.sql; drush config-import -y; drush uli git clean -fd;
