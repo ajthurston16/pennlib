@@ -91,41 +91,29 @@ field_settings:
     property_path: type
     type: string
 processor_settings:
+  rendered_item:
+    plugin_id: rendered_item
+    settings:
+      weights:
+        preprocess_index: -8
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          article: search_index
+          page: search_index
+  transliteration:
+    plugin_id: transliteration
+    settings:
+      weights:
+        preprocess_index: -4
+        preprocess_query: -7
+      fields:
+        - rendered_item
+        - title
   add_url:
     plugin_id: add_url
     settings: {  }
-  content_access:
-    plugin_id: content_access
-    settings:
-      weights:
-        preprocess_index: -6
-        preprocess_query: -4
-  highlight:
-    plugin_id: highlight
-    settings:
-      weights:
-        postprocess_query: -9
-      highlight: always
-      excerpt: true
-      excerpt_length: 256
-      prefix: '<strong>'
-      suffix: '</strong>'
-  html_filter:
-    plugin_id: html_filter
-    settings:
-      weights:
-        preprocess_index: -3
-        preprocess_query: -6
-      fields:
-        - rendered_item
-      title: true
-      alt: true
-      tags:
-        h1: 5
-        h2: 3
-        h3: 2
-        string: 2
-        b: 2
   ignorecase:
     plugin_id: ignorecase
     settings:
@@ -140,17 +128,6 @@ processor_settings:
     settings:
       weights:
         preprocess_index: -10
-  rendered_item:
-    plugin_id: rendered_item
-    settings:
-      weights:
-        preprocess_index: -8
-      roles:
-        anonymous: anonymous
-      view_mode:
-        'entity:node':
-          article: search_index
-          page: search_index
   stopwords:
     plugin_id: stopwords
     settings:
@@ -196,6 +173,22 @@ processor_settings:
         - was
         - will
         - with
+  highlight:
+    plugin_id: highlight
+    settings:
+      weights:
+        postprocess_query: -9
+      highlight: always
+      excerpt: true
+      excerpt_length: 256
+      prefix: '<strong>'
+      suffix: '</strong>'
+  content_access:
+    plugin_id: content_access
+    settings:
+      weights:
+        preprocess_index: -6
+        preprocess_query: -4
   tokenizer:
     plugin_id: tokenizer
     settings:
@@ -208,15 +201,22 @@ processor_settings:
       spaces: ''
       overlap_cjk: 1
       minimum_word_size: '3'
-  transliteration:
-    plugin_id: transliteration
+  html_filter:
+    plugin_id: html_filter
     settings:
       weights:
-        preprocess_index: -4
-        preprocess_query: -7
+        preprocess_index: -3
+        preprocess_query: -6
       fields:
         - rendered_item
-        - title
+      title: true
+      alt: true
+      tags:
+        h1: 5
+        h2: 3
+        h3: 2
+        string: 2
+        b: 2
 options:
   index_directly: true
   cron_limit: 50

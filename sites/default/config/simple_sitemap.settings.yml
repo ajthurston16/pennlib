@@ -3,11 +3,11 @@ custom:
     path: /
     priority: !!float 1
 entity_types:
-  node_type:
+  node:
     menu_landing_page:
       index: 1
       priority: 0.5
-  menu:
+  menu_link_content:
     main-nav:
       index: 0
       priority: 0.5

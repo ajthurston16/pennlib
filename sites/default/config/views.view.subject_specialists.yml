@@ -974,6 +974,9 @@ display:
     display_options:
       display_extenders: {  }
       path: research/subject-specialists/%taxonomy_term
+      menu:
+        enabled: true
+        expanded: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1044,6 +1047,7 @@ display:
         weight: 0
         context: '0'
         menu_name: main-nav
+        enabled: true
     cache_metadata:
       max-age: -1
       contexts:

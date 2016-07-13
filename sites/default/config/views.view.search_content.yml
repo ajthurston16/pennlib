@@ -135,6 +135,9 @@ display:
     display_options:
       display_extenders: {  }
       path: search/content
+      menu:
+        enabled: true
+        expanded: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'
