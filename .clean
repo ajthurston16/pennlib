@@ -30,20 +30,20 @@ read YESNO
   then
     git clean -fd; drush sql-drop -y;
 #load database from local or Pantheon
-    echo -n "Do you want to load the database from a Local backup?[y/n] "
+    echo -n "Do you want pull the current database from Pantheon?[y/n] "
     read YESNO
       if [ "$YESNO" == "y" ]
         then
-         drush sql-cli < $DBPATH;
+         drush @pantheon.penn-libraries-web.dev sql-dump > $PANTHEONDB;
+         drush sql-cli < $PANTHEONDB;
          configuration_gen
       else
-       echo -n "Do you want pull the current database from Pantheon?[y/n] "
+       echo -n "Do you want to load the database from a Local backup?[y/n] "
        read YESNO
        fi
         if [ "$YESNO" == "y" ]
         then
-         drush @pantheon.penn-libraries-web.dev sql-dump > $PANTHEONDB;
-         drush sql-cli < $PANTHEONDB;
+         drush sql-cli < $DBPATH;
          configuration_gen
          else
           echo -n "Goodbye. "
