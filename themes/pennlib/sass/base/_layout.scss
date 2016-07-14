@@ -62,7 +62,7 @@ body {
   display: inline-block;
 }
 .site-header,
-/*.site-main,*/
+.site-main,
 .breadcrumbs-wrapper,
 #footer {
   @include layout-padding;
@@ -78,8 +78,7 @@ body.page-panels {
   }
   .site-main {
     max-width: 100%;
-    /*padding-left: 0;
-    padding-right: 0;*/
+    @include layout-padding;
   }
 }
 .panel-display {
@@ -162,7 +161,7 @@ body.fluid-bear {
       }
     }
     .site-main {
-      /*padding: 0 20px;*/
+      @include layout-padding;
     }
   }
 }

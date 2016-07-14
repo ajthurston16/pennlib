@@ -165,6 +165,7 @@ body {
   display: inline-block; }
 
 .site-header,
+.site-main,
 .breadcrumbs-wrapper,
 #footer {
   padding-left: 1.9rem;
@@ -176,8 +177,8 @@ body.page-panels h1.main__title {
 
 body.page-panels .site-main {
   max-width: 100%;
-  /*padding-left: 0;
-    padding-right: 0;*/ }
+  padding-left: 1.9rem;
+  padding-right: 1.9rem; }
 
 .panel-display .row {
   *zoom: 1;
@@ -237,7 +238,8 @@ body.fluid-bear .panel-display.panel-display--three-column, body.fluid-bear .pan
     padding-right: 1.9rem; }
 
 body.fluid-bear:not(.page-panels) .site-main {
-  /*padding: 0 20px;*/ }
+  padding-left: 1.9rem;
+  padding-right: 1.9rem; }
 
 body.with-sticky-footer {
   display: -ms-flexbox;
