@@ -1,0 +1,37 @@
+uuid: f48625de-67e6-494e-a048-2837676775a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.department_header_footer
+  module:
+    - facets
+    - system
+    - views
+  theme:
+    - pennlib
+id: views_block__department_header_footer_department_header_block
+theme: pennlib
+region: header
+weight: -8
+provider: null
+plugin: 'views_block:department_header_footer-department_header_block'
+settings:
+  id: 'views_block:department_header_footer-department_header_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: true
+    context_mapping: {  }

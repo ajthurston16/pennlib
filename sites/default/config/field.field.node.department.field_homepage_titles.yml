@@ -1,0 +1,19 @@
+uuid: c48f3b48-d398-462d-ab6c-ecf21052e938
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_titles
+    - node.type.department
+id: node.department.field_homepage_titles
+field_name: field_homepage_titles
+entity_type: node
+bundle: department
+label: 'Homepage Titles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

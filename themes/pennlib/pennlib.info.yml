@@ -16,6 +16,8 @@ libraries:
 
 regions:
   header: 'Header'
+  top_nav: 'Top Navigation'
+  department_header: "Department Header"
   navigation: 'Navigation bar'
   highlighted: 'Highlighted'
   help: 'Help'
@@ -25,3 +27,4 @@ regions:
   sidebar_second: 'Second sidebar'
   nav_footer: 'Navigation Footer'
   footer: 'Footer'
+  department_footer: 'Department Footer'

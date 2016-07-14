@@ -1,0 +1,58 @@
+uuid: 5ade98dd-46ea-4a6b-9a2d-6945da334134
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.department.body
+    - field.field.node.department.field_google_map_location
+    - field.field.node.department.field_homepage_titles
+    - node.type.department
+  module:
+    - panelizer
+    - simple_gmap
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.department.default
+targetEntityType: node
+bundle: department
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_google_map_location:
+    weight: 103
+    label: above
+    settings:
+      include_map: '1'
+      include_static_map: '0'
+      include_link: '0'
+      include_text: '0'
+      iframe_height: '200'
+      iframe_width: '200'
+      zoom_level: '14'
+      information_bubble: '1'
+      link_text: 'View larger map'
+      map_type: m
+      langcode: en
+    third_party_settings: {  }
+    type: simple_gmap
+  field_homepage_titles:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

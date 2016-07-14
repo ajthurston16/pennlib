@@ -838,7 +838,8 @@ body:not(.front-page) .wrapper--main {
 
 .site-nav-footer {
   max-width: 100em;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1em; }
   .site-nav-footer ul {
     margin: 0; }
 

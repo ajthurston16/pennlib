@@ -1,0 +1,19 @@
+uuid: 11b07b3c-dd8c-4e09-832b-fd70fba96375
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_map_location
+    - node.type.department
+id: node.department.field_google_map_location
+field_name: field_google_map_location
+entity_type: node
+bundle: department
+label: 'Google Map Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

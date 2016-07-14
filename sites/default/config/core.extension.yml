@@ -66,6 +66,7 @@ module:
   search_api_db: 0
   search_api_db_defaults: 0
   shortcut: 0
+  simple_gmap: 0
   simple_sitemap: 0
   slick: 0
   slick_example: 0

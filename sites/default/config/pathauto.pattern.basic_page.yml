@@ -9,14 +9,17 @@ label: 'Basic Page'
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  aa7bb8da-cd9f-4470-bb03-3a88521da456:
+  e7cc80c0-54a2-4582-b4dd-163e2cad0482:
     id: node_type
     bundles:
+      article: article
+      book: book
+      department: department
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: aa7bb8da-cd9f-4470-bb03-3a88521da456
+    uuid: e7cc80c0-54a2-4582-b4dd-163e2cad0482
 selection_logic: and
-weight: -7
+weight: -5
 relationships: {  }

@@ -12,8 +12,8 @@ _core:
   default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
 id: pennlib_account_menu
 theme: pennlib
-region: header
-weight: -4
+region: top_nav
+weight: -8
 provider: null
 plugin: 'system_menu_block:account'
 settings:

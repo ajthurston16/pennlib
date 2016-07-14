@@ -26,3 +26,5 @@ _core:
 content_type_settings:
   book:
     view_mode: ''
+  department:
+    view_mode: ''

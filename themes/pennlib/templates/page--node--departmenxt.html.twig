@@ -6,7 +6,11 @@
           {{ page.top_nav }}
         </div>
       {% endif %}
-      {{ page.header }}
+      {% if page.department_header is not empty %}
+        <div class="wrapper--department-header">
+          {{ page.department_header }}
+        </div>
+      {% endif %}
     </div>
     <div class="wrapper--nav">
       {{ page.navigation }}
@@ -97,7 +101,7 @@
 {% if page.nav_footer %}
   <div class="wrapper wrapper--nav-footer">
     <footer class="site-nav-footer">
-      {{ page.nav_footer }}
+      
     </footer>
   </div>
 {% endif %}
