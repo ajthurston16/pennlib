@@ -9,6 +9,7 @@ screenshot: screenshot.png
 stylesheets-remove:
   - core/modules/system/css/components/messages.theme.css
   - core/modules/system/css/components/menu.theme.css
+  - modules/contrib/radix_layouts/radix_layouts.css
 
 libraries:
   - pennlib/global_scripts
