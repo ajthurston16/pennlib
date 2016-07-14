@@ -22,4 +22,5 @@ h1.page-title {margin-top:0;}
 }
 #block-pennlib-page-title {
   @include layout-padding;
+  margin-top: -.7rem;
 }

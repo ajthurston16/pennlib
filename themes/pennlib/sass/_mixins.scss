@@ -178,7 +178,16 @@
   max-width:$content-max-width;
   margin:0 auto;
 }
-
+@mixin boxheader{
+  background-color: $boxheaderbg;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: .04rem;
+  color: #000;
+  margin: 0;
+  padding: .9rem 1rem .4rem 1.8rem;
+}
 
 @mixin vertical-align($position: relative) {
   position: $position;

@@ -683,20 +683,10 @@ blockquote {
 .site-sidebars .block {
   margin-bottom: 30px; }
 
-.block-entity-fieldnodefield-see-also-link {
-  border: 1px solid #ccc; }
-  .block-entity-fieldnodefield-see-also-link h2 {
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #ccc;
-    margin: 0;
-    padding: 10px 15px;
-    font-size: 18.2px; }
-  .block-entity-fieldnodefield-see-also-link .content {
-    padding: 15px; }
-
 #breadcrumb {
   padding-left: 1.9rem;
-  padding-right: 1.9rem; }
+  padding-right: 1.9rem;
+  font-weight: bold; }
   #breadcrumb a, #breadcrumb a:visited {
     color: #57a1c7; }
   #breadcrumb a:hover, #breadcrumb a:visited:hover {
@@ -846,6 +836,48 @@ body:not(.front-page) .wrapper--main {
     list-style-type: none;
     margin: 0;
     padding: 0; }
+
+.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link,
+.node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
+  margin-top: 4rem; }
+
+.node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+  *display: inline;
+  width: 48%;
+  padding-left: 1.9rem;
+  border-left: 1px dotted #bbb;
+  min-width: 24rem; }
+
+.node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: .04rem;
+  color: #000;
+  margin: .9rem 0 0 0; }
+
+.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link h2 {
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: .04rem;
+  color: #000;
+  margin: 0;
+  padding: .9rem 1rem .4rem 1.8rem; }
+
+.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link {
+  border: solid 1px #ccc; }
+
+.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link .content {
+  padding: .9rem 1rem 1.4rem 1.8rem; }
+
+.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link .content .field.field--name-field-see-also-link .field__item,
+.node--type-menu_landing_page .main-nav__sub li {
+  margin-top: .9rem; }
 
 .site-nav-footer {
   max-width: 100em;
@@ -1225,7 +1257,8 @@ h1.page-title {
 
 #block-pennlib-page-title {
   padding-left: 1.9rem;
-  padding-right: 1.9rem; }
+  padding-right: 1.9rem;
+  margin-top: -.7rem; }
 
 #main .site-sidebars {
   padding-top: 30px; }
