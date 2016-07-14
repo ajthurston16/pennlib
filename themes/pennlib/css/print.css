@@ -734,6 +734,9 @@ header nav {
         border: 1px solid #ccc;
         background: #ffffff;
         color: #c60; }
+    header nav ul.main-nav li h3 {
+      margin: 0;
+      font-size: 1.5rem; }
     header nav ul.main-nav li a {
       text-decoration: none;
       text-align: center;
