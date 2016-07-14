@@ -21,6 +21,5 @@ h1.page-title {margin-top:0;}
   color: $page-title-font-color;
 }
 #block-pennlib-page-title {
-  @include layout-padding;
   margin-top: -.7rem;
 }

@@ -501,8 +501,6 @@ blockquote {
   margin-bottom: 30px; }
 
 #breadcrumb {
-  padding-left: 1.9rem;
-  padding-right: 1.9rem;
   font-weight: bold; }
   #breadcrumb a, #breadcrumb a:visited {
     color: #57a1c7; }
@@ -647,7 +645,8 @@ body:not(.front-page) .wrapper--main {
   margin-top: -3.25em; }
 
 .node--type-menu_landing_page {
-  /* Styling for the landing page's menu links. */ }
+  /* Styling for the landing page's menu links. */
+  margin: 0 -1.9rem; }
   .node--type-menu_landing_page .main-nav,
   .node--type-menu_landing_page .main-nav__sub {
     list-style-type: none;
@@ -724,6 +723,7 @@ header nav {
   header nav ul.main-nav {
     position: relative;
     margin: 8px 0 0 0;
+    padding-left: 1.9rem;
     transition: margin .3s ease-in-out; }
     header nav ul.main-nav > li.main-nav__item {
       margin: 0; }
@@ -738,7 +738,9 @@ header nav {
         color: #c60; }
     header nav ul.main-nav li h3 {
       margin: 0;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: .05rem; }
     header nav ul.main-nav li a {
       text-decoration: none;
       text-align: center;
@@ -1076,8 +1078,6 @@ h1.page-title {
   color: #900; }
 
 #block-pennlib-page-title {
-  padding-left: 1.9rem;
-  padding-right: 1.9rem;
   margin-top: -.7rem; }
 
 #main .site-sidebars {

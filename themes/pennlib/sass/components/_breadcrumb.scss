@@ -1,5 +1,4 @@
 #breadcrumb {
-	@include layout-padding;
 	font-weight: bold;
 	a, a:visited {
 		color: $breadcrumblink;
