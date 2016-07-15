@@ -12,7 +12,7 @@ pennlib.medium-width:
     - 1x
 pennlib.large-width:
   label: large
-  mediaQuery: 'all and (min-width: 1000px)'
+  mediaQuery: 'all and (min-width: 960px)'
   weight: 0
   multipliers:
     - 1x
