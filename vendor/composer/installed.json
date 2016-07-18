@@ -503,18 +503,18 @@
         ]
     },
     {
-        "name": "symfony/psr-http-message-bridge",
-        "version": "v0.2",
-        "version_normalized": "0.2.0.0",
+        "name": "guzzlehttp/promises",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/psr-http-message-bridge.git",
-            "reference": "dc7e308e1dc2898a46776e2221a643cb08315453"
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/dc7e308e1dc2898a46776e2221a643cb08315453",
-            "reference": "dc7e308e1dc2898a46776e2221a643cb08315453",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/c10d860e2a9595f8883527fa0021c7da9e65f579",
+            "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579",
             "shasum": ""
         },
         "require": {
@@ -525,8 +525,12 @@
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7|~3.0"
         },
-        "suggest": {
-            "zendframework/zend-diactoros": "To use the Zend Diactoros factory"
+        "time": "2016-05-18 16:56:05",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
         },
         "time": "2015-05-29 17:57:12",
         "type": "symfony-bridge",
@@ -605,18 +609,18 @@
         ]
     },
     {
-        "name": "jcalderonzumba/mink-phantomjs-driver",
-        "version": "v0.3.1",
-        "version_normalized": "0.3.1.0",
+        "name": "guzzlehttp/psr7",
+        "version": "1.3.1",
+        "version_normalized": "1.3.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/jcalderonzumba/MinkPhantomJSDriver.git",
-            "reference": "782892dbea4af7d04024374672b3790b6c008def"
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jcalderonzumba/MinkPhantomJSDriver/zipball/782892dbea4af7d04024374672b3790b6c008def",
-            "reference": "782892dbea4af7d04024374672b3790b6c008def",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+            "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
             "shasum": ""
         },
         "require": {
@@ -632,11 +636,11 @@
             "symfony/phpunit-bridge": "~2.7",
             "symfony/process": "~2.3"
         },
-        "time": "2015-12-04 13:55:02",
-        "type": "mink-driver",
+        "time": "2016-06-24 23:00:38",
+        "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "0.4.x-dev"
+                "dev-master": "1.4-dev"
             }
         },
         "installation-source": "dist",
@@ -1093,13 +1097,13 @@
         "version_normalized": "1.0.25.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/composer/installers.git",
-            "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "1.0.0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-            "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/1.0.0",
+            "reference": "1.0.0",
             "shasum": ""
         },
         "require": {
@@ -1454,8 +1458,53 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Symfony\\Polyfill\\Iconv\\": ""
-            },
+                "Symfony\\Cmf\\Component\\Routing\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony CMF community",
+                "homepage": "https://github.com/symfony-cmf/Routing/contributors"
+            }
+        ],
+        "description": "Extends the Symfony2 routing component for dynamic routes and chaining several routers",
+        "homepage": "http://cmf.symfony.com",
+        "keywords": [
+            "database",
+            "routing"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-apcu",
+        "version": "v1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-apcu.git",
+            "reference": "0c901e4e65a2f7ece68f0fd249b56d6ad3adc214"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/0c901e4e65a2f7ece68f0fd249b56d6ad3adc214",
+            "reference": "0c901e4e65a2f7ece68f0fd249b56d6ad3adc214",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2016-03-03 16:49:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
             "files": [
                 "bootstrap.php"
             ]
@@ -2860,37 +2909,35 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "drupal/ctools",
-        "version": "8.3.0-alpha26",
-        "version_normalized": "8.3.0.0-alpha26",
+        "name": "guzzlehttp/guzzle",
+        "version": "6.2.1",
+        "version_normalized": "6.2.1.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/ctools",
-            "reference": "c14a5eee970c3d0aab02e88f6c6a4d18091439b8"
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/ctools-8.x-3.0-alpha26.zip",
-            "reference": null,
-            "shasum": null
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
+            "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
+            "shasum": ""
         },
         "require": {
-            "drupal/core": "8.*"
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.3.1",
+            "php": ">=5.5"
         },
-        "replace": {
-            "drupal/ctools_block": "self.version",
-            "drupal/ctools_views": "self.version"
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.0",
+            "psr/log": "^1.0"
         },
-        "suggest": {
-            "drupal/block": "Required by drupal/ctools_views",
-            "drupal/core": "Required by drupal/ctools_block, drupal/ctools_views",
-            "drupal/views": "Required by drupal/ctools_views"
-        },
-        "time": "2016-05-06 18:51:13",
-        "type": "drupal-module",
+        "time": "2016-07-15 17:22:37",
+        "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-8.x-3.x": "8.3.x-dev"
+                "dev-master": "6.2-dev"
             }
         },
         "installation-source": "dist",
