@@ -11,9 +11,9 @@ dependencies:
     - simple_gmap
     - user
 id: department_header_footer
-label: 'Department Header & Footer Blocks'
+label: 'Department Header/Footer'
 module: views
-description: ''
+description: 'Provides blocks for departmental headers & footers.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -296,7 +296,7 @@ display:
   department_footer_block:
     display_plugin: block
     id: department_footer_block
-    display_title: 'Department Footer Block'
+    display_title: 'Footer Block'
     position: 1
     display_options:
       display_extenders: {  }
@@ -377,6 +377,8 @@ display:
       defaults:
         fields: false
       display_description: ''
+      allow:
+        items_per_page: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -390,7 +392,7 @@ display:
   department_header_block:
     display_plugin: block
     id: department_header_block
-    display_title: 'Department Header Block'
+    display_title: 'Header Block'
     position: 1
     display_options:
       display_extenders: {  }
@@ -505,6 +507,8 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
+      allow:
+        items_per_page: false
     cache_metadata:
       max-age: -1
       contexts:
