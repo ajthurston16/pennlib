@@ -1288,13 +1288,6 @@ body:not(.front-page) .wrapper--main {
   border-top: 1px solid #ccc;
   box-shadow: inset 0 4.1667em 6.667em -1.667em rgba(20, 44, 55, 0.13); }
 
-body.has-sidr header nav {
-  position: absolute !important;
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px); }
-
 header nav {
   outline: 0;
   margin-left: 20px;
@@ -1305,7 +1298,6 @@ header nav {
   header nav ul.main-nav {
     position: relative;
     margin: 8px 0 0 0;
-    padding-left: 1.9rem;
     transition: margin .3s ease-in-out; }
     header nav ul.main-nav > li.main-nav__item {
       margin: 0; }
@@ -1415,23 +1407,22 @@ header nav {
   header nav .main-menu--level-three {
     top: -10px; }
 
-.sidr {
-  font-family: "proxima-nova", sans-serif; }
-
-#sidr-bttn,
 #mobile-nav {
-  margin-left: 20px; }
-  #sidr-bttn #responsive-menu-button,
-  #mobile-nav #responsive-menu-button {
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  float: right;
+  background-color: #ccc;
+  z-index: 9999;
+  display: block;
+  overflow: hidden; }
+  #mobile-nav #mobile-button {
     display: block;
-    width: 45px;
-    height: 40px;
-    padding-left: 8px;
-    padding-top: 3px;
+    width: 100%;
+    height: 100%;
     position: relative;
-    float: right;
-    background-color: #ccc; }
-  #sidr-bttn span,
+    left: 5px;
+    top: 2px; }
   #mobile-nav span {
     display: block;
     position: relative;
@@ -1440,9 +1431,7 @@ header nav {
     transition: all 0.3s cubic-bezier(0.7, 0, 0.36, 0.63);
     width: 30px;
     top: 15px; }
-    #sidr-bttn span:before, #sidr-bttn span:after,
-    #mobile-nav span:before,
-    #mobile-nav span:after {
+    #mobile-nav span:before, #mobile-nav span:after {
       content: "";
       display: block;
       background: #261D19;
@@ -1451,78 +1440,20 @@ header nav {
       position: absolute;
       width: 30px;
       transition: all 0.3s cubic-bezier(0.7, 0, 0.36, 0.63); }
-    #sidr-bttn span:before,
     #mobile-nav span:before {
       top: 8px; }
-    #sidr-bttn span:after,
     #mobile-nav span:after {
       top: -8px; }
-
-.sidr-animating .wrapper--header {
-  position: absolute; }
-
-h2.sidr-class-visually-hidden {
-  position: absolute !important;
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px); }
-
-.sidr-class-contextual,
-.sidr-class-main-nav__sub {
-  display: none !important; }
-
-#mobile-nav {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  width: 40px;
-  height: 40px; }
-  #mobile-nav.hidden {
-    display: none; }
-  #mobile-nav #mobile-button {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    left: 5px;
-    top: 2px; }
-    #mobile-nav #mobile-button.on span {
-      background: transparent; }
-      #mobile-nav #mobile-button.on span:before, #mobile-nav #mobile-button.on span:after {
-        top: 0; }
-      #mobile-nav #mobile-button.on span:before {
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg); }
-      #mobile-nav #mobile-button.on span:after {
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg); }
-
-body .responsive-nav {
-  display: block;
-  overflow: hidden; }
-
-body.sidr-open #header .responsive-nav {
-  left: 20px; }
-
-body.sidr-open #header .site-header__logo {
-  opacity: 0; }
-
-body.sidr-open #header #sidr-bttn {
-  margin-left: 0; }
-  body.sidr-open #header #sidr-bttn span {
+  #mobile-nav .on span {
     background: transparent; }
-    body.sidr-open #header #sidr-bttn span:before, body.sidr-open #header #sidr-bttn span:after {
+    #mobile-nav .on span:before, #mobile-nav .on span:after {
       top: 0; }
-    body.sidr-open #header #sidr-bttn span:before {
+    #mobile-nav .on span:before {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg); }
-    body.sidr-open #header #sidr-bttn span:after {
+    #mobile-nav .on span:after {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg); }
-
-.sidr-animating .wrapper--header {
-  position: absolute; }
 
 #block-bear-coat-main-menu.mobile {
   float: none; }
@@ -2057,13 +1988,6 @@ h1.page-title {
     clear: both; }
   .layout-two-sidebars .sidebar-second:last-child {
     margin-right: 0%; }
-  body.has-sidr header nav {
-    position: static !important;
-    clip: auto;
-    height: auto;
-    width: auto;
-    overflow: auto;
-    overflow: visible; }
   header nav ul.main-nav {
     margin: 30px 30px 0 0; }
   header nav ul.main-nav li.parent {
@@ -2086,7 +2010,7 @@ h1.page-title {
     margin-right: 0%; }
   .wrapper--header.compressed header nav ul.main-nav {
     margin: 5px 0; }
-  body .responsive-nav {
+  #mobile-nav {
     display: none; }
   #block-pennlib-account-menu {
     display: block;

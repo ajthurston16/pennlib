@@ -28,11 +28,3 @@ semantic_ui:
   js:
     libraries/semantic_ui/dist/semantic.js: {}
     js/bear_coat_semantic_ui.js: {}
-
-sidr:
-  version: 1.x
-  css:
-    base:
-      libraries/sidr/dist/stylesheets/jquery.sidr.light.css: {}
-  js:
-    libraries/sidr/dist/jquery.sidr.js: {}

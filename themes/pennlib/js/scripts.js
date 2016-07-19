@@ -48,8 +48,7 @@
             .removeClass('focus');
         });
 
-      // build a simple responsive nan if SIDR not enabled
-      // Comment out also if using any other responsive nav plugin
+      // Build a simple responsive hamburger menu
       $.fn.clickToggle = function (func1, func2) {
         var funcs = [func1, func2];
         this.data('toggleclicked', 0);
@@ -61,43 +60,25 @@
         });
         return this;
       };
-      if (!$('body').hasClass('has-sidr')) {
-        var $nav = $('#block-pennlib-main-menu', context);
-        $nav.once().prepend('<div id="mobile-nav" class="hidden"><a id="mobile-button" href="javascript:;"><span></span></a></div>');
-        var $mobileNav = $('#mobile-nav');
-        var $mobileButton = $('#mobile-button');
-        var $mobileMenu = $('ul.main-nav');
-        $(window).on('load resize', function () {
-          if ($(window).width() < 800) {
-            $nav.addClass('mobile');
-            $mobileNav.removeClass('hidden');
-          }
-          else {
-            $nav.removeClass('mobile');
-            $mobileNav.addClass('hidden');
-          }
-        });
-        $mobileNav.find($mobileButton).clickToggle(function () {
-          $(this).addClass('on');
-          $mobileMenu.addClass('show');
-        }, function () {
-          $(this).removeClass('on');
-          $mobileMenu.removeClass('show');
-        });
-      }
-
-      // SIDR Menu
-      if ($.fn.sidr instanceof Function) {
-        $('#sidr-bttn').css('display', '').sidr({
-          name: 'sidr-main',
-          source: '.wrapper--nav nav',
-          side: 'right',
-        });
-      }
-      $(window).on('resize', function () {
-        if ($('body').hasClass('sidr-open') && $(window).width() >= 800) {
-          $.sidr('close', 'sidr-main');
+      var $nav = $('#block-mainnav-2', context);
+      $nav.once().prepend('<div id="mobile-nav"><a id="mobile-button" href="javascript:;"><span></span></a></div>');
+      var $mobileNav = $('#mobile-nav');
+      var $mobileButton = $('#mobile-button');
+      var $mobileMenu = $('ul.main-nav');
+      $(window).on('load resize', function () {
+        if ($(window).width() < 800) {
+          $nav.addClass('mobile');
         }
+        else {
+          $nav.removeClass('mobile');
+        }
+      });
+      $mobileNav.find($mobileButton).clickToggle(function () {
+        $(this).addClass('on');
+        $mobileMenu.addClass('show');
+      }, function () {
+        $(this).removeClass('on');
+        $mobileMenu.removeClass('show');
       });
 
       /* to generate the dropdown from the view button when it is clicked - so adding a class 'active' to it
