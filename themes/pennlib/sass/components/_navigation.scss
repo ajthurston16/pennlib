@@ -52,7 +52,7 @@ header nav {
       display:block;
       &:hover,
       &:focus,
-      &.is-active {
+      &.is-hovered {
         background: $white;
         color: $orange;
         text-decoration: none;

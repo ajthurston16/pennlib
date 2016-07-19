@@ -15,18 +15,22 @@ header {
     background-color: $gulf-blue;
   }
 }
-
-.site-header{
-  padding: 15px;
-}
 .site-header__logo{
   float:left;
+  width: 28rem;
   img{
-    max-width: 290px;
-    height: auto;
+    width: 27rem;
+    height: 4.1rem;
+    background-image: url(/sites/default/files/images/logos/pennlibrarielogoblack@2x.png); 
+    background-size: 100% auto;
+    background-repeat: no-repeat;
   }
+  position: relative;
+  top: 2rem;
 }
-
+.front-page .site-header__logo img {
+  background-image: url(/sites/default/files/images/logos/homepagelogowhite@2x.png); 
+}
 #block-bear-skin-branding {
   padding: 10px 0 20px 0;
   margin-right: 30px;
@@ -46,4 +50,8 @@ body:not(.front-page) {
   .wrapper--main {
     margin-top: -3.25em;
   }
+}
+#top-nav-contact-us, #top-nav-logout {
+  position: relative;
+  top: .5rem;
 }
