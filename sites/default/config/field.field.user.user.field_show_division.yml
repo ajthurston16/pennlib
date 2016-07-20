@@ -1,0 +1,24 @@
+uuid: 08d76da9-6bc4-4ac8-aa36-c5df64466b2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_show_division
+  module:
+    - user
+id: user.user.field_show_division
+field_name: field_show_division
+entity_type: user
+bundle: user
+label: 'Show Division in Staff Directory Brief View'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

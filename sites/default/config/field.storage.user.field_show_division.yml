@@ -1,11 +1,11 @@
-uuid: 44603b31-92da-4fd2-8e9a-995389634ed2
+uuid: a492ae5e-f37a-45ba-9a61-c15ae006160f
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.field_division_brief_mode
-field_name: field_division_brief_mode
+id: user.field_show_division
+field_name: field_show_division
 entity_type: user
 type: boolean
 settings: {  }

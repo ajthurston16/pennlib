@@ -9,7 +9,6 @@ dependencies:
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_division
-    - field.field.user.user.field_division_brief_mode
     - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
@@ -18,7 +17,6 @@ dependencies:
     - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
-    - field.field.user.user.field_library_suppress
     - field.field.user.user.field_middle_name
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
@@ -26,6 +24,8 @@ dependencies:
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_show_division
+    - field.field.user.user.field_show_library
     - field.field.user.user.field_subject_specialty
     - field.field.user.user.field_team
     - field.field.user.user.field_technology_specialty
@@ -60,7 +60,7 @@ content:
         linked: 0
   field_division:
     type: entity_reference_label
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       link: false
@@ -70,15 +70,6 @@ content:
         advanced:
           text: ''
         linked: 0
-  field_division_brief_mode:
-    type: boolean
-    weight: 6
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
   field_email_address:
     type: email_mailto
     weight: 10
@@ -101,25 +92,34 @@ content:
     third_party_settings: {  }
   field_library:
     type: entity_reference_label
-    weight: 7
+    weight: 8
     label: hidden
     settings:
       link: true
-    third_party_settings: {  }
-  field_library_suppress:
-    type: boolean
-    weight: 8
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
     third_party_settings: {  }
   field_office:
     type: field_collection_items
     weight: 9
     label: hidden
     settings: {  }
+    third_party_settings: {  }
+  field_show_division:
+    type: boolean
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_show_library:
+    type: boolean
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
   field_title:
     type: text_trimmed
