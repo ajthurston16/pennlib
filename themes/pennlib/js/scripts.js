@@ -22,16 +22,6 @@
     attach: function (context, settings) {
       context = context || document;
       settings = settings || Drupal.settings;
-      //
-      //$(window).on('load scroll', function () {
-      //  var $top = $(window).scrollTop();
-      //  if ($top >= 50) {
-      //    $('.wrapper--header').addClass('compressed');
-      //  }
-      //  else {
-      //    $('.wrapper--header').removeClass('compressed');
-      //  }
-      //});
 
       //addclass to search wrapper on focus
       var $searchForm = $('#search-block-form', context);
@@ -65,14 +55,6 @@
       var $mobileNav = $('#mobile-nav');
       var $mobileButton = $('#mobile-button');
       var $mobileMenu = $('ul.main-nav');
-      $(window).on('load resize', function () {
-        if ($(window).width() < 800) {
-          $nav.addClass('mobile');
-        }
-        else {
-          $nav.removeClass('mobile');
-        }
-      });
       $mobileNav.find($mobileButton).clickToggle(function () {
         $(this).addClass('on');
         $mobileMenu.addClass('show');

@@ -15,6 +15,9 @@ header {
     background-color: $gulf-blue;
   }
 }
+.site-header {
+  min-height: 5em;
+}
 .site-header__logo{
   float:left;
   width: 28rem;
