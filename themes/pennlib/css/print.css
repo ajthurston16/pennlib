@@ -1119,7 +1119,7 @@ header nav {
     display: block;
     padding: 0;
     margin: 0;
-    z-index: 9999; }
+    z-index: 10; }
     header nav .main-nav:before, header nav .main-nav:after {
       content: '';
       display: table; }
