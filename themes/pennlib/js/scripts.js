@@ -158,6 +158,18 @@
         return 'null';
       }
 
+      /**
+       * Menubar: top-level link stays white when you hover on dropdown panel
+      **/
+      $(".main-nav > .main-nav__item  > ul.main-nav__sub")
+        .on("mouseover", function () {
+          $(this).parent('li').addClass('is-hovered');
+        })
+        .on("mouseleave", function () {
+          $(this).parent('li').removeClass('is-hovered');
+        });
+
+
     } //end attach
   }; //end Drupal.behaviors.pennlib
 
