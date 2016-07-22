@@ -13,7 +13,7 @@ dependencies:
 id: footerorrerycredits
 theme: pennlib
 region: footer
-weight: -7
+weight: -8
 provider: null
 plugin: 'block_content:67f93f36-5807-436c-99c4-1faa847d7c8a'
 settings:
