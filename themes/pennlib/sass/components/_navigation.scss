@@ -201,12 +201,11 @@ header nav {
     }
   } //end ul.main-nav__sub
 } //end header nav
+//single column menus - probably temporary
 header nav .main-nav {
   > #main-nav-courseware.parent, > #main-nav-tools.parent {
-
     > .main-nav__sub  {
       padding: 1.4em;
-
       > .main-nav__item {
         display: block;
         margin-bottom: 0;
