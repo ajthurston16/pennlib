@@ -10,7 +10,6 @@ dependencies:
     - field.storage.user.field_last_name
     - field.storage.user.user_picture
     - image.style.thumbnail
-    - system.menu.main-nav
     - taxonomy.vocabulary.subject_specialities
   module:
     - field_collection
@@ -1039,7 +1038,7 @@ display:
       path: research/subject-specialists
       display_description: ''
       menu:
-        type: normal
+        type: none
         title: 'Subject Specialists'
         description: ''
         expanded: false
@@ -1047,7 +1046,6 @@ display:
         weight: 0
         context: '0'
         menu_name: main-nav
-        enabled: true
     cache_metadata:
       max-age: -1
       contexts:
