@@ -686,7 +686,6 @@ body {
 a {
   color: #0782c1;
   text-decoration: none;
-  transition: color 0.25s ease;
   -webkit-tap-highlight-color: transparent; }
   a:hover {
     color: #57a1c7; }
@@ -1125,32 +1124,76 @@ header nav {
       display: table; }
     header nav .main-nav:after {
       clear: both; }
+    header nav .main-nav #main-nav-library-info > .main-nav__sub, header nav .main-nav #main-nav-research > .main-nav__sub, header nav .main-nav #main-nav-collections > .main-nav__sub {
+      width: 38.9rem; }
+    header nav .main-nav #main-nav-facilities > .main-nav__sub {
+      width: 56rem; }
+    header nav .main-nav #main-nav-courseware > .main-nav__sub {
+      width: 24rem; }
+    header nav .main-nav #main-nav-tools > .main-nav__sub {
+      width: 20rem; }
     header nav .main-nav > .parent {
       margin: 0;
       position: relative;
       display: inline-block;
       height: 100%;
       display: none; }
-      header nav .main-nav > .parent a {
-        padding: 10px 0; }
       header nav .main-nav > .parent:hover ul.main-nav__sub {
         top: 37px;
         opacity: 1;
         visibility: visible;
         z-index: 10; }
-    header nav .main-nav li h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: normal;
-      letter-spacing: .05rem; }
-    header nav .main-nav li a {
-      text-decoration: none;
-      text-align: center;
-      display: block; }
-      header nav .main-nav li a:hover, header nav .main-nav li a:focus, header nav .main-nav li a.is-hovered {
-        background: #ffffff;
-        color: #c60;
-        text-decoration: none; }
+      header nav .main-nav > .parent:hover, header nav .main-nav > .parent:focus, header nav .main-nav > .parent.is-hovered {
+        background: #ffffff; }
+        header nav .main-nav > .parent:hover h3 a, header nav .main-nav > .parent:focus h3 a, header nav .main-nav > .parent.is-hovered h3 a {
+          color: #c60;
+          text-decoration: none; }
+      header nav .main-nav > .parent h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: .05rem; }
+      header nav .main-nav > .parent h4 {
+        font-size: 1em;
+        font-style: oblique;
+        font-weight: bold;
+        margin: 0;
+        padding: 0 0 0.546rem 0.7rem; }
+      header nav .main-nav > .parent a {
+        padding: 10px 0;
+        text-decoration: none;
+        text-align: center;
+        display: block; }
+      header nav .main-nav > .parent > ul.main-nav__sub {
+        padding: 1em 0;
+        box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d; }
+        header nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item {
+          left: 0px;
+          position: relative;
+          top: 0;
+          display: inline-block;
+          vertical-align: top;
+          *vertical-align: top;
+          *zoom: 1;
+          *display: inline;
+          width: 18rem;
+          padding: 0 0 0 1.4rem;
+          border-left: dotted 1px #bbb; }
+          header nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item:first-child {
+            border-left: none; }
+          header nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item ul.main-nav__sub {
+            opacity: 1;
+            position: relative;
+            top: 0;
+            width: 16rem;
+            min-width: 16rem;
+            box-shadow: none;
+            padding: 0; }
+            header nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item ul.main-nav__sub li {
+              width: 100%;
+              display: block;
+              margin-bottom: 0;
+              padding: .546rem .7rem; }
     header nav .main-nav.show > .parent {
       display: block;
       width: 100%;
@@ -1193,20 +1236,44 @@ header nav {
         text-align: left;
         padding: 0;
         color: #000; }
-        header nav ul.main-nav__sub li.main-nav__item a:hover {
-          color: #c60; }
-        header nav ul.main-nav__sub li.main-nav__item a:active {
-          color: #c60; }
-        header nav ul.main-nav__sub li.main-nav__item a:focus {
-          color: #c60; }
         header nav ul.main-nav__sub li.main-nav__item a:hover, header nav ul.main-nav__sub li.main-nav__item a:focus {
           background: transparent;
-          text-decoration: underline; }
+          text-decoration: none; }
         header nav ul.main-nav__sub li.main-nav__item a.is-active {
           background: transparent; }
       header nav ul.main-nav__sub li.main-nav__item:last-child {
         margin-bottom: 0; }
+      header nav ul.main-nav__sub li.main-nav__item .main-nav__sub {
+        border-left: none; }
+        header nav ul.main-nav__sub li.main-nav__item .main-nav__sub > .main-nav__item:hover {
+          background: #387bbe;
+          background-image: linear-gradient(#5393c5, #6facd5);
+          border: 1px solid #2373a5;
+          cursor: pointer; }
+          header nav ul.main-nav__sub li.main-nav__item .main-nav__sub > .main-nav__item:hover a {
+            color: #fff;
+            text-shadow: 0 1px 1px #337395;
+            text-decoration: none; }
 
+header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub {
+  padding: 1.4em; }
+  header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item {
+    display: block;
+    margin-bottom: 0;
+    padding: 0.546rem 0.7rem;
+    width: 100%;
+    border-left: none; }
+    header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item:hover {
+      background: #387bbe;
+      background-image: linear-gradient(#5393c5, #6facd5);
+      border: 1px solid #2373a5;
+      cursor: pointer; }
+      header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover a, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item:hover a {
+        color: #fff;
+        text-shadow: 0 1px 1px #337395;
+        text-decoration: none; }
+
+/*main-nav-tools*/
 #mobile-nav {
   width: 3em;
   height: 2.75em;
@@ -1547,6 +1614,10 @@ h1.page-title {
     margin: 0 30px; }
   header nav .main-nav > .parent {
     display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1;
+    display: inline;
     zoom: 1;
     float: left;
     display: inline;
