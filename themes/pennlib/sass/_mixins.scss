@@ -210,13 +210,15 @@
   @include topnavbutton;
   @include topnavbuttonnavygradient; 
   @include topnavbuttonnavytext;
-  @include topnavbuttonnavyboxshadow;     
+  @include topnavbuttonnavyboxshadow; 
+  border: none; 
   }
 @mixin topnavbuttonnavyinvert {
   @include topnavbutton;
   @include topnavbuttonnavygradientinvert; 
   @include topnavbuttonnavytext;
-  @include topnavbuttonnavyboxshadow;     
+  @include topnavbuttonnavyboxshadow; 
+  border: none;     
   }
 @mixin topnavbuttonnavygradientinvert {
   background: #2a2e35;
@@ -249,6 +251,7 @@
   @include topnavbutton; 
   @include topnavbuttongraygradientinvert;  
   @include topnavbuttongraytext;  
+  border: solid 1px #ccc; 
   }
 @mixin topnavbuttongray {
   @include topnavbutton; 

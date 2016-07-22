@@ -860,7 +860,8 @@ blockquote {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a5b82', endColorstr='#020e29', GradientType=0 );
   color: #fff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4);
-  box-shadow: 0px 1px 1px #5e6487, inset 0px 1px 0px 1px rgba(130, 140, 192, 0.5); }
+  box-shadow: 0px 1px 1px #5e6487, inset 0px 1px 0px 1px rgba(130, 140, 192, 0.5);
+  border: none; }
   .front-page #top-nav-contact-us a:hover, .front-page #top-nav-contact-us a:focus, .front-page #top-nav-logout a:hover, .front-page #top-nav-logout a:focus {
     text-decoration: none; }
   .front-page #top-nav-contact-us a:hover, .front-page #top-nav-contact-us a:focus, .front-page #top-nav-logout a:hover, .front-page #top-nav-logout a:focus {
@@ -884,7 +885,8 @@ blockquote {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a2e35', endColorstr='#6d789d',GradientType=0 );
     color: #fff;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4);
-    box-shadow: 0px 1px 1px #5e6487, inset 0px 1px 0px 1px rgba(130, 140, 192, 0.5); }
+    box-shadow: 0px 1px 1px #5e6487, inset 0px 1px 0px 1px rgba(130, 140, 192, 0.5);
+    border: none; }
     .front-page #top-nav-contact-us a:hover:hover, .front-page #top-nav-contact-us a:hover:focus, .front-page #top-nav-contact-us a:focus:hover, .front-page #top-nav-contact-us a:focus:focus, .front-page #top-nav-logout a:hover:hover, .front-page #top-nav-logout a:hover:focus, .front-page #top-nav-logout a:focus:hover, .front-page #top-nav-logout a:focus:focus {
       text-decoration: none; }
 
@@ -932,7 +934,8 @@ blockquote {
     background: linear-gradient(to bottom, #e0e0e0 0%, #eeefef 50%, #f6f6f6 64%, #fcfcfc 76%, #fefefe 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#fefefe',GradientType=0 );
     color: #000;
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4); }
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4);
+    border: solid 1px #ccc; }
     #top-nav-contact-us a:hover:hover, #top-nav-contact-us a:hover:focus, #top-nav-contact-us a:focus:hover, #top-nav-contact-us a:focus:focus, #top-nav-logout a:hover:hover, #top-nav-logout a:hover:focus, #top-nav-logout a:focus:hover, #top-nav-logout a:focus:focus {
       text-decoration: none; }
 
