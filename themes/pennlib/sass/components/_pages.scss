@@ -16,6 +16,10 @@ body {
   	box-shadow: none;
   }
 }
+h1.page-title {margin-top:0;}
 .page-title {
   color: $page-title-font-color;
+}
+#block-pennlib-page-title {
+  margin-top: -.7rem;
 }

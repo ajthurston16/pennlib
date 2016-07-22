@@ -1,188 +1,251 @@
-body.has-sidr {
-  header nav {
-    @include bear-element-invisible;
-    @include breakpoint($breakpoint-medium-width) {
-      @include bear-element-invisible-off;
-      overflow: visible;
-    }
-  }
-}
-
 header nav {
-  outline: 0;
-  margin-left: 20px;
   @include content-container;
+  outline: 0;
+
   .nolink {
     cursor: pointer;
   }
-  ul.main-nav {
+
+  .main-nav {
+    @include cf();
     position: relative;
-    margin: 8px 0 0 0;
-    transition: margin .3s ease-in-out;
+    top: 2.75em;
+    display: block;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+
     @include breakpoint($breakpoint-medium-width) {
-      margin: 30px 30px 0 0;
+      top: 0;
+      margin: 0 30px;
     }
-    > li.main-nav__item {
+    #main-nav-library-info, #main-nav-research, #main-nav-collections{
+      > .main-nav__sub {
+        width: 38.9rem;
+      }
+    }
+    #main-nav-facilities {
+      > .main-nav__sub {
+        width: 56rem;
+      }
+    }
+
+    #main-nav-courseware { 
+      > .main-nav__sub {
+        width: 24rem;
+      }
+    }
+    #main-nav-tools { 
+      > .main-nav__sub {
+        width: 20rem;
+      }
+    }
+
+    // Styling for top-level (landing page) links
+    > .parent {
       margin: 0;
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      display: none;
+
+      @include breakpoint($breakpoint-medium-width) {
+        @include inline-block;
+        @include col(1/6, $gutter:0);
+      }
+
+      
       &:hover {
         ul.main-nav__sub {
           top: 37px;
           opacity: 1;
           visibility: visible;
           z-index: 10;
-        }
-        > a {
-          border: 1px solid $silver;
-          background: $white;
-          color: $orange;
-        }
+          }
       }
-    }
-    li a {
-      text-decoration: none;
-      //transition: all .2s ease-in-out;
-      text-align:center;
-      display:block;
+    
       &:hover,
       &:focus,
-      &.is-active {
-        background: $white;
-        color: $orange;
-        text-decoration: none;
+      &.is-hovered {
+          background: $white;
+          h3 a {
+            color: $orange;
+            text-decoration: none;
+          }
+        }
+    
+      h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: .05rem;
       }
-    }
-  }
-  ul.main-nav {
-    @include cf();
-    height: 2.75em;
-    li.parent {
-      position: relative;
-      display: inline-block;
-      height: 100%;
-      @include breakpoint($breakpoint-medium-width) {
-        @include col(1/6, $gutter:0);
+      h4 {
+          font-size: 1em;
+          font-style: oblique;
+          font-weight: bold;
+          margin: 0;
+          padding: 0 0 0.546rem 0.7rem;
       }
       a {
-        height: 100%;
         padding: 10px 0;
+        text-decoration: none;
+        text-align:center;
+        display:block;
       }
-      &:hover {
-        &:after {
-          opacity: .8;
-          bottom: 5px;
+      > ul.main-nav__sub {
+        padding: 1em 0;
+        box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d;
+        > li.main-nav__item {
+          left: 0px; 
+          position:relative;
+          top: 0;
+          @include inline-block;
+          width: 18rem;
+          padding: 0 0 0 1.4rem;
+          border-left: dotted 1px #bbb;
+          &:first-child {
+            border-left: none;
+          }
+          ul.main-nav__sub {
+            opacity: 1; 
+            position: relative;
+            top:0;
+            width: 16rem;
+            min-width: 16rem;
+            box-shadow: none;
+            padding: 0;
+            li {
+              width: 100%;
+              display: block;
+              margin-bottom: 0;
+              padding: .546rem .7rem;
+            }
+          }
         }
       }
+    }//end parent
+
+    // Mobile top-level links
+    &.show {
+      > .parent {
+        display: block;
+        width: 100%;
+        background-color: white;
+        border-bottom: 1px solid $grey-skies;
+      }
+      li {
+        a {
+          @include link-colors($black, $hover: $orange, $active: $orange, $focus: $orange);
+          text-align: left;
+          padding: 1em 2em;
+
+          &::after {
+            float: right;
+            content: '>'; //TODO: replace with arrow image
+          }
+        }
+      }
+      // Hide sub-menus in mobile nav.
       ul.main-nav__sub {
-        background: $white;
-        border: 0;
-        margin: 0;
-        padding: 20px 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 100px;
-        //transition: all .2s ease-in;
-        min-width: 200px;
-        opacity: 0;
-        visibility: hidden;
-        //@include box-shadow;
-        box-shadow: .17em .17em .17em #8d8d8d;
-        border-left: solid 1px $silver;
-        li.main-nav__item {
-          margin-bottom: 8px;
-          padding: 0 10px;
-          display: block;
+        display: none;
+      }
+    }
+  } //end .main-nav
+
+  ul.main-nav__sub {
+    background: $white;
+    border: 0;
+    margin: 0;
+    padding: 20px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: .17em .17em .17em #8d8d8d;
+    border-left: solid 1px $silver;
+    
+    li.main-nav__item {
+      margin-bottom: 8px;
+      padding: 0 10px;
+      display: block;
+      a {
+        text-align:left;
+        padding:0;
+        color: #000;
+        &:hover, &:focus {
+          background: transparent;
+          text-decoration: none;
+        }
+        &.is-active {
+          background: transparent;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .main-nav__sub {
+        border-left: none;
+        > .main-nav__item {
+            &:hover {
+              @include mainnavleafblue;
+              a {
+                @include blueactivegradienttext;
+              }
+            }
+         }
+       }
+    }
+  } //end ul.main-nav__sub
+} //end header nav
+//single column menus - probably temporary
+header nav .main-nav {
+  > #main-nav-courseware.parent, > #main-nav-tools.parent {
+    > .main-nav__sub  {
+      padding: 1.4em;
+      > .main-nav__item {
+        display: block;
+        margin-bottom: 0;
+        padding: 0.546rem 0.7rem;
+        width: 100%;
+        border-left:none;
+        &:hover {
+          @include mainnavleafblue;
           a {
-            text-align:left;
-            padding:0;
-            @include link-colors($black, $hover: $orange, $active: $orange, $focus: $orange);
-            &:hover, &:focus {
-              background: transparent;
-              text-decoration: underline;
-            }
-            &.is-active {
-              background: transparent;
-            }
-          }
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-        .main-nav__item {
-          text-transform: initial;
-          margin-bottom: 0;
-          &:hover,
-          &:focus,
-          &.active {
-            background: transparent;
-            color: $zivtech-blue;
-          }
-          &:after {
-            display: none;
+            @include blueactivegradienttext;
           }
         }
       }
     }
   }
-  .main-nav__sub {
-    li.parent > a:after,
-    li.parent:hover > a:after {
-      content: "";
-      height: 0;
-      width: 0;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 5px solid $zivtech-white;
-      @include align(v);
-      right: -5px;
-      bottom: 0;
-      left: inherit;
-      margin: 3px 0 0 0;
-      display: inline-block !important;
-      opacity: 1 !important;
-    }
-    li.parent:after {
-      display: none;
-    }
-  }
-  .main-menu--level-three {
-    top: -10px;
-  }
 }
-
-.wrapper--header.compressed {
-  header nav {
-    ul.main-nav {
-      @include breakpoint($breakpoint-medium-width) {
-        margin: 5px 0;
-      }
-    }
-  }
-}
-
-//********************************
-// Support for SIDR responsive NAV
-//********************************
-
-.sidr {
-  font-family: $body-text-font-family;
-}
-
-#sidr-bttn,
+/*main-nav-tools*/
+//***************
+// Hamburger icon
+//***************
 #mobile-nav {
-  // this is what we use for our responsive menu
   $span-transition: all .3s cubic-bezier(0.7, 0, 0.36, 0.63);
-  margin-left: 20px;
-  #responsive-menu-button {
-    display: block;
-    width: 45px;
-    height: 40px;
-    padding-left: 8px;
-    padding-top: 3px;
-    position: relative;
-    float:right;
-    background-color: $silver;
+  width: 3em;
+  height: 2.75em;
+  float: right;
+  background-color: $silver;
+  display: block;
+  overflow: hidden;
+
+  @include breakpoint($breakpoint-medium-width) {
+    display: none;
   }
+
+  #mobile-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
   span {
     display: block;
     position: relative;
@@ -190,7 +253,8 @@ header nav {
     height: 5px;
     transition: $span-transition;
     width: 30px;
-    top: 15px;
+    top: 17px;
+    margin: 0 auto;
     &:before, &:after {
       content: "";
       display: block;
@@ -208,82 +272,8 @@ header nav {
       top: -8px;
     }
   }
-}
 
-.sidr-animating {
-  .wrapper--header {
-    position: absolute;
-  }
-}
-
-h2.sidr-class-visually-hidden {
-  @include bear-element-invisible;
-}
-
-.sidr-class-contextual,
-.sidr-class-main-nav__sub {
-  display: none !important;
-}
-
-//***********************
-// Regular responsive NAV
-//***********************
-#mobile-nav {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  &.hidden {
-    display: none;
-  }
-  #mobile-button {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    left: 5px;
-    top: 2px;
-    &.on {
-      span {
-        background: transparent;
-        &:before,
-        &:after {
-          top: 0;
-        }
-        &:before {
-          transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
-    }
-  }
-}
-
-body
-.responsive-nav{
-  display:block;
-  overflow:hidden;
-
-  @include breakpoint($breakpoint-medium-width) {
-    display: none;
-  }
-}
-
-// Extra SIDR handling
-body.sidr-open {
-  #header {
-    .responsive-nav {
-      left: 20px;
-    }
-    .site-header__logo {
-      opacity: 0;
-    }
-  }
-  #header #sidr-bttn {
-    margin-left: 0;
+  .on {
     span {
       background: transparent;
       &:before,
@@ -298,115 +288,10 @@ body.sidr-open {
       }
     }
   }
-}
+} //end #mobile-nav
 
-.sidr-animating {
-  .wrapper--header {
-    position: absolute;
-  }
-}
 
-#block-bear-coat-main-menu {
-  &.mobile {
-    float: none;
-    ul.main-nav {
-      position: absolute;
-      top: 35px;
-      right: 18px;
-      background: white;
-      border-radius: 4px;
-      width: 200px !important;
-      padding: 10px !important;
-      box-shadow: 0 0 5px #999;
-      opacity: 0;
-      transition: opacity .3s ease-in-out;
-      @include bear-element-invisible;
-      &:before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid $zivtech-dark;
-        position: absolute;
-        right: 7px;
-        top: -8px;
-      }
-      li {
-        clear: both;
-        display: block;
-        padding: 0;
-        &:after {
-          display: none !important;
-        }
-        a {
-          background: transparent !important;
-          transition: none;
-          color: $zivtech-dark;
-          &:hover,
-          &:focus,
-          &.active {
-            color: $zivtech-blue !important;
-            text-decoration: none;
-          }
-        }
-      }
-      &.show {
-        @include bear-element-invisible-off;
-        position: absolute !important;
-        opacity: 1;
-        overflow: visible;
-      }
-      .parent:hover ul {
-        @include bear-element-invisible-off;
-        position: relative;
-        border: 0;
-        top: 0;
-        opacity: 1;
-        min-width: auto;
-        padding: 0 0 0 25px;
-        background: transparent;
-        li {
-          a {
-            text-transform: none;
-            color: $zivtech-dark;
-          }
-        }
-      }
-    }
-  }
-}
 
-//******
-// Pager
-//******
 
-.pager-wrapper {
-  position: relative;
-  width: 100%;
-  display: inline-block;
-  min-height: 50px;
-  margin: 30px 0;
-}
 
-//************
-// Breadcrumbs
-//************
 
-nav.ui.breadcrumb {
-  padding: 20px 0;
-  color: rgba(0, 0, 0, 0.4);
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    display: inline;
-  }
-  a {
-    @include link-colors($zivtech-dark, $hover: $zivtech-blue, $active: $zivtech-pale, $focus: $zivtech-pale);
-  }
-  i:last-child {
-    display: none;
-  }
-}

@@ -1,11 +1,11 @@
-uuid: afc89b06-4fb7-4a6c-bc6e-945232b8c1c3
+uuid: 6827aaea-9ac2-4058-b1e7-ff718cf99107
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.field_library_suppress
-field_name: field_library_suppress
+id: user.field_show_library
+field_name: field_show_library
 entity_type: user
 type: boolean
 settings: {  }

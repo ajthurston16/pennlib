@@ -20,13 +20,20 @@
             item.below ? 'parent'
           ]
         %}
+        {# Give top-level items unique IDs for styling. #}
         {% if menu_level == 0 %}
           {% set itemid = 'main-nav-' ~ item.title|lower|replace(' ', '-') %}
         {% endif %}
-        <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
-          {{ link(item.title, item.url) }}
-
-          {% if item.below %}
+        {# Use heading tags (from h3 to h6) for structure in parent items, but not child/"leaf" items. #}
+        {% if menu_level < 4 and item.below %}
+          <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
+            <h{{ menu_level + 3 }}>{{ link(item.title, item.url) }}</h{{ menu_level + 3 }}>
+        {% else %}
+          <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
+             {{ link(item.title, item.url) }}
+        {% endif %}
+      
+        {% if item.below %}
               {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
             {% endif %}
         </li>

@@ -26,6 +26,7 @@
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.4",
     "jshint-stylish": "^2.0.1",
+    "sassier-buttons": "^1.0.0",
     "yargs": "^3.16.1"
   },
   "scripts": {

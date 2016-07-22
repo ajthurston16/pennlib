@@ -24,8 +24,12 @@ body {
 
 // Including our mixin here for easier changes
 @mixin layout-padding {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 1.9rem;
+  padding-right: 1.9rem;
+}
+@mixin layout-row-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 //****************************
@@ -44,9 +48,13 @@ body {
 
 .site-header,
 .site-main,
-#footer,
-#breadcrumb {
+#footer {
   @include cf;
+  max-width: $site-max-width;
+  margin: 0 auto;
+}
+#breadcrumb {
+  @include cf-no-table;
   max-width: $site-max-width;
   margin: 0 auto;
 }
@@ -70,8 +78,7 @@ body.page-panels {
   }
   .site-main {
     max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    @include layout-padding;
   }
 }
 .panel-display {
@@ -79,7 +86,7 @@ body.page-panels {
     @include cf;
     max-width: $site-max-width;
     margin: 0 auto;
-    @include layout-padding;
+    @include layout-row-padding;
   }
   &.empty-right,
   &.empty-left {
@@ -121,21 +128,20 @@ body.fluid-bear {
   h1.main__title,
   .breadcrumbs {
     @include breakpoint($breakpoint-to-max-width) {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 1.9rem;
+      padding-right: 1.9rem;
     }
   }
   .panel-display {
     .row {
-      padding-left: 20px;
-      padding-right: 20px;
+      @include layout-row-padding;
       max-width: 100%;
     }
     &.empty-right,
     &.empty-left {
       .column.center {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 1.9rem;
+        padding-right: 1.9rem;
       }
     }
     &.panel-display--three-column,
@@ -155,7 +161,7 @@ body.fluid-bear {
       }
     }
     .site-main {
-      padding: 0 20px;
+      @include layout-padding;
     }
   }
 }

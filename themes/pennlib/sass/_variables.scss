@@ -1,6 +1,12 @@
 // PennLib Library colors
 //For Semantics use : http://chir.ag/projects/name-that-color/
 
+//ourlinks
+$contentlink: #0782c1;
+$contentlinkhover: #57a1c7;
+$breadcrumblink: #57a1c7;
+$breadcrumblinkhover: #4598cb;
+
 //blues
 $navy: #000033;
 $gulf-blue: #031b51;
@@ -9,13 +15,14 @@ $danube: #619fcd;
 $baby-blue: #A2D1D8;
 
 //whites and greys
-$black: #000000;
-$silver: #cccccc;
+$black: #000;
+$silver: #ccc;
 $grey: $silver;
-$concrete: #F2F2F2;
+$concrete: #f2f2f2;
+$boxheaderbg: #eee;
 $grey-skies: #d2d5d8;
 $gallery: #eeeeee;
-$ghost-white: #F8F8F8;
+$ghost-white: #f8f8f8;
 $white-lilac: #F2F2FA;
 $white: #ffffff;
 
@@ -25,7 +32,7 @@ $comet: rgba(82,93,133,.85);
 
 //yellows
 $hokey-pokey: #C7B422;
-$cream: #FFFFCC;
+$cream: #ffc;
 
 
 //reds and oranges
@@ -33,8 +40,8 @@ $persian-red:#D13737;
 $mahogany:#620606;
 $penn-red: #A30600;
 $red-orange: #b33300;
-$orange: #CC6600;
-
+$orange: #c60;
+$pennred: #900;
 
 
 
@@ -100,7 +107,10 @@ $alert-font-color: $black;
 //
 // ANIMATIONS
 //
-
+//OUR HEADERBUTTONS
+$topnavbutton-box-radius: .3rem;
+$topnavbuttonnavy-box-shadow: 0px 1px 1px rgba(94,100,135,1), inset 0px 1px 0px 1px rgba(130,140,192,.5);
+$topnavbuttonnavy-text-shadow: 0px -1px 0px rgba(000,000,000,0.1), 0px 1px 0px rgba(255,255,255, 0.4);
 
 //
 // BUTTONS
@@ -139,7 +149,7 @@ $bear-line-height: 1.5;
 $body-font-size: 14px;
 $base-font-size: $body-font-size;
 $sub-footer-font-size: 0.92 * $body-font-size;
-$h1-font-size: 2.0  * $body-font-size;
+$h1-font-size: 1.5  * $body-font-size;
 $h2-font-size: 1.7  * $body-font-size;
 $h3-font-size: 1.3  * $body-font-size;
 $h4-font-size: 1.2  * $body-font-size;
@@ -150,9 +160,9 @@ $proxima-nova: "proxima-nova",sans-serif;
 $header-font-family: $proxima-nova;
 $body-text-font-family: $proxima-nova;
 $base-font-color: $black;
-$page-title-font-color: $red-orange;
-$link-color: $chathams-blue;
-$link-color-hover: $orange;
+$page-title-font-color: $pennred;
+$link-color: $contentlink;
+$link-color-hover: $contentlinkhover;
 
 
 //

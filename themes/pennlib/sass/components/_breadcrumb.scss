@@ -1,6 +1,14 @@
 #breadcrumb {
+	font-weight: bold;
+	a, a:visited {
+		color: $breadcrumblink;
+	}
+	a:hover, a:visited:hover {
+		color: $breadcrumblinkhover;
+	}
 	ul {
 		padding: 0;
+		margin: .5rem 0 0 0;
 	}
 	li {
 		display: inline;

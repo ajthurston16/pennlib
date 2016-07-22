@@ -1,3 +1,15 @@
 .button {
 	@include bear-button-gradient($white-lilac, $grey-skies, $black, 0);
 }
+.front-page #top-nav-contact-us a, .front-page #top-nav-logout a{
+	@include topnavbuttonnavy;
+	&:hover, &:focus {
+    	@include topnavbuttonnavyinvert;
+    }
+}
+#top-nav-contact-us a, #top-nav-logout a{
+	@include topnavbuttongray;
+	&:hover, &:focus {
+    	@include topnavbuttongrayinvert;
+    }
+}

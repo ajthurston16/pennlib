@@ -8,7 +8,6 @@ dependencies:
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
     - field.field.user.user.field_division
-    - field.field.user.user.field_division_brief_mode
     - field.field.user.user.field_email_address
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
@@ -17,7 +16,6 @@ dependencies:
     - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
-    - field.field.user.user.field_library_suppress
     - field.field.user.user.field_middle_name
     - field.field.user.user.field_mobile
     - field.field.user.user.field_office
@@ -25,6 +23,8 @@ dependencies:
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_show_division
+    - field.field.user.user.field_show_library
     - field.field.user.user.field_subject_specialty
     - field.field.user.user.field_team
     - field.field.user.user.field_technology_specialty
@@ -246,6 +246,6 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
-  field_division_brief_mode: true
-  field_library_suppress: true
+  field_show_division: true
+  field_show_library: true
   member_for: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.account
   module:
+    - facets
     - system
   theme:
     - pennlib
@@ -13,7 +14,7 @@ _core:
 id: pennlib_account_menu
 theme: pennlib
 region: header
-weight: -4
+weight: -8
 provider: null
 plugin: 'system_menu_block:account'
 settings:
@@ -22,5 +23,11 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 1
-visibility: {  }
+  depth: 2
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
