@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_department
     - field.field.user.user.field_division
     - field.field.user.user.field_email_address
+    - field.field.user.user.field_emergency_contact
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
@@ -91,6 +92,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_emergency_contact:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
   field_fax:
     type: telephone_default
     weight: 19

@@ -1,0 +1,9 @@
+uuid: 6033ed79-80f4-4754-a046-fd2a31e76622
+langcode: en
+status: true
+dependencies: {  }
+name: 'Phone Types'
+vid: phone_types
+description: ''
+hierarchy: 0
+weight: 0

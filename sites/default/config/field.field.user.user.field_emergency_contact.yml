@@ -1,0 +1,23 @@
+uuid: 301fd211-c306-408b-9a30-ed01b47c40e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_emergency_contact
+  module:
+    - field_collection
+    - user
+id: user.user.field_emergency_contact
+field_name: field_emergency_contact
+entity_type: user
+bundle: user
+label: 'Emergency Contact Info'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

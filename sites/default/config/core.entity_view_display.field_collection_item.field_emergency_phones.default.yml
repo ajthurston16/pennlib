@@ -1,0 +1,36 @@
+uuid: a7eada48-d3b7-49d9-9391-48e70a7b4c6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_emergency_phones.field_phone
+    - field.field.field_collection_item.field_emergency_phones.field_phone_type
+    - field_collection.field_collection.field_emergency_phones
+  module:
+    - linked_field
+    - telephone
+id: field_collection_item.field_emergency_phones.default
+targetEntityType: field_collection_item
+bundle: field_emergency_phones
+mode: default
+content:
+  field_phone:
+    weight: 0
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+  field_phone_type:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          text: ''
+        linked: 0
+    type: entity_reference_label
+hidden: {  }
