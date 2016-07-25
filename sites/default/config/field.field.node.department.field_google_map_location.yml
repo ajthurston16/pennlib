@@ -10,7 +10,7 @@ field_name: field_google_map_location
 entity_type: node
 bundle: department
 label: 'Google Map Location'
-description: ''
+description: 'This is a non-formatted address for the Google Map to use.'
 required: false
 translatable: false
 default_value: {  }
