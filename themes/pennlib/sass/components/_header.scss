@@ -1,7 +1,7 @@
 header {
   background-color: $concrete;
   display: block;
-  .main-nav a {
+  .wrapper--nav .main-nav a {
     color: $white;
     &:hover {
       color: $silver;
@@ -54,7 +54,7 @@ body:not(.front-page) {
     margin-top: -3.25em;
   }
 }
-#top-nav-contact-us, #top-nav-logout {
+#top-nav-contact-us, #top-nav-login, #top-nav-logout {
   position: relative;
   top: .5rem;
 }

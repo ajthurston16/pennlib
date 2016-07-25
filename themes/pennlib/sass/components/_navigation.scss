@@ -1,4 +1,4 @@
-header nav {
+header .wrapper--nav nav {
   @include content-container;
   outline: 0;
 
@@ -30,14 +30,9 @@ header nav {
       }
     }
 
-    #main-nav-courseware { 
+    #main-nav-courseware, #main-nav-tools { 
       > .main-nav__sub {
         width: 24rem;
-      }
-    }
-    #main-nav-tools { 
-      > .main-nav__sub {
-        width: 20rem;
       }
     }
 
@@ -202,7 +197,14 @@ header nav {
   } //end ul.main-nav__sub
 } //end header nav
 //single column menus - probably temporary
+
 header nav .main-nav {
+  > #main-nav-tools.parent {
+    > .main-nav__sub  {
+      left:auto; 
+      right: 0;
+    }
+  }
   > #main-nav-courseware.parent, > #main-nav-tools.parent {
     > .main-nav__sub  {
       padding: 1.4em;

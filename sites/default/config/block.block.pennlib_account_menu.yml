@@ -1,6 +1,6 @@
 uuid: 1aaff212-0e82-4a03-9059-8928aa7df3ad
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.account
@@ -13,8 +13,8 @@ _core:
   default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
 id: pennlib_account_menu
 theme: pennlib
-region: header
-weight: -8
+region: '-1'
+weight: -7
 provider: null
 plugin: 'system_menu_block:account'
 settings:

@@ -209,14 +209,14 @@
 @mixin topnavbuttonnavy {
   @include topnavbutton;
   @include topnavbuttonnavygradient; 
-  @include topnavbuttonnavytext;
+  
   @include topnavbuttonnavyboxshadow; 
   border: none; 
   }
 @mixin topnavbuttonnavyinvert {
   @include topnavbutton;
   @include topnavbuttonnavygradientinvert; 
-  @include topnavbuttonnavytext;
+  
   @include topnavbuttonnavyboxshadow; 
   border: none;     
   }
