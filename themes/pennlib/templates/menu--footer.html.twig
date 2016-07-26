@@ -1,19 +1,19 @@
 {% import _self as menus %}
 
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, "") }}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, parentname) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('main-nav') }}>
+      <ul{{ attributes.addClass('footernav') }}>
     {% else %}
-      <ul class="main-nav__sub">
+      <ul class="footernav__sub">
     {% endif %}
       {% for item in items %}
         {%
           set classes = [
-            'main-nav__item',
+            'footernav__item',
             item.is_expanded ? 'expanded',
             item.is_collapsed ? 'collapsed',
             item.in_active_trail ? 'active',
@@ -21,23 +21,27 @@
           ]
         %}
         {# Give top-level items unique IDs for styling. #}
-        {% if menu_level == 0 %}
-          {% set itemid = 'main-nav-' ~ item.title|lower|replace(' ', '-') %}
+        {% if (menu_level == 1) or (menu_level == 2) %}
+          {% set itemid = 'footernav-' ~ parentname ~ menus.format_id(item.title) %}
         {% endif %}
         {# Use heading tags (from h3 to h6) for structure in parent items, but not child/"leaf" items. #}
-        {% if menu_level < 4 and item.below %}
+        {% if menu_level < 4 and menu_level > 0 and item.below %}
           <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
-            <h{{ menu_level + 3 }}>{{ link(item.title, item.url) }}</h{{ menu_level + 3 }}>
+            <h{{ menu_level + 2 }}>{{ link(item.title, item.url) }}</h{{ menu_level + 2 }}>
         {% else %}
           <li{{ item.attributes.addClass(classes).setAttribute('id', itemid) }}>
              {{ link(item.title, item.url) }}
         {% endif %}
       
         {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, menus.format_id(item.title) ~ "-") }}
             {% endif %}
         </li>
       {% endfor %}
     </ul>
   {% endif %}
+{% endmacro %}
+
+{% macro format_id(input) %}
+  {{- input|lower|replace({'.':'', ',':'', ' &':'', ':':'', '(':'', ')':'', ' ':'-' }) -}}
 {% endmacro %}

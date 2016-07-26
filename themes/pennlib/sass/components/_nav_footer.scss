@@ -1,14 +1,99 @@
-.site-nav-footer{
+.wrapper--nav-footer {
+	border-top: 1px solid $silver;
+	-webkit-box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
+    -moz-box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
+	box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
+}
+#footernav-col-one-giving.footernav__item a{
+    display:block;
+    background-image: url("/sites/default/files/images/givingbanner.png");
+    height: 23.192rem;
+    width: 13.4992rem;
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+    @include link-colors(#001f59, $hover: #001f59, $active: #001f59, $focus: #001f59);
+    padding-left:1rem;
+
+}
+
+footer {
   @include content-container;
+  padding: 1.6rem 1em;
+  display:none;
+  @include breakpoint($breakpoint-large-width) {
+    display: block;
+  }
+}
+.front-page footer nav .footernav > li {
+	width: 16%;
+	&:first-child {
+            @include inline-block;
+            border-left: none;
+    }
+    &:nth-child(2) {
+            border-left: dotted 1px #bbb;
+    }
+}
+ 
+footer nav {
+   h2 {display:none;}
+  .footernav {
+    list-style:none;
+    padding:0;
+    h3, h4 {
+      font-weight:bold;
+      
+    }
+    h3 {
+      font-size:1.3rem;
+      text-transform: uppercase;
+      margin: 0 0 1.4rem 0;
+      
+    }
+    h4 {
+      font-size:1em;
+      margin: .975rem 0 1.3rem;
+      font-style: oblique;
+      letter-spacing: .04rem;
+      
+    }
+    #footernav-about-general, #footernav-where-to-general, #footernav-research-teaching-general, #footernav-collections-general, #footernav-courseware-general, #footernav-tools-general, #footernav-contact-us-general {
+    	
+    	h4 {
+      		display:none;
+  		}
+    }
+    a {
+      @include link-colors(#000, $hover: #777, $active: #000, $focus: #777);
+    }
+    > li {
+      @include inline-block;
+      width: 19.6%;
 
-  padding: 0 1em;
-
-  ul {
-    margin: 0;
+      border-left: dotted 1px #bbb;
+      &:nth-child(2) {
+            border-left: none;
+          }
+      &:first-child {
+            display:none;
+          }
+      > a {
+        display:none;
+      }
+      > ul {
+        padding: 0 0 0 1.4rem !important;
+      }
+    }
+    li {
+      list-style:none;
+      ul.footernav__sub {
+        list-style:none;
+        padding:0;
+        .footernav__sub li.footernav__item {
+			  padding-bottom: 1.2rem;
+		}
+      }
+    }
   }
 }
 
-.wrapper--nav-footer {
-	border-top: 1px solid $silver;
-	box-shadow: inset 0 4.1667em 6.667em -1.667em rgba(20,44,55,.13);
-}

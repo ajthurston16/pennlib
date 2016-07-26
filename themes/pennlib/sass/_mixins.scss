@@ -73,7 +73,7 @@
 @mixin bear-button($color: $button-primary-color, $font-color: $button-primary-font-color, $radius: $button-border-radius, $padding: $button-padding) {
   @include bear-appearance(none);
   position: relative;
-  display: inline-block;
+  @include inline-block;
   overflow: hidden;
   border: 1px solid darken($color, 10%);
   outline: none;
@@ -289,7 +289,7 @@
   text-decoration: none;
   cursor:pointer;
   position: relative;
-  display: inline-block;
+  @include inline-block;
   overflow: hidden;
   outline: none;
   transition: background-color 0.4s, color 0.4s;

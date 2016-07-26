@@ -1003,6 +1003,10 @@ blockquote {
   appearance: none;
   position: relative;
   display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+  *display: inline;
   overflow: hidden;
   border: 1px solid #cdcdec;
   outline: none;
@@ -1039,6 +1043,10 @@ blockquote {
   cursor: pointer;
   position: relative;
   display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+  *display: inline;
   overflow: hidden;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
@@ -1060,6 +1068,10 @@ blockquote {
     cursor: pointer;
     position: relative;
     display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    *display: inline;
     overflow: hidden;
     outline: none;
     transition: background-color 0.4s, color 0.4s;
@@ -1084,6 +1096,10 @@ blockquote {
   cursor: pointer;
   position: relative;
   display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+  *display: inline;
   overflow: hidden;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
@@ -1108,6 +1124,10 @@ blockquote {
     cursor: pointer;
     position: relative;
     display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    *display: inline;
     overflow: hidden;
     outline: none;
     transition: background-color 0.4s, color 0.4s;
@@ -1281,16 +1301,94 @@ body:not(.front-page) .wrapper--main {
 .node--type-menu_landing_page .main-nav__sub li {
   margin-top: .9rem; }
 
-.site-nav-footer {
-  max-width: 100em;
-  margin: 0 auto;
-  padding: 0 1em; }
-  .site-nav-footer ul {
-    margin: 0; }
-
 .wrapper--nav-footer {
   border-top: 1px solid #ccc;
-  box-shadow: inset 0 4.1667em 6.667em -1.667em rgba(20, 44, 55, 0.13); }
+  box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset; }
+
+#footernav-col-one-giving.footernav__item a {
+  display: block;
+  background-image: url("/sites/default/files/images/givingbanner.png");
+  height: 23.192rem;
+  width: 13.4992rem;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #001f59;
+  padding-left: 1rem; }
+  #footernav-col-one-giving.footernav__item a:hover {
+    color: #001f59; }
+  #footernav-col-one-giving.footernav__item a:active {
+    color: #001f59; }
+  #footernav-col-one-giving.footernav__item a:focus {
+    color: #001f59; }
+
+footer {
+  max-width: 100em;
+  margin: 0 auto;
+  padding: 1.6rem 1em;
+  display: none; }
+
+.front-page footer nav .footernav > li {
+  width: 16%; }
+  .front-page footer nav .footernav > li:first-child {
+    display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    *display: inline;
+    border-left: none; }
+  .front-page footer nav .footernav > li:nth-child(2) {
+    border-left: dotted 1px #bbb; }
+
+footer nav h2 {
+  display: none; }
+
+footer nav .footernav {
+  list-style: none;
+  padding: 0; }
+  footer nav .footernav h3, footer nav .footernav h4 {
+    font-weight: bold; }
+  footer nav .footernav h3 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin: 0 0 1.4rem 0; }
+  footer nav .footernav h4 {
+    font-size: 1em;
+    margin: .975rem 0 1.3rem;
+    font-style: oblique;
+    letter-spacing: .04rem; }
+  footer nav .footernav #footernav-about-general h4, footer nav .footernav #footernav-where-to-general h4, footer nav .footernav #footernav-research-teaching-general h4, footer nav .footernav #footernav-collections-general h4, footer nav .footernav #footernav-courseware-general h4, footer nav .footernav #footernav-tools-general h4, footer nav .footernav #footernav-contact-us-general h4 {
+    display: none; }
+  footer nav .footernav a {
+    color: #000; }
+    footer nav .footernav a:hover {
+      color: #777; }
+    footer nav .footernav a:active {
+      color: #000; }
+    footer nav .footernav a:focus {
+      color: #777; }
+  footer nav .footernav > li {
+    display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    *display: inline;
+    width: 19.6%;
+    border-left: dotted 1px #bbb; }
+    footer nav .footernav > li:nth-child(2) {
+      border-left: none; }
+    footer nav .footernav > li:first-child {
+      display: none; }
+    footer nav .footernav > li > a {
+      display: none; }
+    footer nav .footernav > li > ul {
+      padding: 0 0 0 1.4rem !important; }
+  footer nav .footernav li {
+    list-style: none; }
+    footer nav .footernav li ul.footernav__sub {
+      list-style: none;
+      padding: 0; }
+      footer nav .footernav li ul.footernav__sub .footernav__sub li.footernav__item {
+        padding-bottom: 1.2rem; }
 
 header .wrapper--nav nav {
   max-width: 100em;
@@ -2547,3 +2645,7 @@ header #block-topnav .top-nav {
     .user-profile .full-name,
     .user-profile .field--name-field-bio {
     margin-left: 390px; } }
+
+@media (min-width: 62.5em) {
+  footer {
+    display: block; } }
