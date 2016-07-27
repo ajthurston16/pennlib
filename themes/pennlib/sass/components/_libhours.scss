@@ -1,0 +1,69 @@
+/**
+ * Hours chart styles
+ * https://github.com/upenn-libraries/LibCal-Tools
+ */
+#holdcalendar {
+    display: block !important;
+}
+.libhours-loading {
+    font-size: 13px;
+    margin: 0 100px;
+}
+.homeul {
+    list-style-type: none;
+    vertical-align: top;
+    padding-left: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+
+    @include breakpoint($breakpoint-medium-width) {
+        display: inline-block;
+        width: 49%;
+    }
+
+    li {
+        padding: 0.5em 0.333em 0.42em;
+        &.odd {
+            background-color: $gallery;
+        }
+    }
+}
+.left {
+    margin-right: 2%;
+    padding: 0;
+}
+.libhours-vertical-bar {
+    padding: 0 3px;
+}
+.morehoursinfo {
+    background-color: transparent;
+    text-align: right;
+}
+
+/* Homepage map image & hours container */
+$mapbreakpoint: $breakpoint-large-width;
+#holdhomepagehoursimg {
+    background-image: url("http://www.library.upenn.edu/images/homepage2014/hpwidesprite.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+#homepagehours {
+    background-color: $white;
+    margin-left: auto;
+    padding-left: 2%;
+    width: auto;
+    @include breakpoint($mapbreakpoint) {
+        width: 80%;
+    }
+}
+#linkcampusmap {
+    background-color: transparent;
+    float: left; 
+    width: 15%; 
+    height: 272px; 
+    display: none;
+    @include breakpoint($mapbreakpoint) {
+      display: block;
+    }
+}

@@ -1116,6 +1116,59 @@ body:not(.front-page) .wrapper--main {
 .node--type-menu_landing_page .main-nav__sub li {
   margin-top: .9rem; }
 
+/**
+ * Hours chart styles
+ * https://github.com/upenn-libraries/LibCal-Tools
+ */
+#holdcalendar {
+  display: block !important; }
+
+.libhours-loading {
+  font-size: 13px;
+  margin: 0 100px; }
+
+.homeul {
+  list-style-type: none;
+  vertical-align: top;
+  padding-left: 0;
+  margin: 0;
+  display: block;
+  width: 100%; }
+  .homeul li {
+    padding: 0.5em 0.333em 0.42em; }
+    .homeul li.odd {
+      background-color: #eeeeee; }
+
+.left {
+  margin-right: 2%;
+  padding: 0; }
+
+.libhours-vertical-bar {
+  padding: 0 3px; }
+
+.morehoursinfo {
+  background-color: transparent;
+  text-align: right; }
+
+/* Homepage map image & hours container */
+#holdhomepagehoursimg {
+  background-image: url("http://www.library.upenn.edu/images/homepage2014/hpwidesprite.png");
+  background-position: 0 0;
+  background-repeat: no-repeat; }
+
+#homepagehours {
+  background-color: #ffffff;
+  margin-left: auto;
+  padding-left: 2%;
+  width: auto; }
+
+#linkcampusmap {
+  background-color: transparent;
+  float: left;
+  width: 15%;
+  height: 272px;
+  display: none; }
+
 .wrapper--nav-footer {
   border-top: 1px solid #ccc;
   box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset; }
@@ -1769,6 +1822,9 @@ header #block-topnav .top-nav {
     clear: both; }
   .layout-two-sidebars .sidebar-second:last-child {
     margin-right: 0%; }
+  .homeul {
+    display: inline-block;
+    width: 49%; }
   header .wrapper--nav nav .main-nav {
     top: 0;
     margin: 0 30px; }
@@ -2204,6 +2260,10 @@ header #block-topnav .top-nav {
     display: block; } }
 
 @media (min-width: 62.5em) {
+  #homepagehours {
+    width: 80%; }
+  #linkcampusmap {
+    display: block; }
   footer.site-nav-footer {
     display: block; } }
 
