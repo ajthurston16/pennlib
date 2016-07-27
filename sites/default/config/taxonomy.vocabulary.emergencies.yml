@@ -1,0 +1,9 @@
+uuid: ba369844-2bf3-4ab5-b9e3-7771d5301ca0
+langcode: en
+status: true
+dependencies: {  }
+name: Emergencies
+vid: emergencies
+description: ''
+hierarchy: 0
+weight: 0

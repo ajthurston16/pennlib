@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_department
     - field.field.user.user.field_division
     - field.field.user.user.field_email_address
+    - field.field.user.user.field_emergency_contact
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
@@ -141,6 +142,7 @@ hidden:
   field_additional_info: true
   field_bio: true
   field_collection_responsibility: true
+  field_emergency_contact: true
   field_fax: true
   field_interest: true
   field_languages: true

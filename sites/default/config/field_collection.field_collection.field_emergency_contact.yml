@@ -1,0 +1,6 @@
+uuid: 44906588-1c1b-4d9a-87b7-ba6967008b96
+langcode: en
+status: true
+dependencies: {  }
+id: field_emergency_contact
+label: field_emergency_contact

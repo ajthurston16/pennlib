@@ -1,0 +1,40 @@
+uuid: 78398f16-a69c-4997-a12c-e29945ae14d9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a4ab7eca-5dc8-43fe-83d0-83e406cba761'
+  module:
+    - block_content
+    - facets
+    - user
+  theme:
+    - pennlib
+id: adminloginlink
+theme: pennlib
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:a4ab7eca-5dc8-43fe-83d0-83e406cba761'
+settings:
+  id: 'block_content:a4ab7eca-5dc8-43fe-83d0-83e406cba761'
+  label: 'Admin Login Link'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

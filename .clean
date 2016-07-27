@@ -15,7 +15,6 @@ function configuration_gen() {
     echo ""
     echo "Not loading the configuration. Goodbye."
     echo ""
-    exit
    fi
     echo "One Time login"
     drush uli

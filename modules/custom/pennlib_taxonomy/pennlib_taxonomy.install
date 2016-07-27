@@ -9,8 +9,10 @@ function pennlib_taxonomy_install() {
   $vocabularies = [
     'departments',
     'divisions',
+    'emergencies',
     'languages',
     'libraries',
+    'phone_types',
     'subject_specialities',
     'roles',
     'teams',

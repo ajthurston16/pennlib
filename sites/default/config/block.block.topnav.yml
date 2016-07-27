@@ -1,0 +1,31 @@
+uuid: 9bcba05c-af1b-4408-a2ed-81f3e2f05193
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.topnav
+  module:
+    - facets
+    - system
+  theme:
+    - pennlib
+id: topnav
+theme: pennlib
+region: header
+weight: -8
+provider: null
+plugin: 'system_menu_block:topnav'
+settings:
+  id: 'system_menu_block:topnav'
+  label: topnav
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

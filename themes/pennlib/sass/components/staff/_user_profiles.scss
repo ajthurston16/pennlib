@@ -64,8 +64,8 @@ $left-width: 350px;
       position: absolute;
     }
   }
-  .field__items,
-  .field > .field__item,
+  > .field > .field__items,
+  > .field > .field__item,
   .contact-wrapper,
   .full-name,
   .field--name-field-bio  {
@@ -78,7 +78,19 @@ $left-width: 350px;
    //only need margin for top level on contact-wrapper.
     margin-left:0;
   }
-}
+
+  //Emergency contact info
+  .field--name-field-emergency-contact {
+    .field--name-field-emergency-phones,
+    .field--name-field-phone,
+    .field--name-field-phone-type {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+  }
+
+} //end .user-profile
 
 .contact-wrapper{
   div{
