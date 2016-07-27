@@ -1321,7 +1321,7 @@ body:not(.front-page) .wrapper--main {
   #footernav-col-one-giving.footernav__item a:focus {
     color: #001f59; }
 
-footer {
+footer.site-nav-footer {
   max-width: 100em;
   margin: 0 auto;
   padding: 1.6rem 1em;
@@ -2647,5 +2647,5 @@ header #block-topnav .top-nav {
     margin-left: 390px; } }
 
 @media (min-width: 62.5em) {
-  footer {
+  footer.site-nav-footer {
     display: block; } }
