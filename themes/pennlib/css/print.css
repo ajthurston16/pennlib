@@ -1152,7 +1152,7 @@ body:not(.front-page) .wrapper--main {
 
 /* Homepage map image & hours container */
 #holdhomepagehoursimg {
-  background-image: url("http://www.library.upenn.edu/images/homepage2014/hpwidesprite.png");
+  background-image: url(sites/default/files/images/hpmap.png);
   background-position: 0 0;
   background-repeat: no-repeat; }
 
