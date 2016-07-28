@@ -1229,15 +1229,73 @@ blockquote {
 
 .site-footer {
   font-size: 12.88px;
-  color: #ffffff;
+  color: #eee;
   padding: 1em 0; }
   .site-footer a {
-    color: #A2D1D8; }
+    color: #c7e0e4; }
+    .site-footer a:hover {
+      color: #a2d1d8; }
+    .site-footer a:active {
+      color: #c7e0e4; }
+    .site-footer a:focus {
+      color: #a2d1d8; }
   .site-footer nav ul {
     margin: 0;
     padding: 0; }
     .site-footer nav ul li {
       list-style-type: none; }
+
+#block-upennfull {
+  float: left; }
+
+#block-footersocmedia {
+  float: none;
+  width: 100%; }
+  #block-footersocmedia a#mobilefeedback {
+    float: right; }
+  #block-footersocmedia #footersocmedia .footersocmedia a img {
+    background-image: url(/sites/default/files/images/socmediasprite.png);
+    background-repeat: no-repeat;
+    display: inline;
+    height: 4rem;
+    width: 4.4rem;
+    background-size: 7rem auto; }
+    #block-footersocmedia #footersocmedia .footersocmedia a img.facebook {
+      background-position: 0 66%; }
+    #block-footersocmedia #footersocmedia .footersocmedia a img.twitter {
+      background-position: 0 44%; }
+    #block-footersocmedia #footersocmedia .footersocmedia a img.socmediaindexicon {
+      background-position: 0 88%;
+      width: 5.2rem; }
+
+#block-footercopyright {
+  clear: both; }
+  #block-footercopyright .orrerycredit {
+    margin-top: .7rem; }
+
+.footerupenn {
+  font-family: Perpetua, "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase; }
+  .footerupenn.mobileonly-block {
+    text-align: center; }
+  .footerupenn a {
+    color: #dfc500; }
+    .footerupenn a:hover {
+      color: #c7b422; }
+    .footerupenn a:active {
+      color: #dfc500; }
+    .footerupenn a:focus {
+      color: #c7b422; }
+  .footerupenn .spaceof {
+    letter-spacing: .12rem; }
+  .footerupenn i.of {
+    text-transform: none; }
+
+#block-adminloginlink {
+  clear: both; }
 
 header {
   background-color: #f2f2f2;
@@ -2063,6 +2121,20 @@ header #block-topnav .top-nav {
     display: none; }
   .mobileonly-block {
     display: none; }
+  #block-footersocmedia {
+    float: right;
+    width: 9.2rem;
+    height: 3rem; }
+  #block-footersocmedia #footersocmedia .footersocmedia a img {
+    height: 2.7rem;
+    width: 2.9rem;
+    background-size: auto auto; }
+  #block-footersocmedia #footersocmedia .footersocmedia a img.socmediaindexicon {
+    width: 3.2rem; }
+  #block-footercopyright {
+    margin-left: 27.3rem;
+    margin-right: 10rem;
+    clear: none; }
   #homepagehours {
     width: 80%; }
   #linkcampusmap {

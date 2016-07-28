@@ -1,9 +1,9 @@
 .site-footer {
 	font-size: $sub-footer-font-size;
-	color: $white;
+	color: #eee;
 	padding: 1em 0;
 	a {
-		color: $baby-blue;
+		@include link-colors(#c7e0e4, $hover: #a2d1d8, $active: #c7e0e4, $focus: #a2d1d8);
 	}
 	nav {
 		ul {
@@ -15,3 +15,85 @@
 		}
 	}
 }
+#block-upennfull {
+	float:left;
+}
+#block-footersocmedia {
+	float:none;
+	width:100%;
+	@include breakpoint($breakpoint-large-width) {
+    	float:right;
+    	width: 9.2rem; 
+    	height: 3rem
+  	}
+	
+	a#mobilefeedback {
+		float:right;
+	}
+	#footersocmedia .footersocmedia a img {
+		background-image: url(/sites/default/files/images/socmediasprite.png);
+		background-repeat:no-repeat;
+		display:inline;
+		height: 4rem;
+		width:4.4rem;
+		background-size: 7rem auto;
+		@include breakpoint($breakpoint-large-width) {
+	    	height: 2.7rem;
+			width:2.9rem;
+			background-size: auto auto;
+	  	}
+		
+		&.facebook {
+			background-position: 0 66%;
+		}
+		&.twitter {
+			background-position: 0 44%;
+		}
+		&.socmediaindexicon {
+			background-position: 0 88%;
+			width: 5.2rem;
+			@include breakpoint($breakpoint-large-width) {
+		    	width: 3.2rem;
+		  	}
+		}
+	}
+}
+
+#block-footercopyright {
+	clear:both;
+	@include breakpoint($breakpoint-large-width) {
+    	margin-left:27.3rem;
+    	margin-right: 10rem;
+    	clear:none;
+  	}
+  	.orrerycredit {
+  		margin-top:.7rem;
+  	}
+
+}
+.footerupenn {
+	font-family: Perpetua, "Times New Roman", serif;
+	font-size:1.6rem;
+	font-weight: 700;
+	letter-spacing: .02em;
+	text-transform: uppercase;
+	&.mobileonly-block {
+		text-align: center;
+	}
+	a {
+		@include link-colors(#dfc500, $hover: #c7b422, $active: #dfc500, $focus: #c7b422);
+	}
+	.spaceof {
+		letter-spacing: .12rem;
+	}
+	i.of {
+		text-transform: none;
+	}
+
+
+}
+#block-adminloginlink {
+	clear:both;
+}
+
+
