@@ -2063,7 +2063,11 @@ header #block-topnav .top-nav {
     display: none; }
   .mobileonly-block {
     display: none; }
-  footer {
+  #homepagehours {
+    width: 80%; }
+  #linkcampusmap {
+    display: block; }
+  footer.site-nav-footer {
     display: block; } }
 
 @media (min-width: 50em) {
@@ -2764,14 +2768,3 @@ header #block-topnav .top-nav {
     .user-profile .full-name,
     .user-profile .field--name-field-bio {
     margin-left: 390px; } }
-<<<<<<< Updated upstream
-
-@media (min-width: 62.5em) {
-  #homepagehours {
-    width: 80%; }
-  #linkcampusmap {
-    display: block; }
-  footer.site-nav-footer {
-    display: block; } }
-=======
->>>>>>> Stashed changes

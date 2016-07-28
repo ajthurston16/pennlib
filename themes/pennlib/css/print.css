@@ -1727,7 +1727,13 @@ header #block-topnav .top-nav {
   .mobileonly-block {
     display: none; }
 
-  footer {
+  #homepagehours {
+    width: 80%; }
+
+  #linkcampusmap {
+    display: block; }
+
+  footer.site-nav-footer {
     display: block; } }
 
 @media (min-width: 50em) {
@@ -1928,13 +1934,11 @@ header #block-topnav .top-nav {
 
   .layout-two-sidebars .sidebar-second:last-child {
     margin-right: 0%; }
-<<<<<<< Updated upstream
+
   .homeul {
     display: inline-block;
     width: 49%; }
-=======
 
->>>>>>> Stashed changes
   header .wrapper--nav nav .main-nav {
     top: 0;
     margin: 0 30px; }
@@ -2542,16 +2546,7 @@ header #block-topnav .top-nav {
 
 @media (min-width: 40.5em) {
 
-<<<<<<< Updated upstream
-@media (min-width: 62.5em) {
-  #homepagehours {
-    width: 80%; }
-  #linkcampusmap {
-    display: block; }
-  footer.site-nav-footer {
-=======
   .slick--view--carousel {
->>>>>>> Stashed changes
     display: block; } }
 
 @media print {
