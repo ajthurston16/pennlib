@@ -1265,9 +1265,7 @@ body:not(.front-page) .wrapper--main {
 
 .wrapper--nav-footer {
   border-top: 1px solid #ccc;
-  -webkit-appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset;
-  -moz-appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset;
-  appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset; }
+  box-shadow: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset; }
 
 #footernav-col-one-giving.footernav__item a {
   display: block;
@@ -1285,7 +1283,7 @@ body:not(.front-page) .wrapper--main {
   #footernav-col-one-giving.footernav__item a:focus {
     color: #001f59; }
 
-footer.site-nav-footer {
+footer {
   max-width: 100em;
   margin: 0 auto;
   padding: 1.6rem 1em;
@@ -1809,7 +1807,7 @@ header #block-topnav .top-nav {
   #linkcampusmap {
     display: block; }
 
-  footer.site-nav-footer {
+  footer {
     display: block; } }
 
 @media (min-width: 50em) {

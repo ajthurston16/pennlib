@@ -1,6 +1,6 @@
 .wrapper--nav-footer {
 	border-top: 1px solid $silver;
-	@include bear-appearance(0 300px 300px -300px rgba(3, 27, 90, 0.2) inset);
+	@include box-shadow(0 300px 300px -300px rgba(3, 27, 90, 0.2) inset);
 }
 
 #footernav-col-one-giving.footernav__item a{
@@ -15,7 +15,7 @@
 
 }
 
-footer.site-nav-footer {
+footer {
   @include content-container;
   padding: 1.6rem 1em;
   display:none;

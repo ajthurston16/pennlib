@@ -92,6 +92,11 @@
   -moz-appearance: $appearance;
   appearance: $appearance;
 }
+@mixin box-shadow($boxshadow) {
+  -webkit-box-shadow: $boxshadow;
+  -moz-box-shadow: $boxshadow;
+  box-shadow: $boxshadow;
+}
 
 @mixin bear-button($color: $button-primary-color, $font-color: $button-primary-font-color, $radius: $button-border-radius, $padding: $button-padding) {
   @include bear-appearance(none);
