@@ -1,0 +1,32 @@
+uuid: 79f206ec-3b21-493b-bb1f-045c9a8331c4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
+  module:
+    - block_content
+    - facets
+  theme:
+    - pennlib
+id: upennfull
+theme: pennlib
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
+settings:
+  id: 'block_content:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
+  label: 'footer upenn full'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

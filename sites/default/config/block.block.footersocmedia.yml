@@ -1,24 +1,23 @@
-uuid: a0d16e7e-bc64-4038-9338-129715929e8d
+uuid: dee9e7c0-54fc-438f-9471-e16d883cd14f
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:67f93f36-5807-436c-99c4-1faa847d7c8a'
+    - 'block_content:basic:8d5f7836-cb2c-40f1-96eb-3eb0f4f91d89'
   module:
     - block_content
     - facets
-    - system
   theme:
     - pennlib
-id: footerorrerycredits
+id: footersocmedia
 theme: pennlib
 region: footer
 weight: -8
 provider: null
-plugin: 'block_content:67f93f36-5807-436c-99c4-1faa847d7c8a'
+plugin: 'block_content:8d5f7836-cb2c-40f1-96eb-3eb0f4f91d89'
 settings:
-  id: 'block_content:67f93f36-5807-436c-99c4-1faa847d7c8a'
-  label: 'Footer Orrery Credits'
+  id: 'block_content:8d5f7836-cb2c-40f1-96eb-3eb0f4f91d89'
+  label: 'footer socmedia'
   provider: block_content
   label_display: '0'
   status: true
@@ -29,10 +28,5 @@ visibility:
     id: other_facet
     facets: ''
     facet_value: ''
-    negate: false
-    context_mapping: {  }
-  request_path:
-    id: request_path
-    pages: '<front>'
     negate: false
     context_mapping: {  }

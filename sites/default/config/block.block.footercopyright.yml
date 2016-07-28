@@ -11,7 +11,7 @@ dependencies:
 id: footercopyright
 theme: pennlib
 region: footer
-weight: -9
+weight: -7
 provider: null
 plugin: 'block_content:36915230-1f1d-490a-9900-d1109a5ce8c3'
 settings:
