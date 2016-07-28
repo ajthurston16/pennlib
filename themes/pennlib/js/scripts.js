@@ -96,6 +96,11 @@
       } //end toggleViewMode()
 
       $(document).ready(function() {
+        // Repopulate the library home link if there is a homepage cookie.
+        if (getCookie('hp')) {
+          $('#top-nav-library-home a').attr('href', 'http://www.library.upenn.edu' + getCookie('hp'));
+        }
+
         // Hide dropdown if you click outside of it.
         $(document).click(function(event) {
           if (event.target.id!=="" && $('#toggle-view-mode').hasClass('active')) {
@@ -104,10 +109,7 @@
         });
 
         // On page load, check cookie and apply initial view mode classes.
-        if ((getCookie('briefview')==='null' && getCookie('normalview')==='null') ||
-            (getCookie('briefview')==='null' && getCookie('normalview')==='true')) {
-          toggleViewMode('normalview');
-        } else if (getCookie('briefview')==='true') {
+        if (getCookie('briefview')==='true') {
           toggleViewMode('briefview');
         } else {
           toggleViewMode('normalview');
@@ -117,19 +119,13 @@
       // When a view mode is selected, toggle the classes and update the view mode cookie.
       $('#view-mode-brief').click(function() {
         toggleViewMode('briefview');
-        
-        if (getCookie('briefview')==='null' || getCookie('briefview')==='true') {
-          document.cookie = 'normalview=null;path=/';
-          document.cookie = 'briefview=true;path=/';
-        }
+        document.cookie = 'briefview=true;path=/';
+        document.cookie = 'normalview=;path=/';
       });
       $('#view-mode-normal').click(function() {
         toggleViewMode('normalview');
-        
-        if (getCookie('normalview')==='null' || getCookie('normalview')==='true') {
-          document.cookie = 'briefview=null;path=/';
-          document.cookie = 'normalview=true;path=/';
-        }
+        document.cookie = 'briefview=;path=/';
+        document.cookie = 'normalview=true;path=/';
       });
       
      /**
@@ -155,7 +151,7 @@
             return kvPair.substring(searchStringLen, kvPairLen);
           }
         }
-        return 'null';
+        return null;
       }
 
       /**
