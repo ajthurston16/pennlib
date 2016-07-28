@@ -63,7 +63,30 @@
   *zoom: 1;
   *display: inline;
 }
-
+@mixin inline-block-no-display{
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+}
+@mixin fullonly($display, $oldbrowserdisplay) {
+  display:none;
+  @include breakpoint($breakpoint-large-width) {
+    display: $display;
+    *display: $oldbrowserdisplay;
+  }
+}
+@mixin mobileonly($display, $oldbrowserdisplay) {
+  display:$display;
+  @include breakpoint($breakpoint-large-width) {
+    display: none;
+  }
+}
+@mixin phoneonly($display, $oldbrowserdisplay) {
+  display:$display;
+  @include breakpoint($breakpoint-medium-width) {
+    display: none;
+  }
+}
 @mixin bear-appearance($appearance) {
   -webkit-appearance: $appearance;
   -moz-appearance: $appearance;

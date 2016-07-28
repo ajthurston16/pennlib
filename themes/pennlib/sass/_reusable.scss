@@ -1,4 +1,37 @@
+
 //
 // Add reusable classes for your theme
 //
+.fullonly-inline {
+	@include fullonly(inline, inline);
+}
+.fullonly-inline-block {
+	@include fullonly(inline-block, inline);
+	@include inline-block-no-display;
+}
+.fullonly-block {
+	@include fullonly(block, block);
+}
+.mobileonly-inline {
+	@include mobileonly(inline, inline);
+}
+.mobileonly-inline-block {
+	@include mobileonly(inline-block, inline);
+	@include inline-block-no-display;
+}
+.mobileonly-block {
+	@include mobileonly(block, block);
+}
+.phoneonly-inline {
+	@include phoneonly(inline, inline);
+}
+.phoneonly-inline-block {
+	@include phoneonly(inline-block, inline);
+	@include inline-block-no-display;
+}
+.phoneonly-block {
+	@include phoneonly(mobileonly-block, block);
+}
+
+
 

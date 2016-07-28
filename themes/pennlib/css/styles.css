@@ -183,6 +183,42 @@ td,
 th {
   padding: 0; }
 
+.fullonly-inline {
+  display: none; }
+
+.fullonly-inline-block {
+  display: none;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
+
+.fullonly-block {
+  display: none; }
+
+.mobileonly-inline {
+  display: inline; }
+
+.mobileonly-inline-block {
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
+
+.mobileonly-block {
+  display: block; }
+
+.phoneonly-inline {
+  display: inline; }
+
+.phoneonly-inline-block {
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
+
+.phoneonly-block {
+  display: mobileonly-block; }
+
 .messages,
 .main__highlighted [role="contentinfo"] {
   padding: 0.7em 1.5em;
@@ -1356,7 +1392,9 @@ body:not(.front-page) .wrapper--main {
 
 .wrapper--nav-footer {
   border-top: 1px solid #ccc;
-  box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset; }
+  -webkit-appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset;
+  -moz-appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset;
+  appearance: 0 300px 300px -300px rgba(3, 27, 90, 0.2) inset; }
 
 #footernav-col-one-giving.footernav__item a {
   display: block;
@@ -2009,7 +2047,32 @@ header #block-topnav .top-nav {
 .block-views-blockstaff-search-block-1.briefview .field--name-user-picture {
   display: none; }
 
+@media (min-width: 62.5em) {
+  .fullonly-inline {
+    display: inline;
+    display: inline; }
+  .fullonly-inline-block {
+    display: inline-block;
+    display: inline; }
+  .fullonly-block {
+    display: block;
+    display: block; }
+  .mobileonly-inline {
+    display: none; }
+  .mobileonly-inline-block {
+    display: none; }
+  .mobileonly-block {
+    display: none; }
+  footer {
+    display: block; } }
+
 @media (min-width: 50em) {
+  .phoneonly-inline {
+    display: none; }
+  .phoneonly-inline-block {
+    display: none; }
+  .phoneonly-block {
+    display: none; }
   .form-item label:not(.option):not([for^="edit-text-format-value"]) {
     display: inline-block;
     width: 30%;
@@ -2701,6 +2764,7 @@ header #block-topnav .top-nav {
     .user-profile .full-name,
     .user-profile .field--name-field-bio {
     margin-left: 390px; } }
+<<<<<<< Updated upstream
 
 @media (min-width: 62.5em) {
   #homepagehours {
@@ -2709,3 +2773,5 @@ header #block-topnav .top-nav {
     display: block; }
   footer.site-nav-footer {
     display: block; } }
+=======
+>>>>>>> Stashed changes
