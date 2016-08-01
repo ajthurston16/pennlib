@@ -1144,17 +1144,6 @@ header {
   padding: 10px 0 20px 0;
   margin-right: 30px; }
 
-/* Temporary styling to imitate search bar until functionality is implemented. */
-body:not(.front-page) .wrapper--header::after {
-  content: '';
-  display: block;
-  width: 100%;
-  min-height: 5em;
-  background-color: #f2f2f2; }
-
-body:not(.front-page) .wrapper--main {
-  margin-top: -3.25em; }
-
 #top-nav-contact-us, #top-nav-login, #top-nav-logout {
   position: relative;
   top: .5rem; }
@@ -1613,6 +1602,74 @@ h1.page-title {
 #block-pennlib-page-title {
   margin-top: -.7rem; }
 
+#block-searchbar .searchformholder,
+#block-searchbar #radiobluebuttons,
+#block-searchbar .holdradio {
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+  *display: inline; }
+
+#block-searchbar #radiobluebuttons input {
+  opacity: 0; }
+
+#block-searchbar #searchholder {
+  padding: 0.7em 0; }
+  #block-searchbar #searchholder select {
+    width: 10em;
+    height: 2.5em;
+    border: solid 1px #aaa; }
+
+#block-searchbar .searchformholder {
+  margin-right: 2em; }
+
+#block-searchbar #searchholderlining {
+  margin: 0 auto;
+  width: 42.3em; }
+
+#block-searchbar .tabformbutton {
+  height: 2.5em; }
+
+#block-searchbar .mainq {
+  background-image: url(/sites/default/files/images/common/searchboxicon.png);
+  background-position: 8px 50%;
+  background-repeat: no-repeat;
+  padding: .33em .42em .42em 2em;
+  height: 2.5em; }
+
+#block-searchbar #cataloginput {
+  width: 28em; }
+
+#block-searchbar #finditinput {
+  width: 18em; }
+
+#block-searchbar .holdradio {
+  border: 1px solid #ccc;
+  border-radius: .42em;
+  margin: 0 .42em 0 0;
+  width: 11.667em;
+  padding: 0.3em 0 .3em .67em;
+  text-align: left;
+  cursor: pointer; }
+  #block-searchbar .holdradio.active, #block-searchbar .holdradio.active:hover, #block-searchbar .holdradio:hover {
+    border: 1px solid #2373a5;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #3373a5;
+    background-color: #6facd5;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
+    background-image: linear-gradient(to bottom, #5393c5, #6facd5); }
+  #block-searchbar .holdradio:hover {
+    background-color: #5393c5;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
+    background-image: linear-gradient(to bottom, #6facd5, #5393c5); }
+  #block-searchbar .holdradio.active {
+    cursor: default; }
+
+#block-searchbar #finditradio {
+  width: 7em; }
+
 #main .site-sidebars {
   padding-top: 30px; }
   #main .site-sidebars .block h2 {
@@ -1808,7 +1865,10 @@ header #block-topnav .top-nav {
     display: block; }
 
   footer {
-    display: block; } }
+    display: block; }
+
+  #block-searchbar #searchholderlining {
+    width: 68em; } }
 
 @media (min-width: 50em) {
 

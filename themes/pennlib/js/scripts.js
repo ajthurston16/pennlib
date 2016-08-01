@@ -156,7 +156,7 @@
 
       /**
        * Menubar: top-level link stays white when you hover on dropdown panel
-      **/
+       **/
       $(".main-nav > .main-nav__item  > ul.main-nav__sub")
         .on("mouseover", function () {
           $(this).parent('li').addClass('is-hovered');
@@ -165,6 +165,19 @@
           $(this).parent('li').removeClass('is-hovered');
         });
 
+      /**
+       * Site-wide Search Bar: switches between different searches with radio buttons.
+       **/
+      $('#searchholderlining input[type="radio"]').click(function() {
+          $('#searchholderlining .searchform').hide();
+          $('#'+$(this).val()).show();
+      });
+
+      // Toggle radio button active class
+      $('#radiobluebuttons .holdradio').click(function() {
+        $(this).addClass('active');
+        $('#searchholderlining .holdradio').not(this).removeClass('active');
+      });
 
     } //end attach
   }; //end Drupal.behaviors.pennlib

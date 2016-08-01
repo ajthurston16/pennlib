@@ -1,0 +1,92 @@
+#block-searchbar {
+
+  $widget-item-height: 2.5em;
+
+  .searchformholder,
+  #radiobluebuttons,
+  .holdradio {
+    @include inline-block();
+  }
+
+  #radiobluebuttons input {
+    opacity: 0;
+  }
+
+  #searchholder {
+    padding: 0.7em 0;
+
+    select {
+      width: 10em;
+      height: $widget-item-height;
+      border: solid 1px #aaa;
+    }
+  }
+
+  .searchformholder {
+    margin-right: 2em;
+  }
+
+  #searchholderlining {
+    margin: 0 auto;
+    width: 42.3em;
+
+    @include breakpoint($breakpoint-large-width) {
+      width: 68em;
+    }
+  }
+
+  .tabformbutton {
+    height: $widget-item-height;
+  }
+
+  .mainq {
+    background-image: url(/sites/default/files/images/common/searchboxicon.png);
+    background-position: 8px 50%;
+    background-repeat: no-repeat;
+    padding: .33em .42em .42em 2em;
+    height: $widget-item-height;
+  }
+
+  #cataloginput {
+    width: 28em;
+  }
+
+  #finditinput {
+    width: 18em;
+  }
+
+  .holdradio {
+    border: 1px solid $silver;
+    -webkit-border-radius: .42em;
+    -moz-border-radius: .42em;
+    border-radius: .42em;
+    margin: 0 .42em 0 0;
+    width: 11.667em;
+    padding: 0.3em 0 .3em .67em;
+    text-align: left;
+    cursor: pointer;
+
+    &.active,
+    &.active:hover,
+    &:hover {
+      border: 1px solid #2373a5;
+      color: $white;
+      text-decoration: none;
+      text-shadow: 0 1px 1px #3373a5;
+      @include bear-linear-gradient(#5393c5, #6facd5);
+    }
+
+    &:hover {
+      @include bear-linear-gradient(#6facd5, #5393c5);
+    }
+
+    &.active {
+      cursor: default;
+    }
+  } //end .holdradio
+
+  #finditradio {
+    width: 7em;
+  }
+
+} //end #block-searchbar

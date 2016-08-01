@@ -39,21 +39,6 @@ header {
   margin-right: 30px;
 }
 
-/* Temporary styling to imitate search bar until functionality is implemented. */
-body:not(.front-page) {
-  .wrapper--header {
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      min-height: 5em;
-      background-color: $concrete;
-    }
-  }
-  .wrapper--main {
-    margin-top: -3.25em;
-  }
-}
 #top-nav-contact-us, #top-nav-login, #top-nav-logout {
   position: relative;
   top: .5rem;

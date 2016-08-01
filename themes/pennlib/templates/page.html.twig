@@ -7,6 +7,11 @@
       {{ page.navigation }}
       {{ loginpopup|raw }}
     </div>
+    {% if page.searchbar %}
+      <div class="wrapper--searchbar">
+        {{ page.searchbar }}
+      </div>
+    {% endif %}
   </header>
 </div>
 

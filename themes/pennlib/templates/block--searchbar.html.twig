@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <nav id="searchholder">
+    <div id="searchholderlining">
+      <div class="searchformholder">
+        <form id="catalogsrch" class="searchform" action="http://franklin.library.upenn.edu/search.html" target="_blank" style="display: inline-block;">
+          <input id="cataloginput" class="mainq" name="q" type="text" placeholder="Search for articles, books, journals, media,..." />
+          <input id="MetaSearch" type="submit" value="GO" class="tabformbutton" />
+          <input type="hidden" name="meta" value="t" />
+        </form>
+        <form id="finditsrch" class="searchform" action="http://www.library.upenn.edu/cgi-bin/findit/uniqueWidget" method="get" target="_blank" style="display: none;">
+          <input id="finditinput" class="mainq" name="query" type="text" placeholder="FindIt: Search for Library web pages, guides, e-resources,..." />
+          <select id="finditselect" name="searchType">
+            <option value="contains" selected="selected">Anywhere</option>
+            <option value="ejournaldatabasetitle">In e-resource title only</option>
+          </select>
+          <input id="FinditSearch" type="submit" value="GO" class="tabformbutton">
+        </form>
+      </div>
+      <div id="radiobluebuttons" class="morelinks">
+        <label id="metaradio" class="holdradio active">
+          <input type="radio" name="option" checked="checked" value="catalogsrch" id="metaradiobutton"> Catalog &amp; Articles+
+        </label>
+        <label id="finditradio" class="holdradio">
+          <input type="radio" name="option" value="finditsrch"> FindIt
+        </label>
+      </div>
+    </div>
+  </nav>
+</div>
