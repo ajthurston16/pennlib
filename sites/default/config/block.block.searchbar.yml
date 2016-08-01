@@ -1,0 +1,38 @@
+uuid: eb56bd0d-46ad-4b2c-b144-9bd6732d4a72
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a7b27d25-38b1-4eca-b064-b93d55f3b5d6'
+  module:
+    - block_content
+    - facets
+    - system
+  theme:
+    - pennlib
+id: searchbar
+theme: pennlib
+region: searchbar
+weight: -10
+provider: null
+plugin: 'block_content:a7b27d25-38b1-4eca-b064-b93d55f3b5d6'
+settings:
+  id: 'block_content:a7b27d25-38b1-4eca-b064-b93d55f3b5d6'
+  label: 'Sitewide Search Bar'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

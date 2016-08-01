@@ -9,7 +9,7 @@ dependencies:
 id: mainnav
 theme: pennlib
 region: '-1'
-weight: -8
+weight: -10
 provider: null
 plugin: 'tb_megamenu_menu_block:main-nav'
 settings:
