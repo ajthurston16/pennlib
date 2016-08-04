@@ -14,7 +14,7 @@ _core:
 id: pennlib_account_menu
 theme: pennlib
 region: '-1'
-weight: -6
+weight: -7
 provider: null
 plugin: 'system_menu_block:account'
 settings:

@@ -1,27 +1,28 @@
-uuid: 9bcba05c-af1b-4408-a2ed-81f3e2f05193
+uuid: db5aecf4-3eb8-41a1-9b8a-41d5410be403
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.topnav
+  content:
+    - 'block_content:basic:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
   module:
+    - block_content
     - facets
-    - system
   theme:
     - pennlib
 id: topnav
 theme: pennlib
 region: header
-weight: -8
+weight: -10
 provider: null
-plugin: 'system_menu_block:topnav'
+plugin: 'block_content:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
 settings:
-  id: 'system_menu_block:topnav'
-  label: topnav
-  provider: system
+  id: 'block_content:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
+  label: 'Sitewide Top Nav'
+  provider: block_content
   label_display: '0'
-  level: 1
-  depth: 0
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   other_facet:
     id: other_facet
