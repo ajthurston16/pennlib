@@ -15,7 +15,7 @@
 
 }
 
-footer {
+.wrapper--nav-footer footer {
   @include content-container;
   padding: 1.6rem 1em;
   display:none;
@@ -34,7 +34,7 @@ footer {
     }
 }
  
-footer nav {
+.wrapper--nav-footer footer nav {
    h2 {display:none;}
   .footernav {
     list-style:none;

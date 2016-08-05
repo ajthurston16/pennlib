@@ -1235,6 +1235,10 @@ blockquote {
 #block-upennfull {
   float: left; }
 
+#libchat_e01c7dfc19ccf280f6594c20ee7fccc3 {
+  float: right;
+  margin: -.5em 1em 0 0; }
+
 #block-footersocmedia {
   float: none;
   width: 100%; }
@@ -1444,7 +1448,7 @@ header {
   #footernav-col-one-giving.footernav__item a:focus {
     color: #001f59; }
 
-footer {
+.wrapper--nav-footer footer {
   max-width: 100em;
   margin: 0 auto;
   padding: 1.6rem 1em;
@@ -1462,34 +1466,34 @@ footer {
   .front-page footer nav .footernav > li:nth-child(2) {
     border-left: dotted 1px #bbb; }
 
-footer nav h2 {
+.wrapper--nav-footer footer nav h2 {
   display: none; }
 
-footer nav .footernav {
+.wrapper--nav-footer footer nav .footernav {
   list-style: none;
   padding: 0; }
-  footer nav .footernav h3, footer nav .footernav h4 {
+  .wrapper--nav-footer footer nav .footernav h3, .wrapper--nav-footer footer nav .footernav h4 {
     font-weight: bold; }
-  footer nav .footernav h3 {
+  .wrapper--nav-footer footer nav .footernav h3 {
     font-size: 1.3rem;
     text-transform: uppercase;
     margin: 0 0 1.4rem 0; }
-  footer nav .footernav h4 {
+  .wrapper--nav-footer footer nav .footernav h4 {
     font-size: 1em;
     margin: .975rem 0 1.3rem;
     font-style: oblique;
     letter-spacing: .04rem; }
-  footer nav .footernav #footernav-about-general h4, footer nav .footernav #footernav-where-to-general h4, footer nav .footernav #footernav-research-teaching-general h4, footer nav .footernav #footernav-collections-general h4, footer nav .footernav #footernav-courseware-general h4, footer nav .footernav #footernav-tools-general h4, footer nav .footernav #footernav-contact-us-general h4 {
+  .wrapper--nav-footer footer nav .footernav #footernav-about-general h4, .wrapper--nav-footer footer nav .footernav #footernav-where-to-general h4, .wrapper--nav-footer footer nav .footernav #footernav-research-teaching-general h4, .wrapper--nav-footer footer nav .footernav #footernav-collections-general h4, .wrapper--nav-footer footer nav .footernav #footernav-courseware-general h4, .wrapper--nav-footer footer nav .footernav #footernav-tools-general h4, .wrapper--nav-footer footer nav .footernav #footernav-contact-us-general h4 {
     display: none; }
-  footer nav .footernav a {
+  .wrapper--nav-footer footer nav .footernav a {
     color: #000; }
-    footer nav .footernav a:hover {
+    .wrapper--nav-footer footer nav .footernav a:hover {
       color: #777; }
-    footer nav .footernav a:active {
+    .wrapper--nav-footer footer nav .footernav a:active {
       color: #000; }
-    footer nav .footernav a:focus {
+    .wrapper--nav-footer footer nav .footernav a:focus {
       color: #777; }
-  footer nav .footernav > li {
+  .wrapper--nav-footer footer nav .footernav > li {
     display: inline-block;
     vertical-align: top;
     *vertical-align: top;
@@ -1497,20 +1501,20 @@ footer nav .footernav {
     *display: inline;
     width: 19.6%;
     border-left: dotted 1px #bbb; }
-    footer nav .footernav > li:nth-child(2) {
+    .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
       border-left: none; }
-    footer nav .footernav > li:first-child {
+    .wrapper--nav-footer footer nav .footernav > li:first-child {
       display: none; }
-    footer nav .footernav > li > a {
+    .wrapper--nav-footer footer nav .footernav > li > a {
       display: none; }
-    footer nav .footernav > li > ul {
+    .wrapper--nav-footer footer nav .footernav > li > ul {
       padding: 0 0 0 1.4rem !important; }
-  footer nav .footernav li {
+  .wrapper--nav-footer footer nav .footernav li {
     list-style: none; }
-    footer nav .footernav li ul.footernav__sub {
+    .wrapper--nav-footer footer nav .footernav li ul.footernav__sub {
       list-style: none;
       padding: 0; }
-      footer nav .footernav li ul.footernav__sub .footernav__sub li.footernav__item {
+      .wrapper--nav-footer footer nav .footernav li ul.footernav__sub .footernav__sub li.footernav__item {
         padding-bottom: 1.2rem; }
 
 header .wrapper--nav nav {
@@ -2170,9 +2174,12 @@ h1.page-title {
     display: none; }
   .mobileonly-block {
     display: none; }
+  #libchat_e01c7dfc19ccf280f6594c20ee7fccc3 {
+    float: left;
+    margin: -.5em .6em 0 1em; }
   #block-footersocmedia {
     float: right;
-    width: 9.2rem;
+    width: 19rem;
     height: 3rem; }
   #block-footersocmedia #footersocmedia .footersocmedia a img {
     height: 2.7rem;
@@ -2188,7 +2195,7 @@ h1.page-title {
     width: 80%; }
   #linkcampusmap {
     display: block; }
-  footer {
+  .wrapper--nav-footer footer {
     display: block; }
   #block-searchbar #searchholderlining {
     width: 68em; } }
