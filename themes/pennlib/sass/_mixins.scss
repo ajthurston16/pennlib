@@ -317,7 +317,6 @@
   text-decoration: none;
   cursor:pointer;
   position: relative;
-  @include inline-block;
   overflow: hidden;
   outline: none;
   transition: background-color 0.4s, color 0.4s;
