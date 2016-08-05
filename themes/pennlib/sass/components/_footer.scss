@@ -26,6 +26,9 @@
     	margin:-.5em .6em 0 1em;
   	}
 }
+#footersocmedia  .footersocmedia{
+
+}
 #block-footersocmedia {
 	float:none;
 	width:100%;
@@ -38,33 +41,39 @@
 	a#mobilefeedback {
 		float:right;
 	}
-	#footersocmedia .footersocmedia a img {
-		background-image: url(/sites/default/files/images/socmediasprite.png);
-		background-repeat:no-repeat;
-		display:inline;
-		height: 4rem;
-		width:4.4rem;
-		background-size: 7rem auto;
+	#footersocmedia .footersocmedia {
 		@include breakpoint($breakpoint-large-width) {
-	    	height: 2.7rem;
-			width:2.9rem;
-			background-size: auto auto;
+	    	margin-left: 9.5rem;
 	  	}
-		
-		&.facebook {
-			background-position: 0 66%;
-		}
-		&.twitter {
-			background-position: 0 44%;
-		}
-		&.socmediaindexicon {
-			background-position: 0 88%;
-			width: 5.2rem;
+		a img {
+			background-image: url(/sites/default/files/images/socmediasprite.png);
+			background-repeat:no-repeat;
+			display:inline;
+			height: 4rem;
+			width:4.4rem;
+			background-size: 7rem auto;
 			@include breakpoint($breakpoint-large-width) {
-		    	width: 3.2rem;
+		    	height: 2.7rem;
+				width:2.9rem;
+				background-size: auto auto;
 		  	}
-		}
-	}
+		
+			&.facebook {
+				background-position: 0 66%;
+			}
+			&.twitter {
+				background-position: 0 44%;
+			}
+			&.socmediaindexicon {
+				background-position: 0 88%;
+				width: 5.2rem;
+				@include breakpoint($breakpoint-large-width) {
+			    	width: 3.2rem;
+				}
+			}
+		}//end img
+	}//end .footersocmedia
+	
 }
 
 #block-footercopyright {
