@@ -1163,11 +1163,15 @@ blockquote {
     background-size: 100% auto;
     background-repeat: no-repeat;
     width: 8px; }
+    .front-page .idbarbutton img {
+      background-image: url(/sites/default/files/images/common/arrowdownarrow-w.gif); }
   .idbarbutton.active img {
     background-image: url(/sites/default/files/images/common/arrowdownminus.gif); }
+    .front-page .idbarbutton.active img {
+      background-image: url(/sites/default/files/images/common/arrowdownminus-w.gif); }
 
 .slick--view--carousel {
-  background-color: #ccc;
+  background-color: #d9d9d9;
   margin-bottom: 10px;
   display: none; }
 
@@ -1454,16 +1458,16 @@ header {
   padding: 1.6rem 1em;
   display: none; }
 
-.front-page footer nav .footernav > li {
+.front-page .wrapper--nav-footer footer nav .footernav > li {
   width: 16%; }
-  .front-page footer nav .footernav > li:first-child {
+  .front-page .wrapper--nav-footer footer nav .footernav > li:first-child {
     display: inline-block;
     vertical-align: top;
     *vertical-align: top;
     *zoom: 1;
     *display: inline;
     border-left: none; }
-  .front-page footer nav .footernav > li:nth-child(2) {
+  .front-page .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
     border-left: dotted 1px #bbb; }
 
 .wrapper--nav-footer footer nav h2 {
@@ -1536,12 +1540,16 @@ header .wrapper--nav nav {
       display: table; }
     header .wrapper--nav nav .main-nav:after {
       clear: both; }
-    header .wrapper--nav nav .main-nav #main-nav-library-info > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub {
+    header .wrapper--nav nav .main-nav #main-nav-library-info > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-tools > .main-nav__sub {
       width: 38.9rem; }
     header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub {
       width: 56rem; }
-    header .wrapper--nav nav .main-nav #main-nav-courseware > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-tools > .main-nav__sub {
+    header .wrapper--nav nav .main-nav #main-nav-courseware > .main-nav__sub {
       width: 24rem; }
+    header .wrapper--nav nav .main-nav #main-nav-library-info-general, header .wrapper--nav nav .main-nav #main-nav-research-general, header .wrapper--nav nav .main-nav #main-nav-collections-general, header .wrapper--nav nav .main-nav #main-nav-tools-general {
+      margin-top: -1rem; }
+      header .wrapper--nav nav .main-nav #main-nav-library-info-general h4, header .wrapper--nav nav .main-nav #main-nav-research-general h4, header .wrapper--nav nav .main-nav #main-nav-collections-general h4, header .wrapper--nav nav .main-nav #main-nav-tools-general h4 {
+        display: none; }
     header .wrapper--nav nav .main-nav > .parent {
       margin: 0;
       position: relative;
@@ -1669,20 +1677,20 @@ header nav .main-nav > #main-nav-tools.parent > .main-nav__sub {
   left: auto;
   right: 0; }
 
-header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub {
+header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub {
   padding: 1.4em; }
-  header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item {
+  header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item {
     display: block;
     margin-bottom: 0;
     padding: 0.546rem 0.7rem;
     width: 100%;
     border-left: none; }
-    header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item:hover {
+    header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover {
       background: #387bbe;
       background-image: linear-gradient(#5393c5, #6facd5);
       border: 1px solid #2373a5;
       cursor: pointer; }
-      header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover a, header nav .main-nav > #main-nav-tools.parent > .main-nav__sub > .main-nav__item:hover a {
+      header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub > .main-nav__item:hover a {
         color: #fff;
         text-shadow: 0 1px 1px #337395;
         text-decoration: none; }
@@ -1899,9 +1907,11 @@ h1.page-title {
 #block-topnav .top-nav {
   display: none;
   list-style: none;
-  margin: 0; }
+  margin: .7rem 0 0 0; }
   #block-topnav .top-nav #acctDropdown {
-    right: 0; }
+    right: 1rem; }
+  #block-topnav .top-nav #helpDropdown {
+    margin: 0 0 0 -4.5rem; }
   #block-topnav .top-nav div {
     display: inline; }
     .front-page #block-topnav .top-nav div {
@@ -1921,7 +1931,7 @@ h1.page-title {
       display: none;
       margin: 0;
       position: absolute;
-      top: 2.4rem;
+      top: 3.1rem;
       opacity: 1;
       z-index: 20;
       box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d;

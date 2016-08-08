@@ -23,7 +23,7 @@
     display: block;
   }
 }
-.front-page footer nav .footernav > li {
+.front-page .wrapper--nav-footer footer nav .footernav > li {
 	width: 16%;
 	&:first-child {
             @include inline-block;

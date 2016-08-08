@@ -21,8 +21,14 @@
 		background-size: 100% auto;
 		background-repeat: no-repeat;
 		width: 8px;
+		.front-page & {
+			background-image: url(/sites/default/files/images/common/arrowdownarrow-w.gif);
+		}
 	}
 	&.active img {
 		background-image: url(/sites/default/files/images/common/arrowdownminus.gif);
+		.front-page & {
+			background-image: url(/sites/default/files/images/common/arrowdownminus-w.gif);
+		}
 	}
 }
