@@ -56,7 +56,7 @@
       var $mobileMenu = $('ul.main-nav');
       $mobileNav.find($mobileButton).clickToggle(function () {
         $(this).addClass('on');
-        $mobileMenu.addClass('show');
+        $mobileMenu.addClass('show hburgermenu');
       }, function () {
         $(this).removeClass('on');
         $mobileMenu.removeClass('show');
