@@ -128,6 +128,17 @@
         } else {
           toggleViewMode('normalview');
         }
+
+        // Staff: If on the staff search page, use hidden booleans to show/hide certain fields.
+        // Library is hidden by default, and division is hidden in brief view by default.
+        $staffSearchBlock.find(".views-row").each(function() {
+          if ($(this).find(".field--name-field-show-library .field__item").text() == "True") {
+            $(this).find(".field--name-field-library").addClass("showlibrary");
+          }
+          if ($(this).find(".field--name-field-show-division .field__item").text() == "True") {
+            $(this).find(".field--name-field-division").addClass("showinbrief");
+          }
+        });
       });
 
       // When a view mode is selected, toggle the classes and update the view mode cookie.

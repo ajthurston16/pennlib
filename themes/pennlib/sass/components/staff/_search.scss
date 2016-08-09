@@ -7,4 +7,18 @@
 			background-color: $concrete;
 		}
 	}
+
+	// Hide booleans and library field by default.
+	// Also hide division in brief view by default.
+	.field--name-field-show-division,
+	.field--name-field-show-library,
+	.field--name-field-library,
+	.briefview & .field--name-field-division {
+		display: none;
+	}
+	// These classes get added by JS:
+	.showlibrary,
+	.showinbrief {
+		display: block !important;
+	}
 }

@@ -2029,6 +2029,16 @@ h1.page-title {
   .staff-search-wrapper .views-row:nth-of-type(even) {
     background-color: #f2f2f2; }
 
+.staff-search-wrapper .field--name-field-show-division,
+.staff-search-wrapper .field--name-field-show-library,
+.staff-search-wrapper .field--name-field-library,
+.briefview .staff-search-wrapper .field--name-field-division {
+  display: none; }
+
+.staff-search-wrapper .showlibrary,
+.staff-search-wrapper .showinbrief {
+  display: block !important; }
+
 .subjspec-wrapper h3 {
   font-style: italic;
   margin: 0; }
