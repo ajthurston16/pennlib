@@ -13,8 +13,37 @@ dependencies:
     - user
 third_party_settings:
   panelizer:
-    enable: false
+    enable: true
     custom: false
+    displays:
+      default:
+        blocks:
+          d034981e-660b-48cf-a85b-bae5ea1d5084:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: left_above
+            weight: 1
+            uuid: d034981e-660b-48cf-a85b-bae5ea1d5084
+        id: panels_variant
+        uuid: f65b57ee-4510-4665-ade5-7895e7ac45b9
+        label: ''
+        weight: 0
+        layout: twocol_bricks
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:department:full:default'
+        builder: ipe
 id: node.department.default
 targetEntityType: node
 bundle: department
