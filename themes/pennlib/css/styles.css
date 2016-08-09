@@ -1297,6 +1297,10 @@ body {
 .wrapper--footer {
   background-color: #031b51; }
 
+.wrapper--breadcrumb,
+#block-pennlib-page-title {
+  display: none; }
+
 .staff-search-wrapper .views-row {
   border-top: 1px solid #cccccc;
   padding: 13px; }
