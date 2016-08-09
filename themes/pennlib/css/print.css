@@ -1118,13 +1118,13 @@ header {
     background-color: #031b51; }
 
 .site-header {
-  min-height: 5em; }
+  min-height: 6em; }
 
 .site-header__logo {
   float: left;
   width: 28rem;
   position: relative;
-  top: 2rem; }
+  top: 1rem; }
   .site-header__logo img {
     width: 27rem;
     height: 4.1rem;
@@ -1720,13 +1720,15 @@ h1.page-title {
       text-decoration: none; }
 
 #block-topnav .top-nav {
-  display: none;
+  margin: 0.7rem 0 0 auto;
   list-style: none;
-  margin: .7rem 0 0 0; }
+  float: right; }
   #block-topnav .top-nav #acctDropdown {
     right: 1rem; }
   #block-topnav .top-nav #helpDropdown {
     margin: 0 0 0 -4.5rem; }
+  #block-topnav .top-nav #chooselibrarylink, #block-topnav .top-nav .nameandacctlink {
+    display: none; }
   #block-topnav .top-nav div {
     display: inline; }
     .front-page #block-topnav .top-nav div {
@@ -1872,6 +1874,12 @@ h1.page-title {
     margin-left: 27.3rem;
     margin-right: 10rem;
     clear: none; }
+
+  .site-header {
+    min-height: 5em; }
+
+  .site-header__logo {
+    top: 2rem; }
 
   #homepagehours {
     width: 80%; }
@@ -2122,9 +2130,11 @@ h1.page-title {
   #mobile-nav {
     display: none; }
 
+  #block-topnav .top-nav #chooselibrarylink, #block-topnav .top-nav .nameandacctlink {
+    display: inline; }
+
   #block-topnav .top-nav {
-    display: block;
-    float: right; }
+    width: auto; }
 
   #block-pennlib-account-menu {
     display: block;
