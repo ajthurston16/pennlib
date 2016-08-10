@@ -21,7 +21,7 @@
           ]
         %}
         {# Give top-level items unique IDs for styling. #}
-        {% if menu_level == 0 %}
+        {% if menu_level < 3 %}
           {% set itemid = 'main-nav-' ~ parentname ~ menus.format_id(item.title) %}
         {% endif %}
         {# Use heading tags (from h3 to h6) for structure in parent items, but not child/"leaf" items. #}

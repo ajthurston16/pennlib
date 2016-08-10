@@ -1,0 +1,38 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <div id="navandidbar"><!--  class="loggedin" -->
+    <ul class="top-nav"><h2 class="visually-hidden">Top navigation &#38; login</h2>  
+      <li class="holdtophelp"><!-- 1 --> 
+        <div id="clickhelpdropdown" class="idbarbutton clickableArrow" title="Help">Contact us &#160;<img src="/sites/default/files/images/common/spacer.png" alt="click for options"/></div>
+        <ul id="helpDropdown" class="subnav">
+          <li><a href="tel:12158987555">215-898-7555</a></li>
+          <li><a href="//faq.library.upenn.edu/ask">Questions or comments</a></li>
+          <li class="chatdropdown">
+            <!-- Springshare Chat code //-->
+            <div id="libchat_ed8cbf824df1df19f90bdf4fe661b27f"></div><script type="text/javascript" src="//v2.libanswers.com/load_chat.php?hash=ed8cbf824df1df19f90bdf4fe661b27f"></script>
+             <!-- End Springshare Chat code //-->
+          </li>
+        </ul>
+      </li>
+      <li id="chooselibrarylink"><!-- 2 --> 
+        <a href="http://www.library.upenn.edu/">Library Home</a>
+      </li>
+      <li class="nameandacctlink"><!-- 3 --> 
+        <span id="helloname" class="helloname"></span><span class="hellocolon">:</span> <a id="account" href="https://dla.library.upenn.edu/ils/">PennKey Library Account</a> </li>
+      <li class="holdloginout"><!-- 4 --> 
+        <a id="logout" class="idbarbutton" href="https://dla.library.upenn.edu/accounts/logout/">Logout</a> 
+        <div id="clickacctdropdown" class="idbarbutton clickableArrow" title="login options">Login &#160;<img src="/sites/default/files/images/common/spacer.png" alt="click for options"/></div>
+        <ul class="subnav" id="acctDropdown">
+          <li> <a id="login" href="https://dla.library.upenn.edu/accounts/login/?next=http%3A%2F%2Ffranklin.library.upenn.edu%2Findex.html%3F">Log in to Franklin with PennKey</a> </li>
+          <li> <a href="/access/nopennkey.html">No PennKey? Click here.</a> </li>
+        </ul>
+      </li>
+    </ul> <!-- end topnav --> 
+  </div> <!-- end navandidbar -->
+</div>

@@ -13,7 +13,7 @@ dependencies:
 id: adminloginlink
 theme: pennlib
 region: footer
-weight: -7
+weight: -6
 provider: null
 plugin: 'block_content:a4ab7eca-5dc8-43fe-83d0-83e406cba761'
 settings:

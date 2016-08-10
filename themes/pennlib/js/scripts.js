@@ -56,10 +56,10 @@
       var $mobileMenu = $('ul.main-nav');
       $mobileNav.find($mobileButton).clickToggle(function () {
         $(this).addClass('on');
-        $mobileMenu.addClass('show');
+        $mobileMenu.addClass('show hburgermenu');
       }, function () {
         $(this).removeClass('on');
-        $mobileMenu.removeClass('show');
+        $mobileMenu.removeClass('show hburgermenu');
       });
 
       /**
@@ -96,40 +96,61 @@
       } //end toggleViewMode()
 
       $(document).ready(function() {
-        // Hide dropdown if you click outside of it.
+        // Repopulate the library home link if there is a homepage cookie.
+        if (getCookie('hp')) {
+          $('#chooselibrarylink a').attr('href', 'http://www.library.upenn.edu' + getCookie('hp'));
+        }
+
+        // Sitewide Franklin login scripts: Asynchronously load the scripts and execute them in order.
+        // We're loading asynchronously so that when there is a Franklin/DLA outage, it doesn't crash the rest of the page.
+        $("#top-nav-pennkey-library-account").prepend('<span id="helloname" class="helloname"></span><span class="hellocolon">:</span>');
+        $.getScript("/themes/pennlib/js/login/loginStatusModule.js", function() {
+          $.getScript("/themes/pennlib/js/login/login.js", function() {
+            $.getScript("http://dla.library.upenn.edu/dla/franklin/scripts/json2.js", function() {
+              $.getScript("http://dla.library.upenn.edu/dla/franklin/scripts/storage.js", function() {
+                // All scripts have been loaded. Any code that needs to happen after that can go here.
+                console.log("Done loading login scripts!");
+              });
+            });
+          });
+        });
+
+        // Staff: Hide dropdown if you click outside of it.
         $(document).click(function(event) {
           if (event.target.id!=="" && $('#toggle-view-mode').hasClass('active')) {
             $('#toggle-view-mode').removeClass('active');
           }
         });
 
-        // On page load, check cookie and apply initial view mode classes.
-        if ((getCookie('briefview')==='null' && getCookie('normalview')==='null') ||
-            (getCookie('briefview')==='null' && getCookie('normalview')==='true')) {
-          toggleViewMode('normalview');
-        } else if (getCookie('briefview')==='true') {
+        // Staff: On page load, check cookie and apply initial view mode classes.
+        if (getCookie('briefview')==='true') {
           toggleViewMode('briefview');
         } else {
           toggleViewMode('normalview');
         }
+
+        // Staff: If on the staff search page, use hidden booleans to show/hide certain fields.
+        // Library is hidden by default, and division is hidden in brief view by default.
+        $staffSearchBlock.find(".views-row").each(function() {
+          if ($(this).find(".field--name-field-show-library .field__item").text() == "True") {
+            $(this).find(".field--name-field-library").addClass("showlibrary");
+          }
+          if ($(this).find(".field--name-field-show-division .field__item").text() == "True") {
+            $(this).find(".field--name-field-division").addClass("showinbrief");
+          }
+        });
       });
 
       // When a view mode is selected, toggle the classes and update the view mode cookie.
       $('#view-mode-brief').click(function() {
         toggleViewMode('briefview');
-        
-        if (getCookie('briefview')==='null' || getCookie('briefview')==='true') {
-          document.cookie = 'normalview=null;path=/';
-          document.cookie = 'briefview=true;path=/';
-        }
+        document.cookie = 'briefview=true;path=/';
+        document.cookie = 'normalview=;path=/';
       });
       $('#view-mode-normal').click(function() {
         toggleViewMode('normalview');
-        
-        if (getCookie('normalview')==='null' || getCookie('normalview')==='true') {
-          document.cookie = 'briefview=null;path=/';
-          document.cookie = 'normalview=true;path=/';
-        }
+        document.cookie = 'briefview=;path=/';
+        document.cookie = 'normalview=true;path=/';
       });
       
      /**
@@ -155,12 +176,12 @@
             return kvPair.substring(searchStringLen, kvPairLen);
           }
         }
-        return 'null';
+        return null;
       }
 
       /**
        * Menubar: top-level link stays white when you hover on dropdown panel
-      **/
+       **/
       $(".main-nav > .main-nav__item  > ul.main-nav__sub")
         .on("mouseover", function () {
           $(this).parent('li').addClass('is-hovered');
@@ -169,6 +190,43 @@
           $(this).parent('li').removeClass('is-hovered');
         });
 
+      /**
+       * Top-nav: dropdowns.
+       **/
+
+      $('.idbarbutton.clickableArrow').click(function() {
+        $(this).next().show(); // toggle the actual menu
+        $(this).addClass('active'); // toggle the arrow and minus sign
+        // click help, then hide acct; or click acct, then hide help
+        $('.idbarbutton.clickableArrow').not(this).removeClass('active');
+        $('.idbarbutton.clickableArrow').not(this).next().hide();
+      });
+
+      /* This function makes the topnav dropdown go away if you click somewhere else, but if you click the element itself, don't hide it. */
+      /* "touchstart click hover" makes sure there is no delay on a touch device */
+      $(document).bind("touchstart click hover",  function(e) {
+        if ($(e.target).closest('#clickacctdropdown').length !== 0 || $(e.target).closest('#acctDropdown').length !== 0 ||
+          $(e.target).closest('#clickhelpdropdown').length !== 0 || $(e.target).closest('#helpDropdown').length !== 0) {
+          // Do nothing here because we clicked either the button or the dropdown
+        } else {
+          $('.idbarbutton.clickableArrow').removeClass('active');
+          $('.idbarbutton.clickableArrow').next().hide();
+        }
+      });
+
+      /**
+       * Site-wide Search Bar: switches between different searches with radio buttons.
+       **/
+      $('#searchholderlining input[type="radio"]').click(function() {
+          $('#searchholderlining .searchform').hide();
+          $('#'+$(this).val()).show();
+      });
+
+      // Toggle radio button active class
+      $('#radiobluebuttons .holdradio').click(function() {
+        $(this).addClass('active');
+        $('#searchholderlining .holdradio').not(this).removeClass('active');
+      });
 
     } //end attach
   }; //end Drupal.behaviors.pennlib

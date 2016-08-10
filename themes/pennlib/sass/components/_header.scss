@@ -16,7 +16,10 @@ header {
   }
 }
 .site-header {
-  min-height: 5em;
+  min-height: 6em;
+  @include breakpoint($breakpoint-large-width) {
+         min-height: 5em;
+    }
 }
 .site-header__logo{
   float:left;
@@ -29,7 +32,10 @@ header {
     background-repeat: no-repeat;
   }
   position: relative;
-  top: 2rem;
+  top: 1rem;
+  @include breakpoint($breakpoint-large-width) {
+         top: 2rem;
+    }
 }
 .front-page .site-header__logo img {
   background-image: url(/sites/default/files/images/logos/homepagelogowhite@2x.png); 
@@ -39,21 +45,6 @@ header {
   margin-right: 30px;
 }
 
-/* Temporary styling to imitate search bar until functionality is implemented. */
-body:not(.front-page) {
-  .wrapper--header {
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      min-height: 5em;
-      background-color: $concrete;
-    }
-  }
-  .wrapper--main {
-    margin-top: -3.25em;
-  }
-}
 #top-nav-contact-us, #top-nav-login, #top-nav-logout {
   position: relative;
   top: .5rem;

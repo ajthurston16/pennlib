@@ -63,11 +63,39 @@
   *zoom: 1;
   *display: inline;
 }
-
+@mixin inline-block-no-display{
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1;
+}
+@mixin fullonly($display, $oldbrowserdisplay) {
+  display:none;
+  @include breakpoint($breakpoint-large-width) {
+    display: $display;
+    *display: $oldbrowserdisplay;
+  }
+}
+@mixin mobileonly($display, $oldbrowserdisplay) {
+  display:$display;
+  @include breakpoint($breakpoint-large-width) {
+    display: none;
+  }
+}
+@mixin phoneonly($display, $oldbrowserdisplay) {
+  display:$display;
+  @include breakpoint($breakpoint-medium-width) {
+    display: none;
+  }
+}
 @mixin bear-appearance($appearance) {
   -webkit-appearance: $appearance;
   -moz-appearance: $appearance;
   appearance: $appearance;
+}
+@mixin box-shadow($boxshadow) {
+  -webkit-box-shadow: $boxshadow;
+  -moz-box-shadow: $boxshadow;
+  box-shadow: $boxshadow;
 }
 
 @mixin bear-button($color: $button-primary-color, $font-color: $button-primary-font-color, $radius: $button-border-radius, $padding: $button-padding) {
@@ -289,7 +317,6 @@
   text-decoration: none;
   cursor:pointer;
   position: relative;
-  @include inline-block;
   overflow: hidden;
   outline: none;
   transition: background-color 0.4s, color 0.4s;

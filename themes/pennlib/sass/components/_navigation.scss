@@ -1,4 +1,14 @@
+header .wrapper--nav {
+    background-color: transparent;
+    height: auto;
+    @include breakpoint($breakpoint-large-width) {
+      background-color:#003;
+    }
+}
+
+
 header .wrapper--nav nav {
+  
   @include content-container;
   outline: 0;
 
@@ -8,18 +18,19 @@ header .wrapper--nav nav {
 
   .main-nav {
     @include cf();
-    position: relative;
-    top: 2.75em;
+    
+    
     display: block;
     padding: 0;
     margin: 0;
-    z-index: 10;
+    
 
-    @include breakpoint($breakpoint-medium-width) {
+    @include breakpoint($breakpoint-large-width) {
       top: 0;
       margin: 0 30px;
     }
-    #main-nav-library-info, #main-nav-research, #main-nav-collections{
+    
+    #main-nav-library-info, #main-nav-research, #main-nav-collections, #main-nav-tools {
       > .main-nav__sub {
         width: 38.9rem;
       }
@@ -30,9 +41,15 @@ header .wrapper--nav nav {
       }
     }
 
-    #main-nav-courseware, #main-nav-tools { 
+    #main-nav-courseware {
       > .main-nav__sub {
         width: 24rem;
+      }
+    }
+    #main-nav-library-info-general, #main-nav-research-general, #main-nav-collections-general, #main-nav-tools-general {
+      margin-top:-1rem;
+       h4 {
+        display:none;
       }
     }
 
@@ -44,7 +61,7 @@ header .wrapper--nav nav {
       height: 100%;
       display: none;
 
-      @include breakpoint($breakpoint-medium-width) {
+      @include breakpoint($breakpoint-large-width) {
         @include inline-block;
         @include col(1/6, $gutter:0);
       }
@@ -122,22 +139,41 @@ header .wrapper--nav nav {
     }//end parent
 
     // Mobile top-level links
-    &.show {
+    
+    &.show.hburgermenu {
       > .parent {
         display: block;
         width: 100%;
         background-color: white;
         border-bottom: 1px solid $grey-skies;
+
       }
       li {
+        &:last-child {
+          @include box-shadow(0 2px 2px rgba(0, 0, 0, 0.3)) 
+        }
         a {
-          @include link-colors($black, $hover: $orange, $active: $orange, $focus: $orange);
+          color:#000;
           text-align: left;
           padding: 1em 2em;
-
-          &::after {
-            float: right;
-            content: '>'; //TODO: replace with arrow image
+          &:hover, &:focus {
+            @include blueactivegradient;
+            @include blueactivegradienttext;
+          }
+          &:after {
+            right: 0.5625em;
+            margin-top: -11px;
+            top: 50%;
+            content: "";
+            display: block;
+            height: 22px;
+            position: absolute;
+            width: 22px;
+            background-color: rgba(0, 0, 0, 0.3);
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 1em;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20style%3D%22fill%3A%23FFFFFF%3B%22%20points%3D%223.404%2C2.051%208.354%2C7%203.404%2C11.95%205.525%2C14.07%2012.596%2C7%205.525%2C-0.071%20%22%2F%3E%3C%2Fsvg%3E");
           }
         }
       }
@@ -205,7 +241,7 @@ header nav .main-nav {
       right: 0;
     }
   }
-  > #main-nav-courseware.parent, > #main-nav-tools.parent {
+  > #main-nav-courseware.parent {
     > .main-nav__sub  {
       padding: 1.4em;
       > .main-nav__item {
@@ -230,22 +266,19 @@ header nav .main-nav {
 //***************
 #mobile-nav {
   $span-transition: all .3s cubic-bezier(0.7, 0, 0.36, 0.63);
-  width: 3em;
   height: 2.75em;
-  float: right;
-  background-color: $silver;
   display: block;
-  overflow: hidden;
-
-  @include breakpoint($breakpoint-medium-width) {
+  background-color: #003;
+  @include breakpoint($breakpoint-large-width) {
     display: none;
   }
 
   #mobile-button {
     display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 3em;
+    height: 2.75em;
+    float:right;
+    background-color:#d9d9d9;
   }
 
   span {
@@ -291,9 +324,4 @@ header nav .main-nav {
     }
   }
 } //end #mobile-nav
-
-
-
-
-
-
+//ui-icon-carat-r ui-btn-icon-right

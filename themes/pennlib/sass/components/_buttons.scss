@@ -2,21 +2,33 @@
 	@include bear-button-gradient($white-lilac, $grey-skies, $black, 0);
 }
 
+// Buttons in top nav.
+.idbarbutton {
+	@include topnavbuttongray;
+	&:hover, &:focus {
+		@include topnavbuttongrayinvert;
+	}
 
-.front-page #top-nav-contact-us, .front-page #top-nav-login, .front-page #top-nav-logout {
-	> a {
+	.front-page & {
 		@include topnavbuttonnavy;
 		&:hover, &:focus {
-    		@include topnavbuttonnavyinvert;
-    	}
-    }
-}
-
-#top-nav-contact-us, #top-nav-login, #top-nav-logout {
-	> a {
-		@include topnavbuttongray;
-		&:hover, &:focus {
-    		@include topnavbuttongrayinvert;
-    	}
+			@include topnavbuttonnavyinvert;
+		}
+	}
+	img {
+		display: inline;
+		background-image: url(/sites/default/files/images/common/arrowdownarrow.gif);
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		width: 8px;
+		.front-page & {
+			background-image: url(/sites/default/files/images/common/arrowdownarrow-w.gif);
+		}
+	}
+	&.active img {
+		background-image: url(/sites/default/files/images/common/arrowdownminus.gif);
+		.front-page & {
+			background-image: url(/sites/default/files/images/common/arrowdownminus-w.gif);
+		}
 	}
 }

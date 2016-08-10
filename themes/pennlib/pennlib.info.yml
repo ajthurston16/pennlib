@@ -18,6 +18,7 @@ libraries:
 regions:
   header: 'Header'
   navigation: 'Navigation bar'
+  searchbar: 'Search bar'
   highlighted: 'Highlighted'
   help: 'Help'
   breadcrumb: 'Breadcrumb'

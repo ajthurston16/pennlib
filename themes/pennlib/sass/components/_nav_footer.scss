@@ -1,9 +1,8 @@
 .wrapper--nav-footer {
 	border-top: 1px solid $silver;
-	-webkit-box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
-    -moz-box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
-	box-shadow: 0 600px 900px -400px rgba(3, 27, 100, 0.09) inset;
+	@include box-shadow(0 300px 300px -300px rgba(3, 27, 90, 0.2) inset);
 }
+
 #footernav-col-one-giving.footernav__item a{
     display:block;
     background-image: url("/sites/default/files/images/givingbanner.png");
@@ -16,7 +15,7 @@
 
 }
 
-footer.site-nav-footer {
+.wrapper--nav-footer footer {
   @include content-container;
   padding: 1.6rem 1em;
   display:none;
@@ -24,7 +23,7 @@ footer.site-nav-footer {
     display: block;
   }
 }
-.front-page footer nav .footernav > li {
+.front-page .wrapper--nav-footer footer nav .footernav > li {
 	width: 16%;
 	&:first-child {
             @include inline-block;
@@ -35,7 +34,7 @@ footer.site-nav-footer {
     }
 }
  
-footer nav {
+.wrapper--nav-footer footer nav {
    h2 {display:none;}
   .footernav {
     list-style:none;

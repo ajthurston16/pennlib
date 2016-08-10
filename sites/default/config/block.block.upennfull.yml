@@ -1,23 +1,23 @@
-uuid: db5aecf4-3eb8-41a1-9b8a-41d5410be403
+uuid: 79f206ec-3b21-493b-bb1f-045c9a8331c4
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
+    - 'block_content:basic:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
   module:
     - block_content
     - facets
   theme:
     - pennlib
-id: topnav
+id: upennfull
 theme: pennlib
-region: header
-weight: -10
+region: footer
+weight: -9
 provider: null
-plugin: 'block_content:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
+plugin: 'block_content:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
 settings:
-  id: 'block_content:25b122da-b301-4f14-aa8b-aa7ea9ee3f51'
-  label: 'Sitewide Top Nav'
+  id: 'block_content:5dee3cb5-f950-426d-8aaa-9b7bb8293c05'
+  label: 'footer upenn full'
   provider: block_content
   label_display: '0'
   status: true

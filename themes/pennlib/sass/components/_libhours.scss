@@ -51,10 +51,11 @@ $mapbreakpoint: $breakpoint-large-width;
 #homepagehours {
     background-color: $white;
     margin-left: auto;
-    padding-left: 2%;
+    
     width: auto;
     @include breakpoint($mapbreakpoint) {
         width: 80%;
+        padding-left: 2%;
     }
 }
 #linkcampusmap {
