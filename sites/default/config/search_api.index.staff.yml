@@ -13,8 +13,10 @@ dependencies:
     - field.storage.user.field_role
     - field.storage.user.field_team
     - field.storage.user.field_languages
+    - field.storage.user.field_first_name
     - search_api.server.default_server
   module:
+    - taxonomy
     - search_api
     - user
 id: staff
@@ -22,11 +24,6 @@ name: Staff
 description: ''
 read_only: false
 field_settings:
-  search_api_language:
-    label: 'Item language'
-    datasource_id: null
-    property_path: search_api_language
-    type: string
   uid:
     label: 'User ID'
     datasource_id: 'entity:user'
@@ -108,10 +105,68 @@ field_settings:
     label: Languages
     datasource_id: 'entity:user'
     property_path: field_languages
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.user.field_languages
+  name:
+    label: 'Subject Specialty » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_subject_specialty:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_subject_specialty
+      module:
+        - taxonomy
+  name_1:
+    label: 'Library » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_library:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_library
+      module:
+        - taxonomy
+  processed:
+    label: 'First Name » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_first_name:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_first_name
+  name_2:
+    label: 'Team » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_team:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_team
+      module:
+        - taxonomy
+  name_3:
+    label: 'Technology Specialty » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_technology_specialty:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_technology_specialty
+      module:
+        - taxonomy
+  name_4:
+    label: 'Department » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_department:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_department
+      module:
+        - taxonomy
 processor_settings:
   add_url:
     plugin_id: add_url
@@ -126,6 +181,21 @@ processor_settings:
         staff: staff
       weights:
         preprocess_index: -10
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - field_pennkey
+        - field_languages
+        - name
+        - name_1
+        - processed
+        - name_2
+        - name_3
+        - name_4
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
 options:
   index_directly: true
   cron_limit: 50
