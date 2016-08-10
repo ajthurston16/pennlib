@@ -59,7 +59,7 @@
         $mobileMenu.addClass('show hburgermenu');
       }, function () {
         $(this).removeClass('on');
-        $mobileMenu.removeClass('show');
+        $mobileMenu.removeClass('show hburgermenu');
       });
 
       /**

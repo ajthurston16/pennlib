@@ -1422,7 +1422,6 @@ header {
 #homepagehours {
   background-color: #ffffff;
   margin-left: auto;
-  padding-left: 2%;
   width: auto; }
 
 #linkcampusmap {
@@ -1521,6 +1520,10 @@ header {
       .wrapper--nav-footer footer nav .footernav li ul.footernav__sub .footernav__sub li.footernav__item {
         padding-bottom: 1.2rem; }
 
+header .wrapper--nav {
+  background-color: transparent;
+  height: auto; }
+
 header .wrapper--nav nav {
   max-width: 100em;
   margin: 0 auto;
@@ -1529,12 +1532,9 @@ header .wrapper--nav nav {
     cursor: pointer; }
   header .wrapper--nav nav .main-nav {
     *zoom: 1;
-    position: relative;
-    top: 2.75em;
     display: block;
     padding: 0;
-    margin: 0;
-    z-index: 10; }
+    margin: 0; }
     header .wrapper--nav nav .main-nav:before, header .wrapper--nav nav .main-nav:after {
       content: '';
       display: table; }
@@ -1617,6 +1617,8 @@ header .wrapper--nav nav {
       width: 100%;
       background-color: white;
       border-bottom: 1px solid #d2d5d8; }
+    header .wrapper--nav nav .main-nav.show.hburgermenu li:last-child {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
     header .wrapper--nav nav .main-nav.show.hburgermenu li a {
       color: #000;
       text-align: left;
@@ -1708,17 +1710,15 @@ header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub {
 
 /*main-nav-tools*/
 #mobile-nav {
-  width: 3em;
   height: 2.75em;
-  float: right;
-  background-color: #ccc;
   display: block;
-  overflow: hidden; }
+  background-color: #003; }
   #mobile-nav #mobile-button {
     display: block;
-    width: 100%;
-    height: 100%;
-    position: relative; }
+    width: 3em;
+    height: 2.75em;
+    float: right;
+    background-color: #d9d9d9; }
   #mobile-nav span {
     display: block;
     position: relative;
@@ -2231,11 +2231,42 @@ h1.page-title {
   .site-header__logo {
     top: 2rem; }
   #homepagehours {
-    width: 80%; }
+    width: 80%;
+    padding-left: 2%; }
   #linkcampusmap {
     display: block; }
   .wrapper--nav-footer footer {
     display: block; }
+  header .wrapper--nav {
+    background-color: #003; }
+  header .wrapper--nav nav .main-nav {
+    top: 0;
+    margin: 0 30px; }
+  header .wrapper--nav nav .main-nav > .parent {
+    display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1;
+    display: inline;
+    zoom: 1;
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    width: 16.66667%;
+    margin-left: 0%;
+    margin-right: 0%; }
+  header .wrapper--nav nav .main-nav > .parent:before, header .wrapper--nav nav .main-nav > .parent:after {
+    content: '';
+    display: table; }
+  header .wrapper--nav nav .main-nav > .parent:after {
+    clear: both; }
+  header .wrapper--nav nav .main-nav > .parent:last-child {
+    margin-right: 0%; }
+  #mobile-nav {
+    display: none; }
   #block-searchbar #searchholderlining {
     width: 68em; } }
 
@@ -2404,34 +2435,6 @@ h1.page-title {
   .homeul {
     display: inline-block;
     width: 49%; }
-  header .wrapper--nav nav .main-nav {
-    top: 0;
-    margin: 0 30px; }
-  header .wrapper--nav nav .main-nav > .parent {
-    display: inline-block;
-    vertical-align: top;
-    vertical-align: top;
-    zoom: 1;
-    display: inline;
-    zoom: 1;
-    float: left;
-    display: inline;
-    clear: none;
-    text-align: inherit;
-    padding-left: 0;
-    padding-right: 0;
-    width: 16.66667%;
-    margin-left: 0%;
-    margin-right: 0%; }
-  header .wrapper--nav nav .main-nav > .parent:before, header .wrapper--nav nav .main-nav > .parent:after {
-    content: '';
-    display: table; }
-  header .wrapper--nav nav .main-nav > .parent:after {
-    clear: both; }
-  header .wrapper--nav nav .main-nav > .parent:last-child {
-    margin-right: 0%; }
-  #mobile-nav {
-    display: none; }
   #block-topnav .top-nav #chooselibrarylink, #block-topnav .top-nav .nameandacctlink {
     display: inline; }
   #block-topnav .top-nav {

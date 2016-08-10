@@ -1,5 +1,7 @@
 # Department Taxonomy terms.
 'Access Services':
+'Circulation':
+  parent: 'Access Services'
 'Periodicals':
   parent: 'Access Services'
 'Rosengarten Reserve':
@@ -9,6 +11,8 @@
 'Acquisitions & Serials (Biddle)':
 'Acquisitions, Access, & licensing':
 'Electronic Resources & Licensing':
+  parent: 'Acquisitions, Access, & licensing'
+'Electronic Formats Acquisition':
   parent: 'Acquisitions, Access, & licensing'
 'Monographic Acquisitions':
   parent: 'Acquisitions, Access, & licensing'
@@ -38,6 +42,21 @@
   parent: 'Area Studies Collections'
 'Building & Security':
 'Business Office':
+'Cataloging (Biddle)':
+'Circulation & Collection Maintenance (Biddle)':
+'Collection Development (Biddle)':
+'Collection Development & Analysis':
+'Courseware Services':
+'Data Management':
+'Digital Scholarship':
+'Events':
+'Exhibits':
+'EZBorrow':
+'Facilities Planning & Construction':
+'Fine Arts Library':
+'Fine Arts Image Collection':
+  parent: 'Fine Arts Library'
+'Foreign and International Law (Biddle)':
 'Information Processing Center':
 'Cataloging & Metadata':
   parent: 'Information Processing Center'
@@ -47,43 +66,33 @@
   parent: 'Cataloging & Metadata'
 'Postcataloging':
   parent: 'Information Processing Center'
-'Schoenberg Institute for Manuscript Studies':
+'Schoenberg Center for Electronic Text & Image':
   parent: 'Information Processing Center'
 'Digital Assets Management':
-  parent: 'Schoenberg Institute for Manuscript Studies'
+  parent: 'Schoenberg Center for Electronic Text & Image'
 'Area Studies Technical Services':
   parent: 'Information Processing Center'
-'Cataloging (Biddle)':
-'Circulation & Collection Maintenance (Biddle)':
-'Collection Development (Biddle)':
-'Collection Development & Analysis':
-'Conservation':
-'Courseware Services':
-'Data Management':
-'Events':
-'Exhibits':
-'EZBorrow':
-'Facilities Planning & Construction':
-'Fine Arts Library':
-'Fine Arts Image Collection':
-  parent: 'Fine Arts Library'
-'Foreign and International Law (Biddle)':
 'Information Services (Biomedical)':
 'Kislak Center Reading Room':
 'Liaison Services':
 'Libraries Research Annex and Associated Collaborative Partnerships':
 'Library Technology Services':
+'Client & Computing Services':
+  parent: 'Library Technology Services'
+'Desktop Operations':
+  parent: 'Client & Computing Services'
 'Digital Library Development and Systems':
   parent: 'Library Technology Services'
 'Web Unit':
   parent: 'Library Technology Services'
-'Desktop Operations':
-  parent: 'Library Technology Services'
 'Museum Library':
 'Office of the Director (Biddle)':
 'Patron Services (Biomedical Library)':
+'Public Services (Biddle)':
+'Preservation':
+'Conservation':
+  parent: 'Preservation'
 'Reference Services (Biddle)':
-'Researcher Services':
 'Resource Sharing Services':
 'FacultyEXPRESS':
   parent: 'Resource Sharing Services'
@@ -91,10 +100,11 @@
   parent: 'Resource Sharing Services'
 'LIBRA Processing':
   parent: 'Resource Sharing Services'
+'Schoenberg Institute for Manuscript Studies':
 'Special Collections & Archives (Biddle)':
 'Special Collections Processing Center':
 'Strategic Initiatives':
 'Teaching & Learning Services':
 'The Robert & Molly Freedman Jewish Sound Archive':
-'Weigle Information Commons':
 'Vitale Digital Media Lab':
+'Weigle Information Commons':

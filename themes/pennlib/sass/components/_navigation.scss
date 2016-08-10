@@ -1,4 +1,14 @@
+header .wrapper--nav {
+    background-color: transparent;
+    height: auto;
+    @include breakpoint($breakpoint-large-width) {
+      background-color:#003;
+    }
+}
+
+
 header .wrapper--nav nav {
+  
   @include content-container;
   outline: 0;
 
@@ -8,14 +18,14 @@ header .wrapper--nav nav {
 
   .main-nav {
     @include cf();
-    position: relative;
-    top: 2.75em;
+    
+    
     display: block;
     padding: 0;
     margin: 0;
-    z-index: 10;
+    
 
-    @include breakpoint($breakpoint-medium-width) {
+    @include breakpoint($breakpoint-large-width) {
       top: 0;
       margin: 0 30px;
     }
@@ -51,7 +61,7 @@ header .wrapper--nav nav {
       height: 100%;
       display: none;
 
-      @include breakpoint($breakpoint-medium-width) {
+      @include breakpoint($breakpoint-large-width) {
         @include inline-block;
         @include col(1/6, $gutter:0);
       }
@@ -136,8 +146,12 @@ header .wrapper--nav nav {
         width: 100%;
         background-color: white;
         border-bottom: 1px solid $grey-skies;
+
       }
       li {
+        &:last-child {
+          @include box-shadow(0 2px 2px rgba(0, 0, 0, 0.3)) 
+        }
         a {
           color:#000;
           text-align: left;
@@ -252,22 +266,19 @@ header nav .main-nav {
 //***************
 #mobile-nav {
   $span-transition: all .3s cubic-bezier(0.7, 0, 0.36, 0.63);
-  width: 3em;
   height: 2.75em;
-  float: right;
-  background-color: $silver;
   display: block;
-  overflow: hidden;
-
-  @include breakpoint($breakpoint-medium-width) {
+  background-color: #003;
+  @include breakpoint($breakpoint-large-width) {
     display: none;
   }
 
   #mobile-button {
     display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 3em;
+    height: 2.75em;
+    float:right;
+    background-color:#d9d9d9;
   }
 
   span {
