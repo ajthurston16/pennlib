@@ -217,7 +217,7 @@ function pennlib_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
   // General
   $form['#attributes']['class'][] = 'ui';
   $form['#attributes']['class'][] = 'form';
-
+  //print_r($form);
   //dpm($form_state);
 
   //Forms by ID
@@ -266,6 +266,13 @@ function pennlib_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
 
       case 'comment_node_forum_form':
         $form['#attributes']['class'][] = 'reply';
+        break;
+
+      case 'views_exposed_form':
+        if ($form['#id'] == 'views-exposed-form-staff-search-block-1') {
+          $form['search_api_fulltext']['#attributes']['placeholder'] = t('Search for staff, subject specialty, library, etc.');
+          $form['actions']['submit']['#value'] = t('Search the staff directory');
+        }
         break;
     }
   }
