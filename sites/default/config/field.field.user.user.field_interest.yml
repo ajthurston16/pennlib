@@ -11,7 +11,7 @@ id: user.user.field_interest
 field_name: field_interest
 entity_type: user
 bundle: user
-label: Interest
+label: Interests
 description: ''
 required: false
 translatable: false
