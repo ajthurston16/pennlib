@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.user.field_library
+    - field.storage.user.field_pennkey
+    - field.storage.user.field_role
     - search_api.index.staff
   module:
     - search_api
+    - text
     - user
 id: staff_search
 label: 'Staff Search'
@@ -48,7 +52,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 25
+          items_per_page: 5
           offset: 0
           id: 0
           total_pages: null
@@ -58,9 +62,9 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
-            items_per_page: true
+            items_per_page: false
             items_per_page_label: 'Items per page'
-            items_per_page_options: '25, 50, 100'
+            items_per_page_options: '5'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -646,7 +650,50 @@ display:
                 display_method: label
           entity_type: user
           plugin_id: search_api_field
-      filters: {  }
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_staff
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              staff: '0'
+              hr_department: '0'
+              web_admin: '0'
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
       sorts: {  }
       title: 'Staff Search'
       header: {  }
@@ -656,13 +703,18 @@ display:
       arguments: {  }
       display_extenders: {  }
       css_class: staff-search-wrapper
+      use_ajax: true
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_library'
+        - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'
   block_1:
     display_plugin: block
     id: block_1
@@ -678,7 +730,11 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_library'
+        - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'
