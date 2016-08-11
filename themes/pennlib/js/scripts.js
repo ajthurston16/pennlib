@@ -116,8 +116,11 @@
         });
 
         // Staff: Hide dropdown if you click outside of it.
+        // For some reason, event.target.id keeps returning undefined values for any clicked element.
+        // Checking that id would be a more direct way of doing this.
         $(document).click(function(event) {
-          if (event.target.id!=="" && $('#toggle-view-mode').hasClass('active')) {
+          var eventNotInDropdown = !($(event.target).closest('#toggle-view-mode').length);
+          if (eventNotInDropdown && $('#toggle-view-mode').hasClass('active')) {
             $('#toggle-view-mode').removeClass('active');
           }
         });
@@ -146,13 +149,17 @@
         toggleViewMode('briefview');
         document.cookie = 'briefview=true;path=/';
         document.cookie = 'normalview=;path=/';
+        // Making a selection should hide the entire dropdown menu
+        $('#toggle-view-mode').toggleClass('active');
       });
       $('#view-mode-normal').click(function() {
         toggleViewMode('normalview');
         document.cookie = 'briefview=;path=/';
         document.cookie = 'normalview=true;path=/';
+        // Making a selection should hide the entire dropdown menu
+        $('#toggle-view-mode').toggleClass('active');
       });
-      
+
      /**
       * Get the value of cookie corresponding to a particular cookie name (cookieName)
       * @param cookieName (name of the cookie)
@@ -161,7 +168,7 @@
         //The string to be searched for in document.cookie's k-v pairs
         var searchString = cookieName + "=";
         var searchStringLen = searchString.length;
-        //To generate an array of k-v pairs corresponding to the elements in document.cookie 
+        //To generate an array of k-v pairs corresponding to the elements in document.cookie
         var kvPairs = document.cookie.split(';');
         var len = kvPairs.length;
         var i = 0;
@@ -195,11 +202,19 @@
        **/
 
       $('.idbarbutton.clickableArrow').click(function() {
-        $(this).next().show(); // toggle the actual menu
-        $(this).addClass('active'); // toggle the arrow and minus sign
-        // click help, then hide acct; or click acct, then hide help
-        $('.idbarbutton.clickableArrow').not(this).removeClass('active');
-        $('.idbarbutton.clickableArrow').not(this).next().hide();
+        // If the button isn't active, toggle dropdown the menu on, make it active, and make any other active buttons inactive
+        if(!$(this).hasClass('active')){
+          $(this).next().show(); // toggle the actual menu
+          $(this).addClass('active'); // toggle the arrow and minus sign
+          // click help, then hide acct; or click acct, then hide help
+          $('.idbarbutton.clickableArrow').not(this).removeClass('active');
+          $('.idbarbutton.clickableArrow').not(this).next().hide();
+        }
+        // If the button is already active, make it inactive and toggle the dropdown menu off
+        else {
+          $(this).removeClass('active');
+          $(this).next().hide();
+        }
       });
 
       /* This function makes the topnav dropdown go away if you click somewhere else, but if you click the element itself, don't hide it. */
@@ -207,12 +222,13 @@
       $(document).bind("touchstart click hover",  function(e) {
         if ($(e.target).closest('#clickacctdropdown').length !== 0 || $(e.target).closest('#acctDropdown').length !== 0 ||
           $(e.target).closest('#clickhelpdropdown').length !== 0 || $(e.target).closest('#helpDropdown').length !== 0) {
-          // Do nothing here because we clicked either the button or the dropdown
+          // Don't do anything here
         } else {
           $('.idbarbutton.clickableArrow').removeClass('active');
           $('.idbarbutton.clickableArrow').next().hide();
         }
       });
+
 
       /**
        * Site-wide Search Bar: switches between different searches with radio buttons.
