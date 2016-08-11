@@ -14,7 +14,6 @@ dependencies:
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
-    - field.field.user.user.field_languages
     - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
@@ -204,7 +203,6 @@ hidden:
   field_emergency_contact: true
   field_fax: true
   field_interest: true
-  field_languages: true
   field_liaison_responsibility: true
   field_middle_name: true
   field_mobile: true

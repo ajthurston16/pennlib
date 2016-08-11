@@ -12,7 +12,6 @@ dependencies:
     - field.storage.user.field_technology_specialty
     - field.storage.user.field_role
     - field.storage.user.field_team
-    - field.storage.user.field_languages
     - field.storage.user.field_first_name
     - search_api.server.default_server
   module:
@@ -101,14 +100,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_team
-  field_languages:
-    label: Languages
-    datasource_id: 'entity:user'
-    property_path: field_languages
-    type: string
-    dependencies:
-      config:
-        - field.storage.user.field_languages
   name:
     label: 'Subject Specialty » Taxonomy term » Name'
     datasource_id: 'entity:user'
@@ -173,14 +164,6 @@ processor_settings:
     settings:
       weights:
         preprocess_index: -30
-  role_filter:
-    plugin_id: role_filter
-    settings:
-      default: false
-      roles:
-        staff: staff
-      weights:
-        preprocess_index: -10
   ignorecase:
     plugin_id: ignorecase
     settings:
@@ -196,6 +179,14 @@ processor_settings:
       weights:
         preprocess_index: -10
         preprocess_query: -10
+  role_filter:
+    plugin_id: role_filter
+    settings:
+      default: false
+      roles:
+        staff: staff
+      weights:
+        preprocess_index: -10
 options:
   index_directly: true
   cron_limit: 50

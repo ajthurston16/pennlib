@@ -13,7 +13,6 @@ dependencies:
     - field.field.user.user.field_fax
     - field.field.user.user.field_first_name
     - field.field.user.user.field_interest
-    - field.field.user.user.field_languages
     - field.field.user.user.field_last_name
     - field.field.user.user.field_liaison_responsibility
     - field.field.user.user.field_library
@@ -117,11 +116,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_languages:
-    weight: 29
-    settings: {  }
-    third_party_settings: {  }
-    type: field_collection_embed
   field_last_name:
     type: text_textfield
     weight: 7
