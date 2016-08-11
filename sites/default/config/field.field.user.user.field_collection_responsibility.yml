@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_collection_responsibility
-    - taxonomy.vocabulary.collection_responsibilities
+    - taxonomy.vocabulary.subject_specialities
   module:
     - user
 id: user.user.field_collection_responsibility
@@ -21,8 +21,9 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      collection_responsibilities: collection_responsibilities
+      subject_specialities: subject_specialities
     sort:
       field: _none
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference
