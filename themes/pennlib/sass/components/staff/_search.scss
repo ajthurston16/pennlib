@@ -6,6 +6,69 @@
 		&:nth-of-type(even) {
 			background-color: $concrete;
 		}
+		.field--name-user-picture {
+			margin-bottom: .5rem;
+			margin-right: 1rem;
+			@include breakpoint($breakpoint-large-width) {
+		       margin-bottom:1.4rem;
+		    }
+		} 
+		.basicinfo {
+		    margin-right:1.5rem;
+		    @include inline-block;
+		    width: 100%;
+		    @include breakpoint($breakpoint-medium-width) {
+		      width: 31rem !important;
+		      margin-bottom: .6rem;
+		      margin-right:2rem;
+		    }
+		    @include breakpoint($breakpoint-large-width) {
+		       margin-right:1.5rem;
+		       width: 40rem !important;
+		       min-width:40rem!important;
+		    }
+		    @include breakpoint($breakpoint-staffinfobreaker-width) {
+		       width: 31rem !important;
+		       min-width:31rem!important;
+		       max-width:31rem!important;
+		    }
+		    .fullname {
+		    	div, p {
+		    		display:inline;
+		    		font-weight:bold;
+		    	}
+		    }
+		    .field--name-field-title {
+		    	font-style:oblique;
+		    	letter-spacing: .03rem
+		    }
+	    }
+	    .staffcontact {
+	    	@include inline-block;
+	    	margin-top:.5rem;
+	    	.field__item {
+	    		margin-top:.5rem;
+	    	}
+	    	.field--name-field-room,
+	    	.field--name-field-email-address {
+	    		margin-top:.5rem;
+	    	}
+	    	.field--name-field-phone {
+	    		margin-top: 0;
+	    	}
+	    	@include breakpoint($breakpoint-large-width) {
+		        margin-top:0;
+		        
+		        min-width:22rem;
+		        @include breakpoint($breakpoint-staffinfobreaker-width) {
+			      
+			    }
+		        .field__item:first-child {
+		    		margin-top:0;
+		    	}
+		    }
+
+	    }
 	}
 
 	// Hide booleans and library field by default.
@@ -22,3 +85,40 @@
 		display: block !important;
 	}
 }
+.block-facets .content {
+	display:none;
+	@include breakpoint($breakpoint-large-width) {
+      display:block;
+    }
+}
+.col-md-4.radix-layouts-sidebar.panel-panel {
+	@include breakpoint($breakpoint-large-width) {
+      display:inline-block !important;
+    }
+}
+//page title
+#block-pennlib-page-title {
+	padding-left:5px;
+}
+//col-med-4
+#block-pennlib-content .panel-display.brenham .col-md-4.radix-layouts-sidebar.panel-panel {
+	padding: 0 5px !important;
+	@include breakpoint($breakpoint-large-width) {
+      width:30% !important;
+      @include inline-block;
+      
+    }
+ }
+ //col-md-8
+#block-pennlib-content .panel-display.brenham .col-md-8.radix-layouts-content {
+ 	padding: 0 .5rem !important;
+ 	@include breakpoint($breakpoint-large-width) {
+       width:69% !important;
+       padding: 0rem .5rem 0rem 1.5rem !important;
+       @include inline-block;
+      
+    }
+
+ }
+
+

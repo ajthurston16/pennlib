@@ -14,7 +14,7 @@ $left-width: 350px;
       font-size:22px;
     }
     div{
-      display:inline-block;
+      @include inline-block;
     }
     .field--name-field-title{
       font-style: italic;
@@ -86,7 +86,7 @@ $left-width: 350px;
     .field--name-field-phone-type {
       margin: 0;
       padding: 0;
-      display: inline-block;
+      @include inline-block;
     }
   }
 
@@ -94,6 +94,6 @@ $left-width: 350px;
 
 .contact-wrapper{
   div{
-    display:inline-block;
+    @include inline-block;
   }
 }

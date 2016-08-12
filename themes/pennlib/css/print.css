@@ -857,7 +857,6 @@ blockquote {
   vertical-align: top;
   *vertical-align: top;
   *zoom: 1;
-  *display: inline;
   overflow: hidden;
   border: 1px solid #cdcdec;
   outline: none;
@@ -1161,7 +1160,6 @@ header {
   vertical-align: top;
   *vertical-align: top;
   *zoom: 1;
-  *display: inline;
   width: 48%;
   padding-left: 1.9rem;
   border-left: 1px dotted #bbb;
@@ -1279,7 +1277,6 @@ header {
     vertical-align: top;
     *vertical-align: top;
     *zoom: 1;
-    *display: inline;
     border-left: none; }
   .front-page .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
     border-left: dotted 1px #bbb; }
@@ -1316,7 +1313,6 @@ header {
     vertical-align: top;
     *vertical-align: top;
     *zoom: 1;
-    *display: inline;
     width: 19.6%;
     border-left: dotted 1px #bbb; }
     .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
@@ -1408,7 +1404,6 @@ header .wrapper--nav nav {
           vertical-align: top;
           *vertical-align: top;
           *zoom: 1;
-          *display: inline;
           width: 18rem;
           padding: 0 0 0 1.4rem;
           border-left: dotted 1px #bbb; }
@@ -1618,8 +1613,7 @@ h1.page-title {
   display: inline-block;
   vertical-align: top;
   *vertical-align: top;
-  *zoom: 1;
-  *display: inline; }
+  *zoom: 1; }
 
 #block-searchbar #radiobluebuttons input {
   opacity: 0; }
@@ -1838,7 +1832,7 @@ h1.page-title {
 .wrapper--footer {
   background-color: #031b51; }
 
-@media (min-width: 62.5em) {
+@media (min-width: 60em) {
 
   .fullonly-inline {
     display: inline;
@@ -1914,7 +1908,6 @@ h1.page-title {
     vertical-align: top;
     vertical-align: top;
     zoom: 1;
-    display: inline;
     zoom: 1;
     float: left;
     display: inline;

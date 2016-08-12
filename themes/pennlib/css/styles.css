@@ -1042,7 +1042,6 @@ blockquote {
   vertical-align: top;
   *vertical-align: top;
   *zoom: 1;
-  *display: inline;
   overflow: hidden;
   border: 1px solid #cdcdec;
   outline: none;
@@ -1346,7 +1345,6 @@ header {
   vertical-align: top;
   *vertical-align: top;
   *zoom: 1;
-  *display: inline;
   width: 48%;
   padding-left: 1.9rem;
   border-left: 1px dotted #bbb;
@@ -1464,7 +1462,6 @@ header {
     vertical-align: top;
     *vertical-align: top;
     *zoom: 1;
-    *display: inline;
     border-left: none; }
   .front-page .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
     border-left: dotted 1px #bbb; }
@@ -1501,7 +1498,6 @@ header {
     vertical-align: top;
     *vertical-align: top;
     *zoom: 1;
-    *display: inline;
     width: 19.6%;
     border-left: dotted 1px #bbb; }
     .wrapper--nav-footer footer nav .footernav > li:nth-child(2) {
@@ -1593,7 +1589,6 @@ header .wrapper--nav nav {
           vertical-align: top;
           *vertical-align: top;
           *zoom: 1;
-          *display: inline;
           width: 18rem;
           padding: 0 0 0 1.4rem;
           border-left: dotted 1px #bbb; }
@@ -1803,8 +1798,7 @@ h1.page-title {
   display: inline-block;
   vertical-align: top;
   *vertical-align: top;
-  *zoom: 1;
-  *display: inline; }
+  *zoom: 1; }
 
 #block-searchbar #radiobluebuttons input {
   opacity: 0; }
@@ -2028,6 +2022,35 @@ h1.page-title {
   padding: 13px; }
   .staff-search-wrapper .views-row:nth-of-type(even) {
     background-color: #f2f2f2; }
+  .staff-search-wrapper .views-row .field--name-user-picture {
+    margin-bottom: .5rem;
+    margin-right: 1rem; }
+  .staff-search-wrapper .views-row .basicinfo {
+    margin-right: 1.5rem;
+    display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    width: 100%; }
+    .staff-search-wrapper .views-row .basicinfo .fullname div, .staff-search-wrapper .views-row .basicinfo .fullname p {
+      display: inline;
+      font-weight: bold; }
+    .staff-search-wrapper .views-row .basicinfo .field--name-field-title {
+      font-style: oblique;
+      letter-spacing: .03rem; }
+  .staff-search-wrapper .views-row .staffcontact {
+    display: inline-block;
+    vertical-align: top;
+    *vertical-align: top;
+    *zoom: 1;
+    margin-top: .5rem; }
+    .staff-search-wrapper .views-row .staffcontact .field__item {
+      margin-top: .5rem; }
+    .staff-search-wrapper .views-row .staffcontact .field--name-field-room,
+    .staff-search-wrapper .views-row .staffcontact .field--name-field-email-address {
+      margin-top: .5rem; }
+    .staff-search-wrapper .views-row .staffcontact .field--name-field-phone {
+      margin-top: 0; }
 
 .staff-search-wrapper .field--name-field-show-division,
 .staff-search-wrapper .field--name-field-show-library,
@@ -2038,6 +2061,18 @@ h1.page-title {
 .staff-search-wrapper .showlibrary,
 .staff-search-wrapper .showinbrief {
   display: block !important; }
+
+.block-facets .content {
+  display: none; }
+
+#block-pennlib-page-title {
+  padding-left: 5px; }
+
+#block-pennlib-content .panel-display.brenham .col-md-4.radix-layouts-sidebar.panel-panel {
+  padding: 0 5px !important; }
+
+#block-pennlib-content .panel-display.brenham .col-md-8.radix-layouts-content {
+  padding: 0 .5rem !important; }
 
 .subjspec-wrapper h3 {
   font-style: italic;
@@ -2084,7 +2119,10 @@ h1.page-title {
   font-size: 22px; }
 
 .user-profile .full-name div {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
 
 .user-profile .full-name .field--name-field-title {
   font-style: italic;
@@ -2131,10 +2169,16 @@ h1.page-title {
 .user-profile .field--name-field-emergency-contact .field--name-field-phone-type {
   margin: 0;
   padding: 0;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
 
 .contact-wrapper div {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: top;
+  *zoom: 1; }
 
 #toggle-view-mode .label {
   cursor: pointer; }
@@ -2188,10 +2232,17 @@ h1.page-title {
   display: block; }
 
 .block-views-blockstaff-search-block-1.briefview .field--name-field-room,
-.block-views-blockstaff-search-block-1.briefview .field--name-user-picture {
-  display: none; }
+.block-views-blockstaff-search-block-1.briefview .field--name-user-picture,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-department,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-division,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-library {
+  display: none !important; }
 
-@media (min-width: 62.5em) {
+.block-views-blockstaff-search-block-1.briefview .field.field--name-field-email-address,
+.block-views-blockstaff-search-block-1.briefview .staff-search-wrapper .views-row .staffcontact .field__item {
+  margin-top: 0; }
+
+@media (min-width: 60em) {
   .fullonly-inline {
     display: inline;
     display: inline; }
@@ -2247,7 +2298,6 @@ h1.page-title {
     vertical-align: top;
     vertical-align: top;
     zoom: 1;
-    display: inline;
     zoom: 1;
     float: left;
     display: inline;
@@ -2268,7 +2318,39 @@ h1.page-title {
   #mobile-nav {
     display: none; }
   #block-searchbar #searchholderlining {
-    width: 68em; } }
+    width: 68em; }
+  .staff-search-wrapper .views-row .field--name-user-picture {
+    margin-bottom: 1.4rem; }
+  .staff-search-wrapper .views-row .basicinfo {
+    margin-right: 1.5rem;
+    width: 40rem !important;
+    min-width: 40rem !important; }
+  .staff-search-wrapper .views-row .staffcontact {
+    margin-top: 0;
+    min-width: 22rem; }
+  .block-facets .content {
+    display: block; }
+  .col-md-4.radix-layouts-sidebar.panel-panel {
+    display: inline-block !important; }
+  #block-pennlib-content .panel-display.brenham .col-md-4.radix-layouts-sidebar.panel-panel {
+    width: 30% !important;
+    display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1; }
+  #block-pennlib-content .panel-display.brenham .col-md-8.radix-layouts-content {
+    width: 69% !important;
+    padding: 0rem .5rem 0rem 1.5rem !important;
+    display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1; }
+  .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
+    .block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
+    display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1; } }
 
 @media (min-width: 50em) {
   .phoneonly-inline {
@@ -2464,6 +2546,10 @@ h1.page-title {
     background-color: #f2f2f2; }
   .block-views-blockworkshops-workshops .views-row:nth-of-type(even) {
     background-color: transparent !important; }
+  .staff-search-wrapper .views-row .basicinfo {
+    width: 31rem !important;
+    margin-bottom: .6rem;
+    margin-right: 2rem; }
   .subjspec-wrapper .views-field-user-picture {
     zoom: 1;
     float: left;
@@ -2941,3 +3027,9 @@ h1.page-title {
     .user-profile .full-name,
     .user-profile .field--name-field-bio {
     margin-left: 390px; } }
+
+@media (min-width: 77em) {
+  .staff-search-wrapper .views-row .basicinfo {
+    width: 31rem !important;
+    min-width: 31rem !important;
+    max-width: 31rem !important; } }

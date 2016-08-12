@@ -61,9 +61,21 @@
 .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
 .block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
 	display:block;
+	@include breakpoint($breakpoint-large-width) {
+      @include inline-block;
+    }
 }
 
 .block-views-blockstaff-search-block-1.briefview .field--name-field-room,
-.block-views-blockstaff-search-block-1.briefview .field--name-user-picture{
-	display:none;
+.block-views-blockstaff-search-block-1.briefview .field--name-user-picture,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-department,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-division,
+.block-views-blockstaff-search-block-1.briefview .field--name-field-library   {
+	display:none !important;
 }
+.block-views-blockstaff-search-block-1.briefview  .field.field--name-field-email-address,
+.block-views-blockstaff-search-block-1.briefview .staff-search-wrapper .views-row .staffcontact .field__item {
+    margin-top: 0;
+}
+
+
