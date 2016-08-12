@@ -46,13 +46,18 @@ header .wrapper--nav nav {
         width: 24rem;
       }
     }
-    #main-nav-library-info-general, #main-nav-research-general, #main-nav-collections-general, #main-nav-tools-general {
+    #main-nav-library-info-general, #main-nav-research-general, #main-nav-collections-general {
       margin-top:-1rem;
        h4 {
         display:none;
       }
     }
-
+    #main-nav-tools-general {
+      margin-top:-.5rem;
+       h4 {
+        display:none;
+      }
+    }
     // Styling for top-level (landing page) links
     > .parent {
       margin: 0;

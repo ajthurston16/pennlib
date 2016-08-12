@@ -1,44 +1,59 @@
 .node--type-menu_landing_page {
-	/* Styling for the landing page's menu links. */
+	#main-nav-general {
+		h3 {
+			display:none;
+		}
+	}
+	//Styling for the landing page's menu links
 	margin: 0 -1.9rem;
 	.main-nav,
 	.main-nav__sub {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+
 	}
-}
-.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link,
-.node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
-	margin-top: 4rem;
-}
-
-.node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
-	@include inline-block;
-	width: 48%;
-	padding-left: 1.9rem;
-	border-left: 1px dotted #bbb;
-	min-width: 24rem;
-	
-}
-.node--type-menu_landing_page  .block-menu-blockmain-nav ul.main-nav > li.main-nav__item h3 {
-	font-weight: bold;
-	font-size: 1.5rem;
-	letter-spacing: .04rem;
-	color: #000;
-	margin: .9rem 0 0 0;
-}
-.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link h2 {
-	@include boxheader;
-}
-.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link {
-	border: solid 1px $silver;
-}
-.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link .content{
-	padding: .9rem 1rem 1.4rem 1.8rem;
-}
-
-.node--type-menu_landing_page .block-entity-fieldnodefield-see-also-link .content .field.field--name-field-see-also-link .field__item,
-.node--type-menu_landing_page .main-nav__sub li {
-	margin-top:.9rem;
+	.main-nav__sub li {
+		margin-top:.9rem;
+		a {
+			@include link-colors(#000, $hover: #777, $active: #000, $focus: #777);
+		}
+	}
+	.block-entity-fieldnodefield-see-also-link,
+	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
+		margin-top: 4rem;
+	}
+	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
+		@include inline-block;
+		width: 48%;
+		padding-left: 1.9rem;
+		border-left: 1px dotted #bbb;
+		min-width: 24rem;
+		> h3 {
+			font-weight: bold;
+			font-size: 1.5rem;
+			letter-spacing: .04rem;
+			margin: .9rem 0 0 0;
+			> a {
+				cursor: default;
+				@include link-colors(#333, $hover: #333, $active: #333, $focus: #333);
+			}
+		}	
+		
+	}
+	.block-entity-fieldnodefield-see-also-link {
+		border: solid 1px $silver;
+		h2 {
+			@include boxheader;
+		}
+		.content{
+			padding: .9rem 1rem 1.4rem 1.8rem;
+			.field--name-field-see-also-link .field__item {
+				margin-top:.9rem;
+				a{
+					@include link-colors(#333, $hover: #333, $active: #333, $focus: #333);
+				}
+			}
+		}
+	}
 }

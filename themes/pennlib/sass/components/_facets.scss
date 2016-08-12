@@ -24,12 +24,12 @@ $facet-border: 1px solid $silver;
 	    background-position: 1rem 1.2rem;
 	    background-repeat: no-repeat;
 	    border-bottom: 1px solid #ccc;
-	    font-size: 14px;
 	    margin: 0;
 	    padding: 1rem 1rem 1rem 3rem;
 		margin: 0;
 		font-size: $base-font-size;
 		border-bottom: $facet-border;
+		cursor:pointer;
 	}
 
 	.content {
