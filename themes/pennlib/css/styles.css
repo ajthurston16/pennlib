@@ -2104,11 +2104,11 @@ h1.page-title {
 .staff-search-wrapper .field--name-field-show-division,
 .staff-search-wrapper .field--name-field-show-library,
 .staff-search-wrapper .field--name-field-library,
-.briefview .staff-search-wrapper .field--name-field-division {
+.staff-search-wrapper .field--name-field-division {
   display: none; }
 
 .staff-search-wrapper .showlibrary,
-.staff-search-wrapper .showinbrief {
+.staff-search-wrapper .showdivision {
   display: block !important; }
 
 .block-facets .content {
@@ -2254,8 +2254,8 @@ h1.page-title {
     border: 1px solid #ccc;
     border-top: none;
     line-height: 180%; }
-  #toggle-view-mode.active .label::after {
-    content: url(/sites/default/files/images/common/arrowdownminus.gif); }
+  #toggle-view-mode.active .label {
+    background-image: url(/sites/default/files/images/common/arrowdownminus.gif); }
   #toggle-view-mode.active .dropdown {
     display: block; }
   #toggle-view-mode li:hover {

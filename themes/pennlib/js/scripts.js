@@ -68,8 +68,8 @@
         $(this).removeClass('on');
         $mobileMenu.removeClass('show hburgermenu');
       });
-            } //end attach
-          }; //end Drupal.behaviors.pennlib
+    } //end attach
+  }; //end Drupal.behaviors.pennlib
 
   /**
    * View mode toggle for Staff Search (/library-info/staff). Uses cookies to persist on subsequent page loads.
@@ -83,7 +83,6 @@
       var $normal = $('#view-mode-normal');
       var $brief = $('#view-mode-brief');
       var $viewModeToggle = $('#toggle-view-mode');
-
 
       // adding class active for the arrow icon on menu wrapper
       $('#toggle-view-mode .label', context).click(function() {
@@ -113,35 +112,33 @@
         }
       } //end toggleViewMode()
 
-    //  $(document).ready(function() {
-        // Staff: Hide dropdown if you click outside of it.
-        // For some reason, event.target.id keeps returning undefined values for any clicked element.
-        // Checking that id would be a more direct way of doing this.
-        $(document).click(function(event) {
-          var eventNotInDropdown = !($(event.target).closest('#toggle-view-mode').length);
-          if (eventNotInDropdown && $('#toggle-view-mode').hasClass('active')) {
-            $viewModeToggle.removeClass('active');
-          }
-        });
-
-        // Staff: On page load, check cookie and apply initial view mode classes.
-        if (getCookie('briefview')==='true') {
-          toggleViewMode('briefview');
-        } else {
-          toggleViewMode('  ');
+      // Staff: Hide dropdown if you click outside of it.
+      // For some reason, event.target.id keeps returning undefined values for any clicked element.
+      // Checking that id would be a more direct way of doing this.
+      $(document).click(function(event) {
+        var eventNotInDropdown = !($(event.target).closest('#toggle-view-mode').length);
+        if (eventNotInDropdown && $('#toggle-view-mode').hasClass('active')) {
+          $viewModeToggle.removeClass('active');
         }
+      });
 
-        // Staff: If on the staff search page, use hidden booleans to show/hide certain fields.
-        // Library is hidden by default, and division is hidden in brief view by default.
-        $staffSearchBlock.find(".views-row").each(function() {
-          if ($(this).find(".field--name-field-show-library .field__item").text() == "True") {
-            $(this).find(".field--name-field-library").addClass("showlibrary");
-          }
-          if ($(this).find(".field--name-field-show-division .field__item").text() == "True") {
-            $(this).find(".field--name-field-division").addClass("showinbrief");
-          }
-        });
-   //   }); //end document.ready
+      // Staff: On page load, check cookie and apply initial view mode classes.
+      if (getCookie('briefview')==='true') {
+        toggleViewMode('briefview');
+      } else {
+        toggleViewMode('normalview');
+      }
+
+      // Staff: If on the staff search page, use hidden booleans to show/hide certain fields.
+      // Library is hidden by default, and division is hidden in brief view by default.
+      $staffSearchBlock.find(".views-row").each(function() {
+        if ($(this).find(".field--name-field-show-library .field__item").text() == "True") {
+          $(this).find(".field--name-field-library").addClass("showlibrary");
+        }
+        if ($(this).find(".field--name-field-show-division .field__item").text() == "True") {
+          $(this).find(".field--name-field-division").addClass("showdivision");
+        }
+      });
 
       // When a view mode is selected, toggle the classes and update the view mode cookie.
       $brief.click(function() {

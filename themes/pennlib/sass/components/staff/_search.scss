@@ -76,12 +76,12 @@
 	.field--name-field-show-division,
 	.field--name-field-show-library,
 	.field--name-field-library,
-	.briefview & .field--name-field-division {
+	.field--name-field-division {
 		display: none;
 	}
 	// These classes get added by JS:
 	.showlibrary,
-	.showinbrief {
+	.showdivision {
 		display: block !important;
 	}
 }

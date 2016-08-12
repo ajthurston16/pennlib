@@ -27,8 +27,8 @@
 		line-height: 180%;
 	}
 	&.active {
-		.label::after {
-			content: url(/sites/default/files/images/common/arrowdownminus.gif);
+		.label {
+			background-image: url(/sites/default/files/images/common/arrowdownminus.gif);
 		}
 		.dropdown {
 			display: block;

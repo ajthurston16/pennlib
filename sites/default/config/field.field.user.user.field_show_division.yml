@@ -10,7 +10,7 @@ id: user.user.field_show_division
 field_name: field_show_division
 entity_type: user
 bundle: user
-label: 'Show Division in Staff Directory Brief View'
+label: 'Show Division in Staff Directory search results'
 description: ''
 required: false
 translatable: false
