@@ -1188,21 +1188,41 @@ blockquote {
   /* For facets showing list of links. */
   /* For facets showing list of checkboxes or dropdown.
 	 * Some overriding of styles from _form.scss is happening here. */ }
+  .block-facets h2, .block-facets.open h2 {
+    background-image: url("/sites/default/files/images/common/facetopen.gif"); }
+  .block-facets .content, .block-facets.open .content {
+    display: block; }
+  .block-facets.closed h2 {
+    background-image: url("/sites/default/files/images/common/facetclosed.gif"); }
+  .block-facets.closed .content {
+    display: none; }
   .block-facets h2 {
-    margin: 0;
-    padding: 10px;
+    background-color: #eee;
+    background-position: 1rem 1.2rem;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #ccc;
     font-size: 14px;
-    background-color: #eeeeee;
+    margin: 0;
+    padding: 1rem 1rem 1rem 3rem;
+    margin: 0;
+    font-size: 14px;
     border-bottom: 1px solid #ccc; }
-    .block-facets h2::before {
-      content: url(/sites/default/files/images/common/facetopen.gif);
-      margin-right: 5px; }
   .block-facets .content {
-    padding: 10px; }
+    padding: 1rem; }
   .block-facets ul {
     list-style-type: none;
     padding: 0;
     margin: 0; }
+    .block-facets ul li {
+      margin-top: .9rem; }
+      .block-facets ul li a {
+        color: #000; }
+        .block-facets ul li a:hover {
+          color: #c60; }
+        .block-facets ul li a:active {
+          color: #000; }
+        .block-facets ul li a:focus {
+          color: #c60; }
   .block-facets fieldset legend,
   .block-facets .js-form-type-select label {
     display: none !important; }
@@ -1215,7 +1235,9 @@ blockquote {
   float: right; }
 
 .facets-soft-limit-link {
-  font-style: italic; }
+  font-style: italic;
+  display: block;
+  margin-top: .9rem; }
 
 .site-footer {
   font-size: 12.88px;
@@ -2036,8 +2058,8 @@ h1.page-title {
       display: inline;
       font-weight: bold; }
     .staff-search-wrapper .views-row .basicinfo .field--name-field-title {
-      font-style: oblique;
-      letter-spacing: .03rem; }
+      font-weight: bold;
+      margin-bottom: .5rem; }
   .staff-search-wrapper .views-row .staffcontact {
     display: inline-block;
     vertical-align: top;
@@ -2180,35 +2202,37 @@ h1.page-title {
   *vertical-align: top;
   *zoom: 1; }
 
-#toggle-view-mode .label {
-  cursor: pointer; }
-  #toggle-view-mode .label::after {
-    content: url(/sites/default/files/images/common/arrowdownarrow.gif);
-    margin-left: 5px; }
-  #toggle-view-mode .label::before {
-    content: url(/sites/default/files/images/common/fullview-option.gif);
-    margin-right: 5px; }
-
-#toggle-view-mode .dropdown {
-  display: none;
-  position: absolute;
-  z-index: 999;
-  background: #ffffff;
-  width: 100px;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  border: 1px solid #ccc;
-  border-top: none; }
-
-#toggle-view-mode.active .label::after {
-  content: url(/sites/default/files/images/common/arrowdownminus.gif); }
-
-#toggle-view-mode.active .dropdown {
-  display: block; }
-
-#toggle-view-mode li:hover {
-  background-color: #f2f2f2; }
+#toggle-view-mode {
+  width: 8.5rem;
+  padding: 0; }
+  #toggle-view-mode .label {
+    cursor: pointer;
+    padding-left: .6rem;
+    padding-right: 1rem;
+    background-image: url(/sites/default/files/images/common/arrowdownarrow.gif);
+    background-repeat: no-repeat;
+    background-position: right .75rem; }
+    #toggle-view-mode .label::before {
+      content: url(/sites/default/files/images/common/fullview-option.gif);
+      margin-right: 5px; }
+  #toggle-view-mode .dropdown {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background: #ffffff;
+    width: 100px;
+    padding: .4rem 0 0 0;
+    margin: 0;
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    line-height: 180%; }
+  #toggle-view-mode.active .label::after {
+    content: url(/sites/default/files/images/common/arrowdownminus.gif); }
+  #toggle-view-mode.active .dropdown {
+    display: block; }
+  #toggle-view-mode li:hover {
+    background-color: #f2f2f2; }
 
 .briefview #toggle-view-mode .label::before {
   content: url(/sites/default/files/images/common/briefview-option.gif); }

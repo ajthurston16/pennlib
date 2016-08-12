@@ -1003,21 +1003,41 @@ blockquote {
   /* For facets showing list of links. */
   /* For facets showing list of checkboxes or dropdown.
 	 * Some overriding of styles from _form.scss is happening here. */ }
+  .block-facets h2, .block-facets.open h2 {
+    background-image: url("/sites/default/files/images/common/facetopen.gif"); }
+  .block-facets .content, .block-facets.open .content {
+    display: block; }
+  .block-facets.closed h2 {
+    background-image: url("/sites/default/files/images/common/facetclosed.gif"); }
+  .block-facets.closed .content {
+    display: none; }
   .block-facets h2 {
-    margin: 0;
-    padding: 10px;
+    background-color: #eee;
+    background-position: 1rem 1.2rem;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #ccc;
     font-size: 14px;
-    background-color: #eeeeee;
+    margin: 0;
+    padding: 1rem 1rem 1rem 3rem;
+    margin: 0;
+    font-size: 14px;
     border-bottom: 1px solid #ccc; }
-    .block-facets h2::before {
-      content: url(/sites/default/files/images/common/facetopen.gif);
-      margin-right: 5px; }
   .block-facets .content {
-    padding: 10px; }
+    padding: 1rem; }
   .block-facets ul {
     list-style-type: none;
     padding: 0;
     margin: 0; }
+    .block-facets ul li {
+      margin-top: .9rem; }
+      .block-facets ul li a {
+        color: #000; }
+        .block-facets ul li a:hover {
+          color: #c60; }
+        .block-facets ul li a:active {
+          color: #000; }
+        .block-facets ul li a:focus {
+          color: #c60; }
   .block-facets fieldset legend,
   .block-facets .js-form-type-select label {
     display: none !important; }
@@ -1030,7 +1050,9 @@ blockquote {
   float: right; }
 
 .facets-soft-limit-link {
-  font-style: italic; }
+  font-style: italic;
+  display: block;
+  margin-top: .9rem; }
 
 .site-footer {
   font-size: 12.88px;

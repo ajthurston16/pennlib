@@ -3,22 +3,37 @@ $facet-border: 1px solid $silver;
 .block-facets {
 	border: $facet-border;
 	margin-bottom: 10px;
-
-	h2 {
-		margin: 0;
-		padding: 10px;
-		font-size: $base-font-size;
-		background-color: $gallery;
-		border-bottom: $facet-border;
-
-		&::before {
-			content: url(/sites/default/files/images/common/facetopen.gif);
-			margin-right: 5px;
+	&, &.open {
+		h2 {
+			background-image: url("/sites/default/files/images/common/facetopen.gif");
 		}
+		.content {
+			display:block;
+		}
+	}
+	&.closed {
+		h2 {
+			background-image: url("/sites/default/files/images/common/facetclosed.gif");
+		}
+		.content {
+			display:none;
+		}
+	}
+	h2 {
+	    background-color: #eee;
+	    background-position: 1rem 1.2rem;
+	    background-repeat: no-repeat;
+	    border-bottom: 1px solid #ccc;
+	    font-size: 14px;
+	    margin: 0;
+	    padding: 1rem 1rem 1rem 3rem;
+		margin: 0;
+		font-size: $base-font-size;
+		border-bottom: $facet-border;
 	}
 
 	.content {
-		padding: 10px;
+		padding: 1rem;
 	}
 
 	/* For facets showing list of links. */
@@ -26,6 +41,13 @@ $facet-border: 1px solid $silver;
 		list-style-type: none;
 		padding: 0;
 		margin: 0;
+		li{
+			margin-top:.9rem;
+			a {
+				@include link-colors(#000, $hover: #c60, $active: #000, $focus: #c60);
+			}
+		}
+		
 	}
 
 	/* For facets showing list of checkboxes or dropdown.
@@ -48,4 +70,6 @@ $facet-border: 1px solid $silver;
 
 .facets-soft-limit-link {
 	font-style: italic;
+	display:block;
+	margin-top:.9rem;
 }
