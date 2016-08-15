@@ -717,7 +717,7 @@ body {
   font-size: 1.4rem;
   color: #000;
   font-family: "proxima-nova", sans-serif;
-  line-height: 1.5; }
+  line-height: 1.6; }
 
 a {
   color: #0782c1;
@@ -871,7 +871,7 @@ blockquote {
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
-  line-height: 1.5;
+  line-height: 1.6;
   background-color: #d2d5d8;
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='$fromColor', EndColorStr='$toColor');
   background-image: linear-gradient(to bottom, #F2F2FA, #d2d5d8);
