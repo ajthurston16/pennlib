@@ -694,7 +694,31 @@ display:
           min_length: null
           fields: {  }
           plugin_id: search_api_fulltext
-      sorts: {  }
+      sorts:
+        processed_2:
+          id: processed_2
+          table: search_api_index_staff
+          field: processed_2
+          relationship: none
+          group_type: group
+          admin_label: 'Last Name'
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+        processed:
+          id: processed
+          table: search_api_index_staff
+          field: processed
+          relationship: none
+          group_type: group
+          admin_label: 'First Name'
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'Staff Search'
       header: {  }
       footer: {  }
