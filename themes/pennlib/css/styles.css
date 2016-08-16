@@ -2074,6 +2074,8 @@ h1.page-title {
   .staff-search-wrapper .views-row .field--name-user-picture {
     margin-bottom: .5rem;
     margin-right: 1rem; }
+    .staff-search-wrapper .views-row .field--name-user-picture img {
+      margin: 0 auto; }
   .staff-search-wrapper .views-row .basicinfo {
     margin-right: 1.5rem;
     display: inline-block;
@@ -2368,10 +2370,6 @@ h1.page-title {
     width: 68em; }
   .staff-search-wrapper .views-row .field--name-user-picture {
     margin-bottom: 1.4rem; }
-  .staff-search-wrapper .views-row .basicinfo {
-    margin-right: 1.5rem;
-    width: 40rem !important;
-    min-width: 40rem !important; }
   .staff-search-wrapper .views-row .staffcontact {
     margin-top: 0;
     min-width: 22rem; }
@@ -2396,10 +2394,7 @@ h1.page-title {
     padding: 1.8rem 1rem .6rem 8rem; }
   .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
     .block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
-    display: inline-block;
-    vertical-align: top;
-    vertical-align: top;
-    zoom: 1; } }
+    display: block; } }
 
 @media (min-width: 50em) {
   .phoneonly-inline {
@@ -2596,7 +2591,7 @@ h1.page-title {
   .block-views-blockworkshops-workshops .views-row:nth-of-type(even) {
     background-color: transparent !important; }
   .staff-search-wrapper .views-row .basicinfo {
-    width: 31rem !important;
+    width: 48%;
     margin-bottom: .6rem;
     margin-right: 2rem; }
   .subjspec-wrapper .views-field-user-picture {
@@ -3068,7 +3063,9 @@ h1.page-title {
 
 @media (min-width: 25em) {
   .is-phone {
-    display: none; } }
+    display: none; }
+  .staff-search-wrapper .views-row .field--name-user-picture img {
+    margin: 0; } }
 
 @media (min-width: 40.5em) {
   .slick--view--carousel {
@@ -3082,8 +3079,17 @@ h1.page-title {
   .user-profile .field--label-above .field__label.top-level {
     width: 350px; } }
 
+@media (min-width: 70.25em) {
+  .staff-search-wrapper .views-row .basicinfo {
+    margin-right: 1.5rem;
+    width: 24rem; }
+  .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
+    .block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
+    display: inline-block;
+    vertical-align: top;
+    vertical-align: top;
+    zoom: 1; } }
+
 @media (min-width: 77em) {
   .staff-search-wrapper .views-row .basicinfo {
-    width: 31rem !important;
-    min-width: 31rem !important;
-    max-width: 31rem !important; } }
+    width: 31rem; } }

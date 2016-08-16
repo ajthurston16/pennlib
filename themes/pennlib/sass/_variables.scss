@@ -184,7 +184,8 @@ $breakpoint-small-width: min-width 25em; //smallest phone 400
 $breakpoint-med-small-width: min-width 40.5em; // larger phone 648
 $breakpoint-medium-width: min-width 50em; // tablet 800px
 $breakpoint-large-width: min-width 60em; // landscape and small desktop 960
-$breakpoint-staffinfobreaker-width: min-width 77em; // 1232px
+$breakpoint-largeaverage-width: min-width 70.25em; // 1129px
+$breakpoint-largelarge-width: min-width 77em; // 1232px
 $breakpoint-to-max-width: min-width $site-max-width;
 $breakpoint-full-width: max-width $site-max-width;
 

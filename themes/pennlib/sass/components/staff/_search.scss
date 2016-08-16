@@ -12,25 +12,28 @@
 			@include breakpoint($breakpoint-large-width) {
 		       margin-bottom:1.4rem;
 		    }
+		    img {
+				margin: 0 auto;
+				@include breakpoint($breakpoint-small-width) {
+			       margin: 0;
+			    }
+			}
 		} 
 		.basicinfo {
 		    margin-right:1.5rem;
 		    @include inline-block;
 		    width: 100%;
 		    @include breakpoint($breakpoint-medium-width) {
-		      width: 31rem !important;
+		      width: 48%;
 		      margin-bottom: .6rem;
 		      margin-right:2rem;
 		    }
-		    @include breakpoint($breakpoint-large-width) {
+		    @include breakpoint($breakpoint-largeaverage-width) {
 		       margin-right:1.5rem;
-		       width: 40rem !important;
-		       min-width:40rem!important;
+		       width: 24rem
 		    }
-		    @include breakpoint($breakpoint-staffinfobreaker-width) {
-		       width: 31rem !important;
-		       min-width:31rem!important;
-		       max-width:31rem!important;
+		    @include breakpoint($breakpoint-largelarge-width) {
+		       width: 31rem;
 		    }
 		    .fullname {
 		    	div, p {
@@ -60,7 +63,7 @@
 		        margin-top:0;
 		        
 		        min-width:22rem;
-		        @include breakpoint($breakpoint-staffinfobreaker-width) {
+		        @include breakpoint($breakpoint-largelarge-width) {
 			      
 			    }
 		        .field__item:first-child {
