@@ -7,7 +7,7 @@ dependencies:
 id: user_profiles
 label: 'User Profiles'
 type: 'canonical_entities:user'
-pattern: 'library-info/staff/[user:field_first_name]-[user:field_last_name]'
+pattern: 'people/staff/[user:field_first_name]-[user:field_last_name]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0

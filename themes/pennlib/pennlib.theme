@@ -45,7 +45,7 @@ function pennlib_preprocess_html(&$variables) {
 function pennlib_preprocess_user(&$variables) {
   $current_path = \Drupal::request()->getRequestUri();
   /* If the current path points to the user profile page, add a custom class. */
-  if (0 === strpos($current_path, "/library-info/staff/") || 0 === strpos($current_path, "/user/")) {
+  if (0 === strpos($current_path, "/people/staff/") || 0 === strpos($current_path, "/user/")) {
     $variables['attributes']['class'][] = 'user-profile';
   }
 }
