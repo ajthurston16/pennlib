@@ -1,0 +1,22 @@
+.user-form #edit-field-pennkey-wrapper .filter-wrapper,
+.user-form #edit-field-first-name-wrapper .filter-wrapper,
+.user-form #edit-field-middle-name-wrapper .filter-wrapper,
+.user-form #edit-field-last-name-wrapper .filter-wrapper,
+.user-form #edit-field-title-wrapper .filter-wrapper,
+.user-form #edit-field-screenname-wrapper .filter-wrapper,
+.user-form #edit-field-interest-wrapper .filter-wrapper {
+	display: none;
+}
+
+.user-form #edit-field-library,
+.user-form #edit-field-division,
+.user-form #edit-field-department,
+.user-form #edit-field-subject-specialty,
+.user-form #edit-field-technology-specialty,
+.user-form #edit-field-tool-expertise,
+.user-form #edit-field-collection-responsibility,
+.user-form #edit-field-liaison-responsibility,
+.user-form #edit-field-languages,
+.user-form #edit-field-team {
+	height: 200px;
+}
