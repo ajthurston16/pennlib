@@ -1410,6 +1410,14 @@ header .wrapper--nav nav {
       clear: both; }
     header .wrapper--nav nav .main-nav #main-nav-library-info > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-tools > .main-nav__sub {
       width: 38.9rem; }
+    header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub {
+      width: 41.9rem; }
+      header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item {
+        width: 19.5rem; }
+        header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item #main-nav-coll-col-one-request-forms {
+          width: 36rem; }
+          header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item #main-nav-coll-col-one-request-forms .main-nav__sub {
+            width: 36rem; }
     header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-people > .main-nav__sub {
       width: 56rem; }
     header .wrapper--nav nav .main-nav #main-nav-courseware > .main-nav__sub {
