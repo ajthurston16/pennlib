@@ -797,9 +797,15 @@ blockquote {
 
 .u-hidden {
   position: absolute !important;
+  height: 1px;
+  width: 1px;
   height: 0;
   width: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
   overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px); }
 
 .u-unhidden {
@@ -811,9 +817,15 @@ blockquote {
 
 .u-focusable {
   position: absolute !important;
+  height: 1px;
+  width: 1px;
   height: 0;
   width: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
   overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px); }
   .u-focusable:active, .u-focusable:focus {
     position: static !important;
@@ -1396,20 +1408,71 @@ header .wrapper--nav nav {
       display: table; }
     header .wrapper--nav nav .main-nav:after {
       clear: both; }
-    header .wrapper--nav nav .main-nav #main-nav-library-info > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-tools > .main-nav__sub {
+    header .wrapper--nav nav .main-nav #main-nav-library-info > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-tools > .main-nav__sub {
       width: 38.9rem; }
-    header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub {
+    header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-people > .main-nav__sub {
       width: 56rem; }
     header .wrapper--nav nav .main-nav #main-nav-courseware > .main-nav__sub {
       width: 24rem; }
-    header .wrapper--nav nav .main-nav #main-nav-library-info-general, header .wrapper--nav nav .main-nav #main-nav-research-general, header .wrapper--nav nav .main-nav #main-nav-collections-general {
+    header .wrapper--nav nav .main-nav #main-nav-library-info-libinfo-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-library-info-libinfo-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-facilities-inlib-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-facilities-inlib-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-facilities-inlib-col-three > a,
+    header .wrapper--nav nav .main-nav #main-nav-people-ppl-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-people-ppl-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-people-ppl-col-three > a,
+    header .wrapper--nav nav .main-nav #main-nav-research-teaching-randt-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-research-teaching-randt-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-research-teaching-randt-col-three > a,
+    header .wrapper--nav nav .main-nav #main-nav-collections-coll-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-collections-coll-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-collections-coll-col-three > a,
+    header .wrapper--nav nav .main-nav #main-nav-tools-tools-col-one > a,
+    header .wrapper--nav nav .main-nav #main-nav-tools-tools-col-two > a,
+    header .wrapper--nav nav .main-nav #main-nav-tools-tools-col-three > a {
+      display: none; }
+    header .wrapper--nav nav .main-nav #main-nav-libinfo-col-one-general,
+    header .wrapper--nav nav .main-nav #main-nav-ppl-col-one-general,
+    header .wrapper--nav nav .main-nav #main-nav-randt-col-one-general,
+    header .wrapper--nav nav .main-nav #main-nav-coll-col-one-general,
+    header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general {
       margin-top: -1rem; }
-      header .wrapper--nav nav .main-nav #main-nav-library-info-general h4, header .wrapper--nav nav .main-nav #main-nav-research-general h4, header .wrapper--nav nav .main-nav #main-nav-collections-general h4 {
-        display: none; }
-    header .wrapper--nav nav .main-nav #main-nav-tools-general {
-      margin-top: -.5rem; }
-      header .wrapper--nav nav .main-nav #main-nav-tools-general h4 {
-        display: none; }
+      header .wrapper--nav nav .main-nav #main-nav-libinfo-col-one-general h4,
+      header .wrapper--nav nav .main-nav #main-nav-ppl-col-one-general h4,
+      header .wrapper--nav nav .main-nav #main-nav-randt-col-one-general h4,
+      header .wrapper--nav nav .main-nav #main-nav-coll-col-one-general h4,
+      header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general h4 {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        height: 0;
+        width: 0;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px); }
+    header .wrapper--nav nav .main-nav #main-nav-ppl-col-three-more-people,
+    header .wrapper--nav nav .main-nav #main-nav-coll-col-one-request-forms {
+      margin-top: 1.5em; }
+      header .wrapper--nav nav .main-nav #main-nav-ppl-col-three-more-people h4,
+      header .wrapper--nav nav .main-nav #main-nav-coll-col-one-request-forms h4 {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        height: 0;
+        width: 0;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px); }
+    header .wrapper--nav nav .main-nav #main-nav-ppl-col-one-help-with,
+    header .wrapper--nav nav .main-nav #main-nav-coll-col-one-search {
+      margin-top: 1.5em; }
     header .wrapper--nav nav .main-nav > .parent {
       margin: 0;
       position: relative;
@@ -1444,7 +1507,19 @@ header .wrapper--nav nav {
         display: block; }
       header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub {
         padding: 1em 0;
-        box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d; }
+        box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d;
+        background: #ffffff;
+        border: 0;
+        margin: 0;
+        padding: 20px 0;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px #ccc; }
         header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item {
           left: 0px;
           position: relative;
@@ -1458,7 +1533,7 @@ header .wrapper--nav nav {
           border-left: dotted 1px #bbb; }
           header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item:first-child {
             border-left: none; }
-          header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item ul.main-nav__sub {
+          header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub {
             opacity: 1;
             position: relative;
             top: 0;
@@ -1466,11 +1541,24 @@ header .wrapper--nav nav {
             min-width: 16rem;
             box-shadow: none;
             padding: 0; }
-            header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item ul.main-nav__sub li {
+            header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub > li {
               width: 100%;
               display: block;
               margin-bottom: 0;
-              padding: .546rem .7rem; }
+              padding: 0; }
+              header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub > li .main-nav__sub {
+                border-left: none; }
+                header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub > li .main-nav__sub > .main-nav__item {
+                  padding: .546rem .7rem; }
+                  header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub > li .main-nav__sub > .main-nav__item:hover {
+                    background: #387bbe;
+                    background-image: linear-gradient(#5393c5, #6facd5);
+                    border: 1px solid #2373a5;
+                    cursor: pointer; }
+                    header .wrapper--nav nav .main-nav > .parent > ul.main-nav__sub > li.main-nav__item .main-nav__sub > li .main-nav__sub > .main-nav__item:hover a {
+                      color: #fff;
+                      text-shadow: 0 1px 1px #337395;
+                      text-decoration: none; }
     header .wrapper--nav nav .main-nav.show.hburgermenu > .parent {
       display: block;
       width: 100%;
@@ -1504,46 +1592,21 @@ header .wrapper--nav nav {
         background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20style%3D%22fill%3A%23FFFFFF%3B%22%20points%3D%223.404%2C2.051%208.354%2C7%203.404%2C11.95%205.525%2C14.07%2012.596%2C7%205.525%2C-0.071%20%22%2F%3E%3C%2Fsvg%3E"); }
     header .wrapper--nav nav .main-nav.show.hburgermenu ul.main-nav__sub {
       display: none; }
-  header .wrapper--nav nav ul.main-nav__sub {
-    background: #ffffff;
-    border: 0;
-    margin: 0;
-    padding: 20px 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100px;
-    min-width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: .17em .17em .17em #8d8d8d;
-    border-left: solid 1px #ccc; }
-    header .wrapper--nav nav ul.main-nav__sub li.main-nav__item {
-      margin-bottom: 8px;
-      padding: 0 10px;
-      display: block; }
-      header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a {
-        text-align: left;
-        padding: 0;
-        color: #000; }
-        header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a:hover, header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a:focus {
-          background: transparent;
-          text-decoration: none; }
-        header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a.is-active {
-          background: transparent; }
-      header .wrapper--nav nav ul.main-nav__sub li.main-nav__item:last-child {
-        margin-bottom: 0; }
-      header .wrapper--nav nav ul.main-nav__sub li.main-nav__item .main-nav__sub {
-        border-left: none; }
-        header .wrapper--nav nav ul.main-nav__sub li.main-nav__item .main-nav__sub > .main-nav__item:hover {
-          background: #387bbe;
-          background-image: linear-gradient(#5393c5, #6facd5);
-          border: 1px solid #2373a5;
-          cursor: pointer; }
-          header .wrapper--nav nav ul.main-nav__sub li.main-nav__item .main-nav__sub > .main-nav__item:hover a {
-            color: #fff;
-            text-shadow: 0 1px 1px #337395;
-            text-decoration: none; }
+  header .wrapper--nav nav ul.main-nav__sub li.main-nav__item {
+    margin-bottom: 8px;
+    padding: 0 10px;
+    display: block; }
+    header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a {
+      text-align: left;
+      padding: 0;
+      color: #000; }
+      header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a:hover, header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a:focus {
+        background: transparent;
+        text-decoration: none; }
+      header .wrapper--nav nav ul.main-nav__sub li.main-nav__item a.is-active {
+        background: transparent; }
+    header .wrapper--nav nav ul.main-nav__sub li.main-nav__item:last-child {
+      margin-bottom: 0; }
 
 header nav .main-nav > #main-nav-tools.parent > .main-nav__sub {
   left: auto;
