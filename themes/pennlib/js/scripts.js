@@ -14,6 +14,42 @@
 
   'use strict';
 
+  /**
+   * Begin Helper Functions
+   **/
+
+  /* Function to create a closure that keeps track of odd/even clicks for toggling purposes.
+  Has a set method (invoked by passing increment=true) and a get method (default).
+  This is needed to work with clickToggle, since otherwise there would be no way to check the index from outside that function */
+  function clickIndex() {
+    var toggleclicked = 0;
+    return function(increment) {
+      if (increment) {
+        toggleclicked = (toggleclicked + 1) % 2;
+        return toggleclicked;
+      }
+      else {
+        return toggleclicked;
+      }
+    };
+  }
+
+  // Function for toggling a clickable, provides a behavior for odd/even clicks
+  $.fn.clickToggle = function (func1, func2, clickIndex) {
+    var funcs = [func1, func2];
+    this.click(function () {
+      var index = clickIndex();
+      $.proxy(funcs[index], this)();
+      clickIndex(true);
+    });
+    return this;
+  };
+
+  /**
+   * End Helper Functions
+   **/
+
+
   //Use the sample behavior pattern below
   Drupal.behaviors.pennlibSearch = {
     attach: function (context, settings) {
@@ -37,6 +73,7 @@
     } //end attach
   }; //end Drupal.behaviors.pennlib
 
+
   /**
    * Build a simple responsive hamburger menu
    **/
@@ -45,31 +82,40 @@
       context = context || document;
       settings = settings || Drupal.settings;
 
-      $.fn.clickToggle = function (func1, func2) {
-        var funcs = [func1, func2];
-        this.data('toggleclicked', 0);
-        this.click(function () {
-          var data = $(this).data();
-          var tc = data.toggleclicked;
-          $.proxy(funcs[tc], this)();
-          data.toggleclicked = (tc + 1) % 2;
-        });
-        return this;
-      };
       var $nav = $('#block-mainnav-2', context);
       $nav.once().prepend('<div id="mobile-nav"><a id="mobile-button" href="javascript:;"><span></span></a></div>');
       var $mobileNav = $('#mobile-nav');
       var $mobileButton = $('#mobile-button');
       var $mobileMenu = $('ul.main-nav');
+      // Define the closure that will track the mobile button's click index. Pass this to clickToggle, which adds the actual even listener
+      var mobileButtonClickIndex = clickIndex();
       $mobileNav.find($mobileButton).clickToggle(function () {
         $(this).addClass('on');
         $mobileMenu.addClass('show hburgermenu');
       }, function () {
         $(this).removeClass('on');
         $mobileMenu.removeClass('show hburgermenu');
+      },
+      mobileButtonClickIndex);
+
+
+      /*Handle window resizes. If the window width > 999 pixels, the mobile menu should always be hidden.*/
+      $(window).resize(function() {
+        var width = window.innerWidth;
+        if (width > 999) {
+            $mobileButton.removeClass('on');
+            $mobileMenu.removeClass('show hburgermenu');
+            // If the mobile menu is left open, the button will have the wrong index next time it is clicked. Increment it once here.
+            if (mobileButtonClickIndex() === 1){
+              mobileButtonClickIndex(true);
+            }
+        } else {
+          // Do nothing if the window is resized to be in mobile view. #mobile-button handles toggling.
+        }
       });
     } //end attach
   }; //end Drupal.behaviors.pennlib
+
 
   /**
    * View mode toggle for Staff Search (/library-info/staff). Uses cookies to persist on subsequent page loads.
@@ -139,6 +185,7 @@
           $(this).find(".field--name-field-division").addClass("showdivision");
         }
       });
+
 
       // When a view mode is selected, toggle the classes and update the view mode cookie.
       $brief.click(function() {
@@ -277,5 +324,91 @@
       });
     } //end attach
   }; //end Drupal.behaviors.pennlib
+
+
+// Remove uneccessary links from the library-info footer menu
+    Drupal.behaviors.pennlibFooterMenu = {
+    attach: function (context, settings) {
+      context = context || document;
+      settings = settings || Drupal.settings;
+      $('.block-menu-blockmain-nav ul.main-nav > li.main-nav__item > h3 > a').removeAttr('href');
+    } //end attach
+  }; //end Drupal.behavior.pennlib
+
+  // Work with facets on staff page
+    Drupal.behaviors.pennlibStaffFacets = {
+    attach: function (context, settings) {
+      context = context || document;
+      settings = settings || Drupal.settings;
+
+      /* Staff: handle facet block hiding/unhiding. This would be better elsewhere, but I think there are scoping issues with functions used.
+        Reuse the clickToggle and clickIndex closures to do this. */
+      $('.block-facets h2:first-child').each(function(){
+        var $this = $(this);
+        var headerClickIndex = clickIndex();
+        var parent = $this.parent();
+        $this.clickToggle(function(){
+          parent.addClass('closed');
+          parent.removeClass('open');
+        }, function() {
+          parent.addClass('open');
+          parent.removeClass('closed');
+        },
+        headerClickIndex);
+      });
+
+      // Create modal to expand staff facets
+      // Unbind any and all event listeners for the 'Show More' buttons, so the facet doesn't expand onclick
+      $('div.block-facets > div.content > a.facets-soft-limit-link')
+      .unbind('click')
+      // Bind the new event, which opens a modal onclick
+      .click(function(e) {
+        var that = $(this);
+        var listedElements = that.prev().children();
+        var title = $(this).closest('div.block-facets > h2');
+        alert(title.html());
+        //var wholeContainer = $(this).closest('div.block-facets');
+        var htmlContent = $(this).closest('div.block-facets > div.content');
+        $(this).closest('div.block-facets')
+        .colorbox(
+          {
+            inline:true,
+            href:htmlContent,
+            open:true,
+            onOpen: function() {
+              that.addClass('open');
+              that.hide();
+              toggleList(listedElements, true);
+            },
+            onClosed: function() {
+              that.removeClass('open');
+              that.show();
+              toggleList(listedElements, false);
+            },
+            title: "TEST TITLE PLEASE IGNORE",
+            fixed:true,
+          }
+        );
+      });
+
+      function toggleList(listedElements, expandList) {
+        var i = 0;
+        listedElements.each(function(){
+          if(expandList){
+            $(this).show();
+          }
+          else {
+            if (i > 4){
+              $(this).hide();
+            }
+            i++;
+          }
+        });
+      }
+      
+
+
+    } //end attach
+  }; //end Drupal.behavior.pennlib
 
 })(jQuery, Drupal, window, document);
