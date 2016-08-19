@@ -1,7 +1,9 @@
-uuid: 1a06d508-9e4b-4fcf-8e12-f36cb248f989
+uuid: 9cf0dae9-59e3-4aa5-93f0-622e06e9d2c1
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - views.view.staff_search
 id: team
 name: Team
 url_alias: team
@@ -10,22 +12,17 @@ show_only_one_result: false
 field_identifier: field_team
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
-widget: links
-widget_configs:
-  show_numbers: '0'
-  soft_limit: '5'
-query_operator: OR
+widget:
+  type: links
+  config:
+    show_numbers: false
+    soft_limit: 5
+query_operator: or
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
   active_widget_order:
     processor_id: active_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
     weights:
       sort: -10
     settings:
