@@ -8,7 +8,7 @@ use Drupal\facets\FacetInterface;
 /**
  * A base class for plugins that implements some boilerplate for a widget order.
  */
-abstract class WidgetOrderPluginBase extends ProcessorPluginBase implements WidgetOrderProcessorInterface {
+abstract class SortProcessorPluginBase extends ProcessorPluginBase implements SortProcessorInterface {
 
   /**
    * {@inheritdoc}
@@ -28,17 +28,6 @@ abstract class WidgetOrderPluginBase extends ProcessorPluginBase implements Widg
     ];
 
     return $build;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function sort(FacetInterface $facet, array $results) {
-    $processors = $facet->getProcessors();
-    $config = $processors[$this->getPluginId()];
-
-    // This should load the facet's config to find the ordering direction.
-    return $this->sortResults($results, $config->getConfiguration()['sort']);
   }
 
   /**

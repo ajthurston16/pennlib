@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\facets\Unit\Plugin\widget;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Url;
 use Drupal\facets\Entity\Facet;
 use Drupal\facets\Plugin\facets\widget\CheckboxWidget;
@@ -49,16 +48,15 @@ class CheckboxWidgetTest extends UnitTestCase {
     }
     $this->originalResults = $original_results;
 
-    $this->widget = new CheckboxWidget();
+    $this->widget = new CheckboxWidget(['show_numbers' => TRUE]);
   }
 
   /**
    * Tests widget without filters.
    */
   public function testNoFilterResults() {
-    $facet = new Facet([], 'facet');
+    $facet = new Facet([], 'facets_facet');
     $facet->setResults($this->originalResults);
-    $facet->setWidgetConfigs(['show_numbers' => 1]);
 
     $output = $this->widget->build($facet);
 
@@ -76,10 +74,18 @@ class CheckboxWidgetTest extends UnitTestCase {
     foreach ($expected_links as $index => $value) {
       $this->assertInternalType('array', $output['#items'][$index]);
       $this->assertEquals($value, $output['#items'][$index]['#title']);
-      $this->assertInstanceOf(FormattableMarkup::class, $output['#items'][$index]['#title']);
+      $this->assertInternalType('array', $output['#items'][$index]['#title']);
       $this->assertEquals('link', $output['#items'][$index]['#type']);
       $this->assertEquals(['facet-item'], $output['#items'][$index]['#wrapper_attributes']['class']);
     }
+  }
+
+  /**
+   * Tests default configuration.
+   */
+  public function testDefaultConfiguration() {
+    $default_config = $this->widget->defaultConfiguration();
+    $this->assertEquals(['show_numbers' => FALSE, 'soft_limit' => 0], $default_config);
   }
 
   /**
@@ -94,18 +100,16 @@ class CheckboxWidgetTest extends UnitTestCase {
    * @param bool $show_numbers
    *   Numbers are displayed.
    *
-   * @return \Drupal\Component\Render\FormattableMarkup
-   *   Formattable markup object for link.
+   * @return array
+   *   A render array.
    */
   protected function buildLinkAssertion($text, $count = 0, $active = FALSE, $show_numbers = TRUE) {
-    $text = new FormattableMarkup('@text', ['@text' => $text, '@count' => $count]);
-    if ($show_numbers !== FALSE) {
-      $text->string .= ' <span class="facet-count">(@count)</span>';
-    }
-    if ($active) {
-      $text->string = '<span class="facet-deactivate">(-)</span> ' . $text->string;
-    }
-    return $text;
+    return [
+      '#theme' => $active ? 'facets_result_item_active' : 'facets_result_item',
+      '#value' => $text,
+      '#show_count' => $show_numbers && ($count !== NULL),
+      '#count' => $count,
+    ];
   }
 
 }

@@ -2,9 +2,7 @@
 
 namespace Drupal\core_search_facets\Plugin\facets\facet_source;
 
-use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\core_search_facets\Plugin\CoreSearchFacetSourceInterface;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\FacetSource\FacetSourcePluginBase;
@@ -17,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Represents a facet source which represents the Search API views.
+ * A facet source to support node search pages.
  *
  * @FacetsFacetSource(
  *   id = "core_node_search",
@@ -25,9 +23,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * )
  */
 class CoreNodeSearchFacetSource extends FacetSourcePluginBase implements CoreSearchFacetSourceInterface {
-
-  use DependencySerializationTrait;
-  use StringTranslationTrait;
 
   /**
    * The entity manager.
@@ -330,6 +325,13 @@ class CoreNodeSearchFacetSource extends FacetSourcePluginBase implements CoreSea
       }
     }
     return FALSE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    return ['module' => ['node', 'search']];
   }
 
 }

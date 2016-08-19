@@ -2,7 +2,6 @@
 
 namespace Drupal\facets\FacetManager;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\facets\Exception\InvalidProcessorException;
@@ -166,7 +165,7 @@ class DefaultFacetManager {
    * @return \Drupal\facets\FacetInterface[]
    *   An array of enabled facets.
    */
-  protected function getFacetsByFacetSourceId($facetsource_id) {
+  public function getFacetsByFacetSourceId($facetsource_id) {
     $facets = [];
     foreach ($this->facets as $facet) {
       if ($facet->getFacetSourceId() == $facetsource_id) {
@@ -184,7 +183,7 @@ class DefaultFacetManager {
    * set when this method is called ensuring that facets are built only once
    * regardless of how many times this method is called.
    *
-   * @param string|NULL $facetsource_id
+   * @param string|null $facetsource_id
    *   The facetsource if of the currently processed facet.
    */
   public function processFacets($facetsource_id = NULL) {
@@ -206,7 +205,7 @@ class DefaultFacetManager {
         /** @var \Drupal\facets\processor\PostQueryProcessorInterface $post_query_processor */
         $post_query_processor = $this->processorPluginManager->createInstance($processor->getPluginDefinition()['id'], ['facet' => $facet]);
         if (!$post_query_processor instanceof PostQueryProcessorInterface) {
-          throw new InvalidProcessorException(new FormattableMarkup("The processor @processor has a post_query definition but doesn't implement the required PostQueryProcessor interface", ['@processor' => $processor->getPluginDefinition()['id']]));
+          throw new InvalidProcessorException("The processor {$processor->getPluginDefinition()['id']} has a post_query definition but doesn't implement the required PostQueryProcessor interface");
         }
         $post_query_processor->postQuery($facet);
       }
@@ -228,7 +227,7 @@ class DefaultFacetManager {
           /** @var PreQueryProcessorInterface $pre_query_processor */
           $pre_query_processor = $this->processorPluginManager->createInstance($processor->getPluginDefinition()['id'], ['facet' => $facet]);
           if (!$pre_query_processor instanceof PreQueryProcessorInterface) {
-            throw new InvalidProcessorException(new FormattableMarkup("The processor @processor has a pre_query definition but doesn't implement the required PreQueryProcessorInterface interface", ['@processor' => $processor->getPluginDefinition()['id']]));
+            throw new InvalidProcessorException("The processor {$processor->getPluginDefinition()['id']} has a pre_query definition but doesn't implement the required PreQueryProcessorInterface interface");
           }
           $pre_query_processor->preQuery($facet);
         }
@@ -283,7 +282,7 @@ class DefaultFacetManager {
     // Get the current results from the facets and let all processors that
     // trigger on the build step do their build processing.
     // @see \Drupal\facets\Processor\BuildProcessorInterface.
-    // @see \Drupal\facets\Processor\WidgetOrderProcessorInterface.
+    // @see \Drupal\facets\Processor\SortProcessorInterface.
     $results = $facet->getResults();
 
     foreach ($facet->getProcessorsByStage(ProcessorInterface::STAGE_BUILD) as $processor) {
@@ -326,8 +325,8 @@ class DefaultFacetManager {
     }
 
     // Let the widget plugin render the facet.
-    /** @var \Drupal\facets\Widget\WidgetInterface $widget */
-    $widget = $this->widgetPluginManager->createInstance($facet->getWidget());
+    /** @var \Drupal\facets\Widget\WidgetPluginInterface $widget */
+    $widget = $facet->getWidgetInstance();
 
     return [$widget->build($facet)];
   }
@@ -359,7 +358,7 @@ class DefaultFacetManager {
    * @param \Drupal\facets\FacetInterface $facet
    *   The facet to process.
    *
-   * @return \Drupal\facets\FacetInterface|NULL
+   * @return \Drupal\facets\FacetInterface|null
    *   The updated facet if it exists, NULL otherwise.
    */
   public function returnProcessedFacet(FacetInterface $facet) {

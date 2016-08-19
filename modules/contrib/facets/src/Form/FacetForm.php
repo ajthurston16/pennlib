@@ -2,17 +2,17 @@
 
 namespace Drupal\facets\Form;
 
-use Drupal\Core\Config\Config;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Processor\ProcessorInterface;
 use Drupal\facets\Processor\ProcessorPluginManager;
 use Drupal\facets\UrlProcessor\UrlProcessorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\facets\Widget\WidgetPluginManager;
-use Drupal\facets\Processor\WidgetOrderProcessorInterface;
+use Drupal\facets\Processor\SortProcessorInterface;
 
 /**
  * Provides a form for configuring the processors of a facet.
@@ -29,7 +29,7 @@ class FacetForm extends EntityForm {
   /**
    * The entity manager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManager
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
@@ -50,14 +50,14 @@ class FacetForm extends EntityForm {
   /**
    * Constructs an FacetDisplayForm object.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity manager.
    * @param \Drupal\facets\Processor\ProcessorPluginManager $processor_plugin_manager
    *   The processor plugin manager.
    * @param \Drupal\facets\Widget\WidgetPluginManager $widget_plugin_manager
    *   The plugin manager for widgets.
    */
-  public function __construct(EntityTypeManager $entity_type_manager, ProcessorPluginManager $processor_plugin_manager, WidgetPluginManager $widget_plugin_manager) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ProcessorPluginManager $processor_plugin_manager, WidgetPluginManager $widget_plugin_manager) {
     $this->entityTypeManager = $entity_type_manager;
     $this->processorPluginManager = $processor_plugin_manager;
     $this->widgetPluginManager = $widget_plugin_manager;
@@ -105,29 +105,32 @@ class FacetForm extends EntityForm {
    *   The current state of the complete form.
    */
   public function buildWidgetConfigForm(array &$form, FormStateInterface $form_state) {
-    $widget = $form_state->getValue('widget') ?: $this->entity->getWidget();
-
-    if (!is_null($widget) && $widget !== '') {
-      $widget_instance = $this->getWidgetPluginManager()->createInstance($widget);
-      // @todo Create, use and save SubFormState already here, not only in
-      //   validate(). Also, use proper subset of $form for first parameter?
-      $config = $this->config('facets.facet.' . $this->entity->id());
-      if ($config_form = $widget_instance->buildConfigurationForm([], $form_state, ($config instanceof Config) ? $config : NULL)) {
-        $form['widget_configs']['#type'] = 'fieldset';
-        $form['widget_configs']['#title'] = $this->t('%widget settings', ['%widget' => $this->getWidgetPluginManager()->getDefinition($widget)['label']]);
-
-        $form['widget_configs'] += $config_form;
-      }
-      else {
-        $form['widget_configs']['#type'] = 'container';
-        $form['widget_configs']['#open'] = TRUE;
-        $form['widget_configs']['widget_information_dummy'] = [
-          '#type' => 'hidden',
-          '#value' => '1',
-          '#default_value' => '1',
-        ];
-      }
+    /** @var \Drupal\facets\FacetInterface $facet */
+    $facet = $this->getEntity();
+    $widget_plugin_id = $form_state->getValue('widget') ?: $facet->getWidget()['type'];
+    $widget_config = $form_state->getValue('widget_config') ?: $facet->getWidget()['config'];
+    if (empty($widget_plugin_id)) {
+      return;
     }
+
+    /** @var \Drupal\facets\Widget\WidgetPluginBase $widget */
+    $facet->setWidget($widget_plugin_id, $widget_config);
+    $widget = $facet->getWidgetInstance();
+
+    $arguments = ['%widget' => $widget->getPluginDefinition()['label']];
+    if (!$config_form = $widget->buildConfigurationForm([], $form_state, $this->getEntity())) {
+      $type = 'details';
+      $config_form = ['#markup' => $this->t('%widget widget needs no configuration.', $arguments)];
+    }
+    else {
+      $type = 'fieldset';
+    }
+    $form['widget_config'] = [
+      '#type' => $type,
+      '#tree' => TRUE,
+      '#title' => $this->t('%widget settings', $arguments),
+      '#attributes' => ['id' => 'facets-widget-config-form'],
+    ] + $config_form;
   }
 
   /**
@@ -148,7 +151,7 @@ class FacetForm extends EntityForm {
       '#title' => $this->t('Widget'),
       '#description' => $this->t('The widget used for displaying this facet.'),
       '#options' => $widget_options,
-      '#default_value' => $facet->getWidget(),
+      '#default_value' => $facet->getWidget()['type'],
       '#required' => TRUE,
       '#ajax' => [
         'trigger_as' => ['name' => 'widget_configure'],
@@ -158,7 +161,7 @@ class FacetForm extends EntityForm {
         'effect' => 'fade',
       ],
     ];
-    $form['widget_configs'] = [
+    $form['widget_config'] = [
       '#type' => 'container',
       '#attributes' => [
         'id' => 'facets-widget-config-form',
@@ -214,7 +217,7 @@ class FacetForm extends EntityForm {
       ),
     );
     foreach ($all_processors as $processor_id => $processor) {
-      if (!($processor instanceof WidgetOrderProcessorInterface) && !($processor instanceof UrlProcessorInterface)) {
+      if (!($processor instanceof SortProcessorInterface) && !($processor instanceof UrlProcessorInterface)) {
         $clean_css_id = Html::cleanCssIdentifier($processor_id);
         $form['facet_settings'][$processor_id]['status'] = array(
           '#type' => 'checkbox',
@@ -270,7 +273,7 @@ class FacetForm extends EntityForm {
       ),
     );
     foreach ($all_processors as $processor_id => $processor) {
-      if ($processor instanceof WidgetOrderProcessorInterface) {
+      if ($processor instanceof SortProcessorInterface) {
         $clean_css_id = Html::cleanCssIdentifier($processor_id);
         $form['facet_sorting'][$processor_id]['status'] = array(
           '#type' => 'checkbox',
@@ -329,15 +332,12 @@ class FacetForm extends EntityForm {
     ];
 
     $form['facet_settings']['url_alias'] = [
-      '#type' => 'machine_name',
+      '#type' => 'textfield',
       '#title' => $this->t('Url alias'),
+      '#description' => $this->t('This will appear in the URL to identify this facet. Cannot be blank. Only letters, digits and the dot ("."), hyphen ("-"), underscore ("_"), and tilde ("~") characters are allowed.'),
       '#default_value' => $facet->getUrlAlias(),
       '#maxlength' => 50,
       '#required' => TRUE,
-      '#machine_name' => [
-        'exists' => [\Drupal::service('entity_type.manager')->getStorage('facets_facet'), 'load'],
-        'source' => ['name'],
-      ],
     ];
 
     $empty_behavior_config = $facet->getEmptyBehavior();
@@ -368,7 +368,7 @@ class FacetForm extends EntityForm {
     $form['facet_settings']['query_operator'] = [
       '#type' => 'radios',
       '#title' => $this->t('Operator'),
-      '#options' => ['OR' => $this->t('OR'), 'AND' => $this->t('AND')],
+      '#options' => ['or' => $this->t('OR'), 'and' => $this->t('AND')],
       '#description' => $this->t('AND filters are exclusive and narrow the result set. OR filters are inclusive and widen the result set.'),
       '#default_value' => $facet->getQueryOperator(),
     ];
@@ -384,6 +384,7 @@ class FacetForm extends EntityForm {
       '#type' => 'number',
       '#title' => $this->t('Weight'),
       '#default_value' => $facet->getWeight(),
+      '#description' => $this->t('This weight is used to determine the order of the facets in the URL if pretty paths are used.'),
       '#maxlength' => 4,
       '#required' => TRUE,
     ];
@@ -500,6 +501,17 @@ class FacetForm extends EntityForm {
         $processors[$processor_id]->validateConfigurationForm($form['facet_sorting'][$processor_id], $processor_form_state, $facet);
       }
     }
+
+    // Validate url alias.
+    $url_alias = $form_state->getValue(['facet_settings', 'url_alias']);
+    if ($url_alias == 'page') {
+      $form_state->setErrorByName('url_alias', $this->t('This url alias is not allowed.'));
+    }
+    elseif (preg_match('/[^a-zA-Z0-9_~\.\-]/', $url_alias)) {
+      $form_state->setErrorByName('url_alias', $this->t('Url alias has illegal characters.'));
+    }
+    // @todo: validate if url_alias is already used by another facet with the
+    // same facet source.
   }
 
   /**
@@ -517,7 +529,7 @@ class FacetForm extends EntityForm {
     /** @var \Drupal\facets\Processor\ProcessorInterface $processor */
     $processors = $facet->getProcessors(FALSE);
     foreach ($processors as $processor_id => $processor) {
-      $form_container_key = $processor instanceof WidgetOrderProcessorInterface ? 'facet_sorting' : 'facet_settings';
+      $form_container_key = $processor instanceof SortProcessorInterface ? 'facet_sorting' : 'facet_settings';
       if (empty($values[$form_container_key][$processor_id]['status'])) {
         $facet->removeProcessor($processor_id);
         continue;
@@ -541,10 +553,9 @@ class FacetForm extends EntityForm {
       $facet->addProcessor($new_settings);
     }
 
-    $facet->setWidget($form_state->getValue('widget'));
+    $facet->setWidget($form_state->getValue('widget'), $form_state->getValue('widget_config'));
     $facet->setUrlAlias($form_state->getValue(['facet_settings', 'url_alias']));
     $facet->setWeight((int) $form_state->getValue(['facet_settings', 'weight']));
-    $facet->setWidgetConfigs($form_state->getValue('widget_configs'));
     $facet->setOnlyVisibleWhenFacetSourceIsVisible($form_state->getValue(['facet_settings', 'only_visible_when_facet_source_is_visible']));
     $facet->setShowOnlyOneResult($form_state->getValue(['facet_settings', 'show_only_one_result']));
 
@@ -586,7 +597,7 @@ class FacetForm extends EntityForm {
    * Handles changes to the selected widgets.
    */
   public function buildAjaxWidgetConfigForm(array $form, FormStateInterface $form_state) {
-    return $form['widget_configs'];
+    return $form['widget_config'];
   }
 
   /**
