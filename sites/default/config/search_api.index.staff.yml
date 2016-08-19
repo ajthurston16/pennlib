@@ -227,13 +227,37 @@ field_settings:
       module:
         - taxonomy
 processor_settings:
+  tokenizer:
+    plugin_id: tokenizer
+    settings:
+      fields:
+        - name
+        - name_1
+        - processed
+        - name_2
+        - name_3
+        - name_4
+        - processed_1
+        - processed_2
+        - name_5
+        - name_6
+        - processed_3
+        - name_7
+        - processed_4
+        - name_8
+      spaces: ''
+      overlap_cjk: 1
+      minimum_word_size: '3'
+      weights:
+        preprocess_index: -6
+        preprocess_query: -6
   add_url:
     plugin_id: add_url
     settings:
       weights:
         preprocess_index: -30
-  ignorecase:
-    plugin_id: ignorecase
+  transliteration:
+    plugin_id: transliteration
     settings:
       fields:
         - name
@@ -261,32 +285,8 @@ processor_settings:
         staff: staff
       weights:
         preprocess_index: -10
-  tokenizer:
-    plugin_id: tokenizer
-    settings:
-      fields:
-        - name
-        - name_1
-        - processed
-        - name_2
-        - name_3
-        - name_4
-        - processed_1
-        - processed_2
-        - name_5
-        - name_6
-        - processed_3
-        - name_7
-        - processed_4
-        - name_8
-      spaces: ''
-      overlap_cjk: 1
-      minimum_word_size: '3'
-      weights:
-        preprocess_index: -6
-        preprocess_query: -6
-  transliteration:
-    plugin_id: transliteration
+  ignorecase:
+    plugin_id: ignorecase
     settings:
       fields:
         - name
