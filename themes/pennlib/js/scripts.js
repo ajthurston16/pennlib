@@ -341,8 +341,7 @@
       context = context || document;
       settings = settings || Drupal.settings;
 
-      /* Staff: handle facet block hiding/unhiding. This would be better elsewhere, but I think there are scoping issues with functions used.
-        Reuse the clickToggle and clickIndex closures to do this. */
+      // Staff: handle facet block hiding/unhiding Reuse the clickToggle and clickIndex closures to do this
       $('.block-facets h2:first-child').each(function(){
         var $this = $(this);
         var headerClickIndex = clickIndex();
@@ -357,12 +356,60 @@
         headerClickIndex);
       });
 
+
       // Create modal to expand staff facets
-      // Unbind any and all event listeners for the 'Show More' buttons, so the facet doesn't expand onclick
-      $('div.block-facets > div.content > a.facets-soft-limit-link')
-      .unbind('click')
+      // The 'Show More' buttons are rendered on the page by another Drupal js file.
+      // Set a timeout to select these buttons once rendered, unbind their default event listeners, and bind the new listener
+      setTimeout(function(){
+        $('div.block-facets div.content a.facets-soft-limit-link')
+        .unbind('click')
+        .click(function(){
+          var that = $(this);
+          handleModal(that);
+        });
+      }, 500);
+
+      //$('div.block-facets h2').each(
+      //  function(){alert('found something = ' + $(this).text());});
+      // The handler that is attached to each 'Show More' button. Creates and displays the modal onclick
+      // Calls a helper (toggleList) to show/hide the li elements within each facet
+      function handleModal(that) {
+        var listedElements = that.prev().children();
+        var htmlContent = that.closest('div.content');
+        var title = that.closest('div.content').siblings('h2');
+        $.colorbox(
+          {
+            inline:true,
+            href:htmlContent,
+            open:true,
+            onOpen: function() {
+              // When modal opens, hide the 'Show More' and expand the list of elements
+              that.addClass('open');
+              that.hide();
+              toggleList(listedElements, true);
+            },
+            // Colorbox defaults to loading the title under the list. Switch them here.
+            // TODO: Element switch places in the DOM just fine, but this is not reflected in the colorbox, probably since the content has already loaded
+            //onComplete: function() {
+            //  $('#cboxTitle').insertBefore('#cboxLoadedContent');
+            //},
+            onClose: function() {
+              // When modal closes, show the 'Show More' button and contract the list of elements
+              // TODO: This is no longer hiding elements like it should, probably because of CSS changes. Rip those out of _facets.scss and see what happens
+              that.removeClass('open');
+              that.show();
+              toggleList(listedElements, false);
+            },
+            title:title.html(),
+            fixed:true,
+            //width: '50%',
+            //height: '80%',
+          }
+        );
+      }
       // Bind the new event, which opens a modal onclick
-      .click(function(e) {
+      /*.click(function(e) {
+        alert('reached event listener...');
         var that = $(this);
         var listedElements = that.prev().children();
         var title = $(this).closest('div.block-facets > h2');
@@ -389,8 +436,10 @@
             fixed:true,
           }
         );
-      });
+      });*/
 
+      // If expandList === true, show all the listed elements so they can be seen when the modal is open
+      // Else, hide all but the first five listed elements, so they cannot be seen when modal is closed
       function toggleList(listedElements, expandList) {
         var i = 0;
         listedElements.each(function(){
