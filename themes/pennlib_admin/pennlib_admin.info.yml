@@ -1,0 +1,21 @@
+name: Pennlib Admin
+type: theme
+description: Penn Libraries' Admin Theme.
+core: 8.x
+base theme: seven
+package: custom
+
+libraries:
+  - pennlib_admin/global_styling
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+regions_hidden:
+  - sidebar_first

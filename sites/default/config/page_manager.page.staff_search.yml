@@ -5,7 +5,7 @@ dependencies: {  }
 id: staff_search
 label: Staff
 use_admin_theme: false
-path: /library-info/staff
+path: /people/staff
 access_logic: and
 access_conditions: {  }
 parameters: {  }

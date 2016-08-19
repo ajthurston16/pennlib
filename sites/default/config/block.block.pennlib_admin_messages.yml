@@ -1,0 +1,22 @@
+uuid: 462c20d3-5482-45de-9488-619f6d7401b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pennlib_admin
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: pennlib_admin_messages
+theme: pennlib_admin
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

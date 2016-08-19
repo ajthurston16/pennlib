@@ -1,0 +1,20 @@
+uuid: 0817aa4a-bd24-4b3f-bd9c-49324acb44bf
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pennlib_admin
+id: pennlib_admin_primary_local_tasks
+theme: pennlib_admin
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

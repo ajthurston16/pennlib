@@ -1,0 +1,22 @@
+uuid: 97122dad-380b-45ad-9070-15efc46e2fde
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pennlib_admin
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: pennlib_admin_content
+theme: pennlib_admin
+region: content
+weight: -9
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

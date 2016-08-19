@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.user.field_library
+    - field.storage.user.field_pennkey
+    - field.storage.user.field_role
     - search_api.index.staff
   module:
     - search_api
+    - text
     - user
 id: staff_search
 label: 'Staff Search'
@@ -65,7 +69,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          quantity: 5
       style:
         type: default
       row:
@@ -646,23 +650,108 @@ display:
                 display_method: label
           entity_type: user
           plugin_id: search_api_field
-      filters: {  }
-      sorts: {  }
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_staff
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              staff: '0'
+              hr_department: '0'
+              web_admin: '0'
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
+      sorts:
+        processed_2:
+          id: processed_2
+          table: search_api_index_staff
+          field: processed_2
+          relationship: none
+          group_type: group
+          admin_label: 'Last Name'
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+        processed:
+          id: processed
+          table: search_api_index_staff
+          field: processed
+          relationship: none
+          group_type: group
+          admin_label: 'First Name'
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'Staff Search'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No results matched your search.'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
       css_class: staff-search-wrapper
+      use_ajax: true
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_library'
+        - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'
   block_1:
     display_plugin: block
     id: block_1
@@ -678,7 +767,11 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_library'
+        - 'config:field.storage.user.field_pennkey'
+        - 'config:field.storage.user.field_role'

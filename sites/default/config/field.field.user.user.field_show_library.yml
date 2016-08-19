@@ -10,7 +10,7 @@ id: user.user.field_show_library
 field_name: field_show_library
 entity_type: user
 bundle: user
-label: 'Show Library in Staff Directory'
+label: 'Show Library in Staff Directory search results'
 description: ''
 required: false
 translatable: false

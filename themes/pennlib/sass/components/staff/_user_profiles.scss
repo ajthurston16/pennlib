@@ -2,37 +2,84 @@ $left-width: 350px;
 
 //top of profile
 .user-profile{
-  .field--name-user-picture{
+  padding-top: 3rem;
+  .field--name-user-picture {
+    text-align: center;
+    clear:both;
+    margin:0 auto .5rem auto;
+    @include breakpoint($breakpoint-med-small-width) {
+      width: $left-width;
+      position: absolute;
+    }
+    @include breakpoint($breakpoint-medium-width) {
+      margib: 0 auto;
+    }
     img{
       margin:0 auto;
       text-align:center;
+      width: 175px !important;
+      height: 175px !important;
     }
   }
+  .full-name,
+  .field--name-field-bio  {
+    @include breakpoint($breakpoint-med-small-width) {
+      margin-left: $left-width;
+    }
+  }
+  
   .full-name{
-    .field--name-field-first-name, .field--name-field-middle-name, .field--name-field-last-name{
+    .field--name-field-first-name, .field--name-field-middle-name, .field--name-field-last-name {
       font-weight:bold;
       font-size:22px;
-    }
-    div{
-      display:inline-block;
+      margin-top:.5rem;
+      &, div, p {
+        display:inline;
+        margin:0;
+      }
     }
     .field--name-field-title{
       font-style: italic;
       font-weight:bold;
-      font-size:20px;
+      font-size:2rem;
       clear:both;
       display:block;
+      line-height:120%;
     }
+    
   }
+  .field.field--name-field-bio {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+   }
 }
 
 // grey details
 .user-profile {
-  .field, .contact {
+  .field--label-above {
     background: $concrete;
-    margin: 5px 0;
-    padding: 10px 0;
+    border-bottom:solid 3px #fff;
+    padding: 1rem;
+    @include breakpoint($breakpoint-medium-width) {
+        padding: 1.8rem 1rem .6rem 0;
+      }
+    @include breakpoint($breakpoint-large-width) {
+      padding: 1.8rem 1rem .6rem 8rem;
+    }
     position: relative;
+    .field__label.top-level {
+      font-size: 1em;
+      font-weight: bold;
+      @include breakpoint($breakpoint-medium-width) {
+        float:left;
+        text-align: right;
+        padding-right:4rem;
+      }
+      
+      @include breakpoint($breakpoint-med-small-width) {
+        width: $left-width;
+      }
+    }
   }
   .field--name-user-picture, .field--name-field-bio, .full-name .field {
     background: $white;
@@ -41,59 +88,42 @@ $left-width: 350px;
 }
 
 .user-profile {
-  .field__label, .contact span{
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
-    clear: both;
-    min-height:30px;
-    display:block;
-    @include breakpoint($breakpoint-med-small-width) {
-      width: $left-width;
-      text-align: right;
-      @include vertical-align(absolute);
-    }
-  }
-
-  .field--name-user-picture{
-    text-align: center;
-    clear:both;
-    margin:0 auto;
-    @include breakpoint($breakpoint-med-small-width) {
-      width: $left-width;
-      position: absolute;
-    }
-  }
+  
   > .field > .field__items,
-  > .field > .field__item,
   .contact-wrapper,
   .full-name,
   .field--name-field-bio  {
-    clear: both;
-    @include breakpoint($breakpoint-med-small-width) {
-      margin-left: $left-width + 40;
+    @include breakpoint($breakpoint-medium-width) {
+      margin-left: $left-width;
     }
+  }
+  .full-name,
+  .field--name-field-bio  {
+    clear: both;
   }
   .contact-wrapper .field__items{
    //only need margin for top level on contact-wrapper.
     margin-left:0;
   }
+  .field__items > div.field__item:nth-child(2) {
+    margin-top:.5rem;
+}
 
   //Emergency contact info
-  .field--name-field-emergency-contact {
+  /*.field--name-field-emergency-contact {
     .field--name-field-emergency-phones,
     .field--name-field-phone,
     .field--name-field-phone-type {
       margin: 0;
       padding: 0;
-      display: inline-block;
+      @include inline-block;
     }
-  }
+  }*/
 
 } //end .user-profile
 
 .contact-wrapper{
   div{
-    display:inline-block;
+    @include inline-block;
   }
 }

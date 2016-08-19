@@ -112,16 +112,16 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_textfield
-    weight: 28
+    weight: 29
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_languages:
-    weight: 29
+    weight: 28
     settings: {  }
     third_party_settings: {  }
-    type: field_collection_embed
+    type: options_select
   field_last_name:
     type: text_textfield
     weight: 7

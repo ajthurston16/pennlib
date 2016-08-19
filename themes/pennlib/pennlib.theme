@@ -45,7 +45,7 @@ function pennlib_preprocess_html(&$variables) {
 function pennlib_preprocess_user(&$variables) {
   $current_path = \Drupal::request()->getRequestUri();
   /* If the current path points to the user profile page, add a custom class. */
-  if (0 === strpos($current_path, "/library-info/staff/") || 0 === strpos($current_path, "/user/")) {
+  if (0 === strpos($current_path, "/people/staff/") || 0 === strpos($current_path, "/user/")) {
     $variables['attributes']['class'][] = 'user-profile';
   }
 }
@@ -217,7 +217,7 @@ function pennlib_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
   // General
   $form['#attributes']['class'][] = 'ui';
   $form['#attributes']['class'][] = 'form';
-
+  //print_r($form);
   //dpm($form_state);
 
   //Forms by ID
@@ -266,6 +266,13 @@ function pennlib_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
 
       case 'comment_node_forum_form':
         $form['#attributes']['class'][] = 'reply';
+        break;
+
+      case 'views_exposed_form':
+        if ($form['#id'] == 'views-exposed-form-staff-search-block-1') {
+          $form['search_api_fulltext']['#attributes']['placeholder'] = t('Search for staff, subject specialty, library, etc.');
+          $form['actions']['submit']['#value'] = t('Search the staff directory');
+        }
         break;
     }
   }

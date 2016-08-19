@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_pennkey
     - field.storage.user.field_department
     - field.storage.user.field_division
     - field.storage.user.field_library
@@ -12,9 +11,15 @@ dependencies:
     - field.storage.user.field_technology_specialty
     - field.storage.user.field_role
     - field.storage.user.field_team
-    - field.storage.user.field_languages
+    - field.storage.user.field_first_name
+    - field.storage.user.field_middle_name
+    - field.storage.user.field_last_name
+    - field.storage.user.field_pennkey
+    - field.storage.user.field_title
+    - field.storage.user.field_liaison_responsibility
     - search_api.server.default_server
   module:
+    - taxonomy
     - search_api
     - user
 id: staff
@@ -22,24 +27,11 @@ name: Staff
 description: ''
 read_only: false
 field_settings:
-  search_api_language:
-    label: 'Item language'
-    datasource_id: null
-    property_path: search_api_language
-    type: string
   uid:
     label: 'User ID'
     datasource_id: 'entity:user'
     property_path: uid
     type: integer
-  field_pennkey:
-    label: PennKey
-    datasource_id: 'entity:user'
-    property_path: field_pennkey
-    type: string
-    dependencies:
-      config:
-        - field.storage.user.field_pennkey
   field_department:
     label: Department
     datasource_id: 'entity:user'
@@ -104,20 +96,163 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_team
-  field_languages:
-    label: Languages
+  name:
+    label: 'Subject Specialty » Taxonomy term » Name'
     datasource_id: 'entity:user'
-    property_path: field_languages
-    type: integer
+    property_path: 'field_subject_specialty:entity:name'
+    type: text
     dependencies:
       config:
-        - field.storage.user.field_languages
+        - field.storage.user.field_subject_specialty
+      module:
+        - taxonomy
+  name_1:
+    label: 'Library » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_library:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_library
+      module:
+        - taxonomy
+  processed:
+    label: 'First Name » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_first_name:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_first_name
+  name_2:
+    label: 'Team » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_team:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_team
+      module:
+        - taxonomy
+  name_3:
+    label: 'Technology Specialty » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_technology_specialty:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_technology_specialty
+      module:
+        - taxonomy
+  name_4:
+    label: 'Department » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_department:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_department
+      module:
+        - taxonomy
+  processed_1:
+    label: 'Middle Name » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_middle_name:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_middle_name
+  processed_2:
+    label: 'Last Name » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_last_name:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_last_name
+  name_5:
+    label: 'Division » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_division:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_division
+      module:
+        - taxonomy
+  name_6:
+    label: 'Collection Responsibility » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_collection_responsibility:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_collection_responsibility
+      module:
+        - taxonomy
+  processed_3:
+    label: 'PennKey » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_pennkey:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_pennkey
+  name_7:
+    label: 'Role » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_role:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_role
+      module:
+        - taxonomy
+  processed_4:
+    label: 'Title » Processed text'
+    datasource_id: 'entity:user'
+    property_path: 'field_title:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_title
+  name_8:
+    label: 'Liaison Responsibility » Taxonomy term » Name'
+    datasource_id: 'entity:user'
+    property_path: 'field_liaison_responsibility:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_liaison_responsibility
+      module:
+        - taxonomy
 processor_settings:
   add_url:
     plugin_id: add_url
     settings:
       weights:
         preprocess_index: -30
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - name
+        - name_1
+        - processed
+        - name_2
+        - name_3
+        - name_4
+        - processed_1
+        - processed_2
+        - name_5
+        - name_6
+        - processed_3
+        - name_7
+        - processed_4
+        - name_8
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
   role_filter:
     plugin_id: role_filter
     settings:
@@ -126,6 +261,51 @@ processor_settings:
         staff: staff
       weights:
         preprocess_index: -10
+  tokenizer:
+    plugin_id: tokenizer
+    settings:
+      fields:
+        - name
+        - name_1
+        - processed
+        - name_2
+        - name_3
+        - name_4
+        - processed_1
+        - processed_2
+        - name_5
+        - name_6
+        - processed_3
+        - name_7
+        - processed_4
+        - name_8
+      spaces: ''
+      overlap_cjk: 1
+      minimum_word_size: '3'
+      weights:
+        preprocess_index: -6
+        preprocess_query: -6
+  transliteration:
+    plugin_id: transliteration
+    settings:
+      fields:
+        - name
+        - name_1
+        - processed
+        - name_2
+        - name_3
+        - name_4
+        - processed_1
+        - processed_2
+        - name_5
+        - name_6
+        - processed_3
+        - name_7
+        - processed_4
+        - name_8
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
 options:
   index_directly: true
   cron_limit: 50

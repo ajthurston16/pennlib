@@ -17,7 +17,7 @@ function configuration_gen() {
     echo ""
    fi
     echo "One Time login"
-    drush uli
+    drush uli -l pennlib.local
     exit
 }
 

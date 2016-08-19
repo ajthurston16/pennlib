@@ -4,8 +4,74 @@
 		padding: 13px;
 
 		&:nth-of-type(even) {
-			background-color: $concrete;
+			background-color: #f5f5f5;
 		}
+		.field--name-user-picture {
+			margin-bottom: .5rem;
+			margin-right: 1rem;
+			@include breakpoint($breakpoint-large-width) {
+		       margin-bottom:1.4rem;
+		    }
+		    img {
+				margin: 0 auto;
+				@include breakpoint($breakpoint-small-width) {
+			       margin: 0;
+			    }
+			}
+		} 
+		.basicinfo {
+		    margin-right:1.5rem;
+		    @include inline-block;
+		    width: 100%;
+		    @include breakpoint($breakpoint-medium-width) {
+		      width: 48%;
+		      margin-bottom: .6rem;
+		      margin-right:2rem;
+		    }
+		    @include breakpoint($breakpoint-largeaverage-width) {
+		       margin-right:1.5rem;
+		       width: 24rem
+		    }
+		    @include breakpoint($breakpoint-largelarge-width) {
+		       width: 31rem;
+		    }
+		    .fullname {
+		    	div, p {
+		    		display:inline;
+		    		font-weight:bold;
+		    	}
+		    }
+		    .field--name-field-title {
+		    	font-weight:bold;
+		    	margin-bottom: .5rem;
+		    }
+	    }
+	    .staffcontact {
+	    	@include inline-block;
+	    	margin-top:.5rem;
+	    	.field__item {
+	    		margin-top:.5rem;
+	    	}
+	    	.field--name-field-room,
+	    	.field--name-field-email-address {
+	    		margin-top:.5rem;
+	    	}
+	    	.field--name-field-phone {
+	    		margin-top: 0;
+	    	}
+	    	@include breakpoint($breakpoint-large-width) {
+		        margin-top:0;
+		        
+		        min-width:22rem;
+		        @include breakpoint($breakpoint-largelarge-width) {
+			      
+			    }
+		        .field__item:first-child {
+		    		margin-top:0;
+		    	}
+		    }
+
+	    }
 	}
 
 	// Hide booleans and library field by default.
@@ -13,12 +79,49 @@
 	.field--name-field-show-division,
 	.field--name-field-show-library,
 	.field--name-field-library,
-	.briefview & .field--name-field-division {
+	.field--name-field-division {
 		display: none;
 	}
 	// These classes get added by JS:
 	.showlibrary,
-	.showinbrief {
+	.showdivision {
 		display: block !important;
 	}
 }
+.block-facets .content {
+	display:none;
+	@include breakpoint($breakpoint-large-width) {
+      display:block;
+    }
+}
+.col-md-4.radix-layouts-sidebar.panel-panel {
+	@include breakpoint($breakpoint-large-width) {
+      display:inline-block !important;
+    }
+}
+//page title
+#block-pennlib-page-title {
+	padding-left:5px;
+}
+//col-med-4
+#block-pennlib-content .panel-display.brenham .col-md-4.radix-layouts-sidebar.panel-panel {
+	padding: 0 5px !important;
+	@include breakpoint($breakpoint-large-width) {
+      width:30% !important;
+      @include inline-block;
+      
+    }
+ }
+ //col-md-8
+#block-pennlib-content .panel-display.brenham .col-md-8.radix-layouts-content {
+ 	padding: 0 .5rem !important;
+ 	@include breakpoint($breakpoint-large-width) {
+       width:69% !important;
+       padding: 0rem .5rem 0rem 1.5rem !important;
+       @include inline-block;
+      
+    }
+
+ }
+
+

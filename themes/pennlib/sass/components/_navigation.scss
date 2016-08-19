@@ -30,12 +30,26 @@ header .wrapper--nav nav {
       margin: 0 30px;
     }
     
-    #main-nav-library-info, #main-nav-research, #main-nav-collections, #main-nav-tools {
+    #main-nav-library-info, #main-nav-research-teaching, #main-nav-collections, #main-nav-tools {
       > .main-nav__sub {
         width: 38.9rem;
       }
     }
-    #main-nav-facilities {
+    #main-nav-collections {
+      > .main-nav__sub {
+        width: 41.9rem;
+        > li.main-nav__item {
+          width: 19.5rem;
+          #main-nav-coll-col-one-request-forms {
+            width:36rem;
+            .main-nav__sub {
+              width:36rem;
+            }
+          }
+        }
+      }
+    }
+    #main-nav-facilities, #main-nav-people {
       > .main-nav__sub {
         width: 56rem;
       }
@@ -46,13 +60,50 @@ header .wrapper--nav nav {
         width: 24rem;
       }
     }
-    #main-nav-library-info-general, #main-nav-research-general, #main-nav-collections-general, #main-nav-tools-general {
-      margin-top:-1rem;
-       h4 {
+    #main-nav-library-info-libinfo-col-one, 
+    #main-nav-library-info-libinfo-col-two,
+    #main-nav-facilities-inlib-col-one, 
+    #main-nav-facilities-inlib-col-two, 
+    #main-nav-facilities-inlib-col-three,
+    #main-nav-people-ppl-col-one, 
+    #main-nav-people-ppl-col-two,
+    #main-nav-people-ppl-col-three,
+    #main-nav-research-teaching-randt-col-one, 
+    #main-nav-research-teaching-randt-col-two,
+    #main-nav-research-teaching-randt-col-three,
+    #main-nav-collections-coll-col-one,
+    #main-nav-collections-coll-col-two,
+    #main-nav-collections-coll-col-three,
+    #main-nav-tools-tools-col-one,
+    #main-nav-tools-tools-col-two,
+    #main-nav-tools-tools-col-three  {
+      > a {
         display:none;
       }
-    }
 
+    }
+    #main-nav-libinfo-col-one-general,
+    #main-nav-ppl-col-one-general,
+    #main-nav-randt-col-one-general,
+    #main-nav-coll-col-one-general,
+    #main-nav-tools-col-one-general,
+      {
+      margin-top:-1rem;
+       h4 {
+        @include bear-element-invisible;
+      }
+    }
+    #main-nav-ppl-col-three-more-people,
+    #main-nav-coll-col-one-request-forms  {
+      margin-top:1.5em;
+       h4 {
+        @include bear-element-invisible;
+      }
+    }
+    #main-nav-ppl-col-one-help-with,
+    #main-nav-coll-col-one-search {
+      margin-top:1.5em;
+    }
     // Styling for top-level (landing page) links
     > .parent {
       margin: 0;
@@ -108,6 +159,18 @@ header .wrapper--nav nav {
       > ul.main-nav__sub {
         padding: 1em 0;
         box-shadow: 0.07rem 0.2rem 0.2rem #8d8d8d;
+        background: $white;
+        border: 0;
+        margin: 0;
+        padding: 20px 0;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: .17em .17em .17em #8d8d8d;
+        border-left: solid 1px $silver;
         > li.main-nav__item {
           left: 0px; 
           position:relative;
@@ -119,7 +182,7 @@ header .wrapper--nav nav {
           &:first-child {
             border-left: none;
           }
-          ul.main-nav__sub {
+          .main-nav__sub {
             opacity: 1; 
             position: relative;
             top:0;
@@ -127,13 +190,27 @@ header .wrapper--nav nav {
             min-width: 16rem;
             box-shadow: none;
             padding: 0;
-            li {
+            > li {
               width: 100%;
               display: block;
               margin-bottom: 0;
-              padding: .546rem .7rem;
+              padding: 0;
+              .main-nav__sub {
+                border-left: none;
+                > .main-nav__item {
+                  padding: .546rem .7rem;
+                  &:hover {
+                    @include mainnavleafblue;
+                    a {
+                      @include blueactivegradienttext;
+                    }
+                  }
+                }
+              }//end sub sub
             }
+            
           }
+       
         }
       }
     }//end parent
@@ -160,21 +237,7 @@ header .wrapper--nav nav {
             @include blueactivegradient;
             @include blueactivegradienttext;
           }
-          &:after {
-            right: 0.5625em;
-            margin-top: -11px;
-            top: 50%;
-            content: "";
-            display: block;
-            height: 22px;
-            position: absolute;
-            width: 22px;
-            background-color: rgba(0, 0, 0, 0.3);
-            background-position: center center;
-            background-repeat: no-repeat;
-            border-radius: 1em;
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20style%3D%22fill%3A%23FFFFFF%3B%22%20points%3D%223.404%2C2.051%208.354%2C7%203.404%2C11.95%205.525%2C14.07%2012.596%2C7%205.525%2C-0.071%20%22%2F%3E%3C%2Fsvg%3E");
-          }
+          @include mobilerightarrow;
         }
       }
       // Hide sub-menus in mobile nav.
@@ -185,19 +248,7 @@ header .wrapper--nav nav {
   } //end .main-nav
 
   ul.main-nav__sub {
-    background: $white;
-    border: 0;
-    margin: 0;
-    padding: 20px 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100px;
-    min-width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: .17em .17em .17em #8d8d8d;
-    border-left: solid 1px $silver;
+    
     
     li.main-nav__item {
       margin-bottom: 8px;
@@ -218,17 +269,7 @@ header .wrapper--nav nav {
       &:last-child {
         margin-bottom: 0;
       }
-      .main-nav__sub {
-        border-left: none;
-        > .main-nav__item {
-            &:hover {
-              @include mainnavleafblue;
-              a {
-                @include blueactivegradienttext;
-              }
-            }
-         }
-       }
+      .main-nav__sub {}
     }
   } //end ul.main-nav__sub
 } //end header nav

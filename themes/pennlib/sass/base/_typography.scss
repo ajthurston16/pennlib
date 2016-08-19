@@ -53,7 +53,7 @@ body {
   @include rem(font-size, $body-font-size);
   color: $base-font-color;
   font-family: $body-text-font-family;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 a {
@@ -74,6 +74,8 @@ h6, .h6 {
 
 h1, .h1 {
   @include rem(font-size, $h1-font-size);
+  font-weight:normal;
+  font-family: Verdana, "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
 }
 h1.u-hidden {
   position: relative !important;
@@ -82,6 +84,8 @@ h1.u-hidden {
 
 h2, .h2 {
   @include rem(font-size, $h2-font-size);
+  font-weight:normal;
+  font-family: Verdana, "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
 }
 
 h3, .h3 {

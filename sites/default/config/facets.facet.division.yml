@@ -36,11 +36,6 @@ processor_configs:
       sort: -10
     settings:
       sort: ASC
-  translate_taxonomy:
-    processor_id: translate_taxonomy
-    weights:
-      build: 5
-    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

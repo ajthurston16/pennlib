@@ -1,16 +1,17 @@
-uuid: 06dfbe19-b280-4ba3-9311-a182f9fd91bd
+uuid: e315842d-f8c5-45bc-80c9-9966480da1b8
 langcode: en
 status: true
 dependencies:
   module:
-    - field_collection
+    - taxonomy
     - user
 id: user.field_languages
 field_name: field_languages
 entity_type: user
-type: field_collection
-settings: {  }
-module: field_collection
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: -1
 translatable: true

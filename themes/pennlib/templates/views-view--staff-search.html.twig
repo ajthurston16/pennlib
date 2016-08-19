@@ -32,14 +32,6 @@
  */
 #}
 
-<div id="toggle-view-mode">
-  <div class="label">View</div>
-  <ul class="dropdown">
-    <li id="view-mode-normal" class="checked"><span>Normal</span></li>
-    <li id="view-mode-brief"><span>Brief</span></li>
-  </ul>
-</div>
-
 {%
   set classes = [
     'view',
@@ -50,6 +42,18 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  <div id="toggle-view-mode">
+    <div class="label">View</div>
+    <ul class="dropdown">
+      <li id="view-mode-normal" class="checked"><span>Normal</span></li>
+      <li id="view-mode-brief"><span>Brief</span></li>
+    </ul>
+  </div>
+
   {{ title_prefix }}
   {% if title %}
     {{ title }}
