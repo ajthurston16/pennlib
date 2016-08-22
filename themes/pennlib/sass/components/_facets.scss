@@ -89,9 +89,20 @@ $facet-border: 1px solid $silver;
 #cboxLoadedContent .content ul li{
 	padding-top: 10px;
 	padding-bottom: 10px;
+	padding-right: 10px;
 	border-bottom: 1px dotted $silver;
 
 }
 
+#cboxWrapper {
+	box-shadow: 0 5px 10px #888;
+}
 
+#cboxTitle {
+	font-size: 18px;
+	padding-left: 40px;
+	border-bottom: 1px solid $silver;
+	width: 25%;
+
+}
 

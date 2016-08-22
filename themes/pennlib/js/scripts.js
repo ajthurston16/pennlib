@@ -381,29 +381,28 @@
           {
             inline:true,
             href:htmlContent,
-            open:true,
+            //open:true,
             onOpen: function() {
               // When modal opens, hide the 'Show More' and expand the list of elements
               that.addClass('open');
               that.hide();
               toggleList(listedElements, true);
             },
-            // Colorbox defaults to loading the title under the list. Switch them here.
-            // TODO: Element switch places in the DOM just fine, but this is not reflected in the colorbox, probably since the content has already loaded
-            //onComplete: function() {
-            //  $('#cboxTitle').insertBefore('#cboxLoadedContent');
-            //},
-            onClose: function() {
+            // Colorbox defaults to loading the title under the list. Switch them here
+            onComplete: function() {
+              $('#cboxTitle').insertBefore('#cboxLoadedContent');
+            },
+            onClosed: function() {
               // When modal closes, show the 'Show More' button and contract the list of elements
-              // TODO: This is no longer hiding elements like it should, probably because of CSS changes. Rip those out of _facets.scss and see what happens
               that.removeClass('open');
               that.show();
               toggleList(listedElements, false);
             },
             title:title.html(),
             fixed:true,
-            //width: '50%',
-            //height: '80%',
+            width: '60%',
+            height: '90%',
+            opacity: 0.55,
           }
         );
       }
