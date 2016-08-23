@@ -1,0 +1,19 @@
+uuid: 6313e423-82b5-488b-9cda-a4cd142f6a7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_electronic_resources_acces
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.field_electronic_resources_acces
+field_name: field_electronic_resources_acces
+entity_type: field_collection_item
+bundle: field_access_info
+label: 'Electronic resources access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

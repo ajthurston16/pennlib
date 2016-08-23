@@ -1,0 +1,19 @@
+uuid: f9f848fe-8428-43a5-8fca-85b227294fcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_weekdays_access
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.field_weekdays_access
+field_name: field_weekdays_access
+entity_type: field_collection_item
+bundle: field_access_info
+label: 'Weekdays Access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

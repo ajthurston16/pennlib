@@ -1,0 +1,19 @@
+uuid: d2aae628-8e8d-4f18-a203-ef1412147125
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+id: field_collection_item.field_evening_wknd_holid_access
+field_name: field_evening_wknd_holid_access
+entity_type: field_collection_item
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,89 @@
+uuid: 251f8ba9-80bf-4aaf-b4d9-addaed45324c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_access_info.field_access_requests
+    - field.field.field_collection_item.field_access_info.field_children_access
+    - field.field.field_collection_item.field_access_info.field_electronic_resources_acces
+    - field.field.field_collection_item.field_access_info.field_eresources_access
+    - field.field.field_collection_item.field_access_info.field_evening_wknd_holid_access
+    - field.field.field_collection_item.field_access_info.field_food_and_drink_access
+    - field.field.field_collection_item.field_access_info.field_general_info_access
+    - field.field.field_collection_item.field_access_info.field_guests_access
+    - field.field.field_collection_item.field_access_info.field_validated_cards_access
+    - field.field.field_collection_item.field_access_info.field_weekdays_access
+    - field.field.field_collection_item.field_access_info.field_wifi_access
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.default
+targetEntityType: field_collection_item
+bundle: field_access_info
+mode: default
+content:
+  field_access_requests:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_children_access:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_electronic_resources_acces:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_eresources_access:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_evening_wknd_holid_access:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_food_and_drink_access:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_general_info_access:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_guests_access:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_validated_cards_access:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_weekdays_access:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_wifi_access:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden: {  }

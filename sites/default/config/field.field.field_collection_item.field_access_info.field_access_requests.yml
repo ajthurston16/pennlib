@@ -1,0 +1,19 @@
+uuid: aec0459e-6818-4bba-abd6-66aed0dae058
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_access_requests
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.field_access_requests
+field_name: field_access_requests
+entity_type: field_collection_item
+bundle: field_access_info
+label: 'Access Requests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,100 @@
+uuid: 571ecec6-9eba-4f7a-a924-9d9e5c39cde3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_access_info.field_access_requests
+    - field.field.field_collection_item.field_access_info.field_children_access
+    - field.field.field_collection_item.field_access_info.field_electronic_resources_acces
+    - field.field.field_collection_item.field_access_info.field_eresources_access
+    - field.field.field_collection_item.field_access_info.field_evening_wknd_holid_access
+    - field.field.field_collection_item.field_access_info.field_food_and_drink_access
+    - field.field.field_collection_item.field_access_info.field_general_info_access
+    - field.field.field_collection_item.field_access_info.field_guests_access
+    - field.field.field_collection_item.field_access_info.field_validated_cards_access
+    - field.field.field_collection_item.field_access_info.field_weekdays_access
+    - field.field.field_collection_item.field_access_info.field_wifi_access
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.default
+targetEntityType: field_collection_item
+bundle: field_access_info
+mode: default
+content:
+  field_access_requests:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_children_access:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_electronic_resources_acces:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_eresources_access:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_evening_wknd_holid_access:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_food_and_drink_access:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_general_info_access:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_guests_access:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_validated_cards_access:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_weekdays_access:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_wifi_access:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+hidden: {  }

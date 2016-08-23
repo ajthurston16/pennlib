@@ -1,0 +1,19 @@
+uuid: 215ea698-f5fb-4992-8f56-6497797d8f16
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+id: field_collection_item.field_eresources_access
+field_name: field_eresources_access
+entity_type: field_collection_item
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
