@@ -30,13 +30,15 @@ header .wrapper--nav nav {
       margin: 0 30px;
     }
     
-    #main-nav-library-info, #main-nav-research-teaching, #main-nav-collections, #main-nav-tools {
+    #main-nav-library-info, #main-nav-tools {
       > .main-nav__sub {
         width: 38.9rem;
       }
     }
     #main-nav-collections {
       > .main-nav__sub {
+        left:auto;
+        right:0;
         width: 41.9rem;
         > li.main-nav__item {
           width: 19.5rem;
@@ -49,9 +51,29 @@ header .wrapper--nav nav {
         }
       }
     }
-    #main-nav-facilities, #main-nav-people {
+    #main-nav-facilities, #main-nav-research-teaching {
       > .main-nav__sub {
         width: 56rem;
+
+      }
+    }
+    #main-nav-research-teaching {
+      > .main-nav__sub {
+        left:-30rem;
+        right:auto;
+
+      }
+    }
+    #main-nav-people {
+      > .main-nav__sub {
+        width: 63rem; 
+        #main-nav-people-ppl-col-one, #main-nav-people-ppl-col-three {
+            width: 19rem;
+        } 
+        #main-nav-people-ppl-col-two {
+            width: 22.5rem;
+        }
+        
       }
     }
 
@@ -186,7 +208,7 @@ header .wrapper--nav nav {
             opacity: 1; 
             position: relative;
             top:0;
-            width: 16rem;
+            width: 100%;
             min-width: 16rem;
             box-shadow: none;
             padding: 0;

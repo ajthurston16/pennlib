@@ -3,17 +3,22 @@
 	#main-nav-ppl-col-one-general,
 	#main-nav-randt-col-one-general,
 	#main-nav-coll-col-one-general,
-	#main-nav-coll-col-one-request-forms,
 	#main-nav-tools-col-one-general {
 		> h3, > a {
 			display:none;
+		}
+	}
+	#main-nav-ppl-col-three-more-people,
+	#main-nav-coll-col-one-request-forms {
+		> h3, > a {
+			@include bear-element-invisible
 		}
 	}
 	#main-nav-libinfo-col-one, #main-nav-libinfo-col-two,
 	#main-nav-inlib-col-one, #main-nav-inlib-col-two, #main-nav-inlib-col-three,
 	#main-nav-ppl-col-one, #main-nav-ppl-col-two, #main-nav-ppl-col-three,
 	#main-nav-randt-col-one, #main-nav-randt-col-two, #main-nav-randt-col-three,
-	#main-nav-coll-col-one, #main-nav-coll-col-two,
+	#main-nav-coll-col-one, #main-nav-coll-col-two, #main-nav-coll-col-three,
 	#main-nav-tools-col-one, #main-nav-tools-col-two {
 		> h3, > a {
 			display:none;
