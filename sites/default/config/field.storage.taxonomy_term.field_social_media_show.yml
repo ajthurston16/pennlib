@@ -1,0 +1,24 @@
+uuid: 6c08dd49-cc51-4a81-a19d-11c89dffc1ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_social_media_show
+field_name: field_social_media_show
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'TODO: Add list of libraries/centers with homepages here'
+      label: 'TODO: Add list of libraries/centers with homepages here'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

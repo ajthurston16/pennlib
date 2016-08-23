@@ -1,0 +1,27 @@
+uuid: 38b06064-5146-4c1c-8302-e164f95d60b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_library_contact_type_of_ph
+field_name: field_library_contact_type_of_ph
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Staff Phone'
+      label: 'Staff Phone'
+    -
+      value: 'Library Phone'
+      label: 'Library Phone'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: ee6b37ca-e297-4e89-b499-d01bb48d7846
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_ref_econtact_form_url
+field_name: field_ref_econtact_form_url
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 210390b4-94eb-4cb7-8ce3-cb3dd2cacc4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reference_phone_number
+    - taxonomy.vocabulary.libraries
+  module:
+    - telephone
+id: taxonomy_term.libraries.field_reference_phone_number
+field_name: field_reference_phone_number
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reference desk: Library phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

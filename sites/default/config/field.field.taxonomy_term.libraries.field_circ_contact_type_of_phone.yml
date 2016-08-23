@@ -1,0 +1,21 @@
+uuid: eec78e70-92de-4229-82c1-c86e96259f9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_circ_contact_type_of_phone
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_circ_contact_type_of_phone
+field_name: field_circ_contact_type_of_phone
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Circulation contact: type of phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

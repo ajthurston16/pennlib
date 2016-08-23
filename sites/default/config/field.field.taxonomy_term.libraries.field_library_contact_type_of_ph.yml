@@ -1,0 +1,21 @@
+uuid: 14b41794-bb5f-448e-bf8f-93ddaf8dccb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_library_contact_type_of_ph
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_library_contact_type_of_ph
+field_name: field_library_contact_type_of_ph
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Library Contact: Type of Phone'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

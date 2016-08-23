@@ -1,0 +1,23 @@
+uuid: a3a51faa-55fc-41a5-93b6-28548475a94b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reserves_form_url
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_reserves_form_url
+field_name: field_reserves_form_url
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reserves: URL of form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

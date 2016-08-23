@@ -1,0 +1,19 @@
+uuid: d0228849-b7cb-4964-9bbd-a270c132c1c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_reserves_form_url
+field_name: field_reserves_form_url
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

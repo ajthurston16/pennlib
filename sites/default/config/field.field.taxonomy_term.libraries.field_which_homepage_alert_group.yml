@@ -1,0 +1,21 @@
+uuid: 0e0c5d07-2555-4c51-9db8-567920c1a4e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_which_homepage_alert_group
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_which_homepage_alert_group
+field_name: field_which_homepage_alert_group
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Which homepage alert group?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

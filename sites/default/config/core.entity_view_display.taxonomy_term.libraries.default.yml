@@ -1,0 +1,627 @@
+uuid: a0907848-57ee-4d24-a954-cd80a2213b96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.libraries.field_access_info
+    - field.field.taxonomy_term.libraries.field_accessibility
+    - field.field.taxonomy_term.libraries.field_blurb
+    - field.field.taxonomy_term.libraries.field_campus_map_linked_text
+    - field.field.taxonomy_term.libraries.field_campus_map_url
+    - field.field.taxonomy_term.libraries.field_category
+    - field.field.taxonomy_term.libraries.field_circ_contact_type_of_phone
+    - field.field.taxonomy_term.libraries.field_circ_econtact_email
+    - field.field.taxonomy_term.libraries.field_circ_econtact_form_url
+    - field.field.taxonomy_term.libraries.field_circ_econtact_type
+    - field.field.taxonomy_term.libraries.field_circ_phone_number
+    - field.field.taxonomy_term.libraries.field_city_state_zip
+    - field.field.taxonomy_term.libraries.field_description
+    - field.field.taxonomy_term.libraries.field_floor_plans_
+    - field.field.taxonomy_term.libraries.field_floor_plans_url
+    - field.field.taxonomy_term.libraries.field_has_homepage
+    - field.field.taxonomy_term.libraries.field_homepage_url
+    - field.field.taxonomy_term.libraries.field_hours_see_also_siblings
+    - field.field.taxonomy_term.libraries.field_ill_contact_type_of_phone
+    - field.field.taxonomy_term.libraries.field_ill_econtact_email
+    - field.field.taxonomy_term.libraries.field_ill_econtact_form_url
+    - field.field.taxonomy_term.libraries.field_ill_econtact_type
+    - field.field.taxonomy_term.libraries.field_ill_phone_number
+    - field.field.taxonomy_term.libraries.field_in_admin_group
+    - field.field.taxonomy_term.libraries.field_in_homepage_alert_group
+    - field.field.taxonomy_term.libraries.field_in_hours_alert_group
+    - field.field.taxonomy_term.libraries.field_in_hours_see_also_group_
+    - field.field.taxonomy_term.libraries.field_include_vpdlc_and_floor
+    - field.field.taxonomy_term.libraries.field_is_associated_library
+    - field.field.taxonomy_term.libraries.field_latitude
+    - field.field.taxonomy_term.libraries.field_library_contact_type_of_ph
+    - field.field.taxonomy_term.libraries.field_library_econtact_email
+    - field.field.taxonomy_term.libraries.field_library_econtact_form_url
+    - field.field.taxonomy_term.libraries.field_library_econtact_text
+    - field.field.taxonomy_term.libraries.field_library_econtact_type
+    - field.field.taxonomy_term.libraries.field_library_electronic_contact
+    - field.field.taxonomy_term.libraries.field_library_phone_number
+    - field.field.taxonomy_term.libraries.field_listings_for_facilities
+    - field.field.taxonomy_term.libraries.field_longitude
+    - field.field.taxonomy_term.libraries.field_name
+    - field.field.taxonomy_term.libraries.field_name_for_social_media
+    - field.field.taxonomy_term.libraries.field_ref_econtact_email
+    - field.field.taxonomy_term.libraries.field_ref_econtact_form_url
+    - field.field.taxonomy_term.libraries.field_reference_econtact_type
+    - field.field.taxonomy_term.libraries.field_reference_phone_number
+    - field.field.taxonomy_term.libraries.field_reference_type_of_phone
+    - field.field.taxonomy_term.libraries.field_reserves_econtact_type
+    - field.field.taxonomy_term.libraries.field_reserves_email
+    - field.field.taxonomy_term.libraries.field_reserves_form_url
+    - field.field.taxonomy_term.libraries.field_reserves_phone_number
+    - field.field.taxonomy_term.libraries.field_reserves_rules
+    - field.field.taxonomy_term.libraries.field_reserves_type_of_phone
+    - field.field.taxonomy_term.libraries.field_school_logo_url
+    - field.field.taxonomy_term.libraries.field_school_name
+    - field.field.taxonomy_term.libraries.field_show_school_using
+    - field.field.taxonomy_term.libraries.field_social_media_contact
+    - field.field.taxonomy_term.libraries.field_social_media_owner
+    - field.field.taxonomy_term.libraries.field_social_media_rss
+    - field.field.taxonomy_term.libraries.field_social_media_show
+    - field.field.taxonomy_term.libraries.field_social_media_url
+    - field.field.taxonomy_term.libraries.field_square_icon
+    - field.field.taxonomy_term.libraries.field_street_address
+    - field.field.taxonomy_term.libraries.field_thumbnail_url
+    - field.field.taxonomy_term.libraries.field_today_hours_linked_text
+    - field.field.taxonomy_term.libraries.field_today_s_hours
+    - field.field.taxonomy_term.libraries.field_type_of_social_media
+    - field.field.taxonomy_term.libraries.field_url_of_homepage
+    - field.field.taxonomy_term.libraries.field_url_of_hours_calendar
+    - field.field.taxonomy_term.libraries.field_which_admin_group
+    - field.field.taxonomy_term.libraries.field_which_homepage_alert_group
+    - field.field.taxonomy_term.libraries.field_which_hours_alert_group
+    - field.field.taxonomy_term.libraries.field_wide_icon
+    - taxonomy.vocabulary.libraries
+  module:
+    - field_collection
+    - image
+    - link
+    - options
+    - text
+id: taxonomy_term.libraries.default
+targetEntityType: taxonomy_term
+bundle: libraries
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_access_info:
+    weight: 56
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_accessibility:
+    weight: 57
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_blurb:
+    weight: 63
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_campus_map_linked_text:
+    weight: 38
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_campus_map_url:
+    weight: 39
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_category:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_circ_contact_type_of_phone:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_circ_econtact_email:
+    weight: 19
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_circ_econtact_form_url:
+    weight: 18
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_circ_econtact_type:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_circ_phone_number:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_city_state_zip:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_description:
+    weight: 37
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_floor_plans_:
+    weight: 40
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_floor_plans_url:
+    weight: 41
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_has_homepage:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_homepage_url:
+    weight: 36
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_hours_see_also_siblings:
+    weight: 50
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ill_contact_type_of_phone:
+    weight: 30
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ill_econtact_email:
+    weight: 34
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_ill_econtact_form_url:
+    weight: 33
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_ill_econtact_type:
+    weight: 32
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ill_phone_number:
+    weight: 31
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_in_admin_group:
+    weight: 43
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_in_homepage_alert_group:
+    weight: 45
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_in_hours_alert_group:
+    weight: 47
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_in_hours_see_also_group_:
+    weight: 49
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_include_vpdlc_and_floor:
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_is_associated_library:
+    weight: 42
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_latitude:
+    weight: 58
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_library_contact_type_of_ph:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_library_econtact_email:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_library_econtact_form_url:
+    weight: 13
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_library_econtact_text:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_library_econtact_type:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_library_electronic_contact:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_library_phone_number:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_listings_for_facilities:
+    weight: 51
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_longitude:
+    weight: 59
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_name_for_social_media:
+    weight: 65
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_ref_econtact_email:
+    weight: 29
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_ref_econtact_form_url:
+    weight: 28
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_reference_econtact_type:
+    weight: 27
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_reference_phone_number:
+    weight: 26
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_reference_type_of_phone:
+    weight: 25
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_reserves_econtact_type:
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_reserves_email:
+    weight: 24
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_reserves_form_url:
+    weight: 23
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_reserves_phone_number:
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_reserves_rules:
+    weight: 55
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_reserves_type_of_phone:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_school_logo_url:
+    weight: 62
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_school_name:
+    weight: 60
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_show_school_using:
+    weight: 61
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_social_media_contact:
+    weight: 69
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_social_media_owner:
+    weight: 68
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_social_media_rss:
+    weight: 67
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_social_media_show:
+    weight: 70
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_social_media_url:
+    weight: 66
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_square_icon:
+    weight: 71
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_street_address:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_thumbnail_url:
+    weight: 35
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_today_hours_linked_text:
+    weight: 52
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_today_s_hours:
+    weight: 54
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_type_of_social_media:
+    weight: 64
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_url_of_homepage:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_url_of_hours_calendar:
+    weight: 53
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_which_admin_group:
+    weight: 44
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_which_homepage_alert_group:
+    weight: 46
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_which_hours_alert_group:
+    weight: 48
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_wide_icon:
+    weight: 72
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden: {  }

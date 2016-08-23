@@ -1,0 +1,21 @@
+uuid: 4e050f69-6b40-406a-86bb-afeb35f69d4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reference_econtact_type
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_reference_econtact_type
+field_name: field_reference_econtact_type
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reference desk:  type of electronic contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

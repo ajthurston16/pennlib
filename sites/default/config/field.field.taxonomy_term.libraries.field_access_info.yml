@@ -1,0 +1,22 @@
+uuid: a1cd5e63-3533-44ab-badf-a058624f28e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_access_info
+    - taxonomy.vocabulary.libraries
+  module:
+    - field_collection
+id: taxonomy_term.libraries.field_access_info
+field_name: field_access_info
+entity_type: taxonomy_term
+bundle: libraries
+label: 'access info'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

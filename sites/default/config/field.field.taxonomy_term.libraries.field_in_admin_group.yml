@@ -1,0 +1,23 @@
+uuid: 675916a1-a18d-445c-8870-6f4cb0bb71a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_in_admin_group
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_in_admin_group
+field_name: field_in_admin_group
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Is this in an admin group?'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

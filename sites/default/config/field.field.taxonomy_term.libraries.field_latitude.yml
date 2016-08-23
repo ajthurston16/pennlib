@@ -1,0 +1,19 @@
+uuid: cdf2e18f-7bba-4c5e-8af9-72911629a49a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_latitude
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_latitude
+field_name: field_latitude
+entity_type: taxonomy_term
+bundle: libraries
+label: latitude
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

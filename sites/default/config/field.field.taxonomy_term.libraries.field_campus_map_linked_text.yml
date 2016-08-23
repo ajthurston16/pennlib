@@ -1,0 +1,19 @@
+uuid: 8560a40d-6310-443c-b2f3-e98f7f692963
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_campus_map_linked_text
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_campus_map_linked_text
+field_name: field_campus_map_linked_text
+entity_type: taxonomy_term
+bundle: libraries
+label: 'campus map linked text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

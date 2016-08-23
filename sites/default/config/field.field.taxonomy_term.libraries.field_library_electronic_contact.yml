@@ -1,0 +1,21 @@
+uuid: fa00b31d-f91e-4350-a5b1-f189b4ccb060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_library_electronic_contact
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_library_electronic_contact
+field_name: field_library_electronic_contact
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Library electronic contact:  type of electronic contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

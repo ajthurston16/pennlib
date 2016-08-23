@@ -1,0 +1,36 @@
+uuid: df602f48-30b6-4d3b-83e4-3ac5d76fad2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_which_hours_alert_group
+field_name: field_which_hours_alert_group
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: VP-DLC
+      label: VP-DLC
+    -
+      value: Kislak
+      label: Kislak
+    -
+      value: Music
+      label: Music
+    -
+      value: 'Fine Arts'
+      label: 'Fine Arts'
+    -
+      value: STEM
+      label: STEM
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

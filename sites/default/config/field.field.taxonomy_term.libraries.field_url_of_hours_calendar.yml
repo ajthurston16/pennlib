@@ -1,0 +1,23 @@
+uuid: adfe5b63-58e5-49b6-890c-ac037c12f667
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_url_of_hours_calendar
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_url_of_hours_calendar
+field_name: field_url_of_hours_calendar
+entity_type: taxonomy_term
+bundle: libraries
+label: 'URL of hours calendar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

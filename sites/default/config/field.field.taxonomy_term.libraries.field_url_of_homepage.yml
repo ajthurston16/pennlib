@@ -1,0 +1,23 @@
+uuid: 8da7d2ec-2c7a-4334-86cf-2ca6f606b208
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_url_of_homepage
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_url_of_homepage
+field_name: field_url_of_homepage
+entity_type: taxonomy_term
+bundle: libraries
+label: 'URL of homepage'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

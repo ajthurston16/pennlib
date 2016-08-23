@@ -1,0 +1,21 @@
+uuid: 1577b349-0786-4cf0-a840-4619959c663e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_type_of_social_media
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_type_of_social_media
+field_name: field_type_of_social_media
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Type of social media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

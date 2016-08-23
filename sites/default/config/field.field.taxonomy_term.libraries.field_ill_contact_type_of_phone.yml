@@ -1,0 +1,21 @@
+uuid: 05c8fa8a-83a9-4cc6-8dea-590d957c10c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ill_contact_type_of_phone
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_ill_contact_type_of_phone
+field_name: field_ill_contact_type_of_phone
+entity_type: taxonomy_term
+bundle: libraries
+label: 'ILL contact: type of phone'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

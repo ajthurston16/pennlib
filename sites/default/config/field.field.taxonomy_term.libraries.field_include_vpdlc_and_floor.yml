@@ -1,0 +1,23 @@
+uuid: bd7a20aa-ef9e-4f9f-ae09-ad2894e698d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_include_vpdlc_and_floor
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_include_vpdlc_and_floor
+field_name: field_include_vpdlc_and_floor
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Include Van Pelt-Dietrich Library Center and floor in address'
+description: 'Yes if WIC, Music, Lippincott, Kislak, or Van Pelt'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

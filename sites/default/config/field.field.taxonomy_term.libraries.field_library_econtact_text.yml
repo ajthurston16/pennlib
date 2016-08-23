@@ -1,0 +1,19 @@
+uuid: e96934be-5545-4b4c-b100-38d4eb87ebd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_library_econtact_text
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_library_econtact_text
+field_name: field_library_econtact_text
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Library electronic contact text '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+uuid: 69e28e0a-3473-4df1-bf25-d67cd4d2ad31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_city_state_zip
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_city_state_zip
+field_name: field_city_state_zip
+entity_type: taxonomy_term
+bundle: libraries
+label: 'City State Zip'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

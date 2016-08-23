@@ -1,0 +1,21 @@
+uuid: 7c9cfbd0-e2c9-4da0-bcc8-51857217d11a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_circ_econtact_type
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_circ_econtact_type
+field_name: field_circ_econtact_type
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Circulation contact:  type of electronic contact'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

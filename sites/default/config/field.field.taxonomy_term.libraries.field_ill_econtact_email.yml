@@ -1,0 +1,19 @@
+uuid: b9082573-fe28-4b1c-9d87-6746f050919e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ill_econtact_email
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_ill_econtact_email
+field_name: field_ill_econtact_email
+entity_type: taxonomy_term
+bundle: libraries
+label: 'ILL contact:  library email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

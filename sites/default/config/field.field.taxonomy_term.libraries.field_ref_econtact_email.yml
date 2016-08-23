@@ -1,0 +1,19 @@
+uuid: 1d255d4c-f8eb-435c-b701-f46a0d7f4d3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ref_econtact_email
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_ref_econtact_email
+field_name: field_ref_econtact_email
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reference desk: library email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

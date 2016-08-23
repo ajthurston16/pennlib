@@ -1,0 +1,19 @@
+uuid: 1d8736f8-d90d-4470-9aad-36a23038e3df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reserves_rules
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_reserves_rules
+field_name: field_reserves_rules
+entity_type: taxonomy_term
+bundle: libraries
+label: 'reserves rules'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

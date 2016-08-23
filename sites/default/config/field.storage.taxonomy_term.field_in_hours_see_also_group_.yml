@@ -1,0 +1,18 @@
+uuid: 62bcfcaa-18c0-4eee-b78c-4ef5c64c0519
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_in_hours_see_also_group_
+field_name: field_in_hours_see_also_group_
+entity_type: taxonomy_term
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

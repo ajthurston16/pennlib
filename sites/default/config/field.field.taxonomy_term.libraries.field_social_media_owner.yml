@@ -1,0 +1,19 @@
+uuid: 624db2a4-bd58-428e-937c-d593a7df27a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_social_media_owner
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_social_media_owner
+field_name: field_social_media_owner
+entity_type: taxonomy_term
+bundle: libraries
+label: 'social media owner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
