@@ -1219,11 +1219,11 @@ header {
   .node--type-menu_landing_page #main-nav-coll-col-one-general > h3,
   .node--type-menu_landing_page #main-nav-coll-col-one-general > a,
   .node--type-menu_landing_page #main-nav-tools-col-one-general > h3,
-  .node--type-menu_landing_page #main-nav-tools-col-one-general > a {
-    display: none; }
-  .node--type-menu_landing_page #main-nav-ppl-col-three-more-people > h3, .node--type-menu_landing_page #main-nav-ppl-col-three-more-people > a,
-  .node--type-menu_landing_page #main-nav-coll-col-one-request-forms > h3,
-  .node--type-menu_landing_page #main-nav-coll-col-one-request-forms > a {
+  .node--type-menu_landing_page #main-nav-tools-col-one-general > a,
+  .node--type-menu_landing_page #main-nav-ppl-col-three-more-people > h3,
+  .node--type-menu_landing_page #main-nav-ppl-col-three-more-people > a,
+  .node--type-menu_landing_page #main-nav-coll-col-three-request-forms > h3,
+  .node--type-menu_landing_page #main-nav-coll-col-three-request-forms > a {
     position: absolute !important;
     height: 1px;
     width: 1px;
@@ -1452,6 +1452,8 @@ header {
     min-width: 24rem; }
     .node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item#main-nav-ppl-col-one, .node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item#main-nav-ppl-col-two, .node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item#main-nav-ppl-col-three {
       width: 33%; }
+    .node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item#main-nav-coll-col-three {
+      margin-top: 1.5rem; }
     .node--type-menu_landing_page .block-menu-blockmain-nav ul.main-nav > li.main-nav__item > h3 {
       font-weight: bold;
       font-size: 1.5rem;
@@ -1654,13 +1656,11 @@ header .wrapper--nav nav {
     header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub {
       left: auto;
       right: 0;
-      width: 41.9rem; }
-      header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item {
-        width: 19.5rem; }
-        header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item #main-nav-coll-col-one-request-forms {
-          width: 36rem; }
-          header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub > li.main-nav__item #main-nav-coll-col-one-request-forms .main-nav__sub {
-            width: 36rem; }
+      width: 59rem; }
+      header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-one, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-two {
+        width: 18rem; }
+      header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-three {
+        width: 22rem; }
     header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub {
       width: 56rem; }
     header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub {
@@ -1696,13 +1696,15 @@ header .wrapper--nav nav {
     header .wrapper--nav nav .main-nav #main-nav-ppl-col-one-general,
     header .wrapper--nav nav .main-nav #main-nav-randt-col-one-general,
     header .wrapper--nav nav .main-nav #main-nav-coll-col-one-general,
-    header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general {
+    header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general,
+    header .wrapper--nav nav .main-nav #main-nav-coll-col-three-request-forms {
       margin-top: -1rem; }
       header .wrapper--nav nav .main-nav #main-nav-libinfo-col-one-general h4,
       header .wrapper--nav nav .main-nav #main-nav-ppl-col-one-general h4,
       header .wrapper--nav nav .main-nav #main-nav-randt-col-one-general h4,
       header .wrapper--nav nav .main-nav #main-nav-coll-col-one-general h4,
-      header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general h4 {
+      header .wrapper--nav nav .main-nav #main-nav-tools-col-one-general h4,
+      header .wrapper--nav nav .main-nav #main-nav-coll-col-three-request-forms h4 {
         position: absolute !important;
         height: 1px;
         width: 1px;

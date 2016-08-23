@@ -39,15 +39,12 @@ header .wrapper--nav nav {
       > .main-nav__sub {
         left:auto;
         right:0;
-        width: 41.9rem;
-        > li.main-nav__item {
-          width: 19.5rem;
-          #main-nav-coll-col-one-request-forms {
-            width:36rem;
-            .main-nav__sub {
-              width:36rem;
-            }
-          }
+        width: 59rem;
+        #main-nav-collections-coll-col-one, #main-nav-collections-coll-col-two {
+          width: 18rem
+        }
+        #main-nav-collections-coll-col-three {
+          width: 22rem
         }
       }
     }
@@ -104,11 +101,13 @@ header .wrapper--nav nav {
       }
 
     }
+
     #main-nav-libinfo-col-one-general,
     #main-nav-ppl-col-one-general,
     #main-nav-randt-col-one-general,
     #main-nav-coll-col-one-general,
     #main-nav-tools-col-one-general,
+    #main-nav-coll-col-three-request-forms
       {
       margin-top:-1rem;
        h4 {

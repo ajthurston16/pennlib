@@ -3,13 +3,9 @@
 	#main-nav-ppl-col-one-general,
 	#main-nav-randt-col-one-general,
 	#main-nav-coll-col-one-general,
-	#main-nav-tools-col-one-general {
-		> h3, > a {
-			display:none;
-		}
-	}
+	#main-nav-tools-col-one-general,
 	#main-nav-ppl-col-three-more-people,
-	#main-nav-coll-col-one-request-forms {
+	#main-nav-coll-col-three-request-forms {
 		> h3, > a {
 			@include bear-element-invisible
 		}
@@ -88,6 +84,7 @@
 	.block-entity-fieldnodefield-see-also-link,
 	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
 		margin-top: 4rem;
+		
 	}
 	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
 		@include inline-block;
@@ -98,7 +95,9 @@
 		&#main-nav-ppl-col-one, &#main-nav-ppl-col-two, &#main-nav-ppl-col-three {
 			width: 33%;
 		}
-
+		&#main-nav-coll-col-three {
+			margin-top: 1.5rem
+		}
 		> h3 {
 			font-weight: bold;
 			font-size: 1.5rem;
