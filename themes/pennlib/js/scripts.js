@@ -363,6 +363,7 @@
       setTimeout(function(){
         $('div.block-facets div.content a.facets-soft-limit-link')
         .unbind('click')
+        .text('View all...')
         .click(function(){
           var that = $(this);
           handleModal(that);
