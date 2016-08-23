@@ -13,7 +13,7 @@ field_identifier: field_library
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
 widget:
-  type: links
+  type: checkbox
   config:
     show_numbers: true
     soft_limit: 5
@@ -26,11 +26,11 @@ processor_configs:
     weights:
       sort: -10
     settings:
-      sort: DESC
+      sort: ASC
   count_widget_order:
     processor_id: count_widget_order
     weights:
-      sort: -10
+      sort: -9
     settings:
       sort: DESC
   translate_taxonomy:
