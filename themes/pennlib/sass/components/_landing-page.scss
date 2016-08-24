@@ -4,8 +4,9 @@
 	#main-nav-randt-col-one-general,
 	#main-nav-coll-col-one-general,
 	#main-nav-tools-col-one-general,
-	#main-nav-ppl-col-three-more-people,
-	#main-nav-coll-col-three-request-forms {
+	#main-nav-coll-col-three-request-forms,
+	#main-nav-ppl-col-three-quick-forms,
+	#main-nav-tools-col-two-fast-forms {
 		> h3, > a {
 			@include bear-element-invisible
 		}
@@ -48,7 +49,10 @@
 		}
 
 	}
-	#main-nav-ppl-col-one-help-with, #main-nav-coll-col-one-search, #main-nav-coll-col-one-request-forms {
+	#main-nav-ppl-col-one-help-with, 
+	#main-nav-coll-col-one-search, 
+	#main-nav-coll-col-one-request-forms,
+	#main-nav-ppl-col-three-more-people {
 			margin-top:2.5rem;
 		}
 

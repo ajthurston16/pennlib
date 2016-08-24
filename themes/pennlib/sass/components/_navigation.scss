@@ -107,20 +107,28 @@ header .wrapper--nav nav {
     #main-nav-randt-col-one-general,
     #main-nav-coll-col-one-general,
     #main-nav-tools-col-one-general,
-    #main-nav-coll-col-three-request-forms
-      {
+    #main-nav-coll-col-three-request-forms,
+    #main-nav-tools-col-two-fast-forms  {
       margin-top:-1rem;
        h4 {
         @include bear-element-invisible;
       }
     }
-    #main-nav-ppl-col-three-more-people,
-    #main-nav-coll-col-one-request-forms  {
+    
+    #main-nav-ppl-col-three-quick-forms
+    {
+      margin-top:-.5rem;
+       h4 {
+        @include bear-element-invisible;
+      }
+    }
+    #main-nav-coll-col-one-request-forms {
       margin-top:1.5em;
        h4 {
         @include bear-element-invisible;
       }
     }
+    #main-nav-ppl-col-three-more-people,
     #main-nav-ppl-col-one-help-with,
     #main-nav-coll-col-one-search {
       margin-top:1.5em;
