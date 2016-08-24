@@ -19,7 +19,7 @@ class TranslateTaxonomyProcessorTest extends UnitTestCase {
   /**
    * The processor to be tested.
    *
-   * @var \Drupal\facets\processor\WidgetOrderProcessorInterface
+   * @var \Drupal\facets\processor\SortProcessorInterface
    */
   protected $processor;
 
@@ -43,7 +43,7 @@ class TranslateTaxonomyProcessorTest extends UnitTestCase {
       new Result(1, 1, 5),
     ];
 
-    $facet = new Facet([], 'facet');
+    $facet = new Facet([], 'facets_facet');
     $facet->setResults($original_results);
 
     $expected_results = [

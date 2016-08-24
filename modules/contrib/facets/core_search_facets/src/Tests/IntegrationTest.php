@@ -66,7 +66,7 @@ class IntegrationTest extends WebTestBase {
 
     // Verify that the label is correct for a clicked link.
     $this->clickLinkPartialName('page');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> page <span class="facet-count">(19)</span>');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> page <span class="facet-count">(19)</span>');
 
     // To make sure we have an empty result, we truncate the search_index table
     // because, for the moment, we don't have the possibility to clear the index
@@ -193,7 +193,6 @@ class IntegrationTest extends WebTestBase {
     $this->drupalGet('admin/config/search/facets/add-facet');
     $form_values = [
       'id' => $id,
-      'status' => 1,
       'name' => $name,
       'facet_source_id' => 'core_node_search:node_search',
       'facet_source_configs[core_node_search:node_search][field_identifier]' => $type,
@@ -207,7 +206,7 @@ class IntegrationTest extends WebTestBase {
    *
    * @param string $facet_id
    *   The id of the facet.
-   * @param bool|TRUE $show
+   * @param bool $show
    *   Boolean to determine if we want to show the amount of results.
    */
   protected function setShowAmountOfResults($facet_id, $show = TRUE) {
@@ -217,7 +216,7 @@ class IntegrationTest extends WebTestBase {
     $this->assertResponse(200);
 
     $edit = [
-      'widget_configs[show_numbers]' => $show,
+      'widget_config[show_numbers]' => $show,
     ];
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
   }
@@ -261,7 +260,7 @@ class IntegrationTest extends WebTestBase {
     $edit = [
       'facet_settings[only_visible_when_facet_source_is_visible]' => TRUE,
       'widget' => 'links',
-      'widget_configs[show_numbers]' => '0',
+      'widget_config[show_numbers]' => '0',
     ];
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
   }
@@ -298,7 +297,6 @@ class IntegrationTest extends WebTestBase {
     $form_values = [
       'name' => '',
       'id' => $facet_id,
-      'status' => 1,
     ];
 
     // Try filling out the form, but without having filled in a name for the

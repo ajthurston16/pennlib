@@ -29,7 +29,6 @@ $facet-border: 1px solid $silver;
 		margin: 0;
 		font-size: $base-font-size;
 		border-bottom: $facet-border;
-		cursor:pointer;
 	}
 
 	.content {
@@ -73,3 +72,37 @@ $facet-border: 1px solid $silver;
 	display:block;
 	margin-top:.9rem;
 }
+
+/* For staff modals */
+
+/* Put list elements in two columns. Explanation here: http://www.w3schools.com/cssref/css3_pr_column-count.asp */
+#cboxLoadedContent .content ul {
+	list-style-type: none; /* remove the • */
+	-moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+}
+
+#cboxLoadedContent .content ul li{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	border-bottom: 1px dotted $silver;
+
+}
+
+#cboxWrapper {
+	box-shadow: 0 5px 10px #888;
+}
+
+#cboxTitle {
+	font-size: 18px;
+	padding-left: 40px;
+	border-bottom: 1px solid $silver;
+	width: 25%;
+
+}
+

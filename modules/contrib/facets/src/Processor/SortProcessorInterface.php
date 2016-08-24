@@ -2,24 +2,24 @@
 
 namespace Drupal\facets\Processor;
 
-use Drupal\facets\FacetInterface;
+use Drupal\facets\Result\Result;
 
 /**
- * Processor runs after the build processor for sorting.
+ * Processor runs before the renderable array is created.
  */
-interface SortProcessorInterface extends ProcessorInterface {
+interface SortProcessorInterface {
 
   /**
-   * Runs after the build processor for sorting.
+   * Orders results and return the new order of results.
    *
-   * @param \Drupal\facets\FacetInterface $facet
-   *   The facet being changed.
-   * @param \Drupal\facets\Result\Result[] $results
-   *   The results being changed.
+   * @param \Drupal\facets\Result\Result $a
+   *   First result which should be compared.
+   * @param \Drupal\facets\Result\Result $b
+   *   Second result which should be compared.
    *
-   * @return \Drupal\facets\Result\Result[] $results
-   *   The changed results.
+   * @return int
+   *   -1, 0, or 1 depending which result
    */
-  public function sort(FacetInterface $facet, array $results);
+  public function sortResults(Result $a, Result $b);
 
 }

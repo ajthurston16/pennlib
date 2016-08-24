@@ -30,28 +30,47 @@ header .wrapper--nav nav {
       margin: 0 30px;
     }
     
-    #main-nav-library-info, #main-nav-research-teaching, #main-nav-collections, #main-nav-tools {
+    #main-nav-library-info, #main-nav-tools {
       > .main-nav__sub {
         width: 38.9rem;
       }
     }
     #main-nav-collections {
       > .main-nav__sub {
-        width: 41.9rem;
-        > li.main-nav__item {
-          width: 19.5rem;
-          #main-nav-coll-col-one-request-forms {
-            width:36rem;
-            .main-nav__sub {
-              width:36rem;
-            }
-          }
+        left:auto;
+        right:0;
+        width: 59rem;
+        #main-nav-collections-coll-col-one, #main-nav-collections-coll-col-two {
+          width: 18rem
+        }
+        #main-nav-collections-coll-col-three {
+          width: 22rem
         }
       }
     }
-    #main-nav-facilities, #main-nav-people {
+    #main-nav-facilities, #main-nav-research-teaching {
       > .main-nav__sub {
         width: 56rem;
+
+      }
+    }
+    #main-nav-research-teaching {
+      > .main-nav__sub {
+        left:-30rem;
+        right:auto;
+
+      }
+    }
+    #main-nav-people {
+      > .main-nav__sub {
+        width: 63rem; 
+        #main-nav-people-ppl-col-one, #main-nav-people-ppl-col-three {
+            width: 19rem;
+        } 
+        #main-nav-people-ppl-col-two {
+            width: 22.5rem;
+        }
+        
       }
     }
 
@@ -77,16 +96,18 @@ header .wrapper--nav nav {
     #main-nav-tools-tools-col-one,
     #main-nav-tools-tools-col-two,
     #main-nav-tools-tools-col-three  {
-      > a {
+      > h3 {
         display:none;
       }
 
     }
+
     #main-nav-libinfo-col-one-general,
     #main-nav-ppl-col-one-general,
     #main-nav-randt-col-one-general,
     #main-nav-coll-col-one-general,
     #main-nav-tools-col-one-general,
+    #main-nav-coll-col-three-request-forms
       {
       margin-top:-1rem;
        h4 {
@@ -186,7 +207,7 @@ header .wrapper--nav nav {
             opacity: 1; 
             position: relative;
             top:0;
-            width: 16rem;
+            width: 100%;
             min-width: 16rem;
             box-shadow: none;
             padding: 0;

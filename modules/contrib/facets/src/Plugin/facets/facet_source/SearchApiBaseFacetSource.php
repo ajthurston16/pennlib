@@ -3,7 +3,6 @@
 namespace Drupal\facets\Plugin\facets\facet_source;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\facets\Exception\InvalidQueryTypeException;
 use Drupal\facets\FacetInterface;
 use Drupal\search_api\Backend\BackendInterface;
@@ -15,8 +14,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * A base class for Search API facet sources.
  */
 abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
-
-  use StringTranslationTrait;
 
   /**
    * The search index.
@@ -82,7 +79,7 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
     $indexed_fields = [];
     $fields = $this->index->getFields();
     foreach ($fields as $field) {
-      $indexed_fields[$field->getFieldIdentifier()] = $field->getLabel();
+      $indexed_fields[$field->getFieldIdentifier()] = $field->getLabel() . ' (' . $field->getPropertyPath() . ')';
     }
     return $indexed_fields;
   }
@@ -106,7 +103,7 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
       }
     }
 
-    throw new InvalidQueryTypeException($this->t("No available query types were found for facet @facet", ['@facet' => $facet->getName()]));
+    throw new InvalidQueryTypeException("No available query types were found for facet {$facet->getName()}");
   }
 
   /**

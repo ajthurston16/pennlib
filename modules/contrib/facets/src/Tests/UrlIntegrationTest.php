@@ -21,7 +21,6 @@ class UrlIntegrationTest extends WebTestBase {
     'views',
     'node',
     'search_api',
-    'search_api_test_backend',
     'facets',
     'block',
     'facets_search_api_dependency',
@@ -118,7 +117,7 @@ class UrlIntegrationTest extends WebTestBase {
 
     // Add a new entity that has a colon in one of it's keywords.
     $entity_test_storage = \Drupal::entityTypeManager()
-      ->getStorage('entity_test');
+      ->getStorage('entity_test_mulrev_changed');
     $entity_test_storage->create([
       'name' => 'Entity with colon',
       'body' => 'test test',
@@ -142,7 +141,7 @@ class UrlIntegrationTest extends WebTestBase {
     // Make sure 'test:colon' is active.
     $url = Url::fromUserInput('/search-api-test-fulltext', ['query' => ['f[0]' => 'water_bear:test:colon']]);
     $this->assertUrl($url);
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> test:colon');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> test:colon');
     $this->assertLink('orange');
     $this->assertLink('banana');
   }
@@ -162,7 +161,7 @@ class UrlIntegrationTest extends WebTestBase {
     $this->clickLink('item');
 
     $this->assertResponse(200);
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> item');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> item');
     $this->assertLink('article');
     $this->assertUrl($url);
   }

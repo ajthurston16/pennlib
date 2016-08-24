@@ -1,7 +1,9 @@
-uuid: f31f0674-4385-4042-aaef-e17a4773a2c0
+uuid: cd81d0e3-49c5-46d5-8fed-1b872fbbd768
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - views.view.staff_search
 id: department
 name: Department
 url_alias: department
@@ -10,11 +12,12 @@ show_only_one_result: false
 field_identifier: field_department
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
-widget: links
-widget_configs:
-  show_numbers: '1'
-  soft_limit: '5'
-query_operator: OR
+widget:
+  type: checkbox
+  config:
+    show_numbers: true
+    soft_limit: 5
+query_operator: or
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
@@ -23,19 +26,18 @@ processor_configs:
     weights:
       sort: -10
     settings:
-      sort: DESC
+      sort: ASC
   count_widget_order:
     processor_id: count_widget_order
     weights:
       sort: -10
     settings:
       sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
     weights:
-      sort: -10
-    settings:
-      sort: ASC
+      build: -10
+    settings: {  }
   translate_taxonomy:
     processor_id: translate_taxonomy
     weights:

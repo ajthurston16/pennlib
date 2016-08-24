@@ -1,7 +1,9 @@
-uuid: 0a502a26-ac49-4be2-86b3-d16ea36e7dcf
+uuid: da208598-0415-4250-a364-bd3cfbcaf8f5
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - views.view.staff_search
 id: technology_specialty
 name: 'Technology Specialty'
 url_alias: technology_specialty
@@ -10,11 +12,12 @@ show_only_one_result: false
 field_identifier: field_technology_specialty
 query_type_name: null
 facet_source_id: 'search_api_views:staff_search:block_1'
-widget: links
-widget_configs:
-  show_numbers: '0'
-  soft_limit: '5'
-query_operator: OR
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 5
+query_operator: or
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
@@ -23,19 +26,18 @@ processor_configs:
     weights:
       sort: -10
     settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
+      sort: ASC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
       sort: -10
     settings:
       sort: ASC
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
+    weights:
+      build: -10
+    settings: {  }
   translate_taxonomy:
     processor_id: translate_taxonomy
     weights:

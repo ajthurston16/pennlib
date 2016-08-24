@@ -33,77 +33,77 @@ variant_settings:
       weight: 1
       uuid: 77a23975-5322-41be-a87a-e09e5abfb451
       context_mapping: {  }
-    4948e364-bee1-4dd9-896b-ed1d90de5747:
-      id: 'facet_block:library'
-      label: Library
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: 4948e364-bee1-4dd9-896b-ed1d90de5747
-      weight: 1
-    cda8fb45-e73d-4dcc-aa72-ad8a86267010:
-      id: 'facet_block:subject_specialty'
-      label: 'Subject Specialty'
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: cda8fb45-e73d-4dcc-aa72-ad8a86267010
-      weight: 2
-    fc6c15f7-ef95-4e6e-8aae-a026863c0a54:
-      id: 'facet_block:collection_responsibility'
-      label: 'Collection Responsibility'
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: fc6c15f7-ef95-4e6e-8aae-a026863c0a54
-      weight: 3
-    6887c5fe-313c-432e-8612-011d16e2041c:
-      id: 'facet_block:technology_specialty'
-      label: 'Technology Specialty'
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: 6887c5fe-313c-432e-8612-011d16e2041c
-      weight: 4
-    5d80de86-6476-4e10-aecf-bda414e23b30:
-      id: 'facet_block:division'
-      label: Division
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: 5d80de86-6476-4e10-aecf-bda414e23b30
-      weight: 5
-    984ea04c-5aed-4790-8556-29d571a93073:
+    ba890023-1a54-40d4-84dc-0d45cf60ae4e:
       id: 'facet_block:department'
       label: Department
       provider: facets
       label_display: visible
       context_mapping: {  }
       region: sidebar
-      uuid: 984ea04c-5aed-4790-8556-29d571a93073
+      uuid: ba890023-1a54-40d4-84dc-0d45cf60ae4e
       weight: 6
-    ea27c190-6bbf-4507-ab5b-dfdaee3bab06:
+    5a44b43c-8507-4990-a094-c301e3c268af:
+      id: 'facet_block:library'
+      label: Library
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 5a44b43c-8507-4990-a094-c301e3c268af
+      weight: 1
+    cae91c6f-7c9d-4711-82e9-6543a5874d7d:
+      id: 'facet_block:subject_specialty'
+      label: 'Subject Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: cae91c6f-7c9d-4711-82e9-6543a5874d7d
+      weight: 2
+    4aa9169c-a36f-460d-9a36-e8a1716d2210:
+      id: 'facet_block:collection_responsibility'
+      label: 'Collection Responsibility'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: 4aa9169c-a36f-460d-9a36-e8a1716d2210
+      weight: 3
+    fe843fa1-ab10-42ec-9628-8fc882f125d4:
+      id: 'facet_block:technology_specialty'
+      label: 'Technology Specialty'
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: fe843fa1-ab10-42ec-9628-8fc882f125d4
+      weight: 4
+    eae7007e-162a-4f11-b365-1841525a67bc:
+      id: 'facet_block:division'
+      label: Division
+      provider: facets
+      label_display: visible
+      context_mapping: {  }
+      region: sidebar
+      uuid: eae7007e-162a-4f11-b365-1841525a67bc
+      weight: 5
+    586d3bda-518d-4cbc-a59c-c0b4cef90dfc:
       id: 'facet_block:role'
       label: Role
       provider: facets
       label_display: visible
       context_mapping: {  }
       region: sidebar
-      uuid: ea27c190-6bbf-4507-ab5b-dfdaee3bab06
+      uuid: 586d3bda-518d-4cbc-a59c-c0b4cef90dfc
       weight: 7
-    c9245129-a614-4f29-80a0-54491acd372e:
+    a20f1b9e-4547-4ab6-826d-d5c044ee0dcc:
       id: 'facet_block:team'
       label: Team
       provider: facets
       label_display: visible
       context_mapping: {  }
       region: sidebar
-      uuid: c9245129-a614-4f29-80a0-54491acd372e
+      uuid: a20f1b9e-4547-4ab6-826d-d5c044ee0dcc
       weight: 8
   id: panels_variant
   uuid: 76bba827-234b-477b-98b5-b28d82fc32df

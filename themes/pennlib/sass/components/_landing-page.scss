@@ -1,8 +1,70 @@
 .node--type-menu_landing_page {
-	#main-nav-general {
-		h3 {
+	#main-nav-libinfo-col-one-general,
+	#main-nav-ppl-col-one-general,
+	#main-nav-randt-col-one-general,
+	#main-nav-coll-col-one-general,
+	#main-nav-tools-col-one-general,
+	#main-nav-ppl-col-three-more-people,
+	#main-nav-coll-col-three-request-forms {
+		> h3, > a {
+			@include bear-element-invisible
+		}
+	}
+	#main-nav-libinfo-col-one, #main-nav-libinfo-col-two,
+	#main-nav-inlib-col-one, #main-nav-inlib-col-two, #main-nav-inlib-col-three,
+	#main-nav-ppl-col-one, #main-nav-ppl-col-two, #main-nav-ppl-col-three,
+	#main-nav-randt-col-one, #main-nav-randt-col-two, #main-nav-randt-col-three,
+	#main-nav-coll-col-one, #main-nav-coll-col-two, #main-nav-coll-col-three,
+	#main-nav-tools-col-one, #main-nav-tools-col-two {
+		> h3, > a {
 			display:none;
 		}
+
+	}
+	#main-nav-libinfo-col-two-access,
+	#main-nav-inlib-col-one-for,
+	#main-nav-inlib-col-three-finding-your-way,
+	#main-nav-inlib-col-two-where-to,
+	#main-nav-ppl-col-one-help-with,
+	#main-nav-ppl-col-two-contact-us-about,
+	#main-nav-ppl-col-three-quick-forms,
+	#main-nav-randt-col-three-digital-scholarship,
+	#main-nav-randt-col-two-course-support,
+	#main-nav-coll-col-one-search,
+	#main-nav-coll-col-two-notable-collections,
+	#main-nav-tools-col-two-fast-forms {
+		margin: .9rem 0 0 0;
+		> h3, > a {
+			font-weight: bold;
+			font-size: 1.5rem;
+			letter-spacing: .04rem;
+			cursor: default;
+			@include link-colors(#333, $hover: #333, $active: #333, $focus: #333);
+
+		}
+		> h3 > a {
+				cursor: default;
+				@include link-colors(#333, $hover: #333, $active: #333, $focus: #333);
+		}
+
+	}
+	#main-nav-ppl-col-one-help-with, #main-nav-coll-col-one-search, #main-nav-coll-col-one-request-forms {
+			margin-top:2.5rem;
+		}
+
+	#main-nav-general-contacts {
+		margin-top:0; 
+	}
+	#main-nav-inlib-col-three {
+		position:relative;
+		top:-15rem;
+	}
+	#main-nav-randt-col-three {
+		position:relative;
+		top:-5.9rem;
+	}
+	#main-nav-tools-col-two {
+			
 	}
 	//Styling for the landing page's menu links
 	margin: 0 -1.9rem;
@@ -22,6 +84,7 @@
 	.block-entity-fieldnodefield-see-also-link,
 	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
 		margin-top: 4rem;
+		
 	}
 	.block-menu-blockmain-nav ul.main-nav > li.main-nav__item {
 		@include inline-block;
@@ -29,6 +92,12 @@
 		padding-left: 1.9rem;
 		border-left: 1px dotted #bbb;
 		min-width: 24rem;
+		&#main-nav-ppl-col-one, &#main-nav-ppl-col-two, &#main-nav-ppl-col-three {
+			width: 33%;
+		}
+		&#main-nav-coll-col-three {
+			margin-top: 1.5rem
+		}
 		> h3 {
 			font-weight: bold;
 			font-size: 1.5rem;
@@ -41,6 +110,7 @@
 		}	
 		
 	}
+	
 	.block-entity-fieldnodefield-see-also-link {
 		border: solid 1px $silver;
 		h2 {

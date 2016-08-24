@@ -40,7 +40,6 @@ use Drupal\facets\FacetInterface;
  *     "query_type_name",
  *     "facet_source_id",
  *     "widget",
- *     "widget_configs",
  *     "query_operator",
  *     "exclude",
  *     "only_visible_when_facet_source_is_visible",
@@ -88,18 +87,18 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   protected $description;
 
   /**
-   * The plugin name of the widget.
+   * The widget plugin definition.
    *
-   * @var string
+   * @var array
    */
   protected $widget;
 
   /**
-   * Configuration for the widget. This is a key-value stored array.
+   * The widget plugin instance.
    *
-   * @var array
+   * @var \Drupal\facets\Widget\WidgetPluginBase
    */
-  protected $widget_configs = [];
+  protected $widgetInstance;
 
   /**
    * The operator to hand over to the query, currently AND | OR.
@@ -251,13 +250,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   protected $weight;
 
   /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $values, $entity_type) {
-    parent::__construct($values, $entity_type);
-  }
-
-  /**
    * Returns the widget plugin manager.
    *
    * @return \Drupal\facets\Widget\WidgetPluginManager
@@ -287,14 +279,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
-  public function setWidget($widget) {
-    $this->widget = $widget;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getQueryTypes() {
     return $this->query_type_name;
   }
@@ -302,8 +286,37 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
+  public function setWidget($id, array $configuration = NULL) {
+    if ($configuration === NULL) {
+      $instance = $this->getWidgetManager()->createInstance($id);
+      // Get the default configuration for this plugin.
+      $configuration = $instance->getConfiguration();
+    }
+    $this->widget = ['type' => $id, 'config' => $configuration];
+
+    // Unset the widget instance, if exists.
+    unset($this->widgetInstance);
+
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getWidget() {
     return $this->widget;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getWidgetInstance() {
+    if (!isset($this->widgetInstance)) {
+      $definition = $this->getWidget();
+      $this->widgetInstance = $this->getWidgetManager()
+        ->createInstance($definition['type'], (array) $definition['config']);
+    }
+    return $this->widgetInstance;
   }
 
   /**
@@ -356,8 +369,8 @@ class Facet extends ConfigEntityBase implements FacetInterface {
     $query_types = $facet_source->getQueryTypesForFacet($this);
 
     // Get our widget configured for this facet.
-    /** @var \Drupal\facets\Widget\WidgetInterface $widget */
-    $widget = $this->getWidgetManager()->createInstance($this->getWidget());
+    /** @var \Drupal\facets\Widget\WidgetPluginInterface $widget */
+    $widget = $this->getWidgetInstance();
     // Give the widget the chance to select a preferred query type. This is
     // useful with a date widget, as it needs to select the date query type.
     return $widget->getQueryType($query_types);
@@ -374,7 +387,7 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * {@inheritdoc}
    */
   public function getQueryOperator() {
-    return $this->query_operator ?: 'OR';
+    return $this->query_operator ?: 'or';
   }
 
   /**
@@ -706,20 +719,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
-  public function setWidgetConfigs(array $widget_configs) {
-    $this->widget_configs = $widget_configs;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getWidgetConfigs() {
-    return $this->widget_configs;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function setFacetConfigs(array $facet_configs) {
     $this->facet_configs = $facet_configs;
   }
@@ -743,6 +742,19 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    */
   public function setWeight($weight) {
     $this->weight = $weight;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    parent::calculateDependencies();
+    $facet_dependencies = $this->getFacetSource()->calculateDependencies();
+    if (!empty($facet_dependencies)) {
+      $this->addDependencies($facet_dependencies);
+    }
+
     return $this;
   }
 

@@ -4,6 +4,7 @@ namespace Drupal\facets\Tests;
 
 use Drupal\Core\Url;
 use Drupal\facets\Entity\Facet;
+use Drupal\views\Entity\View;
 
 /**
  * Tests the overall functionality of the Facets admin UI.
@@ -11,6 +12,8 @@ use Drupal\facets\Entity\Facet;
  * @group facets
  */
 class IntegrationTest extends WebTestBase {
+
+  public static $modules = ['views_ui'];
 
   /**
    * {@inheritdoc}
@@ -120,7 +123,6 @@ class IntegrationTest extends WebTestBase {
 
     $form_values = [
       'id' => $facet_id,
-      'status' => 1,
       'name' => $facet_name,
       'facet_source_id' => 'search_api_views:search_api_test_view:block_1',
       'facet_source_configs[search_api_views:search_api_test_view:block_1][field_identifier]' => 'type',
@@ -155,6 +157,32 @@ class IntegrationTest extends WebTestBase {
     // Click the item link, and test that filtering of results actually works.
     $this->clickLink('item');
     $this->assertText('Displaying 3 search results', 'The search view displays the correct number of results.');
+  }
+
+  /**
+   * Tests for deleting a block.
+   */
+  public function testBlockDelete() {
+    $name = 'Tawny-browed owl';
+    $id = 'tawny_browed_owl';
+
+    // Add a new facet.
+    $this->createFacet($name, $id);
+
+    $block = $this->blocks[$id];
+    $block_id = $block->label();
+
+    $this->drupalGet('admin/structure/block');
+    $this->assertText($block_id);
+
+    $this->drupalGet('admin/structure/block/library/classy');
+    $this->assertText($name);
+
+    $this->drupalGet('admin/config/search/facets/' . $id . '/delete');
+    $this->drupalPostForm(NULL, [], $this->t('Delete'));
+
+    $this->drupalGet('admin/structure/block/library/classy');
+    $this->assertNoText($name);
   }
 
   /**
@@ -306,25 +334,33 @@ class IntegrationTest extends WebTestBase {
     $this->createFacet($facet_name, $facet_id);
 
     $this->drupalGet($facet_edit_page);
-    $this->drupalPostForm(NULL, ['facet_settings[query_operator]' => 'AND'], $this->t('Save'));
+    $this->drupalPostForm(NULL, ['facet_settings[query_operator]' => 'and'], $this->t('Save'));
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertLink('item');
     $this->assertLink('article');
 
     $this->clickLink('item');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> item');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> item');
     $this->assertNoLink('article');
 
     $this->drupalGet($facet_edit_page);
-    $this->drupalPostForm(NULL, ['facet_settings[query_operator]' => 'OR'], $this->t('Save'));
+    $this->drupalPostForm(NULL, ['facet_settings[query_operator]' => 'or'], $this->t('Save'));
     $this->drupalGet('search-api-test-fulltext');
     $this->assertLink('item');
     $this->assertLink('article');
 
     $this->clickLink('item');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> item');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> item');
     $this->assertLink('article');
+
+    // Verify the number of results for OR functionality.
+    $this->drupalGet($facet_edit_page);
+    $this->drupalPostForm(NULL, ['widget' => 'links', 'widget_config[show_numbers]' => TRUE], $this->t('Save'));
+    $this->drupalGet('search-api-test-fulltext');
+    $this->clickLink('item (3)');
+    $this->assertText('article (2)');
+
   }
 
   /**
@@ -351,7 +387,6 @@ class IntegrationTest extends WebTestBase {
     $form_values = [
       'name' => 'name 1',
       'id' => 'name 1',
-      'status' => 1,
     ];
     $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
     $this->assertText($this->t('The machine-readable name must contain only lowercase letters, numbers, and underscores.'));
@@ -359,11 +394,33 @@ class IntegrationTest extends WebTestBase {
     $form_values = [
       'name' => 'name 1',
       'id' => 'name:&1',
-      'status' => 1,
     ];
     $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
     $this->assertText($this->t('The machine-readable name must contain only lowercase letters, numbers, and underscores.'));
 
+    // Post the form with valid values, so we can test the next step.
+    $form_values = [
+      'name' => 'name 1',
+      'id' => 'name_1',
+    ];
+    $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
+
+    // Create an array of values that are not allowed in the url.
+    $unwanted_values = [' ', '!', '@', '#', '$', '%', '^', '&'];
+    foreach ($unwanted_values as $unwanted_value) {
+      $form_values = [
+        'facet_settings[url_alias]' => 'alias' . $unwanted_value . '1',
+      ];
+      $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
+      $this->assertText($this->t('Url alias has illegal characters.'));
+    }
+
+    // Post an alias with allowed values.
+    $form_values = [
+      'facet_settings[url_alias]' => 'alias~-_.1',
+    ];
+    $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
+    $this->assertRaw($this->t('Facet %name has been updated.', ['%name' => 'name 1']));
   }
 
   /**
@@ -387,7 +444,7 @@ class IntegrationTest extends WebTestBase {
     $this->assertLink('item');
 
     $this->clickLink('item');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> item');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> item');
     $this->assertText('foo baz');
     $this->assertText('bar baz');
     $this->assertNoText('foo bar baz');
@@ -403,7 +460,7 @@ class IntegrationTest extends WebTestBase {
     $this->assertLink('item');
 
     $this->clickLink('item');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> item');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> item');
     $this->assertText('foo bar baz');
     $this->assertText('foo test');
     $this->assertText('bar');
@@ -431,13 +488,13 @@ class IntegrationTest extends WebTestBase {
 
     $this->clickLink('grape');
     $this->assertText('Displaying 3 search results');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> grape');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> grape');
     $this->assertLink('orange');
 
     $this->clickLink('orange');
     $this->assertText('Displaying 3 search results');
     $this->assertLink('grape');
-    $this->assertRaw('<span class="facet-deactivate">(-)</span> orange');
+    $this->assertRaw('<span class="js-facet-deactivate">(-)</span> orange');
   }
 
   /**
@@ -463,7 +520,11 @@ class IntegrationTest extends WebTestBase {
     $this->createBlock('type');
     $this->createBlock('keywords');
 
-    $edit = ['widget' => 'links', 'widget_configs[show_numbers]' => '1'];
+    $edit = [
+      'widget' => 'links',
+      'widget_config[show_numbers]' => '1',
+      'facet_settings[query_operator]' => 'and',
+    ];
     $this->drupalPostForm('admin/config/search/facets/keywords/edit', $edit, $this->t('Save'));
     $this->drupalPostForm('admin/config/search/facets/type/edit', $edit, $this->t('Save'));
 
@@ -493,6 +554,76 @@ class IntegrationTest extends WebTestBase {
     $this->assertText('Displaying 3 search results');
     $this->assertText('article (2)');
     $this->assertText('item (1)');
+  }
+
+  /**
+   * Tests what happens when a dependency is removed.
+   */
+  public function testOnViewRemoval() {
+    $id = "owl";
+    $name = "Owl";
+    $this->createFacet($name, $id);
+
+    $this->drupalGet('/admin/config/search/facets');
+    $this->assertResponse(200);
+
+    // Check that the expected facet sources and the owl facet are shown.
+    $this->assertText('search_api_views:search_api_test_view:block_1');
+    $this->assertText('search_api_views:search_api_test_view:page_1');
+    $this->assertText($name);
+
+    // Delete the view on which both facet sources are based.
+    $view = View::load('search_api_test_view');
+    $view->delete();
+
+    // Go back to the overview, make sure that the page doesn't show any errors
+    // and the facet/facet source are deleted.
+    $this->drupalGet('/admin/config/search/facets');
+    $this->assertResponse(200);
+    $this->assertNoText('search_api_views:search_api_test_view:page_1');
+    $this->assertNoText('search_api_views:search_api_test_view:block_1');
+    $this->assertNoText($name);
+  }
+
+  /**
+   * Tests what happens when a dependency is removed.
+   */
+  public function testOnViewDisplayRemoval() {
+    $admin_user = $this->drupalCreateUser([
+      'administer search_api',
+      'administer facets',
+      'access administration pages',
+      'administer nodes',
+      'access content overview',
+      'administer content types',
+      'administer blocks',
+      'administer views',
+    ]);
+    $this->drupalLogin($admin_user);
+    $id = "owl";
+    $name = "Owl";
+    $this->createFacet($name, $id);
+
+    $this->drupalGet('/admin/config/search/facets');
+    $this->assertResponse(200);
+
+    // Check that the expected facet sources and the owl facet are shown.
+    $this->assertText('search_api_views:search_api_test_view:block_1');
+    $this->assertText('search_api_views:search_api_test_view:page_1');
+    $this->assertText($name);
+
+    // Delete the view display for the page.
+    $this->drupalGet('admin/structure/views/view/search_api_test_view');
+    $this->drupalPostForm(NULL, [], $this->t('Delete Page'));
+    $this->drupalPostForm(NULL, [], $this->t('Save'));
+
+    // Go back to the overview, make sure that the page doesn't show any errors
+    // and the facet/facet source are deleted.
+    $this->drupalGet('/admin/config/search/facets');
+    $this->assertResponse(200);
+    $this->assertNoText('search_api_views:search_api_test_view:page_1');
+    $this->assertText('search_api_views:search_api_test_view:block_1');
+    $this->assertNoText($name);
   }
 
   /**
@@ -535,7 +666,7 @@ class IntegrationTest extends WebTestBase {
     $edit = [
       'facet_settings[only_visible_when_facet_source_is_visible]' => TRUE,
       'widget' => 'links',
-      'widget_configs[show_numbers]' => '0',
+      'widget_config[show_numbers]' => '0',
     ];
     $this->drupalPostForm(NULL, $edit, $this->t('Save'));
   }
@@ -574,7 +705,6 @@ class IntegrationTest extends WebTestBase {
     $form_values = [
       'name' => '',
       'id' => $facet_id,
-      'status' => 1,
     ];
 
     // Try filling out the form, but without having filled in a name for the
