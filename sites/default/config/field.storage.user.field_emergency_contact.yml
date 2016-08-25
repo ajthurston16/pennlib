@@ -4,7 +4,11 @@ status: true
 dependencies:
   module:
     - field_collection
+    - field_permissions
     - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
 id: user.field_emergency_contact
 field_name: field_emergency_contact
 entity_type: user
