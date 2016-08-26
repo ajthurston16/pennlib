@@ -29,6 +29,9 @@ $facet-border: 1px solid $silver;
 		margin: 0;
 		font-size: $base-font-size;
 		border-bottom: $facet-border;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	.content {
