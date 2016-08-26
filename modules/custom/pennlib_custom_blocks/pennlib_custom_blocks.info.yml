@@ -1,0 +1,8 @@
+name: Pennlib Custom Blocks
+description: 'Penn Libraries custom reusable blocks.'
+package: Custom
+type: module
+core: 8.x
+
+dependencies:
+  - drupal:block

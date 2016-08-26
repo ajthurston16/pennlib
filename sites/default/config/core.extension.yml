@@ -60,6 +60,7 @@ module:
   panels_ipe: 0
   paragraphs: 0
   path: 0
+  pennlib_custom_blocks: 0
   pennlib_taxonomy: 0
   quickedit: 0
   radix_layouts: 0

@@ -1,0 +1,13 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+    <div id="holdhomepagehoursimg">
+    	<a href="//hdl.library.upenn.edu/1017/122878" id="linkcampusmap" title="map of the on-campus libraries">&nbsp;</a>
+        <div class="libhours-chart">&nbsp;</div>
+    </div>
+</div>
