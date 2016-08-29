@@ -53,10 +53,6 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-  contact:
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
   field_additional_info:
     type: link_default
     weight: 31
@@ -246,4 +242,5 @@ content:
     third_party_settings: {  }
     weight: 9
 hidden:
+  contact: true
   timezone: true
