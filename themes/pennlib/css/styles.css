@@ -2143,22 +2143,40 @@ header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg); }
 
+nav.pager ul {
+  padding-left: 0; }
+
 .pager__items {
   list-style-type: none;
-  text-align: center; }
+  margin: .8rem 0; }
 
 .pager__item {
   display: inline;
   margin-left: -1px;
-  padding: 3px 8px;
-  border: 1px solid #ccc; }
+  padding: .3rem .8rem;
+  border: none;
+  border-right: solid 1px #ccc; }
+  .pager__item.pager__item--previous {
+    border-right: solid 1px #ccc;
+    border-left: none;
+    padding: 0.3rem 0.8rem 0.3rem 0.3rem; }
+  .pager__item.pager__item--first {
+    border-right: none; }
+  .pager__item.pager__item--next, .pager__item.pager__item--last {
+    border-right: none; }
+  .pager__item.pager__item--next {
+    padding: 0.3rem .2rem 0.3rem 0.8rem; }
   .pager__item:hover {
     background-color: #f2f2f2; }
   .pager__item.is-active {
-    background-color: #15428C;
-    border-color: #15428C; }
+    background: #387bbe;
+    background-image: linear-gradient(#5393c5, #6facd5);
+    border: 1px solid #2373a5;
+    cursor: pointer; }
     .pager__item.is-active a {
-      color: #ffffff; }
+      color: #fff;
+      text-shadow: 0 1px 1px #337395;
+      text-decoration: none; }
   .pager__item:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px; }
@@ -2413,6 +2431,75 @@ h1.page-title {
 .wrapper--footer {
   background-color: #031b51; }
 
+.staff-search-wrapper .view-filters {
+  margin: 2.5rem 0 1.5rem; }
+  .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 {
+    text-align: right; }
+    .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 .js-form-item {
+      display: inline-block;
+      vertical-align: top;
+      *vertical-align: top;
+      *zoom: 1; }
+    .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 label {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      height: 0;
+      width: 0;
+      padding: 0;
+      border: 0;
+      margin: 0;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px);
+      clip: rect(1px, 1px, 1px, 1px); }
+    .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 .form-actions {
+      display: inline-block;
+      vertical-align: top;
+      *vertical-align: top;
+      *zoom: 1; }
+      .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 .form-actions .form-submit:first-child {
+        margin-left: 0; }
+    .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 #edit-actions #edit-submit-staff-search.button {
+      padding: 0.5rem 1rem 0.5rem; }
+
+.staff-search-wrapper .form-item.js-form-item-items-per-page {
+  float: left;
+  margin: 1rem 0 0 0; }
+  .staff-search-wrapper .form-item.js-form-item-items-per-page label:not(.option):not([for^="edit-text-format-value"]) {
+    width: 4.5rem;
+    float: left;
+    padding-right: 0; }
+  .staff-search-wrapper .form-item.js-form-item-items-per-page select#edit-items-per-page {
+    border: none;
+    margin-top: -1rem;
+    /* https://codepen.io/vkjgr/pen/VYMeXp */
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    /* reset */
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, black 50%), linear-gradient(135deg, black 50%, transparent 50%), linear-gradient(to right, #000, #000);
+    background-position: calc(100% - 19px) calc(1em + -1px), calc(100% - 15px) calc(1em + -1px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+    padding: 0 2.7em 0 0;
+    margin: -.5em 0 0.5em 0; }
+    .staff-search-wrapper .form-item.js-form-item-items-per-page select#edit-items-per-page:focus {
+      background-image: linear-gradient(45deg, black 50%, transparent 50%), linear-gradient(135deg, transparent 50%, black 50%), linear-gradient(to right, #000, #000);
+      background-position: calc(100% - 15px) 1em, calc(100% - 19px) 1em, calc(100% - 2.5em) 0.5em;
+      background-size: 5px 5px, 5px 5px, 1px 1.5em;
+      background-repeat: no-repeat;
+      outline: 0; }
+    .staff-search-wrapper .form-item.js-form-item-items-per-page select#edit-items-per-page option {
+      padding: .5rem; }
+
 .staff-search-wrapper .views-row {
   border-top: 1px solid #ccc;
   padding: 13px; }
@@ -2575,36 +2662,57 @@ h1.page-title {
   *zoom: 1; }
 
 #toggle-view-mode {
-  width: 8.5rem;
-  padding: 0; }
+  float: none;
+  padding: 1rem 0 0.4rem 10rem;
+  width: auto;
+  border-top: solid 1px #ccc; }
+  #toggle-view-mode .dropdown {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background: #ffffff;
+    width: 12rem;
+    padding: 0.7rem 0 .4rem;
+    margin: .3rem 0 0 0;
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    line-height: 240%;
+    left: 11.5rem;
+    right: auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+    #toggle-view-mode .dropdown #view-mode-normal span {
+      display: block;
+      margin-right: auto;
+      width: 93px; }
+    #toggle-view-mode .dropdown #view-mode-brief span {
+      display: block;
+      margin-right: auto;
+      width: 76px; }
   #toggle-view-mode .label {
     cursor: pointer;
     padding-left: .6rem;
     padding-right: 1rem;
+    width: 9.5rem;
     background-image: url(/sites/default/files/images/common/arrowdownarrow.gif);
     background-repeat: no-repeat;
     background-position: right .75rem; }
     #toggle-view-mode .label::before {
       content: url(/sites/default/files/images/common/fullview-option.gif);
       margin-right: 5px; }
-  #toggle-view-mode .dropdown {
-    display: none;
-    position: absolute;
-    z-index: 999;
-    background: #ffffff;
-    width: 100px;
-    padding: .4rem 0 0 0;
-    margin: 0;
-    list-style-type: none;
-    border: 1px solid #ccc;
-    border-top: none;
-    line-height: 180%; }
   #toggle-view-mode.active .label {
     background-image: url(/sites/default/files/images/common/arrowdownminus.gif); }
   #toggle-view-mode.active .dropdown {
     display: block; }
   #toggle-view-mode li:hover {
-    background-color: #f2f2f2; }
+    background: #387bbe;
+    background-image: linear-gradient(#5393c5, #6facd5);
+    border: 1px solid #2373a5;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 1px 1px #337395;
+    text-decoration: none;
+    cursor: pointer; }
 
 .briefview #toggle-view-mode .label::before {
   content: url(/sites/default/files/images/common/briefview-option.gif); }
@@ -2715,6 +2823,10 @@ h1.page-title {
     display: none; }
   #block-searchbar #searchholderlining{
     width: 68em; }
+  .staff-search-wrapper .view-filters{
+    margin: -5.5rem 0 3rem 0; }
+  .staff-search-wrapper .form-item.js-form-item-items-per-page label:not(.option):not([for^="edit-text-format-value"]){
+    width: auto; }
   .staff-search-wrapper .views-row .field--name-user-picture{
     margin-bottom: 1.4rem; }
   .staff-search-wrapper .views-row .staffcontact{
@@ -2908,6 +3020,11 @@ h1.page-title {
   .homeul{
     display: inline-block;
     width: 49%; }
+  nav.pager{
+    float: left; }
+  .pager__items{
+    text-align: center;
+    margin: .8rem 0 0 0; }
   #block-topnav .top-nav #chooselibrarylink, #block-topnav .top-nav .nameandacctlink{
     display: inline; }
   #block-topnav .top-nav{
@@ -2937,6 +3054,10 @@ h1.page-title {
     background-color: #f2f2f2; }
   .block-views-blockworkshops-workshops .views-row:nth-of-type(even){
     background-color: transparent !important; }
+  .staff-search-wrapper .view-filters form#views-exposed-form-staff-search-block-1 .js-form-item#edit-search-api-fulltext{
+    width: 32rem; }
+  .staff-search-wrapper .form-item.js-form-item-items-per-page{
+    float: right; }
   .staff-search-wrapper .views-row .basicinfo{
     width: 48%;
     margin-bottom: .6rem;
@@ -3037,7 +3158,18 @@ h1.page-title {
     .user-profile .contact-wrapper,
     .user-profile .full-name,
     .user-profile .field--name-field-bio{
-    margin-left: 350px; } }
+    margin-left: 350px; }
+  #toggle-view-mode{
+    text-align: right;
+    padding: 1rem 16rem 0.4rem 12rem; }
+  #toggle-view-mode .dropdown{
+    left: auto;
+    right: 14.5rem; }
+  #toggle-view-mode .label{
+    text-align: right;
+    padding-right: 1.5rem;
+    width: 12rem;
+    margin-left: auto; } }
 
 @media (min-width: 100em){
   body.fluid-bear .site-header,

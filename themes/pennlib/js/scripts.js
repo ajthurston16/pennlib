@@ -230,7 +230,7 @@
     }
     return null;
   }
-
+  $("form#views-exposed-form-staff-search-block-1 .form-item-items-per-page").insertBefore("#toggle-view-mode");
   /**
    * Menubar: top-level link stays white when you hover on dropdown panel
    **/

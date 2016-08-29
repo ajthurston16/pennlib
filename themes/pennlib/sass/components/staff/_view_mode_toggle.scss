@@ -1,10 +1,60 @@
 #toggle-view-mode {
-	width:8.5rem;
-	padding:0;
+	float:none;
+	padding: 1rem 0 0.4rem 10rem;
+	width:auto;
+	@include breakpoint($breakpoint-medium-width) {
+		text-align:right;
+		padding: 1rem 16rem 0.4rem 12rem;
+	}
+	
+	border-top:solid 1px #ccc;
+	.dropdown {
+		display: none;
+		position: absolute;
+		z-index: 999;
+		background: $white;
+		width: 12rem;
+		padding: 0.7rem 0 .4rem;
+		margin: .3rem 0 0 0;
+		list-style-type: none;
+		border: 1px solid $silver;
+		border-top: none;
+		line-height: 240%;
+		left:11.5rem;
+		right:auto;
+		@include breakpoint($breakpoint-medium-width) {
+			left:auto;
+			right:14.5rem;
+		}
+		
+		@include box-shadow(0 2px 2px rgba(0, 0, 0, .3))
+		#view-mode-normal {
+			span {
+			    display: block;
+			    margin-right: auto;
+			    width: 93px;
+			}
+		}
+		#view-mode-brief {
+			span {
+			    display: block;
+			    margin-right: auto;
+			    width: 76px;
+			}
+		}
+		
+	}
 	.label {
 		cursor: pointer;
     	padding-left:.6rem;
     	padding-right: 1rem;
+    	width:9.5rem;
+    	@include breakpoint($breakpoint-medium-width) {
+			text-align:right;
+			padding-right: 1.5rem;
+			width: 12rem;
+			margin-left:auto;
+		}
 		background-image: url(/sites/default/files/images/common/arrowdownarrow.gif);
 		background-repeat:no-repeat;
 		background-position: right .75rem;
@@ -12,19 +62,6 @@
 			content: url(/sites/default/files/images/common/fullview-option.gif);
 			margin-right: 5px;
 		}
-	}
-	.dropdown {
-		display: none;
-		position: absolute;
-		z-index: 999;
-		background: $white;
-		width: 100px;
-		padding: .4rem 0 0 0;
-		margin: 0;
-		list-style-type: none;
-		border: 1px solid $silver;
-		border-top: none;
-		line-height: 180%;
 	}
 	&.active {
 		.label {
@@ -35,13 +72,18 @@
 		}
 	}
 	li:hover {
-		background-color: $concrete;
+		@include mainnavleafblue;
+		@include blueactivegradienttext; 
+		cursor:pointer;
+
 	}
 }
 
 // Switch the toggle's icon when in brief mode.
-.briefview #toggle-view-mode .label::before {
-	content: url(/sites/default/files/images/common/briefview-option.gif);
+.briefview #toggle-view-mode {
+	.label::before {
+		content: url(/sites/default/files/images/common/briefview-option.gif);
+	}
 }
 
 #view-mode-normal {

@@ -1,4 +1,73 @@
+
+
 .staff-search-wrapper {
+	
+	.view-filters {
+		margin: 2.5rem 0 1.5rem;
+		@include breakpoint($breakpoint-large-width) {
+	        margin: -5.5rem 0 3rem 0;
+	    }
+		form#views-exposed-form-staff-search-block-1  {
+			text-align:right;
+			.js-form-item {
+				@include inline-block;
+				&#edit-search-api-fulltext {
+					@include breakpoint($breakpoint-medium-width) {
+				      width:32rem;
+				    }
+				}
+			}
+
+			label {
+				@include bear-element-invisible;
+			}
+			.form-actions {
+				@include inline-block
+				.form-submit:first-child {
+					margin-left:0;
+				}
+
+			}
+
+			#edit-actions #edit-submit-staff-search.button {
+				padding: 0.5rem 1rem 0.5rem;
+			}
+		}
+		
+	}
+	.form-item.js-form-item-items-per-page {
+		float:left;
+		@include breakpoint($breakpoint-medium-width) {
+	      float:right;
+	    }
+		
+		margin: 1rem 0 0 0;
+		label:not(.option):not([for^="edit-text-format-value"]) {
+		    width:4.5rem;
+		    float:left;
+		    @include breakpoint($breakpoint-large-width) {
+		    	width:auto;
+		    }
+		    
+		    padding-right:0;
+		}
+	    select#edit-items-per-page {
+			border:none;
+			margin-top:-1rem;
+			@include selectarrowminimal;
+			padding:0 2.7em 0 0;
+			margin: -.5em 0 0.5em 0;
+			option { 
+				padding:.5rem;
+				&[selected], &:hover, &:active {
+					
+				}
+			}
+			option:hover { 
+					
+			} 
+		}
+	}
 	.views-row {
 		border-top: 1px solid $silver;
 		padding: 13px;

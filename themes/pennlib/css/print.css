@@ -1958,22 +1958,40 @@ header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg); }
 
+nav.pager ul {
+  padding-left: 0; }
+
 .pager__items {
   list-style-type: none;
-  text-align: center; }
+  margin: .8rem 0; }
 
 .pager__item {
   display: inline;
   margin-left: -1px;
-  padding: 3px 8px;
-  border: 1px solid #ccc; }
+  padding: .3rem .8rem;
+  border: none;
+  border-right: solid 1px #ccc; }
+  .pager__item.pager__item--previous {
+    border-right: solid 1px #ccc;
+    border-left: none;
+    padding: 0.3rem 0.8rem 0.3rem 0.3rem; }
+  .pager__item.pager__item--first {
+    border-right: none; }
+  .pager__item.pager__item--next, .pager__item.pager__item--last {
+    border-right: none; }
+  .pager__item.pager__item--next {
+    padding: 0.3rem .2rem 0.3rem 0.8rem; }
   .pager__item:hover {
     background-color: #f2f2f2; }
   .pager__item.is-active {
-    background-color: #15428C;
-    border-color: #15428C; }
+    background: #387bbe;
+    background-image: linear-gradient(#5393c5, #6facd5);
+    border: 1px solid #2373a5;
+    cursor: pointer; }
     .pager__item.is-active a {
-      color: #ffffff; }
+      color: #fff;
+      text-shadow: 0 1px 1px #337395;
+      text-decoration: none; }
   .pager__item:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px; }
@@ -2471,6 +2489,11 @@ h1.page-title {
   .homeul{
     display: inline-block;
     width: 49%; }
+  nav.pager{
+    float: left; }
+  .pager__items{
+    text-align: center;
+    margin: .8rem 0 0 0; }
   #block-topnav .top-nav #chooselibrarylink, #block-topnav .top-nav .nameandacctlink{
     display: inline; }
   #block-topnav .top-nav{

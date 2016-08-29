@@ -1,23 +1,53 @@
+nav.pager {
+	@include breakpoint($breakpoint-medium-width) {
+      float:left;
+    }
+    
+	ul {
+		padding-left:0;
+	}
+}
 .pager__items {
 	list-style-type: none;
-	text-align: center;
+	margin: .8rem 0;
+	@include breakpoint($breakpoint-medium-width) {
+      text-align: center;
+      margin: .8rem 0 0 0;
+    }
 }
 
 .pager__item {
 	display: inline;
 	margin-left: -1px;
-	padding: 3px 8px;
-	border: 1px solid $silver;
-
+	padding: .3rem .8rem;
+	border: none;//1px solid $silver
+	border-right:solid 1px #ccc;
+	&.pager__item--previous {
+		border-right:solid 1px #ccc;
+		border-left:none;
+		padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+	}
+	&.pager__item--first {
+		border-right:none;
+	}
+	&.pager__item--next,
+	&.pager__item--last {
+		border-right:none;
+	}
+	&.pager__item--next {
+		padding: 0.3rem .2rem 0.3rem 0.8rem
+	}
 	&:hover {
 		background-color: $concrete;
 	}
 
 	&.is-active {
-		background-color: $chathams-blue;
-		border-color: $chathams-blue;
+		@include mainnavleafblue;
+		//background-color: $chathams-blue;
+		//border-color: $chathams-blue;
 		a {
-			color: $white;
+			@include blueactivegradienttext;
+			//color: $white;
 		}
 	}
 
