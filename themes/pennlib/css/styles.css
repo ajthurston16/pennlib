@@ -2831,7 +2831,8 @@ h1.page-title {
     margin-bottom: 1.4rem; }
   .staff-search-wrapper .views-row .staffcontact{
     margin-top: 0;
-    min-width: 22rem; }
+    min-width: 22rem;
+    max-width: 32rem; }
   .block-facets .content{
     display: block; }
   .col-md-4.radix-layouts-sidebar.panel-panel{
