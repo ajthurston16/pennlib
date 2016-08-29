@@ -1,0 +1,9 @@
+uuid: 2bc766d8-3b3a-4a82-9e8b-b4c7843c978a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service group'
+vid: service_group
+description: ''
+hierarchy: 0
+weight: 0

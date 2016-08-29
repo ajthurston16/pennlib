@@ -24,6 +24,7 @@ dependencies:
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_service_group
     - field.field.user.user.field_show_division
     - field.field.user.user.field_show_library
     - field.field.user.user.field_subject_specialty
@@ -254,6 +255,7 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  field_service_group: true
   field_show_division: true
   field_show_library: true
   member_for: true
