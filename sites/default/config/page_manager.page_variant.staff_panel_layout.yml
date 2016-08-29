@@ -3,22 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.collection_responsibility
     - facets.facet.department
     - facets.facet.division
     - facets.facet.library
-    - facets.facet.role
     - facets.facet.subject_specialty
-    - facets.facet.team
     - facets.facet.technology_specialty
     - page_manager.page.staff_search
     - views.view.staff_search
   module:
     - facets
     - panels
+    - user
     - views
 id: staff_panel_layout
-label: 'Staff Panel Layout'
+label: 'Staff Panel Layout (external)'
 variant: panels_variant
 variant_settings:
   blocks:
@@ -41,7 +39,7 @@ variant_settings:
       context_mapping: {  }
       region: sidebar
       uuid: ba890023-1a54-40d4-84dc-0d45cf60ae4e
-      weight: 6
+      weight: 5
     5a44b43c-8507-4990-a094-c301e3c268af:
       id: 'facet_block:library'
       label: Library
@@ -60,15 +58,6 @@ variant_settings:
       region: sidebar
       uuid: cae91c6f-7c9d-4711-82e9-6543a5874d7d
       weight: 2
-    4aa9169c-a36f-460d-9a36-e8a1716d2210:
-      id: 'facet_block:collection_responsibility'
-      label: 'Collection Responsibility'
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: 4aa9169c-a36f-460d-9a36-e8a1716d2210
-      weight: 3
     fe843fa1-ab10-42ec-9628-8fc882f125d4:
       id: 'facet_block:technology_specialty'
       label: 'Technology Specialty'
@@ -77,7 +66,7 @@ variant_settings:
       context_mapping: {  }
       region: sidebar
       uuid: fe843fa1-ab10-42ec-9628-8fc882f125d4
-      weight: 4
+      weight: 3
     eae7007e-162a-4f11-b365-1841525a67bc:
       id: 'facet_block:division'
       label: Division
@@ -86,25 +75,7 @@ variant_settings:
       context_mapping: {  }
       region: sidebar
       uuid: eae7007e-162a-4f11-b365-1841525a67bc
-      weight: 5
-    586d3bda-518d-4cbc-a59c-c0b4cef90dfc:
-      id: 'facet_block:role'
-      label: Role
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: 586d3bda-518d-4cbc-a59c-c0b4cef90dfc
-      weight: 7
-    a20f1b9e-4547-4ab6-826d-d5c044ee0dcc:
-      id: 'facet_block:team'
-      label: Team
-      provider: facets
-      label_display: visible
-      context_mapping: {  }
-      region: sidebar
-      uuid: a20f1b9e-4547-4ab6-826d-d5c044ee0dcc
-      weight: 8
+      weight: 4
   id: panels_variant
   uuid: 76bba827-234b-477b-98b5-b28d82fc32df
   label: null
@@ -116,7 +87,14 @@ variant_settings:
   storage_id: staff_panel_layout
   builder: ipe
 page: staff_search
-weight: 0
-selection_criteria: {  }
+weight: -10
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: current_user
 selection_logic: and
 static_context: {  }

@@ -4,6 +4,7 @@ status: true
 dependencies: {  }
 id: staff_search
 label: Staff
+description: 'Penn Libraries Staff Directory.'
 use_admin_theme: false
 path: /people/staff
 access_logic: and

@@ -1,0 +1,49 @@
+uuid: f001ce0b-e842-423f-a1db-ed8312a71efd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.staff_search
+id: languages
+name: Languages
+url_alias: languages
+weight: 0
+show_only_one_result: false
+field_identifier: field_languages
+query_type_name: null
+facet_source_id: 'search_api_views:staff_search:block_1'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 5
+query_operator: or
+exclude: false
+only_visible_when_facet_source_is_visible: false
+processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  translate_taxonomy:
+    processor_id: translate_taxonomy
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none
+facet_configs: {  }
