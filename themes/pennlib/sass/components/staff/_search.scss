@@ -5,19 +5,19 @@
 	.view-filters {
 		margin: 2.5rem 0 1.5rem;
 		@include breakpoint($breakpoint-large-width) {
-	        margin: -5.5rem 0 3rem 0;
+	        margin: -3.5rem 0 3rem 0;
 	    }
 		form#views-exposed-form-staff-search-block-1  {
 			text-align:right;
 			.js-form-item {
 				@include inline-block;
-				&#edit-search-api-fulltext {
+				input#edit-search-api-fulltext[type="text"]  {
 					@include breakpoint($breakpoint-medium-width) {
 				      width:32rem;
 				    }
 				}
 			}
-
+			
 			label {
 				@include bear-element-invisible;
 			}

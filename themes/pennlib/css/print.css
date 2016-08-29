@@ -1958,12 +1958,35 @@ header nav .main-nav > #main-nav-courseware.parent > .main-nav__sub {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg); }
 
-nav.pager ul {
+nav.pager {
+  float: none;
+  padding: .5rem 0 .6rem 0;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc; }
+  nav.pager .pager__items {
+    text-align: left;
+    margin: 0;
+    padding-left: 0; }
+
+nav.pager:nth-child(2) .pager__items {
+  margin: .8rem 0;
   padding-left: 0; }
+
+nav.pager:nth-child(2) ul {
+  padding-left: 0; }
+
+nav.pager:nth-child(2):nth-child(3) {
+  float: none;
+  padding: .5rem 0 .6rem 0;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc; }
+  nav.pager:nth-child(2):nth-child(3) .pager__items {
+    text-align: left;
+    margin: 0; }
 
 .pager__items {
   list-style-type: none;
-  margin: .8rem 0; }
+  padding-left: 0; }
 
 .pager__item {
   display: inline;
@@ -2489,8 +2512,11 @@ h1.page-title {
   .homeul{
     display: inline-block;
     width: 49%; }
-  nav.pager{
-    float: left; }
+  nav.pager:nth-child(2){
+    float: left;
+    padding: 0;
+    border-top: none;
+    border-bottom: none; }
   .pager__items{
     text-align: center;
     margin: .8rem 0 0 0; }
