@@ -1,0 +1,19 @@
+uuid: e7f3fd85-dc36-4dc3-993c-0a33cb4ef905
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_circ_econtact_email
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_circ_econtact_email
+field_name: field_circ_econtact_email
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Circulation contact: Library email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

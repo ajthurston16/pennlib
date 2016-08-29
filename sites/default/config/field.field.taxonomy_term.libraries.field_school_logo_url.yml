@@ -1,0 +1,23 @@
+uuid: c86cdb2d-2112-4bd1-a63b-24f371b144ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_school_logo_url
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_school_logo_url
+field_name: field_school_logo_url
+entity_type: taxonomy_term
+bundle: libraries
+label: 'school logo url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

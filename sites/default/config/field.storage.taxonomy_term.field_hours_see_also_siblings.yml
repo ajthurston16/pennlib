@@ -1,0 +1,57 @@
+uuid: d88324d2-a983-44c5-9c1c-f8f8b00426ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_hours_see_also_siblings
+field_name: field_hours_see_also_siblings
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Undergraduate Study Center'
+      label: 'Undergraduate Study Center'
+    -
+      value: 'Interlibrary Loan'
+      label: 'Interlibrary Loan'
+    -
+      value: Reference
+      label: Reference
+    -
+      value: 'Mark''s Cafe'
+      label: 'Mark''s Cafe'
+    -
+      value: 'Vitale Digital Media Lib'
+      label: 'Vitale Digital Media Lib'
+    -
+      value: 'Furness Shakespeare Library'
+      label: 'Furness Shakespeare Library'
+    -
+      value: 'Goldstein Family Gallery'
+      label: 'Goldstein Family Gallery'
+    -
+      value: 'Kislak Center Reading Room'
+      label: 'Kislak Center Reading Room'
+    -
+      value: 'Ormandy Center'
+      label: 'Ormandy Center'
+    -
+      value: 'Image Collection'
+      label: 'Image Collection'
+    -
+      value: 'Chat - Health & Life Science Libraries'
+      label: 'Chat - Health & Life Science Libraries'
+    -
+      value: 'Chat - Lippincott Library'
+      label: 'Chat - Lippincott Library'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

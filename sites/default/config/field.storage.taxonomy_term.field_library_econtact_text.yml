@@ -1,0 +1,19 @@
+uuid: d6aaa2e2-d75b-4a36-8949-23ed317da617
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_library_econtact_text
+field_name: field_library_econtact_text
+entity_type: taxonomy_term
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

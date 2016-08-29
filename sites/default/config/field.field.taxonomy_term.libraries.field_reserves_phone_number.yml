@@ -1,0 +1,21 @@
+uuid: 9bb13dae-16bf-4c15-abfa-5176e5248c91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reserves_phone_number
+    - taxonomy.vocabulary.libraries
+  module:
+    - telephone
+id: taxonomy_term.libraries.field_reserves_phone_number
+field_name: field_reserves_phone_number
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reserves: Library phone number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

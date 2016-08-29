@@ -1,0 +1,19 @@
+uuid: 38141a7c-4c78-4077-aa03-517d0f654baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_street_address
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_street_address
+field_name: field_street_address
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Street Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

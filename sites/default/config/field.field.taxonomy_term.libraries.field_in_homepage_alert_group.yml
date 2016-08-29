@@ -1,0 +1,23 @@
+uuid: 0db42a3d-95bb-4aab-9087-7cefb2173c2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_in_homepage_alert_group
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_in_homepage_alert_group
+field_name: field_in_homepage_alert_group
+entity_type: taxonomy_term
+bundle: libraries
+label: 'In homepage alert group?'
+description: "The following libraries are part of the homepage alert group:\r\n\r\nVan Pelt-Dietrich Library Center (VP-DLC)\r\n-- Homepage\r\n-- Van Pelt Library\r\n-- Lippincott Library @ Wharton\r\n-- Otto E Albrecht Music Library\r\n-- Kislak Center for Special Collections, Rare Books, Manuscripts, and Special Collections\r\n-- -- Rare Book & Manuscript Library\r\nScience, Technology, Engineering, & Math Libraries (STEM Libraries)\r\n-- Biomedical Library\r\n-- Chemistry Library\r\n-- Dental Medicine Library\r\n-- Math/Physics/Astronomy Library\r\n-- Veterinary Medicine Library (campus)\r\n-- Veterinary Medicine Library (New Bolton)"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

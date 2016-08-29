@@ -1,0 +1,21 @@
+uuid: ab800043-bf4b-48d0-8eec-144fc978ecd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_description
+    - taxonomy.vocabulary.libraries
+  module:
+    - text
+id: taxonomy_term.libraries.field_description
+field_name: field_description
+entity_type: taxonomy_term
+bundle: libraries
+label: description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

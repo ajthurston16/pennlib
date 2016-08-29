@@ -1,0 +1,23 @@
+uuid: 512edd23-f49e-4404-87e1-5b81475f371c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_social_media_rss
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_social_media_rss
+field_name: field_social_media_rss
+entity_type: taxonomy_term
+bundle: libraries
+label: 'social media rss'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,23 @@
+uuid: a2e156f2-0972-40cf-ab4e-01cdabf44fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_in_hours_see_also_group_
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_in_hours_see_also_group_
+field_name: field_in_hours_see_also_group_
+entity_type: taxonomy_term
+bundle: libraries
+label: 'In hours see also group?'
+description: "The following are members of an hours see also group:\r\n\r\nVan Pelt-Dietrich Library Center (VP-DLC)\r\n--Undergraduate Study Center\r\n--Interlibrary Loan\r\n-- Reference\r\n-- Mark's Cafe\r\n-- Vitale Digital Media Lib\r\nKislak Center for Special Collections, Rare Books, Manuscripts, and Special Collections\r\n-- Furness Shakespeare Library\r\n-- Goldstein Family Gallery\r\n-- Kislak Center Reading Room\r\nOtto E. Albrecht Music Library\r\n-- Ormandy Center\r\nFine Arts Library\r\n-- Image Collection\r\nChat - Penn Libraries\r\n-- Chat - Health & Life Science Libraries\r\n-- Chat - Lippincott Library"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

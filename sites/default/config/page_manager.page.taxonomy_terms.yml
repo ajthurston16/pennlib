@@ -1,0 +1,12 @@
+uuid: 9a62756b-9924-44cb-911d-7bb82097fab8
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_terms
+label: 'Taxonomy Terms'
+description: ''
+use_admin_theme: false
+path: /taxonomy/term/%
+access_logic: and
+access_conditions: {  }
+parameters: {  }

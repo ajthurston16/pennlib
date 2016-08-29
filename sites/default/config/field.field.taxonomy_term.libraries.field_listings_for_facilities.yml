@@ -1,0 +1,21 @@
+uuid: d2a039d2-633c-40a5-b8f6-aa4d3ed16cf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_listings_for_facilities
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_listings_for_facilities
+field_name: field_listings_for_facilities
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Which "see also" hours should be listed on "/facilities/Penn''s libraries" page?'
+description: 'List the members that should appear on the facilities page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

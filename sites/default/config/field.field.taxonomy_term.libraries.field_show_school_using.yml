@@ -1,0 +1,23 @@
+uuid: de7dbfcc-9936-4b4c-8a19-f36adef88da0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_show_school_using
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_show_school_using
+field_name: field_show_school_using
+entity_type: taxonomy_term
+bundle: libraries
+label: 'show school using'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'do not show school'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

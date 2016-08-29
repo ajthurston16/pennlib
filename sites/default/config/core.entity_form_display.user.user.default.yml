@@ -24,6 +24,7 @@ dependencies:
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_service_group
     - field.field.user.user.field_show_division
     - field.field.user.user.field_show_library
     - field.field.user.user.field_subject_specialty
@@ -58,14 +59,14 @@ content:
     third_party_settings: {  }
   field_additional_info:
     type: link_default
-    weight: 30
+    weight: 31
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
   field_bio:
     type: text_textarea
-    weight: 27
+    weight: 28
     settings:
       rows: 5
       placeholder: ''
@@ -93,7 +94,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_emergency_contact:
-    weight: 32
+    weight: 33
     settings: {  }
     third_party_settings: {  }
     type: field_collection_embed
@@ -112,13 +113,13 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_textfield
-    weight: 29
+    weight: 30
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_languages:
-    weight: 28
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -181,6 +182,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_service_group:
+    type: entity_reference_autocomplete_tags
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_show_division:
     weight: 16
     settings:
@@ -200,7 +209,7 @@ content:
     third_party_settings: {  }
   field_team:
     type: options_select
-    weight: 31
+    weight: 32
     settings: {  }
     third_party_settings: {  }
   field_technology_specialty:

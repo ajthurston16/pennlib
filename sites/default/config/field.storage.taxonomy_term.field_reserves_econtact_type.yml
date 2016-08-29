@@ -1,0 +1,30 @@
+uuid: 08f190ce-041d-491e-ae7d-0e67470d1562
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_reserves_econtact_type
+field_name: field_reserves_econtact_type
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Form
+      label: Form
+    -
+      value: 'Staff Email'
+      label: 'Staff Email'
+    -
+      value: 'Library Email'
+      label: 'Library Email'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

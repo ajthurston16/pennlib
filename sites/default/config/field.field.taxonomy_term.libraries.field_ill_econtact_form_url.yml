@@ -1,0 +1,23 @@
+uuid: 8b12c1ad-d9ba-4096-a439-74a41ddc1eb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ill_econtact_form_url
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_ill_econtact_form_url
+field_name: field_ill_econtact_form_url
+entity_type: taxonomy_term
+bundle: libraries
+label: 'ILL contact: URL of form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

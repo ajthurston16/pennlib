@@ -1,0 +1,19 @@
+uuid: 767dd848-611a-4109-8738-b22377ea9b67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_name_for_social_media
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_name_for_social_media
+field_name: field_name_for_social_media
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Name for social media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

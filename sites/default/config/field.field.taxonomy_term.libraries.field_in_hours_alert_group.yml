@@ -1,0 +1,23 @@
+uuid: 0a20ba42-3795-463d-81e2-868c0536e934
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_in_hours_alert_group
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_in_hours_alert_group
+field_name: field_in_hours_alert_group
+entity_type: taxonomy_term
+bundle: libraries
+label: 'In hours alert group?'
+description: "The following libraries are in alert groups:\r\n\r\nVan Pelt-Dietrich Library Center (VP-DLC)\r\n-- Van Pelt Library\r\n-- Lippincott Library @ Wharton\r\n-- Otto E Albrecht Music Library\r\n-- -- Ormandy Center\r\n--Undergraduate Study Center\r\n--Interlibrary Loan\r\n-- Reference\r\n-- Mark's Cafe\r\n-- Vitale Digital Media Lib\r\n-- Weigle Information Commons\r\n-- Kislak Center for Special Collections, Rare Books, Manuscripts, and Special Collections\r\n-- ---Furness Shakespeare Library\r\n-- ---Goldstein Family Gallery\r\n-- ---Kislak Center Reading Room\r\nFine Arts Library\r\n-- Image Collection\r\nScience, Technology, Engineering, & Math Libraries (STEM Libraries)\r\n-- Biomedical Library\r\n-- Chemistry Library\r\n-- Dental Medicine Library\r\n-- Math/Physics/Astronomy Library\r\n-- Veterinary Medicine Library (campus)\r\n-- Veterinary Medicine Library (New Bolton)\r\nChat - Penn Libraries\r\n-- Chat - Health & Life Science Libraries\r\n-- Chat - Lippincott Library"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

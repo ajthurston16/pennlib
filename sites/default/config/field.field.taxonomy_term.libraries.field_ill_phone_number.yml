@@ -1,0 +1,21 @@
+uuid: 981f9d87-bf82-41b5-8435-8e34762c29ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_ill_phone_number
+    - taxonomy.vocabulary.libraries
+  module:
+    - telephone
+id: taxonomy_term.libraries.field_ill_phone_number
+field_name: field_ill_phone_number
+entity_type: taxonomy_term
+bundle: libraries
+label: 'ILL contact: Library phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

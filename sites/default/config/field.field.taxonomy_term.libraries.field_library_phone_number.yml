@@ -1,0 +1,21 @@
+uuid: 2d4e2690-3740-4354-8e67-5d52a92c2448
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_library_phone_number
+    - taxonomy.vocabulary.libraries
+  module:
+    - telephone
+id: taxonomy_term.libraries.field_library_phone_number
+field_name: field_library_phone_number
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Library Contact: Library Phone Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -1,0 +1,21 @@
+uuid: 6a60f8ca-b9bc-4754-8124-4e0bab3c4c9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reserves_econtact_type
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_reserves_econtact_type
+field_name: field_reserves_econtact_type
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reserves: type of electronic contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 60333179-fbb0-4cbc-9b41-df126027af83
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_city_state_zip
+field_name: field_city_state_zip
+entity_type: taxonomy_term
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 2c15ef99-7daa-4fa5-8e4a-482aa18fc818
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_social_media_show
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_social_media_show
+field_name: field_social_media_show
+entity_type: taxonomy_term
+bundle: libraries
+label: 'show social media on library homepage'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

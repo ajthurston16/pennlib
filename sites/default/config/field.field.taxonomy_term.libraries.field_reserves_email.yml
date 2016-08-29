@@ -1,0 +1,19 @@
+uuid: 22ed6484-5144-43f8-be78-7d61f7152a7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reserves_email
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_reserves_email
+field_name: field_reserves_email
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Reserves: library email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

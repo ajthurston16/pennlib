@@ -1,0 +1,21 @@
+uuid: 06b5d583-925e-4d0e-afdd-6222919f5968
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hours_see_also_siblings
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_hours_see_also_siblings
+field_name: field_hours_see_also_siblings
+entity_type: taxonomy_term
+bundle: libraries
+label: 'List members of this library''s hours "see also" group'
+description: 'If this is in a see also group, select all siblings that are in the same group.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

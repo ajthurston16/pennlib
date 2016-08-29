@@ -1,0 +1,19 @@
+uuid: dd3c9f2e-395c-41d8-b07d-9d49a0b62714
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_school_name
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_school_name
+field_name: field_school_name
+entity_type: taxonomy_term
+bundle: libraries
+label: 'school name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

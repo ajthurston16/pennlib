@@ -1,0 +1,23 @@
+uuid: 7e2eff1d-d3d6-45de-8a2d-23b83e52aee4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_is_associated_library
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_is_associated_library
+field_name: field_is_associated_library
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Is this an associated library?'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: 53bf8cf3-4ff6-4acc-8509-139ab9d35adf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_social_media_url
+    - taxonomy.vocabulary.libraries
+  module:
+    - link
+id: taxonomy_term.libraries.field_social_media_url
+field_name: field_social_media_url
+entity_type: taxonomy_term
+bundle: libraries
+label: 'social media url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

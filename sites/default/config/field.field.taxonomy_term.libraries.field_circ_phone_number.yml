@@ -1,0 +1,21 @@
+uuid: c5b8989b-592d-445f-9991-3abca923f7d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_circ_phone_number
+    - taxonomy.vocabulary.libraries
+  module:
+    - telephone
+id: taxonomy_term.libraries.field_circ_phone_number
+field_name: field_circ_phone_number
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Circulation contact: library phone number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

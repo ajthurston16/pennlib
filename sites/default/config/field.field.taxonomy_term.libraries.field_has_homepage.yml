@@ -1,0 +1,23 @@
+uuid: a8cf547d-eb70-469b-86d9-f09e3599e703
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_has_homepage
+    - taxonomy.vocabulary.libraries
+id: taxonomy_term.libraries.field_has_homepage
+field_name: field_has_homepage
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Is there a homepage?'
+description: "if library, yes except Biddle\r\nif center, only kislak\r\nif commons, not on our site but someday\r\nif admin unit, no\r\nif associated library, no"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

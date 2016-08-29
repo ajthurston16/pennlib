@@ -1,0 +1,21 @@
+uuid: 8d067a10-0cc2-4492-9b33-8097c84680ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_category
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_category
+field_name: field_category
+entity_type: taxonomy_term
+bundle: libraries
+label: category
+description: "Centers: VPDLC, Kislak\r\nCommons: WIC, EdCom\r\nAdmin Unit: STEM"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

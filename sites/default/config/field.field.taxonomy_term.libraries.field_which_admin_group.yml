@@ -1,0 +1,21 @@
+uuid: b3887164-44a9-4825-b6e9-d79f7baa7bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_which_admin_group
+    - taxonomy.vocabulary.libraries
+  module:
+    - options
+id: taxonomy_term.libraries.field_which_admin_group
+field_name: field_which_admin_group
+entity_type: taxonomy_term
+bundle: libraries
+label: 'Which admin group?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

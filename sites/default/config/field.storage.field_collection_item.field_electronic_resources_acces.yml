@@ -1,0 +1,19 @@
+uuid: 5324806e-f584-415c-aca3-3bbfdf8ba302
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+id: field_collection_item.field_electronic_resources_acces
+field_name: field_electronic_resources_acces
+entity_type: field_collection_item
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

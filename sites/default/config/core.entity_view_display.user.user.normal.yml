@@ -25,6 +25,7 @@ dependencies:
     - field.field.user.user.field_rank
     - field.field.user.user.field_role
     - field.field.user.user.field_screenname
+    - field.field.user.user.field_service_group
     - field.field.user.user.field_show_division
     - field.field.user.user.field_show_library
     - field.field.user.user.field_subject_specialty
@@ -212,6 +213,7 @@ hidden:
   field_rank: true
   field_role: true
   field_screenname: true
+  field_service_group: true
   field_subject_specialty: true
   field_team: true
   field_technology_specialty: true

@@ -1,0 +1,19 @@
+uuid: 2c6bf336-709c-4db3-aa9a-fa852f9e15cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_url_of_hours_calendar
+field_name: field_url_of_hours_calendar
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

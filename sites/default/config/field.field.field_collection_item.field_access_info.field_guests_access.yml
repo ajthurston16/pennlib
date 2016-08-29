@@ -1,0 +1,19 @@
+uuid: 315832b5-a564-4681-814c-50b24b29f5a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_guests_access
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.field_guests_access
+field_name: field_guests_access
+entity_type: field_collection_item
+bundle: field_access_info
+label: 'Guests Access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

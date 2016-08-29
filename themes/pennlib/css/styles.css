@@ -1223,6 +1223,8 @@ blockquote {
     margin: 0;
     font-size: 14px;
     border-bottom: 1px solid #ccc; }
+    .block-facets h2:hover {
+      cursor: pointer; }
   .block-facets .content {
     padding: 1rem; }
   .block-facets ul {

@@ -1,0 +1,19 @@
+uuid: 3e798d65-7279-4380-95d1-17226b2b6439
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_wifi_access
+    - field_collection.field_collection.field_access_info
+id: field_collection_item.field_access_info.field_wifi_access
+field_name: field_wifi_access
+entity_type: field_collection_item
+bundle: field_access_info
+label: 'Wifi Access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
