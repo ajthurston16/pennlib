@@ -1854,11 +1854,9 @@ header .wrapper--nav nav {
     header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub {
       left: auto;
       right: 0;
-      width: 59rem; }
+      width: 50rem; }
       header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-one, header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-two {
-        width: 18rem; }
-      header .wrapper--nav nav .main-nav #main-nav-collections > .main-nav__sub #main-nav-collections-coll-col-three {
-        width: 22rem; }
+        width: 24rem; }
     header .wrapper--nav nav .main-nav #main-nav-facilities > .main-nav__sub, header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub {
       width: 56rem; }
     header .wrapper--nav nav .main-nav #main-nav-research-teaching > .main-nav__sub {
