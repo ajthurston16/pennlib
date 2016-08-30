@@ -58,6 +58,12 @@ $facet-border: 1px solid $silver;
 	.js-form-type-select label {
 		display: none !important;
 	}
+	select {
+		max-width: 100%;
+	}
+}
+.block-facets,
+#colorbox .js-facets-checkbox-links li.facet-item {
 	input {
 		margin: .5rem 0 0 0;
 		float:left;
@@ -68,9 +74,6 @@ $facet-border: 1px solid $silver;
 	}
 	.facet-value-name {
 		margin:0 2.5rem 0 2rem;
-	}
-	select {
-		max-width: 100%;
 	}
 }
 
@@ -85,14 +88,28 @@ $facet-border: 1px solid $silver;
 /* For staff modals */
 
 /* Put list elements in two columns. Explanation here: http://www.w3schools.com/cssref/css3_pr_column-count.asp */
-#cboxLoadedContent .content ul {
-	list-style-type: none; /* remove the • */
-	-moz-column-count: 2;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
-    column-count: 2;
-    column-gap: 20px;
+#colorbox {
+  background: #fff url(images/bg_tab.png) center bottom repeat-x;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+  #cboxLoadedContent .content {
+  	ul {
+		list-style-type: none; /* remove the • */
+		
+	    @include breakpoint($breakpoint-large-width) {
+		    -moz-column-count: 2;
+		    -moz-column-gap: 20px;
+		    -webkit-column-count: 2;
+		    -webkit-column-gap: 20px;
+		    column-count: 2;
+		    column-gap: 20px;
+		    }
+		    padding: 0 1.5rem 1rem 1.5rem;
+		}
 }
 
 #cboxLoadedContent .content ul li{

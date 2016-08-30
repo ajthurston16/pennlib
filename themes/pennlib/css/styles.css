@@ -1244,16 +1244,22 @@ blockquote {
   .block-facets fieldset legend,
   .block-facets .js-form-type-select label {
     display: none !important; }
-  .block-facets input {
-    margin: .5rem 0 0 0;
-    float: left;
-    display: block; }
-  .block-facets .facet-count {
-    float: right; }
-  .block-facets .facet-value-name {
-    margin: 0 2.5rem 0 2rem; }
   .block-facets select {
     max-width: 100%; }
+
+.block-facets input,
+#colorbox .js-facets-checkbox-links li.facet-item input {
+  margin: .5rem 0 0 0;
+  float: left;
+  display: block; }
+
+.block-facets .facet-count,
+#colorbox .js-facets-checkbox-links li.facet-item .facet-count {
+  float: right; }
+
+.block-facets .facet-value-name,
+#colorbox .js-facets-checkbox-links li.facet-item .facet-value-name {
+  margin: 0 2.5rem 0 2rem; }
 
 .facets-soft-limit-link {
   font-style: italic;
@@ -1262,17 +1268,14 @@ blockquote {
 
 /* For staff modals */
 /* Put list elements in two columns. Explanation here: http://www.w3schools.com/cssref/css3_pr_column-count.asp */
+#colorbox {
+  background: #fff url(images/bg_tab.png) center bottom repeat-x;
+  box-shadow: none; }
+
 #cboxLoadedContent .content ul {
   list-style-type: none;
   /* remove the • */
-  -moz-column-count: 2;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 20px;
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 20px;
-       column-gap: 20px; }
+  padding: 0 1.5rem 1rem 1.5rem; }
 
 #cboxLoadedContent .content ul li {
   padding-top: 10px;
@@ -2788,6 +2791,15 @@ h1.page-title {
     display: none; }
   .mobileonly-block{
     display: none; }
+  #cboxLoadedContent .content ul{
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    -moz-column-count: 2;
+    column-count: 2;
+    -moz-column-gap: 20px;
+    column-gap: 20px; }
   #libchat_e01c7dfc19ccf280f6594c20ee7fccc3{
     float: left;
     margin: -.5em .6em 0 1em; }
