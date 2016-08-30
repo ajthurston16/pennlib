@@ -1,0 +1,8 @@
+name: Pennlib User Tasks
+description: 'Changes the title on the user pages from username to First & Last name.'
+package: Custom
+type: module
+core: 8.x
+
+dependencies:
+  - drupal:user

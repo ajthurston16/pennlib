@@ -1,0 +1,5 @@
+services:
+  pennlib_usertasks.route_subscriber:
+    class: Drupal\pennlib_usertasks\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

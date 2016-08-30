@@ -1,0 +1,6 @@
+{#
+  Field output for first and last name on the user page is simplified (all wrapper elements removed) so that the full name can go in an <h1> tag.
+#}
+{% for item in items %}
+  <span>{{- item.content['#text'] -}}&nbsp;</span>
+{% endfor %}

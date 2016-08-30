@@ -29,13 +29,12 @@ $left-width: 350px;
   }
   
   .full-name{
-    .field--name-field-first-name, .field--name-field-middle-name, .field--name-field-last-name {
+    h1 {
       font-weight:bold;
       font-size:22px;
-      margin-top:.5rem;
-      &, div, p {
-        display:inline;
-        margin:0;
+      margin:0;
+      span {
+        float: left;
       }
     }
     .field--name-field-title{

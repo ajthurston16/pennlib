@@ -46,9 +46,7 @@ third_party_settings:
   field_group:
     group_full_name:
       children:
-        - field_first_name
-        - field_middle_name
-        - field_last_name
+        - group_pagetitle
         - field_title
       parent_name: ''
       weight: 1
@@ -89,6 +87,24 @@ third_party_settings:
         attributes: ''
         classes: ''
         id: ''
+    group_pagetitle:
+      children:
+        - field_first_name
+        - field_last_name
+      parent_name: group_full_name
+      weight: 22
+      label: 'Page Title'
+      format_type: html_element
+      format_settings:
+        label: 'Page Title'
+        element: h1
+        show_label: false
+        label_element: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
 id: user.user.default
@@ -149,7 +165,7 @@ content:
     third_party_settings: {  }
   field_first_name:
     type: text_default
-    weight: 2
+    weight: 23
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -168,7 +184,7 @@ content:
     type: entity_reference_label
   field_last_name:
     type: text_default
-    weight: 4
+    weight: 24
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -185,12 +201,6 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-  field_middle_name:
-    type: text_default
-    weight: 3
-    label: hidden
-    settings: {  }
     third_party_settings: {  }
   field_office:
     weight: 4
@@ -228,7 +238,7 @@ content:
     third_party_settings: {  }
   field_title:
     type: text_default
-    weight: 5
+    weight: 26
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -249,6 +259,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_emergency_contact: true
+  field_middle_name: true
   field_mobile: true
   field_pennkey: true
   field_rank: true

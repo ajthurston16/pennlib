@@ -2633,13 +2633,12 @@ h1.page-title {
       text-align: center;
       width: 175px !important;
       height: 175px !important; }
-  .user-profile .full-name .field--name-field-first-name, .user-profile .full-name .field--name-field-middle-name, .user-profile .full-name .field--name-field-last-name {
+  .user-profile .full-name h1 {
     font-weight: bold;
     font-size: 22px;
-    margin-top: .5rem; }
-    .user-profile .full-name .field--name-field-first-name, .user-profile .full-name .field--name-field-first-name div, .user-profile .full-name .field--name-field-first-name p, .user-profile .full-name .field--name-field-middle-name, .user-profile .full-name .field--name-field-middle-name div, .user-profile .full-name .field--name-field-middle-name p, .user-profile .full-name .field--name-field-last-name, .user-profile .full-name .field--name-field-last-name div, .user-profile .full-name .field--name-field-last-name p {
-      display: inline;
-      margin: 0; }
+    margin: 0; }
+    .user-profile .full-name h1 span {
+      float: left; }
   .user-profile .full-name .field--name-field-title {
     font-style: italic;
     font-weight: bold;
