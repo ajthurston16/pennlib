@@ -4,7 +4,7 @@
 		margin: 0;
 	}
 	img {
-		max-width: 64px;
+		width: 67px;
 	}
 	.separator {
 		margin: 0 5px;
@@ -46,10 +46,10 @@
 .subject {
 	border-top: 1px solid $silver;
 	padding: 13px;
-	overflow: auto;
+	
 
 	&:nth-of-type(odd) {
-		background-color: $concrete;
+		background-color: #f8f8f8;
 	}
 
 	ul {
@@ -60,6 +60,7 @@
 }
 
 .specialist {
+
 	margin-top: 10px;
 	@include cf();
 
@@ -67,5 +68,6 @@
 		span {
 			float: left;
 		}
+
 	}
 }
