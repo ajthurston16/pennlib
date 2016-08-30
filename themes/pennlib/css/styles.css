@@ -1245,12 +1245,15 @@ blockquote {
   .block-facets .js-form-type-select label {
     display: none !important; }
   .block-facets input {
-    margin: 0 !important; }
+    margin: .5rem 0 0 0;
+    float: left;
+    display: block; }
+  .block-facets .facet-count {
+    float: right; }
+  .block-facets .facet-value-name {
+    margin: 0 2.5rem 0 2rem; }
   .block-facets select {
     max-width: 100%; }
-
-.facet-count {
-  float: right; }
 
 .facets-soft-limit-link {
   font-style: italic;

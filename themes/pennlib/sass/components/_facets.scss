@@ -59,16 +59,22 @@ $facet-border: 1px solid $silver;
 		display: none !important;
 	}
 	input {
-		margin: 0 !important;
+		margin: .5rem 0 0 0;
+		float:left;
+		display: block;
+	}
+	.facet-count {
+		float:right;
+	}
+	.facet-value-name {
+		margin:0 2.5rem 0 2rem;
 	}
 	select {
 		max-width: 100%;
 	}
 }
 
-.facet-count {
-	float: right;
-}
+
 
 .facets-soft-limit-link {
 	font-style: italic;
