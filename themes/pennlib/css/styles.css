@@ -2673,10 +2673,10 @@ h1.page-title {
   .user-profile .full-name,
   .user-profile .field--name-field-bio {
     clear: both; }
-  .user-profile .contact-wrapper .field__items {
-    margin-left: 0; }
-  .user-profile .field__items > div.field__item:nth-child(2) {
+  .user-profile .field__items > div.field__item {
     margin-top: .5rem; }
+    .user-profile .field__items > div.field__item:first-child {
+      margin-top: 0; }
 
 .contact-wrapper div {
   display: inline-block;
@@ -2721,7 +2721,7 @@ h1.page-title {
     background-repeat: no-repeat;
     background-position: right .75rem; }
     #toggle-view-mode .label::before {
-      content: url(/sites/default/files/images/common/fullview-option.gif);
+      content: url(/sites/default/files/images/common/fullview-option.png);
       margin-right: 5px; }
   #toggle-view-mode.active .label {
     background-image: url(/sites/default/files/images/common/arrowdownminus.gif); }
@@ -2738,21 +2738,21 @@ h1.page-title {
     cursor: pointer; }
 
 .briefview #toggle-view-mode .label::before {
-  content: url(/sites/default/files/images/common/briefview-option.gif); }
+  content: url(/sites/default/files/images/common/briefview-option.png); }
 
 #view-mode-normal span::before {
   margin: 0 5px;
-  content: url(/sites/default/files/images/common/fullview-option.gif); }
+  content: url(/sites/default/files/images/common/fullview-option.png); }
 
 #view-mode-normal.checked span::before {
-  content: url(/sites/default/files/images/common/fullview-selected.gif); }
+  content: url(/sites/default/files/images/common/fullview-selected.png); }
 
 #view-mode-brief span::before {
   margin: 0 5px;
-  content: url(/sites/default/files/images/common/briefview-option.gif); }
+  content: url(/sites/default/files/images/common/briefview-option.png); }
 
 #view-mode-brief.checked span::before {
-  content: url(/sites/default/files/images/common/briefview-selected.gif); }
+  content: url(/sites/default/files/images/common/briefview-selected.png); }
 
 .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
 .block-views-blockstaff-search-block-1.normalview .field--name-user-picture {
@@ -3182,10 +3182,11 @@ h1.page-title {
     text-align: right;
     padding-right: 4rem; }
   .user-profile > .field > .field__items,
+    .user-profile .field.field--name-field-liaison-responsibility > .field__items,
     .user-profile .contact-wrapper,
     .user-profile .full-name,
     .user-profile .field--name-field-bio{
-    margin-left: 350px; }
+    margin-left: 350px !important; }
   #toggle-view-mode{
     text-align: right;
     padding: 1rem 16rem 0.4rem 12rem; }

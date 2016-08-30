@@ -64,6 +64,31 @@ third_party_settings:
         speed: fast
         id: ''
         classes: full-name
+    group_seemore:
+      children:
+        - field_tool_expertise
+        - field_department
+        - field_library
+        - field_division
+        - field_liaison_responsibility
+        - field_fax
+        - field_languages
+        - field_role
+        - field_team
+        - field_interest
+      parent_name: ''
+      weight: 9
+      label: seemore
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
 _core:
   default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
 id: user.user.default
@@ -73,7 +98,7 @@ mode: default
 content:
   field_additional_info:
     type: link
-    weight: 22
+    weight: 8
     label: above
     settings:
       trim_length: 80
@@ -90,21 +115,21 @@ content:
     third_party_settings: {  }
   field_collection_responsibility:
     type: entity_reference_label
-    weight: 18
+    weight: 6
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_department:
     type: entity_reference_label
-    weight: 6
+    weight: 11
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_division:
     type: entity_reference_label
-    weight: 7
+    weight: 13
     label: above
     settings:
       link: true
@@ -115,15 +140,9 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_emergency_contact:
-    weight: 23
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: field_collection_items
   field_fax:
     type: telephone_link
-    weight: 11
+    weight: 15
     label: above
     settings:
       title: ''
@@ -136,12 +155,12 @@ content:
     third_party_settings: {  }
   field_interest:
     type: text_default
-    weight: 21
+    weight: 19
     label: above
     settings: {  }
     third_party_settings: {  }
   field_languages:
-    weight: 20
+    weight: 16
     label: above
     settings:
       link: true
@@ -155,14 +174,14 @@ content:
     third_party_settings: {  }
   field_liaison_responsibility:
     type: entity_reference_label
-    weight: 19
+    weight: 14
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_library:
     type: entity_reference_label
-    weight: 8
+    weight: 12
     label: above
     settings:
       link: true
@@ -173,62 +192,36 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_mobile:
-    type: telephone_link
-    weight: 12
-    label: above
-    settings:
-      title: ''
-    third_party_settings: {  }
   field_office:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: field_collection_items
-  field_pennkey:
-    type: text_default
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  field_rank:
-    type: entity_reference_label
-    weight: 10
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_role:
-    type: entity_reference_label
-    weight: 9
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_screenname:
-    type: text_default
     weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
+    type: field_collection_items
+  field_role:
+    type: entity_reference_label
+    weight: 17
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_subject_specialty:
     type: entity_reference_label
-    weight: 15
+    weight: 5
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_team:
     type: entity_reference_label
-    weight: 14
+    weight: 18
     label: above
     settings:
       link: true
     third_party_settings: {  }
   field_technology_specialty:
     type: entity_reference_label
-    weight: 16
+    weight: 7
     label: above
     settings:
       link: true
@@ -241,7 +234,7 @@ content:
     third_party_settings: {  }
   field_tool_expertise:
     type: entity_reference_label
-    weight: 17
+    weight: 10
     label: above
     settings:
       link: true
@@ -255,6 +248,11 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  field_emergency_contact: true
+  field_mobile: true
+  field_pennkey: true
+  field_rank: true
+  field_screenname: true
   field_service_group: true
   field_show_division: true
   field_show_library: true

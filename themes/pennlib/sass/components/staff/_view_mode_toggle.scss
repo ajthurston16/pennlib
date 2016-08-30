@@ -59,7 +59,7 @@
 		background-repeat:no-repeat;
 		background-position: right .75rem;
 		&::before {
-			content: url(/sites/default/files/images/common/fullview-option.gif);
+			content: url(/sites/default/files/images/common/fullview-option.png);
 			margin-right: 5px;
 		}
 	}
@@ -82,26 +82,26 @@
 // Switch the toggle's icon when in brief mode.
 .briefview #toggle-view-mode {
 	.label::before {
-		content: url(/sites/default/files/images/common/briefview-option.gif);
+		content: url(/sites/default/files/images/common/briefview-option.png);
 	}
 }
 
 #view-mode-normal {
 	span::before {
 		margin: 0 5px;
-		content: url(/sites/default/files/images/common/fullview-option.gif);
+		content: url(/sites/default/files/images/common/fullview-option.png);
 	}
 	&.checked span::before {
-		content: url(/sites/default/files/images/common/fullview-selected.gif);
+		content: url(/sites/default/files/images/common/fullview-selected.png);
 	}
 }
 #view-mode-brief {
 	span::before {
 		margin: 0 5px;
-		content: url(/sites/default/files/images/common/briefview-option.gif);
+		content: url(/sites/default/files/images/common/briefview-option.png);
 	}
 	&.checked span::before {
-		content: url(/sites/default/files/images/common/briefview-selected.gif);
+		content: url(/sites/default/files/images/common/briefview-selected.png);
 	}
 }
 .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
