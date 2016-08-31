@@ -24,8 +24,13 @@
   border-top-left-radius: $tabs-border-radius;
   border-top-right-radius: $tabs-border-radius;
   border-right: 1px solid $tabs-border-color;
+  border: 1px solid $tabs-border-color;
   border-bottom: solid 1px #dfdfdf !important;
-  
+  letter-spacing:.04rem;
+  margin-right:.3rem;
+  a {
+    @include tab-link;
+  }
   a:hover, a:active, &.is-active a {
     @include mainnavleafblue;
     @include blueactivegradienttext 
@@ -62,18 +67,10 @@
 // Tabs in Subject Specialists View
 .tab {
   @include tab;
-  border: 1px solid $tabs-border-color;
-  &:hover {
-    background-color: $tabs-bg-color-hover;
-    border-color: darken($tabs-bg-color-hover, 15%);
-    a {
-      color: $white;
-    }
-  }
+  
+  
 
-  a {
-    @include tab-link;
-  }
+  
 }
 .tabgroup {
   @include tab-container;
