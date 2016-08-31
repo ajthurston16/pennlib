@@ -2605,6 +2605,10 @@ h1.page-title {
 .subjspec-wrapper .separator {
   margin: 0 5px; }
 
+.subjspec-wrapper .tabgroup ul {
+  margin: 0;
+  padding: 0; }
+
 .subjspec-wrapper .field {
   display: block;
   clear: both;

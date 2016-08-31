@@ -524,11 +524,14 @@ display:
           plugin_id: standard
       relationships: {  }
       style:
-        type: default
+        type: html_list
         options:
           grouping: {  }
           row_class: tab
           default_row_class: false
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options:
