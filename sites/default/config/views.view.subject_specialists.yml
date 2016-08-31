@@ -235,7 +235,7 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: 'Contact for Assistance'
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
@@ -598,7 +598,7 @@ display:
       arguments: {  }
       defaults:
         arguments: false
-        title: true
+        title: false
       path: people/subject-specialists
       display_description: ''
       menu:
@@ -610,6 +610,7 @@ display:
         weight: 0
         context: '0'
         menu_name: main-nav
+      title: 'Contact for Assistance'
     cache_metadata:
       max-age: -1
       contexts:
