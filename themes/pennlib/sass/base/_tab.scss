@@ -24,22 +24,23 @@
   border-top-left-radius: $tabs-border-radius;
   border-top-right-radius: $tabs-border-radius;
   border-right: 1px solid $tabs-border-color;
-  transition: background-color 0.5s ease;
-  &:hover {
-    background-color: $tabs-bg-color-hover;
+  border-bottom: solid 1px #dfdfdf !important;
+  
+  a:hover, a:active, &.is-active a {
+    @include mainnavleafblue;
+    @include blueactivegradienttext 
   }
 }
-
 @mixin tab-link($font-color: $base-font-color) {
   color: $font-color;
   display: block;
   width: 100%;
   height: 100%;
-  transition: color 0.3s ease;
+ 
   padding: 0 1em;
-  &.is-active {
+  /*&.is-active {
     border-bottom: 1px solid $font-color;
-  }
+  }*/
 }
 
 //

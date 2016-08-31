@@ -23,13 +23,23 @@
 	// On desktop, the fields are arranged in columns:
 	@include breakpoint($breakpoint-medium-width) {
 		.field--name-user-picture {
-			@include col(1.2/12, $cycle: 3);
+			@include col(1.4/12, $cycle: 3);
+			@include breakpoint($breakpoint-large-width) {
+				margin-right:1%;
+			}
+			@include breakpoint($breakpoint-largeaverage-width) {
+				margin-right:0;
+			}
+			@include breakpoint($breakpoint-largelarge-width) {
+				@include col(1.2/12, $cycle: 3);
+				margin-right:0;
+			}
 		}
 		.fullname {
 			@include col(2.6/12, $cycle: 3);
 		}
 		.contactinfo {
-			@include col(8/12, $cycle: 3);
+			@include col(7.9/12, $cycle: 3);
 		}
 		// Arrange the office and phone numbers side by side, with email listed after phone(s):
 		.field--name-field-room {

@@ -3,7 +3,23 @@ $facet-border: 1px solid $silver;
 .block-facets {
 	border: $facet-border;
 	margin-bottom: 10px;
-	&, &.open {
+	& {
+		h2 {
+			background-image: url("/sites/default/files/images/common/facetclosed.gif");
+		}
+		.content {
+			display:none;
+		}
+		@include breakpoint($breakpoint-large-width) {
+			h2 {
+				background-image: url("/sites/default/files/images/common/facetopen.gif");
+			}
+			.content {
+				display:block;
+			}
+		}
+	}
+	&.open {
 		h2 {
 			background-image: url("/sites/default/files/images/common/facetopen.gif");
 		}
