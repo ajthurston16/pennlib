@@ -2605,16 +2605,16 @@ h1.page-title {
 .subjspec-wrapper .separator {
   margin: 0 5px; }
 
-.subjspec-wrapper .views-field {
+.subjspec-wrapper .field {
   display: block;
   clear: both;
   float: none;
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
-  .subjspec-wrapper .views-field:first-child {
+  .subjspec-wrapper .field:first-child {
     margin-left: auto; }
-  .subjspec-wrapper .views-field:last-child {
+  .subjspec-wrapper .field:last-child {
     margin-right: auto; }
 
 .subject {
@@ -2629,7 +2629,15 @@ h1.page-title {
     margin: 0; }
 
 .specialist {
-  margin-top: 13px; }
+  margin-top: 10px;
+  *zoom: 1; }
+  .specialist:before, .specialist:after {
+    content: '';
+    display: table; }
+  .specialist:after {
+    clear: both; }
+  .specialist .fullname span {
+    float: left; }
 
 .user-profile {
   padding-top: 3rem; }
@@ -3110,7 +3118,7 @@ h1.page-title {
     width: 48%;
     margin-bottom: .6rem;
     margin-right: 2rem; }
-  .subjspec-wrapper .views-field-user-picture{
+  .subjspec-wrapper .field--name-user-picture{
     zoom: 1;
     float: left;
     display: inline;
@@ -3118,20 +3126,20 @@ h1.page-title {
     text-align: inherit;
     padding-left: 0;
     padding-right: 0;
-    width: 5.58333%;
+    width: 7.3%;
     margin-left: 0%;
     margin-right: 3%; }
-  .subjspec-wrapper .views-field-user-picture:before, .subjspec-wrapper .views-field-user-picture:after{
+  .subjspec-wrapper .field--name-user-picture:before, .subjspec-wrapper .field--name-user-picture:after{
     content: '';
     display: table; }
-  .subjspec-wrapper .views-field-user-picture:after{
+  .subjspec-wrapper .field--name-user-picture:after{
     clear: both; }
-  .subjspec-wrapper .views-field-user-picture:nth-child(4n){
+  .subjspec-wrapper .field--name-user-picture:nth-child(3n){
     margin-right: 0%;
     float: right; }
-  .subjspec-wrapper .views-field-user-picture:nth-child(4n + 1){
+  .subjspec-wrapper .field--name-user-picture:nth-child(3n + 1){
     clear: both; }
-  .subjspec-wrapper .views-field-view-user{
+  .subjspec-wrapper .fullname{
     zoom: 1;
     float: left;
     display: inline;
@@ -3139,20 +3147,20 @@ h1.page-title {
     text-align: inherit;
     padding-left: 0;
     padding-right: 0;
-    width: 22.75%;
+    width: 19.31667%;
     margin-left: 0%;
     margin-right: 3%; }
-  .subjspec-wrapper .views-field-view-user:before, .subjspec-wrapper .views-field-view-user:after{
+  .subjspec-wrapper .fullname:before, .subjspec-wrapper .fullname:after{
     content: '';
     display: table; }
-  .subjspec-wrapper .views-field-view-user:after{
+  .subjspec-wrapper .fullname:after{
     clear: both; }
-  .subjspec-wrapper .views-field-view-user:nth-child(4n){
+  .subjspec-wrapper .fullname:nth-child(3n){
     margin-right: 0%;
     float: right; }
-  .subjspec-wrapper .views-field-view-user:nth-child(4n + 1){
+  .subjspec-wrapper .fullname:nth-child(3n + 1){
     clear: both; }
-  .subjspec-wrapper .views-field-field-room{
+  .subjspec-wrapper .contactinfo{
     zoom: 1;
     float: left;
     display: inline;
@@ -3160,20 +3168,20 @@ h1.page-title {
     text-align: inherit;
     padding-left: 0;
     padding-right: 0;
-    width: 31.33333%;
+    width: 65.66667%;
     margin-left: 0%;
     margin-right: 3%; }
-  .subjspec-wrapper .views-field-field-room:before, .subjspec-wrapper .views-field-field-room:after{
+  .subjspec-wrapper .contactinfo:before, .subjspec-wrapper .contactinfo:after{
     content: '';
     display: table; }
-  .subjspec-wrapper .views-field-field-room:after{
+  .subjspec-wrapper .contactinfo:after{
     clear: both; }
-  .subjspec-wrapper .views-field-field-room:nth-child(4n){
+  .subjspec-wrapper .contactinfo:nth-child(3n){
     margin-right: 0%;
     float: right; }
-  .subjspec-wrapper .views-field-field-room:nth-child(4n + 1){
+  .subjspec-wrapper .contactinfo:nth-child(3n + 1){
     clear: both; }
-  .subjspec-wrapper .views-field-field-email-address{
+  .subjspec-wrapper .field--name-field-room{
     zoom: 1;
     float: left;
     display: inline;
@@ -3181,18 +3189,46 @@ h1.page-title {
     text-align: inherit;
     padding-left: 0;
     padding-right: 0;
-    width: 31.33333%;
+    width: 61.375%;
     margin-left: 0%;
     margin-right: 3%; }
-  .subjspec-wrapper .views-field-field-email-address:before, .subjspec-wrapper .views-field-field-email-address:after{
+  .subjspec-wrapper .field--name-field-room:before, .subjspec-wrapper .field--name-field-room:after{
     content: '';
     display: table; }
-  .subjspec-wrapper .views-field-field-email-address:after{
+  .subjspec-wrapper .field--name-field-room:after{
     clear: both; }
-  .subjspec-wrapper .views-field-field-email-address:nth-child(4n){
+  .subjspec-wrapper .field--name-field-room:nth-child(2n){
     margin-right: 0%;
     float: right; }
-  .subjspec-wrapper .views-field-field-email-address:nth-child(4n + 1){
+  .subjspec-wrapper .field--name-field-room:nth-child(2n + 1){
+    clear: both; }
+  .subjspec-wrapper .field--name-field-phone,
+  .subjspec-wrapper .field--name-field-email-address{
+    zoom: 1;
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    width: 35.625%;
+    margin-left: 0%;
+    margin-right: 3%;
+    overflow: hidden; }
+  .subjspec-wrapper .field--name-field-phone:before, .subjspec-wrapper .field--name-field-phone:after,
+    .subjspec-wrapper .field--name-field-email-address:before,
+    .subjspec-wrapper .field--name-field-email-address:after{
+    content: '';
+    display: table; }
+  .subjspec-wrapper .field--name-field-phone:after,
+    .subjspec-wrapper .field--name-field-email-address:after{
+    clear: both; }
+  .subjspec-wrapper .field--name-field-phone:nth-child(2n),
+    .subjspec-wrapper .field--name-field-email-address:nth-child(2n){
+    margin-right: 0%;
+    float: right; }
+  .subjspec-wrapper .field--name-field-phone:nth-child(2n + 1),
+    .subjspec-wrapper .field--name-field-email-address:nth-child(2n + 1){
     clear: both; }
   .user-profile .field--name-user-picture{
     margib: 0 auto; }

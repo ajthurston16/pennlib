@@ -1,0 +1,10 @@
+uuid: e91bf730-7188-4f62-b2c2-1bc13be92579
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.subjspec_brief
+label: 'Subject Specialist (Brief)'
+targetEntityType: user
+cache: true

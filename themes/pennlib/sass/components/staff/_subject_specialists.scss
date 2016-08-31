@@ -10,22 +10,31 @@
 		margin: 0 5px;
 	}
 
-	.views-field {
+	// Using Jeet for responsive layout.
+	// On mobile, all the fields stack vertically:
+	.field {
 		@include stack();
 	}
 
+	// On desktop, the fields are arranged in columns:
 	@include breakpoint($breakpoint-medium-width) {
-		.views-field-user-picture {
-			@include col(1/12, $cycle: 4);
+		.field--name-user-picture {
+			@include col(1.2/12, $cycle: 3);
 		}
-		.views-field-view-user {
-			@include col(3/12, $cycle: 4);
+		.fullname {
+			@include col(2.6/12, $cycle: 3);
 		}
-		.views-field-field-room {
-			@include col(4/12, $cycle: 4);
+		.contactinfo {
+			@include col(8/12, $cycle: 3);
 		}
-		.views-field-field-email-address {
-			@include col(4/12, $cycle: 4);
+		// Arrange the office and phone numbers side by side, with email listed after phone(s):
+		.field--name-field-room {
+			@include col(5/8, $cycle: 2);
+		}
+		.field--name-field-phone,
+		.field--name-field-email-address {
+			@include col(3/8, $cycle: 2);
+			overflow: hidden;
 		}
 	}
 }
@@ -47,5 +56,12 @@
 }
 
 .specialist {
-	margin-top: 13px;
+	margin-top: 10px;
+	@include cf();
+
+	.fullname {
+		span {
+			float: left;
+		}
+	}
 }
