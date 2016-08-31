@@ -2544,9 +2544,18 @@ h1.page-title {
     *vertical-align: top;
     *zoom: 1;
     width: 100%; }
-    .staff-search-wrapper .views-row .basicinfo .fullname div, .staff-search-wrapper .views-row .basicinfo .fullname p {
+    .staff-search-wrapper .views-row .basicinfo .fullname div, .staff-search-wrapper .views-row .basicinfo .fullname p, .staff-search-wrapper .views-row .basicinfo .fullname span {
       display: inline;
       font-weight: bold; }
+    .staff-search-wrapper .views-row .basicinfo .fullname span {
+      float: left; }
+    .staff-search-wrapper .views-row .basicinfo .fullname::after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
     .staff-search-wrapper .views-row .basicinfo .field--name-field-title {
       font-weight: bold;
       margin-bottom: .5rem; }

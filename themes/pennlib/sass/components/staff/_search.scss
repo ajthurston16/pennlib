@@ -105,10 +105,22 @@
 		       width: 31rem;
 		    }
 		    .fullname {
-		    	div, p {
+		    	div, p, span {
 		    		display:inline;
 		    		font-weight:bold;
 		    	}
+		    	span {
+		    		float: left;
+		    	}
+				&::after {
+					//Clearfix
+					visibility: hidden;
+					display: block;
+					font-size: 0;
+					content: " ";
+					clear: both;
+					height: 0;
+				}
 		    }
 		    .field--name-field-title {
 		    	font-weight:bold;
