@@ -1,0 +1,33 @@
+uuid: 56566b96-7e43-41ff-985c-3d6f1292e0a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_staff_
+    - taxonomy.vocabulary.departments
+id: taxonomy_term.departments.field_staff_
+field_name: field_staff_
+entity_type: taxonomy_term
+bundle: departments
+label: 'staff reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        staff: staff
+        hr_department: '0'
+        web_admin: '0'
+        administrator: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

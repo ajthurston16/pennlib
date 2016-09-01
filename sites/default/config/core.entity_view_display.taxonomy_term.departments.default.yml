@@ -1,0 +1,28 @@
+uuid: 2e268852-908f-455d-97c2-ace907c140a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.departments.field_staff_
+    - taxonomy.vocabulary.departments
+  module:
+    - text
+id: taxonomy_term.departments.default
+targetEntityType: taxonomy_term
+bundle: departments
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_staff_:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+hidden: {  }
