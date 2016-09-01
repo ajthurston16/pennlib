@@ -607,33 +607,27 @@ body.with-sticky-footer .wrapper--main {
   .tabs-primary li,
   .tabs-secondary li {
     display: block;
-    float: left;
-    text-align: center;
+    height: 4.5rem;
     background-color: #f2f2f2;
     line-height: 33px;
-    height: 33px;
     padding: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     border-right: 1px solid #ccc;
     border: 1px solid #ccc;
     border-bottom: solid 1px #dfdfdf !important;
-    letter-spacing: .04rem;
-    margin-right: .3rem; }
+    letter-spacing: .04rem; }
     .tabs-primary li a,
     .tabs-secondary li a {
       color: #000;
       display: block;
       width: 100%;
       height: 100%;
-      padding: 0 1em;
-      /*&.is-active {
-    border-bottom: 1px solid $font-color;
-  }*/ }
-    .tabs-primary li a:hover, .tabs-primary li a:active, .tabs-primary li.is-active a,
+      padding: 0.5rem 1.4rem 0; }
+    .tabs-primary li a:hover, .tabs-primary li a:active, .tabs-primary li a.active, .tabs-primary li.is-active a, .tabs-primary li.active a,
     .tabs-secondary li a:hover,
     .tabs-secondary li a:active,
-    .tabs-secondary li.is-active a {
+    .tabs-secondary li a.active,
+    .tabs-secondary li.is-active a,
+    .tabs-secondary li.active a {
       background: #387bbe;
       background-image: linear-gradient(#5393c5, #6facd5);
       border: 1px solid #2373a5;
@@ -647,36 +641,25 @@ body.with-sticky-footer .wrapper--main {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 0 1em;
-    /*&.is-active {
-    border-bottom: 1px solid $font-color;
-  }*/ }
+    padding: 0.5rem 1.4rem 0; }
 
 .tab {
   display: block;
-  float: left;
-  text-align: center;
+  height: 4.5rem;
   background-color: #f2f2f2;
   line-height: 33px;
-  height: 33px;
   padding: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   border-right: 1px solid #ccc;
   border: 1px solid #ccc;
   border-bottom: solid 1px #dfdfdf !important;
-  letter-spacing: .04rem;
-  margin-right: .3rem; }
+  letter-spacing: .04rem; }
   .tab a {
     color: #000;
     display: block;
     width: 100%;
     height: 100%;
-    padding: 0 1em;
-    /*&.is-active {
-    border-bottom: 1px solid $font-color;
-  }*/ }
-  .tab a:hover, .tab a:active, .tab.is-active a {
+    padding: 0.5rem 1.4rem 0; }
+  .tab a:hover, .tab a:active, .tab a.active, .tab.is-active a, .tab.active a {
     background: #387bbe;
     background-image: linear-gradient(#5393c5, #6facd5);
     border: 1px solid #2373a5;
@@ -2547,6 +2530,31 @@ h1.page-title {
     clear: both; }
   .layout-two-sidebars .sidebar-second:last-child{
     margin-right: 0%; }
+  .tabs-primary li,
+      .tabs-secondary li{
+    float: left;
+    text-align: center;
+    height: 33px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: .3rem;
+    width: auto; }
+  .tabs-primary li a,
+        .tabs-secondary li a{
+    padding: 0 1.4rem; }
+  .tabs-primary a,
+      .tabs-secondary a{
+    padding: 0 1.4rem; }
+  .tab{
+    float: left;
+    text-align: center;
+    height: 33px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: .3rem;
+    width: auto; }
+  .tab a{
+    padding: 0 1.4rem; }
   .homeul{
     display: inline-block;
     width: 49%; }
