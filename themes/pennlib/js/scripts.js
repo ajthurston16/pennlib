@@ -407,36 +407,7 @@
           }
         );
       }
-      // Bind the new event, which opens a modal onclick
-      /*.click(function(e) {
-        alert('reached event listener...');
-        var that = $(this);
-        var listedElements = that.prev().children();
-        var title = $(this).closest('div.block-facets > h2');
-        alert(title.html());
-        //var wholeContainer = $(this).closest('div.block-facets');
-        var htmlContent = $(this).closest('div.block-facets > div.content');
-        $(this).closest('div.block-facets')
-        .colorbox(
-          {
-            inline:true,
-            href:htmlContent,
-            open:true,
-            onOpen: function() {
-              that.addClass('open');
-              that.hide();
-              toggleList(listedElements, true);
-            },
-            onClosed: function() {
-              that.removeClass('open');
-              that.show();
-              toggleList(listedElements, false);
-            },
-            title: "TEST TITLE PLEASE IGNORE",
-            fixed:true,
-          }
-        );
-      });*/
+
 
       // If expandList === true, show all the listed elements so they can be seen when the modal is open
       // Else, hide all but the first five listed elements, so they cannot be seen when modal is closed
@@ -454,8 +425,35 @@
           }
         });
       }
-      
 
+      // Mobile view: collapse the facets into a 'Show All' button, which shows all the (collapsed by default) facets
+      // Create the 'Show All' button when in mobile view, and give it an id/class
+      // The cuttoff for mobile view in the example http://guides.library.upenn.edu/education is 915 pixels
+      function generateMobileButton() {
+        var $facets = $('div.col-md-4');
+        if (window.innerWidth < 915 && !$('#mobileShowAllFacets').length) {
+          $('<label>This is your show all button </label>')
+          .insertBefore('#block-pennlib-content')
+          .attr('id', 'mobileShowAllFacets')
+          .addClass('holdradio');
+          $facets.hide();
+        }
+        else if (window.innerWidth >= 915) {
+          // Remove the button if we are not in mobile view
+          $('#mobileShowAllFacets').remove();
+          $facets.show();
+        }
+      }
+
+      // Determine if mobile button is needed on page load
+      generateMobileButton();
+      // Add event handler to generate mobile button on window resize
+      $(window).resize(function(){
+        generateMobileButton();
+      });
+      
+      
+      
 
     } //end attach
   }; //end Drupal.behavior.pennlib
