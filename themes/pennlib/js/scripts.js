@@ -431,10 +431,10 @@
       var $facets = $('div.col-md-4');
       function generateMobileButton() {
         if (window.innerWidth < 960 && !$('#mobileShowAllFacets').length) {
-          $('<label>Show All <input type="hidden" name="option" value="showFacets"> </label>')
+          $('<label> Show All <input type="hidden" name="option" value="showFacets"> </label>')
           .insertBefore('#block-pennlib-content')
           .attr('id', 'mobileShowAllFacets')
-          .addClass('');
+          .addClass('click-to-open');
           $facets.hide();
         }
         else if (window.innerWidth >= 960) {
@@ -450,14 +450,16 @@
         .clickToggle(
           function(){
             $facets.show();
-            $(this).addClass('expanded');
+            $(this).removeClass('click-to-open');
+            $(this).addClass('click-to-close');
             $(this).text('Hide All');
             // Facets themselves should be closed when the 'Show All' Button is clicked
             //$('.block-facets h2:first-child').parent().not('.closed').click();
           },
           function(){
             $facets.hide();
-            $(this).removeClass('expanded');
+            $(this).removeClass('click-to-close');
+            $(this).addClass('click-to-open');
             $(this).text('Show All');
           },
           showAllClickIndex
