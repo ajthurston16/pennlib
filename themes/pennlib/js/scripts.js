@@ -427,22 +427,41 @@
       }
 
       // Mobile view: collapse the facets into a 'Show All' button, which shows all the (collapsed by default) facets
-      // Create the 'Show All' button when in mobile view, and give it an id/class
       // The cuttoff for mobile view in the example http://guides.library.upenn.edu/education is 915 pixels
+      var $facets = $('div.col-md-4');
       function generateMobileButton() {
-        var $facets = $('div.col-md-4');
-        if (window.innerWidth < 915 && !$('#mobileShowAllFacets').length) {
-          $('<label>This is your show all button </label>')
+        if (window.innerWidth < 960 && !$('#mobileShowAllFacets').length) {
+          $('<label>Show All <input type="hidden" name="option" value="showFacets"> </label>')
           .insertBefore('#block-pennlib-content')
           .attr('id', 'mobileShowAllFacets')
-          .addClass('holdradio');
+          .addClass('');
           $facets.hide();
         }
-        else if (window.innerWidth >= 915) {
+        else if (window.innerWidth >= 960) {
           // Remove the button if we are not in mobile view
           $('#mobileShowAllFacets').remove();
           $facets.show();
         }
+        // Add the event handler that will allow the button to be clicked
+        // 'bound' class is added to prevent duplicate events being bound to the button every time the window resizes
+        var showAllClickIndex = clickIndex();
+        $('#mobileShowAllFacets:not(.bound)', context)
+        .addClass('bound')
+        .clickToggle(
+          function(){
+            $facets.show();
+            $(this).addClass('expanded');
+            $(this).text('Hide All');
+            // Facets themselves should be closed when the 'Show All' Button is clicked
+            //$('.block-facets h2:first-child').parent().not('.closed').click();
+          },
+          function(){
+            $facets.hide();
+            $(this).removeClass('expanded');
+            $(this).text('Show All');
+          },
+          showAllClickIndex
+        );
       }
 
       // Determine if mobile button is needed on page load
