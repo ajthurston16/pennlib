@@ -20,7 +20,7 @@
 		@include stack();
 	}
 	.field--name-user-picture {
-		margin-bottom:1rem;
+		margin-bottom:.5rem;
 		@include breakpoint($breakpoint-medium-width) {
 			margin-bottom: 0;
 		}
@@ -80,7 +80,7 @@
 	}
 }
 .specialist {
-	margin-top: 1.5rem;
+	margin-top: 1.8rem;
 	@include breakpoint($breakpoint-medium-width) {
 		margin-top: 1rem;
 	}

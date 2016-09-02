@@ -2626,7 +2626,7 @@ h1.page-title {
     margin-right: auto; }
 
 .subjspec-wrapper .field--name-user-picture {
-  margin-bottom: 1rem; }
+  margin-bottom: .5rem; }
 
 .subjspec-wrapper .fullname {
   font-weight: bold; }
@@ -2642,7 +2642,7 @@ h1.page-title {
     margin: 0; }
 
 .specialist {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   *zoom: 1; }
   .specialist:first-child {
     margin-top: 1rem; }
