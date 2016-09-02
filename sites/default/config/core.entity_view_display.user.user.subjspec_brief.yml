@@ -1,0 +1,150 @@
+uuid: e243a85f-149d-4625-8176-96e4a6ef6e34
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.subjspec_brief
+    - field.field.user.user.field_additional_info
+    - field.field.user.user.field_bio
+    - field.field.user.user.field_collection_responsibility
+    - field.field.user.user.field_department
+    - field.field.user.user.field_division
+    - field.field.user.user.field_email_address
+    - field.field.user.user.field_emergency_contact
+    - field.field.user.user.field_fax
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_interest
+    - field.field.user.user.field_languages
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_liaison_responsibility
+    - field.field.user.user.field_library
+    - field.field.user.user.field_middle_name
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_office
+    - field.field.user.user.field_pennkey
+    - field.field.user.user.field_rank
+    - field.field.user.user.field_role
+    - field.field.user.user.field_screenname
+    - field.field.user.user.field_service_group
+    - field.field.user.user.field_show_division
+    - field.field.user.user.field_show_library
+    - field.field.user.user.field_subject_specialty
+    - field.field.user.user.field_team
+    - field.field.user.user.field_technology_specialty
+    - field.field.user.user.field_title
+    - field.field.user.user.field_tool_expertise
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_collection
+    - field_group
+    - image
+    - linked_field
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_full_name:
+      children:
+        - field_first_name
+        - field_last_name
+      parent_name: ''
+      weight: 1
+      label: 'Full Name'
+      format_type: link
+      format_settings:
+        label: 'Full Name'
+        target: entity
+        custom_uri: ''
+        target_attribute: default
+        id: ''
+        classes: 'field fullname'
+    group_contactinfo:
+      children:
+        - field_office
+        - field_email_address
+      parent_name: ''
+      weight: 9
+      label: 'Contact Info'
+      format_type: html_element
+      format_settings:
+        label: 'Contact Info'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'field contactinfo'
+_core:
+  default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
+id: user.user.subjspec_brief
+targetEntityType: user
+bundle: user
+mode: subjspec_brief
+content:
+  field_email_address:
+    type: email_mailto
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_first_name:
+    type: text_default
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_last_name:
+    type: text_default
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_office:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_items
+  user_picture:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings:
+      linked_field:
+        destination: ''
+        advanced:
+          text: ''
+        linked: 0
+hidden:
+  field_additional_info: true
+  field_bio: true
+  field_collection_responsibility: true
+  field_department: true
+  field_division: true
+  field_emergency_contact: true
+  field_fax: true
+  field_interest: true
+  field_languages: true
+  field_liaison_responsibility: true
+  field_library: true
+  field_middle_name: true
+  field_mobile: true
+  field_pennkey: true
+  field_rank: true
+  field_role: true
+  field_screenname: true
+  field_service_group: true
+  field_show_division: true
+  field_show_library: true
+  field_subject_specialty: true
+  field_team: true
+  field_technology_specialty: true
+  field_title: true
+  field_tool_expertise: true
+  member_for: true

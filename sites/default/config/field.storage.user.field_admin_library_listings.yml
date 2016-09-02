@@ -1,0 +1,23 @@
+uuid: cc1dc5b6-5e94-4e81-b2ed-76bc9923061c
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_admin_library_listings
+field_name: field_admin_library_listings
+entity_type: user
+type: field_collection
+settings: {  }
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

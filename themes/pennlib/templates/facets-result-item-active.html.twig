@@ -11,4 +11,4 @@
  * @ingroup themeable
  */
 #}
-<span class="js-facet-deactivate">(X)</span> {{ value }} {% if show_count %}<span class="facet-count">({{ count }})</span>{% endif %}
+{% if show_count %}<div class="facet-count">({{ count }})</div>{% endif %}<div class="facet-value-name"><span class="js-facet-deactivate">(X)</span> {{ value }} </div>

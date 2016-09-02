@@ -29,13 +29,12 @@ $left-width: 350px;
   }
   
   .full-name{
-    .field--name-field-first-name, .field--name-field-middle-name, .field--name-field-last-name {
+    h1 {
       font-weight:bold;
       font-size:22px;
-      margin-top:.5rem;
-      &, div, p {
-        display:inline;
-        margin:0;
+      margin:0;
+      span {
+        float: left;
       }
     }
     .field--name-field-title{
@@ -88,25 +87,25 @@ $left-width: 350px;
 }
 
 .user-profile {
-  
   > .field > .field__items,
+  .field.field--name-field-liaison-responsibility > .field__items,
   .contact-wrapper,
   .full-name,
   .field--name-field-bio  {
     @include breakpoint($breakpoint-medium-width) {
-      margin-left: $left-width;
+      margin-left: $left-width !important;
     }
   }
   .full-name,
   .field--name-field-bio  {
     clear: both;
   }
-  .contact-wrapper .field__items{
-   //only need margin for top level on contact-wrapper.
-    margin-left:0;
-  }
-  .field__items > div.field__item:nth-child(2) {
+  
+  .field__items > div.field__item {
     margin-top:.5rem;
+    &:first-child {
+        margin-top:0;
+    }
 }
 
   //Emergency contact info

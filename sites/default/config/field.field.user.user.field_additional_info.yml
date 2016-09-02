@@ -11,7 +11,7 @@ id: user.user.field_additional_info
 field_name: field_additional_info
 entity_type: user
 bundle: user
-label: 'Additional Info'
+label: 'Web site'
 description: 'Any links to other websites or internal pages related to this user. Any text information should be included in the bio textarea field. '
 required: false
 translatable: false

@@ -11,4 +11,4 @@
  * @ingroup themeable
  */
 #}
-{{ value }} {% if show_count %}<span class="facet-count">({{ count }})</span>{% endif %}
+{% if show_count %}<div class="facet-count">({{ count }})</div>{% endif %}<div class="facet-value-name">{{ value }}</div> 

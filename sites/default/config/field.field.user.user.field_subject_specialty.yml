@@ -11,7 +11,7 @@ id: user.user.field_subject_specialty
 field_name: field_subject_specialty
 entity_type: user
 bundle: user
-label: 'Subject Specialty'
+label: 'Contact for assistance with'
 description: ''
 required: false
 translatable: false
@@ -25,4 +25,5 @@ settings:
     sort:
       field: _none
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

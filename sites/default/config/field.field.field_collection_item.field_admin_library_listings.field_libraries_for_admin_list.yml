@@ -1,0 +1,28 @@
+uuid: ec67c6fb-f21c-49bd-9327-aeabc2801f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_libraries_for_admin_list
+    - field_collection.field_collection.field_admin_library_listings
+    - taxonomy.vocabulary.libraries_for_admin_page
+id: field_collection_item.field_admin_library_listings.field_libraries_for_admin_list
+field_name: field_libraries_for_admin_list
+entity_type: field_collection_item
+bundle: field_admin_library_listings
+label: 'libraries for admin list'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      libraries_for_admin_page: libraries_for_admin_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

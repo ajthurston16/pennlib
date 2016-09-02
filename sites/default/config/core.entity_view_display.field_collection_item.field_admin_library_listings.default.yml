@@ -1,0 +1,29 @@
+uuid: 83c82be7-468e-4f34-a047-f73590ea7328
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_admin_library_listings.field_libraries_for_admin_list
+    - field.field.field_collection_item.field_admin_library_listings.field_library_admin_title
+    - field_collection.field_collection.field_admin_library_listings
+  module:
+    - options
+id: field_collection_item.field_admin_library_listings.default
+targetEntityType: field_collection_item
+bundle: field_admin_library_listings
+mode: default
+content:
+  field_libraries_for_admin_list:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_library_admin_title:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+hidden: {  }

@@ -230,7 +230,7 @@
     }
     return null;
   }
-
+   $("form#views-exposed-form-staff-search-block-1 .form-item-items-per-page").insertBefore("#toggle-view-mode");
   /**
    * Menubar: top-level link stays white when you hover on dropdown panel
    **/
@@ -401,42 +401,13 @@
             },
             title:title.html(),
             fixed:true,
-            width: '60%',
+            width: '80%',
             height: '90%',
             opacity: 0.55,
           }
         );
       }
-      // Bind the new event, which opens a modal onclick
-      /*.click(function(e) {
-        alert('reached event listener...');
-        var that = $(this);
-        var listedElements = that.prev().children();
-        var title = $(this).closest('div.block-facets > h2');
-        alert(title.html());
-        //var wholeContainer = $(this).closest('div.block-facets');
-        var htmlContent = $(this).closest('div.block-facets > div.content');
-        $(this).closest('div.block-facets')
-        .colorbox(
-          {
-            inline:true,
-            href:htmlContent,
-            open:true,
-            onOpen: function() {
-              that.addClass('open');
-              that.hide();
-              toggleList(listedElements, true);
-            },
-            onClosed: function() {
-              that.removeClass('open');
-              that.show();
-              toggleList(listedElements, false);
-            },
-            title: "TEST TITLE PLEASE IGNORE",
-            fixed:true,
-          }
-        );
-      });*/
+
 
       // If expandList === true, show all the listed elements so they can be seen when the modal is open
       // Else, hide all but the first five listed elements, so they cannot be seen when modal is closed
@@ -454,8 +425,56 @@
           }
         });
       }
-      
 
+      // Mobile view: collapse the facets into a 'Show All' button, which shows all the (collapsed by default) facets
+      // The cuttoff for mobile view in the example http://guides.library.upenn.edu/education is 915 pixels
+      var $facets = $('div.col-md-4');
+      function generateMobileButton() {
+        if (window.innerWidth < 960 && !$('#mobileShowAllFacets').length) {
+          $('<label> Show All <input type="hidden" name="option" value="showFacets"> </label>')
+          .insertBefore('#block-pennlib-content')
+          .attr('id', 'mobileShowAllFacets')
+          .addClass('click-to-open');
+          $facets.hide();
+        }
+        else if (window.innerWidth >= 960) {
+          // Remove the button if we are not in mobile view
+          $('#mobileShowAllFacets').remove();
+          $facets.show();
+        }
+        // Add the event handler that will allow the button to be clicked
+        // 'bound' class is added to prevent duplicate events being bound to the button every time the window resizes
+        var showAllClickIndex = clickIndex();
+        $('#mobileShowAllFacets:not(.bound)', context)
+        .addClass('bound')
+        .clickToggle(
+          function(){
+            $facets.show();
+            $(this).removeClass('click-to-open');
+            $(this).addClass('click-to-close');
+            $(this).text('Hide All');
+            // Facets themselves should be closed when the 'Show All' Button is clicked
+            //$('.block-facets h2:first-child').parent().not('.closed').click();
+          },
+          function(){
+            $facets.hide();
+            $(this).removeClass('click-to-close');
+            $(this).addClass('click-to-open');
+            $(this).text('Show All');
+          },
+          showAllClickIndex
+        );
+      }
+
+      // Determine if mobile button is needed on page load
+      generateMobileButton();
+      // Add event handler to generate mobile button on window resize
+      $(window).resize(function(){
+        generateMobileButton();
+      });
+      
+      
+      
 
     } //end attach
   }; //end Drupal.behavior.pennlib

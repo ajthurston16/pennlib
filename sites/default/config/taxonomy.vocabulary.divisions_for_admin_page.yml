@@ -1,0 +1,9 @@
+uuid: ecfbdde3-e59d-47ea-9b9c-8a1d5fcef7df
+langcode: en
+status: true
+dependencies: {  }
+name: 'Divisions for admin page'
+vid: divisions_for_admin_page
+description: 'May include top level depts if they have "directors."'
+hierarchy: 0
+weight: 0

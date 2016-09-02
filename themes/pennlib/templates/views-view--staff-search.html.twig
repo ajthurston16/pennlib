@@ -42,6 +42,11 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
   {% if pager %}
     {{ pager }}
   {% endif %}
@@ -64,11 +69,7 @@
       {{ header }}
     </div>
   {% endif %}
-  {% if exposed %}
-    <div class="view-filters">
-      {{ exposed }}
-    </div>
-  {% endif %}
+  
   {% if attachment_before %}
     <div class="attachment attachment-before">
       {{ attachment_before }}

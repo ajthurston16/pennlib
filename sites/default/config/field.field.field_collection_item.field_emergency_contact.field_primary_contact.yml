@@ -1,0 +1,23 @@
+uuid: b28f1116-529d-4a01-96d6-2712f9ef004e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_primary_contact
+    - field_collection.field_collection.field_emergency_contact
+id: field_collection_item.field_emergency_contact.field_primary_contact
+field_name: field_primary_contact
+entity_type: field_collection_item
+bundle: field_emergency_contact
+label: 'Primary contact'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean
