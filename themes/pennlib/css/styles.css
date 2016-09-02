@@ -2628,6 +2628,9 @@ h1.page-title {
 .subjspec-wrapper .field--name-user-picture {
   margin-bottom: 1rem; }
 
+.subjspec-wrapper .fullname {
+  font-weight: bold; }
+
 .subject {
   border-top: 1px solid #ccc;
   padding: 13px; }
@@ -2639,8 +2642,10 @@ h1.page-title {
     margin: 0; }
 
 .specialist {
-  margin-top: 10px;
+  margin-top: 1.5rem;
   *zoom: 1; }
+  .specialist:first-child {
+    margin-top: 1rem; }
   .specialist:before, .specialist:after {
     content: '';
     display: table; }
@@ -2916,6 +2921,8 @@ h1.page-title {
     vertical-align: top;
     vertical-align: top;
     zoom: 1; }
+  .subjspec-wrapper .field--name-user-picture{
+    margin-right: 1%; }
   .user-profile .field--label-above{
     padding: 1.8rem 1rem .6rem 8rem; }
   .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
@@ -3158,6 +3165,10 @@ h1.page-title {
     margin-bottom: .6rem;
     margin-right: 2rem; }
   .subjspec-wrapper .field--name-user-picture{
+    margin-bottom: 0; }
+  .subjspec-wrapper .fullname{
+    font-weight: normal; }
+  .subjspec-wrapper .field--name-user-picture{
     zoom: 1;
     float: left;
     display: inline;
@@ -3167,8 +3178,7 @@ h1.page-title {
     padding-right: 0;
     width: 9.01667%;
     margin-left: 0%;
-    margin-right: 3%;
-    margin-bottom: 0; }
+    margin-right: 3%; }
   .subjspec-wrapper .field--name-user-picture:before, .subjspec-wrapper .field--name-user-picture:after{
     content: '';
     display: table; }
@@ -3253,8 +3263,7 @@ h1.page-title {
     padding-right: 0;
     width: 35.625%;
     margin-left: 0%;
-    margin-right: 3%;
-    overflow: hidden; }
+    margin-right: 3%; }
   .subjspec-wrapper .field--name-field-phone:before, .subjspec-wrapper .field--name-field-phone:after,
     .subjspec-wrapper .field--name-field-email-address:before,
     .subjspec-wrapper .field--name-field-email-address:after{
@@ -3270,6 +3279,8 @@ h1.page-title {
   .subjspec-wrapper .field--name-field-phone:nth-child(2n + 1),
     .subjspec-wrapper .field--name-field-email-address:nth-child(2n + 1){
     clear: both; }
+  .specialist{
+    margin-top: 1rem; }
   .user-profile .field--name-user-picture{
     margib: 0 auto; }
   .user-profile .field--label-above{
@@ -3689,6 +3700,8 @@ h1.page-title {
   .staff-search-wrapper .views-row .basicinfo{
     margin-right: 1.5rem;
     width: 24rem; }
+  .subjspec-wrapper .field--name-user-picture{
+    margin-right: 0; }
   .block-views-blockstaff-search-block-1.normalview .field--name-field-room,
     .block-views-blockstaff-search-block-1.normalview .field--name-user-picture{
     display: inline-block;
@@ -3698,17 +3711,9 @@ h1.page-title {
 
 @media (min-width: 77em){
   .staff-search-wrapper .views-row .basicinfo{
-    width: 31rem; } }
-
-@media (min-width: 50em) and (min-width: 60em){
+    width: 31rem; }
   .subjspec-wrapper .field--name-user-picture{
-    margin-right: 1%; } }
-
-@media (min-width: 50em) and (min-width: 70.25em){
-  .subjspec-wrapper .field--name-user-picture{
-    margin-right: 0; } }
-
-@media (min-width: 50em) and (min-width: 77em){
+    margin-right: 0; }
   .subjspec-wrapper .field--name-user-picture{
     zoom: 1;
     float: left;
@@ -3719,8 +3724,7 @@ h1.page-title {
     padding-right: 0;
     width: 7.3%;
     margin-left: 0%;
-    margin-right: 3%;
-    margin-right: 0; }
+    margin-right: 3%; }
   .subjspec-wrapper .field--name-user-picture:before, .subjspec-wrapper .field--name-user-picture:after{
     content: '';
     display: table; }
