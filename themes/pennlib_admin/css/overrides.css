@@ -17,6 +17,38 @@
 .user-form #edit-field-collection-responsibility,
 .user-form #edit-field-liaison-responsibility,
 .user-form #edit-field-languages,
-.user-form #edit-field-team {
+.user-form #edit-field-team,
+.user-form #edit-field-service-group {
 	height: 200px;
+}
+#edit-field-emergency-contact-0-field-emergency-phones-0-field-phone-wrapper select#edit-field-emergency-contact-0-field-emergency-phones-0-field-phone-type {
+	width:6rem !important;
+}
+.user-form #edit-mail,
+.user-form #edit-name,
+.user-form #edit-field-email-address-0-value,
+.user-form #edit-field-first-name-0-value,
+.user-form #edit-field-first-name-0-value,
+.user-form #edit-field-last-name-0-value,
+.user-form #edit-field-office-0-field-room-0-value,
+.user-form #edit-field-interest-0-value,
+.user-form select {
+	width: 23rem;
+}
+.user-form #edit-field-pennkey-0-value {
+	width: 6.4rem;
+}
+.user-form #edit-field-office-0-field-phone-0-value,
+.user-form #edit-field-screenname-0-value {
+	width: 17.5rem;
+}
+.user-form #edit-field-mobile-0-value,
+.user-form #edit-field-fax-0-value,
+.user-form #edit-field-emergency-contact-0-field-emergency-phones-0-field-phone-0-value {
+	width:12.5rem;
+}
+.user-form #edit-path-0-alias,
+.user-form #edit-field-additional-info-0-uri,
+.user-form #edit-field-additional-info-0-title {
+	width: 30rem;
 }
