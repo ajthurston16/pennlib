@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_additional_info
+    - field.field.user.user.field_admin_division_listing
+    - field.field.user.user.field_admin_library_listings
     - field.field.user.user.field_bio
     - field.field.user.user.field_collection_responsibility
     - field.field.user.user.field_department
@@ -123,6 +125,18 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_admin_division_listing:
+    weight: 27
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_admin_library_listings:
+    weight: 28
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
   field_bio:
     type: text_default
     weight: 2

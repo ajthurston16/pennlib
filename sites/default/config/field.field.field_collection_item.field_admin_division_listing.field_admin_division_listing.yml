@@ -1,0 +1,28 @@
+uuid: fc5c9ac1-76cc-4da3-af24-fb8e517850de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_admin_division_listing
+    - field_collection.field_collection.field_admin_division_listing
+    - taxonomy.vocabulary.divisions_for_admin_page
+id: field_collection_item.field_admin_division_listing.field_admin_division_listing
+field_name: field_admin_division_listing
+entity_type: field_collection_item
+bundle: field_admin_division_listing
+label: 'list of divisions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      divisions_for_admin_page: divisions_for_admin_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

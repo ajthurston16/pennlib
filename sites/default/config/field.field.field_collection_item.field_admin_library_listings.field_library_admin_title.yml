@@ -1,0 +1,21 @@
+uuid: b7d67a38-0803-4ad2-a7bc-71a17c485729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_library_admin_title
+    - field_collection.field_collection.field_admin_library_listings
+  module:
+    - options
+id: field_collection_item.field_admin_library_listings.field_library_admin_title
+field_name: field_library_admin_title
+entity_type: field_collection_item
+bundle: field_admin_library_listings
+label: 'Library admin title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

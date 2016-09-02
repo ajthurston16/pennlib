@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.field_collection_item.field_emergency_contact.field_emergency_phones
     - field.field.field_collection_item.field_emergency_contact.field_emergency_type
+    - field.field.field_collection_item.field_emergency_contact.field_primary_contact
     - field_collection.field_collection.field_emergency_contact
   module:
     - field_collection
@@ -14,7 +15,7 @@ bundle: field_emergency_contact
 mode: default
 content:
   field_emergency_phones:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: field_collection_embed
@@ -23,4 +24,10 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_primary_contact:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
 hidden: {  }

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.field_collection_item.field_emergency_contact.field_emergency_phones
     - field.field.field_collection_item.field_emergency_contact.field_emergency_type
+    - field.field.field_collection_item.field_emergency_contact.field_primary_contact
     - field_collection.field_collection.field_emergency_contact
   module:
     - field_collection
@@ -32,4 +33,13 @@ content:
           text: ''
         linked: 0
     type: entity_reference_label
+  field_primary_contact:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
 hidden: {  }

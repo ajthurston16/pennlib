@@ -7,14 +7,16 @@ label: Staff
 weight: -8
 is_admin: null
 permissions:
-  - 'access contextual links'
-  - 'use text format full_html'
-  - 'access content overview'
-  - 'administer nodes'
-  - 'revert all revisions'
-  - 'view all revisions'
-  - 'view own unpublished content'
-  - 'access in-place editing'
-  - view_own_field_pennkey
-  - view_field_pennkey
-  - view_field_rank
+  0: 'access contextual links'
+  1: 'use text format full_html'
+  2: 'access content overview'
+  3: 'administer nodes'
+  4: 'revert all revisions'
+  5: 'view all revisions'
+  6: 'view own unpublished content'
+  7: 'access in-place editing'
+  8: view_own_field_pennkey
+  9: view_field_pennkey
+  10: view_field_rank
+  13: 'view own field_division_title'
+  14: 'view field_division_title'

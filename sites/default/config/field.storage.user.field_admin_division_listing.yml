@@ -1,0 +1,23 @@
+uuid: 9853d672-1133-4e64-940e-c3ab2bd90edf
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_admin_division_listing
+field_name: field_admin_division_listing
+entity_type: user
+type: field_collection
+settings: {  }
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

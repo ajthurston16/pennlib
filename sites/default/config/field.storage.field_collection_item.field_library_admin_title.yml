@@ -1,0 +1,30 @@
+uuid: ae102636-8bce-4d5b-9de8-2c5ee8406e1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - options
+id: field_collection_item.field_library_admin_title
+field_name: field_library_admin_title
+entity_type: field_collection_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Director
+      label: Director
+    -
+      value: 'Assistant Director'
+      label: 'Assistant Director'
+    -
+      value: Head
+      label: Head
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

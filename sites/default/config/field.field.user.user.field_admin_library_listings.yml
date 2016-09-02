@@ -1,0 +1,24 @@
+uuid: 536ac6d9-c08a-4445-838e-a2dc4d23e8f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_admin_library_listings
+  module:
+    - field_collection
+    - user
+id: user.user.field_admin_library_listings
+field_name: field_admin_library_listings
+entity_type: user
+bundle: user
+label: 'admin library listing'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+  - {  }
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

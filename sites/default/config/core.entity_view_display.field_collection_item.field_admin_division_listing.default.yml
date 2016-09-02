@@ -1,0 +1,29 @@
+uuid: 9456010c-96bd-4a53-98a2-628142f3f864
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_admin_division_listing.field_admin_division_listing
+    - field.field.field_collection_item.field_admin_division_listing.field_division_title
+    - field_collection.field_collection.field_admin_division_listing
+  module:
+    - options
+id: field_collection_item.field_admin_division_listing.default
+targetEntityType: field_collection_item
+bundle: field_admin_division_listing
+mode: default
+content:
+  field_admin_division_listing:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_division_title:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+hidden: {  }

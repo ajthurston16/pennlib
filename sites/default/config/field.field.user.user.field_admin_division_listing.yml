@@ -1,0 +1,23 @@
+uuid: 47d62ee7-ae32-48ff-9b59-95a5492516cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_admin_division_listing
+  module:
+    - field_collection
+    - user
+id: user.user.field_admin_division_listing
+field_name: field_admin_division_listing
+entity_type: user
+bundle: user
+label: 'admin division listing'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection
